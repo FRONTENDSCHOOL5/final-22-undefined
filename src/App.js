@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <Test />
-      hello world
+      hello world! I love weniv.
     </div>
   );
 }
