@@ -1,31 +1,14 @@
 # final-22-undefined
-## 1. 서비스 소개
-## 2. 팀원 소개
+<h2 align=center> 🌈 Introduce </h2><br>
 
-## 3. 기술 스택 및 개발 환경
-### 3-1. 기술 스택
-- HTML, CSS, JavaScript, React, Styled-Components, Recoil or ..
-<div> 
-  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-  <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
-  <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> 
-  <img alt="Styled-Components" src="https://img.shields.io/badge/Styled Components-DB7093.svg?&style=for-the-badge&logo=styled-components&logoColor=white"/>
-</div>
+<h2 align=center> 🌈 Team </h2><br>
 
 
-### 3-2. 협업 도구
-- Git, GitHub, Notion, Discord, Figma
-<div>
-  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
-</div>
-
-<h2 align=center> 🌈Tech Stack </h3><br>
+<h2 align=center> 🌈 Tech Stack </h2><br>
 <table align="center">
   <tr height="50px">
     <th>Frontend</th>
-    <th>Backend</th>
+    <th>Tool</th>
     <th>DataBase</th>
     <th>Design</th>
   </tr>
@@ -37,17 +20,18 @@
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black">
-<img src="https://img.shields.io/badge/bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white">
-<img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white">
-<img src="https://img.shields.io/badge/sass-CC6699?style=flat-square&logo=sass&logoColor=white">
+<img src="https://img.shields.io/badge/Styled Components-DB7093?style=flat-square&logo=styled components&logoColor=white">
+
 </div>
 </td>
 
 <td valign="center" width="26%">
 
 <div align="center">  
-<img src="https://img.shields.io/badge/node.js-339933?style=flat-square&logo=node.js&logoColor=white">
-<img src="https://img.shields.io/badge/python-3776AB?style=flat-square&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white">
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/Discord-5865F2?style=flat-square&logo=Discord&logoColor=white">
+<img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=notion&logoColor=white">
 </div>
 </td>
 
@@ -66,10 +50,11 @@
 
 </td></tr></table>
 
-### 3-3. 개발 환경
-- IDE: Visual Studio Code
+<br>
+<br>
 
-## 🪛 4. 커밋 메세지 컨벤션
+<h2 align=center> 🌈 커밋 메세지 컨벤션 </h2><br>
+
 ```
 - fix: 올바르지 않은 동작을 고친 경우
 - feat: 새로운 기능을 추가한 경우
