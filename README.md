@@ -50,7 +50,7 @@
 <br>
 <br>
 
-<h2 align=center> 🌈 커밋 메세지 컨벤션 </h2><br>
+<h2 align=center> 📃 커밋 메세지 컨벤션 </h2><br>
 
 ```
 - fix: 올바르지 않은 동작을 고친 경우
