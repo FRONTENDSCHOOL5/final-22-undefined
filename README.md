@@ -9,8 +9,7 @@
   <tr height="50px">
     <th>Frontend</th>
     <th>Tool</th>
-    <th>DataBase</th>
-    <th>Design</th>
+    <th>기타</th>
   </tr>
   
 <tr height="120px"><td valign="center" width="40%">
@@ -37,14 +36,8 @@
 
 <td valign="center" width="17%">
 
-<div align="center">  
-<img src="https://img.shields.io/badge/mongodb-47A248?style=flat-square&logo=mongodb&logoColor=white">
-</div>
-</td>
-
-<td valign="center" width="17%">
-
-<div align="center">  
+<div align="center">
+<img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white">
 <img src="https://img.shields.io/badge/figma-F24E1E?style=flat-square&logo=figma&logoColor=white">
 </div>
 
