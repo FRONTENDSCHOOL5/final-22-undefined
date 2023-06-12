@@ -1,10 +1,13 @@
-# final-22-undefined
-<h2 align=center> 🌈 Introduce </h2><br>
+# 🐾 강냥공냥공냥냥
+<h2 align=center> Introduce  </h2><br>
 
-<h2 align=center> 🌈 Team </h2><br>
+<br>
 
+<h2 align=center> 👩🏻‍💻👨🏻‍💻 Team  </h2><br>
 
-<h2 align=center> 🌈 Tech Stack </h2><br>
+<br>
+
+<h2 align=center> ⛏️ Tech Stack </h2><br>
 <table align="center">
   <tr height="50px">
     <th>Frontend</th>
@@ -43,6 +46,7 @@
 
 </td></tr></table>
 
+<br>
 <br>
 <br>
 
