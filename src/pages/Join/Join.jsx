@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import FormInput from '../../components/common/Input/FormInput';
@@ -20,6 +20,9 @@ const NextBtn = styled(Button)`
 `;
 
 const Join = () => {
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState({ email: '', password: '' });
+
   return (
     <Main>
       <Wrapper>
@@ -28,6 +31,10 @@ const Join = () => {
           <FormInput
             id="email"
             label="이메일"
+            formData={formData}
+            setFormData={setFormData}
+            error={error}
+            setError={setError}
             inputProps={{
               type: 'email',
               placeholder: '이메일 주소를 입력해 주세요.',
@@ -36,6 +43,10 @@ const Join = () => {
           <FormInput
             id="password"
             label="비밀번호"
+            formData={formData}
+            setFormData={setFormData}
+            error={error}
+            setError={setError}
             inputProps={{
               type: 'password',
               placeholder: '비밀번호를 설정해 주세요.',

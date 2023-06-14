@@ -44,11 +44,19 @@ const ErrorMessage = styled.span`
   font-weight: 500;
 `;
 
-const FormInput = ({ id, label, inputProps }) => {
+const FormInput = ({
+  id,
+  label,
+  formData,
+  setFormData,
+  error,
+  setError,
+  inputProps,
+}) => {
   return (
     <Container>
       <Label htmlFor={id}>{label}</Label>
-      <StyledInput id={id} {...inputProps} />
+      <StyledInput id={id} {...inputProps} value={formData[id]} />
       <ErrorMessage>에러</ErrorMessage>
     </Container>
   );
