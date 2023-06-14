@@ -119,8 +119,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
 
   const handleChange = (event) => {
     const { value } = event.target;
-    // validate(value);
-    validateValue(value);
+    id !== 'intro' && validateValue(value);
     setFormData({ ...formData, [id]: value });
   };
 
