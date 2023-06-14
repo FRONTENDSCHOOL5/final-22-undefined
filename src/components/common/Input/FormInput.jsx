@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -44,6 +44,18 @@ const ErrorMessage = styled.span`
   font-weight: 500;
 `;
 
+const ERROR_MSG = {
+  required: '필수 입력사항을 입력해주세요.',
+  emailPattern: '잘못된 이메일 형식입니다.',
+  pwPattern: '대/소문자, 숫자 6자 이상이어야 합니다.',
+  length: '2자~10자 이내여야 합니다.',
+  idPattern: '2~16자 이내의 영문, 숫자, 밑줄, 마침표만 사용할 수 있습니다.',
+};
+
+const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
+const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
+
 const FormInput = ({
   id,
   label,
@@ -82,7 +94,6 @@ const FormInput = ({
       setError({ ...error, [id]: ERROR_MSG[result] });
     }
   };
-
   // 중복 검사 로직
   const checkDuplicates = async () => {
     try {
@@ -123,6 +134,7 @@ const FormInput = ({
 
   const handleChange = (event) => {
     const { value } = event.target;
+    // validate(value);
     validateValue(value);
     setFormData({ ...formData, [id]: value });
   };
@@ -132,6 +144,7 @@ const FormInput = ({
     isInvalid = true;
   }
 
+  console.log(error);
   return (
     <Container>
       <Label htmlFor={id}>{label}</Label>
