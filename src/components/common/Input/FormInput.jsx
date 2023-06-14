@@ -53,11 +53,21 @@ const FormInput = ({
   setError,
   inputProps,
 }) => {
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
   return (
     <Container>
       <Label htmlFor={id}>{label}</Label>
-      <StyledInput id={id} {...inputProps} value={formData[id]} />
-      <ErrorMessage>에러</ErrorMessage>
+      <StyledInput
+        id={id}
+        {...inputProps}
+        value={formData[id]}
+        onChange={handleChange}
+      />
+      <ErrorMessage>{`*${error[id]}`}</ErrorMessage>
     </Container>
   );
 };
