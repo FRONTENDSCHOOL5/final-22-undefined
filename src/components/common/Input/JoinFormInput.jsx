@@ -56,7 +56,7 @@ const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
 const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
 
-const FormInput = ({
+const JoinFormInput = ({
   id,
   label,
   formData,
@@ -160,4 +160,4 @@ const FormInput = ({
   );
 };
 
-export default FormInput;
+export default JoinFormInput;

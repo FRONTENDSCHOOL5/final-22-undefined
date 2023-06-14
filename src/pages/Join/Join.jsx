@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Wrapper from "../../components/common/Wrapper/Wrapper";
-import FormInput from "../../components/common/Input/FormInput";
+import JoinFormInput from "../../components/common/Input/JoinFormInput";
 import Button from "../../components/common/Button/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -40,7 +40,7 @@ const Join = () => {
       <Wrapper>
         <Form>
           <Title>이메일로 회원가입</Title>
-          <FormInput
+          <JoinFormInput
             id="email"
             label="이메일"
             formData={formData}
@@ -52,7 +52,7 @@ const Join = () => {
               placeholder: "이메일 주소를 입력해 주세요."
             }}
           />
-          <FormInput
+          <JoinFormInput
             id="password"
             label="비밀번호"
             formData={formData}
