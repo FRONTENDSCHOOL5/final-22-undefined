@@ -23,6 +23,11 @@ const Join = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState({ email: '', password: '' });
 
+  let isActivated = false;
+  if (error.email === 'noError' && error.password === 'noError') {
+    isActivated = true;
+  }
+
   return (
     <Main>
       <Wrapper>
@@ -53,7 +58,11 @@ const Join = () => {
               autoComplete: 'off',
             }}
           />
-          <NextBtn mode="disabled" size="lg">
+          <NextBtn
+            onClick={handleClick}
+            mode={isActivated ? 'default' : 'disabled'}
+            size="lg"
+          >
             다음
           </NextBtn>
         </Form>
