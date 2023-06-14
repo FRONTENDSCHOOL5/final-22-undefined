@@ -30,7 +30,7 @@ const ProfileImg = styled.img`
 
 const UploadInput = styled.input``;
 
-const ImgInput = () => {
+const ImgInput = ({ img, setImg }) => {
   return (
     <>
       <Label htmlFor='profileImg'>
