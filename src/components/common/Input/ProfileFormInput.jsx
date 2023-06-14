@@ -52,7 +52,7 @@ const EMAIL_REGEX = /^[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z
 const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
 const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
 
-const JoinFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
+const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
   const validateValue = (value) => {
     let result;
 
@@ -138,4 +138,4 @@ const JoinFormInput = ({ id, label, formData, setFormData, error, setError, inpu
   );
 };
 
-export default JoinFormInput;
+export default ProfileFormInput;
