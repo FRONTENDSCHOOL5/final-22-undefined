@@ -47,6 +47,53 @@ const Login = () => {
   const [formData, setFormData] = useState(initialFormState);
   const [error, setError] = useState(initialErrorState);
  
+  const req = {
+    user: {
+      email: formData.email,
+      password: formData.password
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(
+        "https://api.mandarin.weniv.co.kr/user/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(req)
+        }
+      );
+      const data = await response.json();
+
+      if (data.status === 422) {
+        console.log("틀린 정보. 로그인 실패했다.:", data);
+      } else {
+        console.log("옳은 정보. 로그인 성공했다:", data);
+        saveUserInfo(data);
+      }
+    } catch (error) {
+      console.error("실패했다:", error);
+    }
+  };
+
+  const saveUserInfo = (data) => {
+    const token = data.user.token;
+    const accountname = data.user.accountname;
+
+    localStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem("accountname", JSON.stringify(accountname));
+    // setUserToken(token); 나중에 getItem해서 세팅하는 함수
+    // setUserAccountname(accountname);
+  };
+
+  let formIsValid = false;
+  if (error.email === "noError" && error.password === "noError")
+    formIsValid = true;
+
   return (
     <Main>
       <LayoutWrapper>
