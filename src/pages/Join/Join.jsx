@@ -28,6 +28,10 @@ const Join = () => {
     isActivated = true;
   }
 
+  const handleClick = () => {
+    navigate('/join/profile', { state: formData });
+  };
+
   return (
     <Main>
       <Wrapper>
