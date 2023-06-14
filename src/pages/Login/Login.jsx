@@ -1,10 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 import Button from '../../components/common/Button/Button';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import { useState } from 'react';
 import LoginFormInput from '../../components/common/Input/LoginFormInput';
 import { useNavigate } from 'react-router-dom';
+import { AuthContextStore } from '../../context/AuthContext';
 
 const Main = styled.main``;
 
@@ -37,6 +38,7 @@ const Login = () => {
   const [formData, setFormData] = useState(initialFormState);
   const [error, setError] = useState(initialErrorState);
   const navigate = useNavigate();
+  const { setUserToken, setUserAccountname } = useContext(AuthContextStore);
 
   const req = {
     user: {
@@ -75,8 +77,8 @@ const Login = () => {
     localStorage.clear();
     localStorage.setItem('token', JSON.stringify(token));
     localStorage.setItem('accountname', JSON.stringify(accountname));
-    // setUserToken(token); 나중에 getItem해서 세팅하는 함수
-    // setUserAccountname(accountname);
+    setUserToken(token);
+    setUserAccountname(accountname);
   };
 
   let formIsValid = false;
