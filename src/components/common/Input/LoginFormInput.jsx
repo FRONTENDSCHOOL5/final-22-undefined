@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
   & + & {
@@ -21,9 +21,7 @@ const StyledInput = styled.input`
   padding-bottom: 8px;
   border: none;
   border-bottom: ${({ theme, isInvalid }) =>
-    isInvalid
-      ? `1px solid ${theme.colors.warning}`
-      : `1px solid ${theme.colors.gray}`};
+    isInvalid ? `1px solid ${theme.colors.warning}` : `1px solid ${theme.colors.gray}`};
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray};
@@ -32,9 +30,7 @@ const StyledInput = styled.input`
   &:focus {
     outline: none;
     border-bottom: ${({ theme, isInvalid }) =>
-      isInvalid
-        ? `1px solid ${theme.colors.warning}`
-        : `1px solid ${theme.colors.primary}`};
+      isInvalid ? `1px solid ${theme.colors.warning}` : `1px solid ${theme.colors.primary}`};
   }
 `;
 
@@ -44,18 +40,9 @@ const ErrorMessage = styled.span`
   font-weight: 500;
 `;
 
-const LoginFormInput = ({
-  id,
-  label,
-  formData,
-  setFormData,
-  error,
-  setError,
-  inputProps
-}) => {
+const LoginFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
   const validateValue = (value) => {
-    const result =
-      value.length === 0 ? "필수 입력사항을 입력해주세요." : "noError";
+    const result = value.length === 0 ? '필수 입력사항을 입력해주세요.' : 'noError';
 
     setError({ ...error, [id]: result });
   };
@@ -68,20 +55,14 @@ const LoginFormInput = ({
   };
 
   let isInvalid = false;
-  if (error[id] !== "noError" && error[id] !== "") {
+  if (error[id] !== 'noError' && error[id] !== '') {
     isInvalid = true;
   }
 
   return (
     <Container>
       <Label htmlFor={id}>{label}</Label>
-      <StyledInput
-        id={id}
-        {...inputProps}
-        value={formData[id]}
-        isInvalid={isInvalid}
-        onChange={handleChange}
-      />
+      <StyledInput id={id} {...inputProps} value={formData[id]} isInvalid={isInvalid} onChange={handleChange} />
       {isInvalid && <ErrorMessage>{`*${error[id]}`}</ErrorMessage>}
     </Container>
   );
