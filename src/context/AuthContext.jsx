@@ -8,8 +8,8 @@ export const AuthContextStore = createContext({
 });
 
 const AuthContext = ({ children }) => {
-  cosnt[(userToken, setUserToken)] = useState(localStorage.getItem('token') || null);
-  cosnt[(userAccountname, setUserAccountname)] = useState(localStorage.getItem('accountname') || null);
+  const [userToken, setUserToken] = useState(localStorage.getItem('token') || null);
+  const [userAccountname, setUserAccountname] = useState(localStorage.getItem('accountname') || null);
   return (
     <AuthContextStore.Provider value={{ userToken, userAccountname, setUserToken, setUserAccountname }}>
       {children}
