@@ -48,7 +48,7 @@ const ERROR_MSG = {
   idPattern: '2~16자 이내의 영문, 숫자, 밑줄, 마침표만 사용할 수 있습니다.',
 };
 
-const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+const EMAIL_REGEX = /^[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
 const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
 
