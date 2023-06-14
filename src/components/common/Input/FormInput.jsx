@@ -144,7 +144,6 @@ const FormInput = ({
     isInvalid = true;
   }
 
-  console.log(error);
   return (
     <Container>
       <Label htmlFor={id}>{label}</Label>
