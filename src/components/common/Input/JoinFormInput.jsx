@@ -107,9 +107,10 @@ const JoinFormInput = ({ id, label, formData, setFormData, error, setError, inpu
   };
 
   useEffect(() => {
+    if (!EMAIL_REGEX.test(formData.email)) return;
     const timer = setTimeout(() => {
       checkDuplicates();
-    }, 1000);
+    }, 300);
 
     return () => {
       clearTimeout(timer);
