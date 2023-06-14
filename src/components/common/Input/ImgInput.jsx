@@ -26,6 +26,8 @@ const Label = styled.label`
 
 const ProfileImg = styled.img`
   object-fit: cover;
+  height: 100%;
+  border-radius: 50%;
 `;
 
 const UploadInput = styled.input``;
