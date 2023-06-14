@@ -72,7 +72,7 @@ const Login = () => {
   const saveUserInfo = (data) => {
     const token = data.user.token;
     const accountname = data.user.accountname;
-
+    localStorage.clear();
     localStorage.setItem('token', JSON.stringify(token));
     localStorage.setItem('accountname', JSON.stringify(accountname));
     // setUserToken(token); 나중에 getItem해서 세팅하는 함수
