@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import FormInput from '../../components/common/Input/FormInput';
 import Button from '../../components/common/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Main = styled.main``;
 
@@ -22,6 +23,8 @@ const NextBtn = styled(Button)`
 const Join = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState({ email: '', password: '' });
+  console.log(formData);
+  const navigate = useNavigate();
 
   let isActivated = false;
   if (error.email === 'noError' && error.password === 'noError') {
