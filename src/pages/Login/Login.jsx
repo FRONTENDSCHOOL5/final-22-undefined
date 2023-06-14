@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../../components/common/Button/Button";
-import FormInput from "../../components/common/Input/FormInput";
 import Wrapper from "../../components/common/Wrapper/Wrapper";
-
 import { useState } from "react";
+import LoginFormInput from "../../components/common/Input/LoginFormInput";
+import { useNavigate } from "react-router-dom";
 
 const Main = styled.main``;
 
@@ -36,6 +36,7 @@ const initialErrorState = {
 const Login = () => {
   const [formData, setFormData] = useState(initialFormState);
   const [error, setError] = useState(initialErrorState);
+  const navigate = useNavigate();
 
   const req = {
     user: {
@@ -59,10 +60,11 @@ const Login = () => {
       );
       const data = await response.json();
 
-      if (data.status === 422) {
-        console.log("틀린 정보. 로그인 실패했다.:", data);
+      if (data.message === "이메일 또는 비밀번호가 일치하지 않습니다.") {
+        setError({ ...error, password: data.message });
       } else {
-        console.log("옳은 정보. 로그인 성공했다:", data);
+        console.log(error);
+        navigate("/home");
         saveUserInfo(data);
       }
     } catch (error) {
@@ -91,7 +93,7 @@ const Login = () => {
           <Section>
             <Heading>로그인</Heading>
 
-            <FormInput
+            <LoginFormInput
               id="email"
               label="이메일"
               formData={formData}
@@ -104,7 +106,7 @@ const Login = () => {
               }}
             />
 
-            <FormInput
+            <LoginFormInput
               id="password"
               label="비밀번호"
               formData={formData}
