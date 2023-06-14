@@ -83,8 +83,47 @@ const FormInput = ({
     }
   };
 
+  // 중복 검사 로직
+  const checkDuplicates = async () => {
+    try {
+      const response = await fetch(
+        'https://api.mandarin.weniv.co.kr/user/emailvalid',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ user: { email: formData.email } }),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+      if (data.message === '이미 가입된 이메일 주소 입니다.') {
+        setError({ ...error, email: data.message });
+      } else if (data.message === '잘못된 접근입니다.') {
+        throw Error(data.message);
+      } else {
+        setError({ ...error, email: 'noError' });
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      checkDuplicates();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [formData.email]);
+
   const handleChange = (event) => {
     const { value } = event.target;
+    validateValue(value);
     setFormData({ ...formData, [id]: value });
   };
 
