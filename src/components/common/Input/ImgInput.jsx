@@ -36,11 +36,12 @@ const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.h
 
 const ImgInput = ({ img, setImg }) => {
   const handleChange = async (event) => {
-    if (!event.target.files) {
+    if (!event.target.files || event.target.files.length === 0) {
       return;
     }
 
     const file = event.target.files[0];
+    console.log(file);
     const fileExtenstion = file.name.split('.')[1].toLowerCase();
 
     if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
