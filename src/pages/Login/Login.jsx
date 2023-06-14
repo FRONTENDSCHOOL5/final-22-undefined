@@ -1,18 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../components/common/Button/Button";
+import Button from "../../components/common/Button/Button";
+import FormInput from "../../components/common/Input/FormInput";
+import Wrapper from "../../components/common/Wrapper/Wrapper";
+
+import { useState } from "react";
 
 const Main = styled.main``;
-
-const Wrapper = styled.div`
-  max-width: 390px;
-  width: 100%;
-  margin: 0 auto;
-`;
-
-const LayoutWrapper = styled(Wrapper)`
-  padding: 0 34px;
-`;
 
 const Form = styled.form``;
 
@@ -35,18 +29,14 @@ const initialFormState = {
 };
 
 const initialErrorState = {
-  email: null,
-  password: null,
-  username: null,
-  accountname: null,
-  intro: null
+  email: "",
+  password: ""
 };
 
 const Login = () => {
-
   const [formData, setFormData] = useState(initialFormState);
   const [error, setError] = useState(initialErrorState);
- 
+
   const req = {
     user: {
       email: formData.email,
@@ -96,7 +86,7 @@ const Login = () => {
 
   return (
     <Main>
-      <LayoutWrapper>
+      <Wrapper>
         <Form onSubmit={handleSubmit}>
           <Section>
             <Heading>로그인</Heading>
@@ -134,7 +124,7 @@ const Login = () => {
             </LoginBtn>
           </Section>
         </Form>
-      </LayoutWrapper>
+      </Wrapper>
     </Main>
   );
 };
