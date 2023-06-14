@@ -53,10 +53,45 @@ const FormInput = ({
   setError,
   inputProps,
 }) => {
+  const validateValue = (value) => {
+    let result;
+
+    if (value.length === 0) result = 'required';
+    else {
+      switch (id) {
+        case 'email':
+          result = EMAIL_REGEX.test(value) ? 'noError' : 'emailPattern';
+          break;
+        case 'password':
+          result = PASSWORD_REGEX.test(value) ? 'noError' : 'pwPattern';
+          break;
+        case 'username':
+          result =
+            value.length >= 2 && value.length <= 10 ? 'noError' : 'length';
+          break;
+        case 'accountname':
+          result = ID_REGEX.test(value) ? 'noError' : 'idPattern';
+          break;
+        default:
+          return;
+      }
+    }
+    if (result === 'noError') {
+      setError({ ...error, [id]: result });
+    } else {
+      setError({ ...error, [id]: ERROR_MSG[result] });
+    }
+  };
+
   const handleChange = (event) => {
     const { value } = event.target;
     setFormData({ ...formData, [id]: value });
   };
+
+  let isInvalid = false;
+  if (error[id] !== 'noError' && error[id] !== '') {
+    isInvalid = true;
+  }
 
   return (
     <Container>
@@ -65,9 +100,10 @@ const FormInput = ({
         id={id}
         {...inputProps}
         value={formData[id]}
+        isInvalid={isInvalid}
         onChange={handleChange}
       />
-      <ErrorMessage>{`*${error[id]}`}</ErrorMessage>
+      {isInvalid && <ErrorMessage>{`*${error[id]}`}</ErrorMessage>}
     </Container>
   );
 };
