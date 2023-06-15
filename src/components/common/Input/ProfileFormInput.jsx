@@ -33,7 +33,8 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
           result = value.length >= 2 && value.length <= 10 ? 'noError' : 'length';
           break;
         case 'accountname':
-          result = ID_REGEX.test(value) ? 'loading' : 'idPattern';
+          if (value === JSON.parse(userAccountname)) result = 'noError';
+          else result = ID_REGEX.test(value) ? 'loading' : 'idPattern';
           break;
         default:
           result = 'noError';
@@ -81,7 +82,9 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
     // 이 부분 개선 필요...
     if (
       (id === 'email' && !EMAIL_REGEX.test(formData.email)) ||
-      (id === 'accountname' && !ID_REGEX.test(formData.accountname))
+      (id === 'accountname' && !ID_REGEX.test(formData.accountname)) ||
+      formData['accountname'] === JSON.parse(userAccountname)
+      // 프로필 수정 페이지에서 현재 로그인한 유저의 accountname인 경우 이미 가입된 계정이라는 에러 메세지를 보여주지 않기 위함
     ) {
       return;
     }
@@ -106,11 +109,6 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
   let isInvalid = false;
   if (error[id] !== 'loading' && error[id] !== 'noError' && error[id] !== '') {
     isInvalid = true;
-  }
-
-  // 프로필 수정 페이지에서 현재 로그인한 유저의 accountname인 경우 이미 가입된 계정이라는 에러 메세지를 보여주지 않기 위함
-  if (formData['accountname'] === JSON.parse(userAccountname)) {
-    isInvalid = false;
   }
 
   return (
