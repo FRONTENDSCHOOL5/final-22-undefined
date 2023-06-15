@@ -1,16 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import * as S from './TopMainNav.style';
 
-const Container = styled.div`
-  box-shadow: 0 0 10px red;
-  max-width: 390px;
-`;
+import iconSearch from '../../assets/icon/icon-search.png';
 
 const TopMainNav = () => {
   return (
-    <Container>
-      <h1>hello</h1>
-    </Container>
+    <S.Container>
+      <S.Wrapper>
+        <S.H1>감귤마켓 피드</S.H1>
+        <a href='#'>
+          <S.IMG src={iconSearch} alt='' />
+        </a>
+      </S.Wrapper>
+    </S.Container>
   );
 };
 
