@@ -96,7 +96,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
 
     const timer = setTimeout(() => {
       checkDuplication(errorMsg);
-    }, 100);
+    }, 300);
 
     return () => {
       clearTimeout(timer);
