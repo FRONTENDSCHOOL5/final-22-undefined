@@ -5,7 +5,7 @@ import Ellipse from '../../assets/Ellipse-1.png';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 const Post = () => {
-  const [imgName, setImgName] = useState('');
+  const [imgName, setImgName] = useState(null);
 
   const handleImgInput = async (e) => {
     if (!e.target.files || e.target.files.length === 0) {
@@ -35,13 +35,18 @@ const Post = () => {
 
   return (
     <>
-      <img
-        style={{ width: '50%' }}
-        src={imgName === '' ? Ellipse : `https://api.mandarin.weniv.co.kr/${imgName}`}
-        alt='게시글 업로드 이미지'
-      />
-      <Label htmlFor='postImg'></Label>
-      <input className='a11y-hidden' type='file' id='postImg' onChange={handleImgInput} accept='image/*' />
+      <main>
+        <h2 className='a11y-hidden'>게시글 작성창</h2>
+        {imgName && (
+          <img
+            style={{ width: '20%' }}
+            src={imgName === '' ? Ellipse : `https://api.mandarin.weniv.co.kr/${imgName}`}
+            alt='게시글 업로드 이미지'
+          />
+        )}
+        <Label htmlFor='postImg'></Label>
+        <input className='a11y-hidden' type='file' id='postImg' onChange={handleImgInput} accept='image/*' />
+      </main>
     </>
   );
 };
