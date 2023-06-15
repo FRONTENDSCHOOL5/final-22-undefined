@@ -1,7 +1,13 @@
 import React from 'react';
+import TopMainNav from './TopMainNav';
+import styled from 'styled-components';
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <TopMainNav />
+    </>
+  );
 };
 
 export default Home;
