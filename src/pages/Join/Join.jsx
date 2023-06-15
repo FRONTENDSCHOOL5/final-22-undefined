@@ -23,7 +23,6 @@ const NextBtn = styled(Button)`
 const Join = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState({ email: '', password: '' });
-  console.log(formData);
   const navigate = useNavigate();
 
   let isActivated = false;
