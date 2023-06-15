@@ -7,6 +7,8 @@ export const LayoutWrapper = styled(Wrapper)`
   padding: 0 34px;
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  padding-top: 78px;
+`;
 
 export const Title = styled.h1``;
