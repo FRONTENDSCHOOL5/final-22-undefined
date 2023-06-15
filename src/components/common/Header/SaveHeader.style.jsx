@@ -7,7 +7,7 @@ export const Header = styled.header`
   height: 48px;
   background-color: ${({ theme }) => theme.colors.white};
   border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`};
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
