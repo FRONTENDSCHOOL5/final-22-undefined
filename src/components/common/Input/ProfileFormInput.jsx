@@ -44,7 +44,6 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
     }
   };
 
-  console.log(error);
   // 이메일, 계정 ID 중복 검사
   const checkDuplication = async (errorMsg) => {
     try {
