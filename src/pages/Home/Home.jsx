@@ -1,12 +1,13 @@
 import React from 'react';
 import TopMainNav from './TopMainNav';
-import styled from 'styled-components';
 import TabMenu from './TabMenu';
+import SearchBtn from './SearchBtn';
 
 const Home = () => {
   return (
     <>
       <TopMainNav />
+      <SearchBtn />
       <TabMenu />
     </>
   );
