@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import * as S from './FormInput.style';
+import { AuthContextStore } from '../../../context/AuthContext';
 
 const ERROR_MSG = {
   required: '필수 입력사항을 입력해주세요.',
@@ -14,6 +15,8 @@ const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
 const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
 
 const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
+  const { userAccountname } = useContext(AuthContextStore);
+
   const validateValue = (value) => {
     let result;
 
@@ -103,6 +106,11 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
   let isInvalid = false;
   if (error[id] !== 'loading' && error[id] !== 'noError' && error[id] !== '') {
     isInvalid = true;
+  }
+
+  // 프로필 수정 페이지에서 현재 로그인한 유저의 accountname인 경우 이미 가입된 계정이라는 에러 메세지를 보여주지 않기 위함
+  if (formData['accountname'] === JSON.parse(userAccountname)) {
+    isInvalid = false;
   }
 
   return (
