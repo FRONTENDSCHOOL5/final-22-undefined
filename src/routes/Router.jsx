@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loading from '../pages/Loading/Loading';
 import Home from '../pages/Home/Home';
 import Join from '../pages/Join/Join';
-import Profile from '../pages/Join/Profile';
+import ProfileSetting from '../pages/Join/ProfileSetting';
 import Login from '../pages/Login/Login';
 
 const Router = () => {
@@ -14,7 +14,7 @@ const Router = () => {
         <Route path='/home' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
-        <Route path='/join/profile' element={<Profile />} />
+        <Route path='/join/profile' element={<ProfileSetting />} />
       </Routes>
     </BrowserRouter>
   );
