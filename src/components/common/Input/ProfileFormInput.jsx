@@ -15,8 +15,10 @@ const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
 const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
 
 const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
+  // 현재 로그인한 유저의 accountname을 가져오기 위함
   const { userAccountname } = useContext(AuthContextStore);
 
+  // 클라이언트 단 유효성 검사
   const validateValue = (value) => {
     let result;
 
@@ -76,6 +78,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
     }
   };
 
+  // 실시간 이메일, 계정 ID 중복 검사 실행
   useEffect(() => {
     if (!['email', 'accountname'].includes(id)) return;
 
@@ -106,6 +109,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
     setFormData({ ...formData, [id]: value });
   };
 
+  // 에러 메세지 보여지는 것 여부
   let isInvalid = false;
   if (error[id] !== 'loading' && error[id] !== 'noError' && error[id] !== '') {
     isInvalid = true;
