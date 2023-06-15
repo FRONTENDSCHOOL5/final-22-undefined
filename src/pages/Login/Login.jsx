@@ -1,28 +1,10 @@
 import { useContext } from 'react';
-import styled from 'styled-components';
-import Button from '../../components/common/Button/Button';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import { useState } from 'react';
 import LoginFormInput from '../../components/common/Input/LoginFormInput';
 import { useNavigate } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
-
-const Main = styled.main``;
-
-const Form = styled.form``;
-
-const Section = styled.section``;
-
-const Heading = styled.h1`
-  margin: 30px 0 40px;
-  font-size: 24px;
-  font-weight: 500;
-  text-align: center;
-`;
-
-const LoginBtn = styled(Button)`
-  margin-top: 30px;
-`;
+import * as S from './Login.style';
 
 const initialFormState = {
   email: '',
@@ -62,7 +44,7 @@ const Login = () => {
       if (data.message === '이메일 또는 비밀번호가 일치하지 않습니다.') {
         setError({ ...error, password: data.message });
       } else {
-        console.log(error);
+        console.log(data, error);
         navigate('/home');
         saveUserInfo(data);
       }
@@ -85,11 +67,11 @@ const Login = () => {
   if (error.email === 'noError' && error.password === 'noError') formIsValid = true;
 
   return (
-    <Main>
+    <S.Main>
       <Wrapper>
-        <Form onSubmit={handleSubmit}>
-          <Section>
-            <Heading>로그인</Heading>
+        <S.Form onSubmit={handleSubmit}>
+          <S.Section>
+            <S.Heading>로그인</S.Heading>
 
             <LoginFormInput
               id='email'
@@ -119,13 +101,13 @@ const Login = () => {
             />
 
             {/* formIsValid에 의해 둘 중 하나의 값이 LoginBtn-> Button 컴포넌트 프롭스로 들어가게된다. */}
-            <LoginBtn mode={formIsValid ? 'default' : 'disabled'} size='lg'>
+            <S.LoginBtn mode={formIsValid ? 'default' : 'disabled'} size='lg'>
               로그인
-            </LoginBtn>
-          </Section>
-        </Form>
+            </S.LoginBtn>
+          </S.Section>
+        </S.Form>
       </Wrapper>
-    </Main>
+    </S.Main>
   );
 };
 
