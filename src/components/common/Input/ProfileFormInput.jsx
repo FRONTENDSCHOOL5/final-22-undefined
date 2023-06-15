@@ -81,25 +81,29 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
       setError({ ...error, [id]: ERROR_MSG[result] });
     }
   };
-  // 중복 검사 로직
-  const checkDuplicates = async () => {
+
+  // 이메일, 계정 ID 중복 검사
+  const checkDuplication = async (errorMsg) => {
     try {
-      const response = await fetch('https://api.mandarin.weniv.co.kr/user/emailvalid', {
+      const url = `https://api.mandarin.weniv.co.kr/user/${id}valid`;
+
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ user: { email: formData.email } }),
+        body: JSON.stringify({
+          user: { [id]: formData[id] },
+        }),
       });
 
       const data = await response.json();
-      console.log(data);
-      if (data.message === '이미 가입된 이메일 주소 입니다.') {
-        setError({ ...error, email: data.message });
+      if (data.message === errorMsg) {
+        setError({ ...error, [id]: data.message });
       } else if (data.message === '잘못된 접근입니다.') {
         throw Error(data.message);
       } else {
-        setError({ ...error, email: 'noError' });
+        setError({ ...error, [id]: 'noError' });
       }
     } catch (err) {
       console.log(err.message);
@@ -107,15 +111,26 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
   };
 
   useEffect(() => {
-    if (!EMAIL_REGEX.test(formData.email)) return;
+    if (!['email', 'accountname'].includes(id)) return;
+
+    // 이 부분 개선 필요...
+    if (
+      (id === 'email' && !EMAIL_REGEX.test(formData.email)) ||
+      (id === 'accountname' && !ID_REGEX.test(formData.accountname))
+    ) {
+      return;
+    }
+
+    const errorMsg = id === 'email' ? '이미 가입된 이메일 주소 입니다.' : '이미 가입된 계정ID 입니다.';
+
     const timer = setTimeout(() => {
-      checkDuplicates();
+      checkDuplication(errorMsg);
     }, 300);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [formData.email]);
+  }, [formData.email, formData.accountname]);
 
   const handleChange = (event) => {
     const { value } = event.target;
