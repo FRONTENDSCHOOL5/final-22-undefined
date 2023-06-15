@@ -21,7 +21,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
     else {
       switch (id) {
         case 'email':
-          result = EMAIL_REGEX.test(value) ? 'noError' : 'emailPattern';
+          result = EMAIL_REGEX.test(value) ? 'loading' : 'emailPattern';
           break;
         case 'password':
           result = PASSWORD_REGEX.test(value) ? 'noError' : 'pwPattern';
@@ -30,19 +30,21 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
           result = value.length >= 2 && value.length <= 10 ? 'noError' : 'length';
           break;
         case 'accountname':
-          result = ID_REGEX.test(value) ? 'noError' : 'idPattern';
+          result = ID_REGEX.test(value) ? 'loading' : 'idPattern';
           break;
         default:
+          result = 'noError';
           return;
       }
     }
-    if (result === 'noError') {
+    if (result === 'noError' || result === 'loading') {
       setError({ ...error, [id]: result });
     } else {
       setError({ ...error, [id]: ERROR_MSG[result] });
     }
   };
 
+  console.log(error);
   // 이메일, 계정 ID 중복 검사
   const checkDuplication = async (errorMsg) => {
     try {
@@ -86,7 +88,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
 
     const timer = setTimeout(() => {
       checkDuplication(errorMsg);
-    }, 300);
+    }, 100);
 
     return () => {
       clearTimeout(timer);
@@ -100,7 +102,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
   };
 
   let isInvalid = false;
-  if (error[id] !== 'noError' && error[id] !== '') {
+  if (error[id] !== 'loading' && error[id] !== 'noError' && error[id] !== '') {
     isInvalid = true;
   }
 
