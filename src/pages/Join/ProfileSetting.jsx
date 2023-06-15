@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import Button from '../../components/common/Button/Button';
@@ -44,6 +44,10 @@ const ProfileSetting = () => {
 
   let isActivated = false;
   if (error.username === 'noError' && error.accountname === 'noError') isActivated = true;
+
+  useEffect(() => {
+    if (!state?.email || !state?.password) navigate('/join');
+  }, []);
 
   // 프로필 수정 페이지에서 버튼이 form 밖에 있어서 onSubmit으로 하지 않고 onClick으로 구현
   const handleClick = async () => {
