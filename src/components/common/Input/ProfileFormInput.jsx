@@ -48,11 +48,11 @@ const ERROR_MSG = {
   idPattern: '2~16자 이내의 영문, 숫자, 밑줄, 마침표만 사용할 수 있습니다.',
 };
 
-const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+const EMAIL_REGEX = /^[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
 const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
 
-const JoinFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
+const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
   const validateValue = (value) => {
     let result;
 
@@ -81,25 +81,29 @@ const JoinFormInput = ({ id, label, formData, setFormData, error, setError, inpu
       setError({ ...error, [id]: ERROR_MSG[result] });
     }
   };
-  // 중복 검사 로직
-  const checkDuplicates = async () => {
+
+  // 이메일, 계정 ID 중복 검사
+  const checkDuplication = async (errorMsg) => {
     try {
-      const response = await fetch('https://api.mandarin.weniv.co.kr/user/emailvalid', {
+      const url = `https://api.mandarin.weniv.co.kr/user/${id}valid`;
+
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ user: { email: formData.email } }),
+        body: JSON.stringify({
+          user: { [id]: formData[id] },
+        }),
       });
 
       const data = await response.json();
-      console.log(data);
-      if (data.message === '이미 가입된 이메일 주소 입니다.') {
-        setError({ ...error, email: data.message });
+      if (data.message === errorMsg) {
+        setError({ ...error, [id]: data.message });
       } else if (data.message === '잘못된 접근입니다.') {
         throw Error(data.message);
       } else {
-        setError({ ...error, email: 'noError' });
+        setError({ ...error, [id]: 'noError' });
       }
     } catch (err) {
       console.log(err.message);
@@ -107,20 +111,30 @@ const JoinFormInput = ({ id, label, formData, setFormData, error, setError, inpu
   };
 
   useEffect(() => {
-    if (!EMAIL_REGEX.test(formData.email)) return;
+    if (!['email', 'accountname'].includes(id)) return;
+
+    // 이 부분 개선 필요...
+    if (
+      (id === 'email' && !EMAIL_REGEX.test(formData.email)) ||
+      (id === 'accountname' && !ID_REGEX.test(formData.accountname))
+    ) {
+      return;
+    }
+
+    const errorMsg = id === 'email' ? '이미 가입된 이메일 주소 입니다.' : '이미 가입된 계정ID 입니다.';
+
     const timer = setTimeout(() => {
-      checkDuplicates();
+      checkDuplication(errorMsg);
     }, 300);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [formData.email]);
+  }, [formData.email, formData.accountname]);
 
   const handleChange = (event) => {
     const { value } = event.target;
-    // validate(value);
-    validateValue(value);
+    id !== 'intro' && validateValue(value);
     setFormData({ ...formData, [id]: value });
   };
 
@@ -138,4 +152,4 @@ const JoinFormInput = ({ id, label, formData, setFormData, error, setError, inpu
   );
 };
 
-export default JoinFormInput;
+export default ProfileFormInput;

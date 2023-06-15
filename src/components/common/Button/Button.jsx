@@ -1,19 +1,19 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const palette = {
   default: {
-    bgColor: "primary",
-    color: "white"
+    bgColor: 'primary',
+    color: 'white',
   },
   disabled: {
-    bgColor: "secondary",
-    color: "white"
+    bgColor: 'secondary',
+    color: 'white',
   },
   active: {
-    bgColor: "white",
-    color: "txtColor",
-    borderColor: "gray"
-  }
+    bgColor: 'white',
+    color: 'txtColor',
+    borderColor: 'gray',
+  },
 };
 
 const colorStyles = css`
@@ -40,25 +40,25 @@ const colorStyles = css`
 
 const sizes = {
   lg: {
-    fontSize: "14px",
-    height: "44px",
-    radius: "44px"
+    fontSize: '14px',
+    height: '44px',
+    radius: '44px',
   },
   md: {
-    fontSize: "14px",
-    height: "34px",
-    radius: "30px"
+    fontSize: '14px',
+    height: '34px',
+    radius: '30px',
   },
   ms: {
-    fontSize: "14px",
-    height: "32px",
-    radius: "32px"
+    fontSize: '14px',
+    height: '32px',
+    radius: '32px',
   },
   sm: {
-    fontSize: "12px",
-    height: "28px",
-    radius: "26px"
-  }
+    fontSize: '12px',
+    height: '28px',
+    radius: '26px',
+  },
 };
 
 const sizeStyles = css`
@@ -83,20 +83,15 @@ const StyledButton = styled.button`
 
 const Button = ({ mode, size, children, ...props }) => {
   return (
-    <StyledButton
-      mode={mode}
-      size={size}
-      disabled={mode === "disabled"}
-      {...props}
-    >
+    <StyledButton mode={mode} size={size} disabled={mode === 'disabled'} {...props}>
       {children}
     </StyledButton>
   );
 };
 
 Button.defaultProps = {
-  mode: "default",
-  size: "md"
+  mode: 'default',
+  size: 'md',
 };
 
 export default Button;
