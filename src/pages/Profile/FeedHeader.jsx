@@ -3,6 +3,7 @@ import * as S from './FeedHeader.style';
 import backButtonImg from './../../assets/icon/icon-arrow-left.png';
 import ModalButtonImg from './../../assets/icon/icon-more-vertical.png';
 import { useNavigate } from 'react-router-dom';
+import PostModal from '../../components/common/Modal/PostModal';
 
 const FeedHeader = () => {
   const navigate = useNavigate(); // useNavigate 함수로 호출
@@ -17,6 +18,12 @@ const FeedHeader = () => {
     setIsModalOpen(true);
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const modalOptions = ['설정 및 개인정보', '로그아웃'];
+
   return (
     <S.Header>
       <S.ButtonIcon onClick={backHandle}>
@@ -26,16 +33,11 @@ const FeedHeader = () => {
         <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
       </S.ButtonIcon>
       {isModalOpen && (
-        <div>
-          <ul>
-            <li>
-              <button>설정 및 개인정보</button>
-            </li>
-            <li>
-              <button>로그아웃</button>
-            </li>
-          </ul>
-        </div>
+        <>
+          <S.BgDark>
+            <PostModal options={modalOptions} onClose={closeModal} />
+          </S.BgDark>
+        </>
       )}
     </S.Header>
   );
