@@ -95,7 +95,7 @@ const Post = () => {
     <>
       <PostMain>
         <h2 className='a11y-hidden'>게시글 작성</h2>
-        <UserProfile src={userImg || Ellipse} />
+        <UserProfile src={userImg ? `https://api.mandarin.weniv.co.kr/${userImg}` : Ellipse} />
         <PostArticle>
           <h3 className='a11y-hidden'>게시글 작성 form</h3>
           <Form>
