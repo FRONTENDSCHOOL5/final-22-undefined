@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
+import Wrapper from './../Wrapper/Wrapper';
 
-const fadeInAnimation = keyframes`
+const fadeIn = keyframes`
   from {
     opacity: 0;
   }
@@ -9,39 +10,29 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-const slideInAnimation = keyframes`
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-`;
-
-export const Container = styled.div`
+export const ModalBg = styled.div`
   position: fixed;
-  width: 390px;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 1000;
-  animation: ${slideInAnimation} 0.5s cubic-bezier(0.42, 0, 0.21, 1.44), ${fadeInAnimation} 0.3s ease-out;
-`;
-
-export const MenuLayout = styled.div`
-  position: absolute;
-  width: 390px;
-  height: auto;
-  background-color: ${({ theme }) => theme.colors.white};
-  padding: 36px 0 16px;
-  border-radius: 10px 10px 0px 0px;
+  top: 0;
+  width: 388px;
+  height: 80vh;
+  margin: 40px auto;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  animation: ${fadeIn} 0.3s ease-in;
 `;
 
 export const Ul = styled.ul`
+  position: fixed;
+  bottom: 0;
+  /* left: 0; */
+  transform: translate(0, -100%);
+  width: 100%;
+  max-width: 390px;
   height: auto;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
+  border-radius: 10px 10px 0 0;
   padding: 36px 0 16px;
 
   ::before {
@@ -56,4 +47,7 @@ export const Ul = styled.ul`
     transform: translateX(-50%);
   }
 `;
-export const Li = styled.ll``;
+
+export const Li = styled.li`
+  padding: 10px 0px 10px 26px;
+`;
