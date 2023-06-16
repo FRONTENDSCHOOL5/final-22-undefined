@@ -58,6 +58,39 @@ const Post = () => {
     }
   };
 
+  const cofirmDelete = (message = '', onConfirm, onCancel) => {
+    if (!onConfirm || typeof onConfirm !== 'function') {
+      return;
+    }
+    if (onCancel && typeof onCancel !== 'function') {
+      return;
+    }
+
+    const confirmAction = () => {
+      if (window.confirm(message)) {
+        onConfirm();
+      } else {
+        onCancel();
+      }
+    };
+
+    return confirmAction;
+  };
+
+  const deleteConfirm = () => {
+    setUploadImg('');
+    alert('삭제했습니다.');
+  };
+  const cancelConfirm = () => alert('취소했습니다.');
+
+  const hndleDelete = cofirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
+
+  // const deleteImg = () => {
+  //   if (window.confirm('정말 삭제하시겠습니까?')) {
+  //     setUploadImg('');
+  //   }
+  // };
+
   return (
     <>
       <PostMain>
@@ -71,14 +104,14 @@ const Post = () => {
             <input className='a11y-hidden' type='file' id='imgUpload' onChange={handleImgInput} accept='image/*' />
           </Form>
           <section>
-            <h4 className='a11y-hidden'>추가 이미지</h4>
+            <h4 className='a11y-hidden'>업로드 이미지</h4>
             <ul>
-              {uploadImg && (
+              {uploadImg !== '' && (
                 <Li>
                   <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
-                  <RemoveBtn>
+                  <DeleteBtn onClick={hndleDelete}>
                     <span className='a11y-hidden'>업로드 이미지 삭제</span>
-                  </RemoveBtn>
+                  </DeleteBtn>
                 </Li>
               )}
             </ul>
@@ -150,7 +183,7 @@ const UploadImgBtn = styled.label`
   background: ${({ theme }) => `${theme.colors.primary} url(${uploadIcon}) no-repeat center`};
 `;
 
-const RemoveBtn = styled.button`
+const DeleteBtn = styled.button`
   width: 22px;
   height: 22px;
   top: 6px;
