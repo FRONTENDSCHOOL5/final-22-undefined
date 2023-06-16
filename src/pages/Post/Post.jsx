@@ -3,25 +3,26 @@ import styled from 'styled-components';
 import uploadIcon from '../../assets/icon/icon-upload.png';
 import removeIcon from '../../assets/icon/icon-delete.svg';
 import Ellipse from '../../assets/Ellipse-1.png';
-import AuthContext from '../../context/AuthContext';
+import { AuthContextStore } from '../../context/AuthContext';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 const Post = () => {
   const [uploadImg, setUploadImg] = useState('');
   const [userImg, setUserImg] = useState('');
-  const userToken = useContext(AuthContext);
-  console.log(userToken);
+  const { userToken } = useContext(AuthContextStore);
+
   useEffect(() => {
     const handleUserImg = async () => {
       try {
         const res = await fetch('https://api.mandarin.weniv.co.kr/user/myinfo', {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${userToken}`,
+            Authorization: `Bearer ${JSON.parse(userToken)}`,
           },
         });
         const data = await res.json();
         console.log(data);
+        console.log(data.user.image);
         setUserImg(data.user.image);
       } catch (error) {
         console.log(error.message);
@@ -50,8 +51,8 @@ const Post = () => {
         body: formData,
       });
       const data = await res.json();
-      setUploadImg([...uploadImg, data.filename]);
-      console.log(data.filename);
+      console.log(data);
+      setUploadImg(data.filename);
     } catch (error) {
       console.log(error.message);
     }
@@ -61,7 +62,7 @@ const Post = () => {
     <>
       <PostMain>
         <h2 className='a11y-hidden'>게시글 작성</h2>
-        <UserProfile src={Ellipse} />
+        <UserProfile src={userImg || Ellipse} />
         <PostArticle>
           <h3 className='a11y-hidden'>게시글 작성 form</h3>
           <Form>
@@ -74,10 +75,7 @@ const Post = () => {
             <ul>
               {uploadImg && (
                 <Li>
-                  <UploadImg
-                    src={uploadImg === '' ? Ellipse : `https://api.mandarin.weniv.co.kr/${uploadImg}`}
-                    alt='게시글 업로드 이미지'
-                  />
+                  <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
                   <RemoveBtn>
                     <span className='a11y-hidden'>업로드 이미지 삭제</span>
                   </RemoveBtn>
