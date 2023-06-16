@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 390px;
-  margin: 20px auto;
-  /* box-shadow: 0 0 10px black; */
+  margin: 0px auto;
+  border-top: 0.5px solid #dbdbdb;
 `;
 
 export const Wrap = styled.ul`
