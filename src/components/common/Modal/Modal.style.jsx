@@ -3,30 +3,30 @@ import Wrapper from './../Wrapper/Wrapper';
 
 const fadeIn = keyframes`
   from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 3;
+        transform: none;
+    }
 `;
 
 export const ModalBg = styled.div`
   position: fixed;
   top: 0;
-  width: 388px;
+  width: 389px;
   height: 80vh;
   margin: 40px auto;
   border: none;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
-  animation: ${fadeIn} 0.3s ease-in;
 `;
 
 export const Ul = styled.ul`
-  position: fixed;
-  bottom: 0;
-  /* left: 0; */
-  transform: translate(0, -100%);
+  position: sticky; // fixed는 viewport에 고정이고 sticky는 내가 정한 offset에 닿을 때부터 고정 (부모 내에 유지)
+  top: 100%;
   width: 100%;
   max-width: 390px;
   height: auto;
@@ -34,6 +34,7 @@ export const Ul = styled.ul`
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   border-radius: 10px 10px 0 0;
   padding: 36px 0 16px;
+  animation: ${fadeIn} 0.5s ease-in-out;
 
   ::before {
     position: absolute;
