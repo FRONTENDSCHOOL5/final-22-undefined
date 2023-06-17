@@ -11,7 +11,7 @@ export const Header = styled.header`
 export const Input = styled.input`
   background-color: #f2f2f2;
   border-radius: 32px;
-  padding: 7px 245px 7px 16px;
+  padding: 7px 16px;
   margin-left: 20px;
 `;
 
