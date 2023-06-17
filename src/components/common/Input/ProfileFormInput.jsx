@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import * as S from './FormInput.style';
+import { AuthContextStore } from '../../../context/AuthContext';
 
 const ERROR_MSG = {
   required: '필수 입력사항을 입력해주세요.',
@@ -14,6 +15,10 @@ const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
 const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
 
 const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
+  // 현재 로그인한 유저의 accountname을 가져오기 위함
+  const { userAccountname } = useContext(AuthContextStore);
+
+  // 클라이언트 단 유효성 검사
   const validateValue = (value) => {
     let result;
 
@@ -30,7 +35,8 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
           result = value.length >= 2 && value.length <= 10 ? 'noError' : 'length';
           break;
         case 'accountname':
-          result = ID_REGEX.test(value) ? 'loading' : 'idPattern';
+          if (value === JSON.parse(userAccountname)) result = 'noError';
+          else result = ID_REGEX.test(value) ? 'loading' : 'idPattern';
           break;
         default:
           result = 'noError';
@@ -44,7 +50,6 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
     }
   };
 
-  console.log(error);
   // 이메일, 계정 ID 중복 검사
   const checkDuplication = async (errorMsg) => {
     try {
@@ -73,13 +78,16 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
     }
   };
 
+  // 실시간 이메일, 계정 ID 중복 검사 실행
   useEffect(() => {
     if (!['email', 'accountname'].includes(id)) return;
 
     // 이 부분 개선 필요...
     if (
       (id === 'email' && !EMAIL_REGEX.test(formData.email)) ||
-      (id === 'accountname' && !ID_REGEX.test(formData.accountname))
+      (id === 'accountname' && !ID_REGEX.test(formData.accountname)) ||
+      formData['accountname'] === JSON.parse(userAccountname)
+      // 프로필 수정 페이지에서 현재 로그인한 유저의 accountname인 경우 이미 가입된 계정이라는 에러 메세지를 보여주지 않기 위함
     ) {
       return;
     }
@@ -88,7 +96,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
 
     const timer = setTimeout(() => {
       checkDuplication(errorMsg);
-    }, 100);
+    }, 300);
 
     return () => {
       clearTimeout(timer);
@@ -101,6 +109,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
     setFormData({ ...formData, [id]: value });
   };
 
+  // 에러 메세지 보여지는 것 여부
   let isInvalid = false;
   if (error[id] !== 'loading' && error[id] !== 'noError' && error[id] !== '') {
     isInvalid = true;

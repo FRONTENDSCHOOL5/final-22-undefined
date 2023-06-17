@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 import Button from '../../components/common/Button/Button';
+import Wrapper from '../../components/common/Wrapper/Wrapper';
 
 export const Main = styled.main``;
 
 export const Form = styled.form``;
+
+export const LayoutWrapper = styled(Wrapper)`
+  padding: 0 34px;
+`;
 
 export const Section = styled.section``;
 
