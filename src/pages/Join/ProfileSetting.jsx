@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import Button from '../../components/common/Button/Button';
@@ -6,6 +6,10 @@ import ProfileForm from '../../components/ProfileForm/ProfileForm';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Main = styled.main``;
+
+const LayoutWrapper = styled(Wrapper)`
+  padding: 0 34px;
+`;
 
 const Form = styled.form``;
 
@@ -45,6 +49,10 @@ const ProfileSetting = () => {
   let isActivated = false;
   if (error.username === 'noError' && error.accountname === 'noError') isActivated = true;
 
+  useEffect(() => {
+    if (!state?.email || !state?.password) navigate('/join');
+  }, []);
+
   // 프로필 수정 페이지에서 버튼이 form 밖에 있어서 onSubmit으로 하지 않고 onClick으로 구현
   const handleClick = async () => {
     try {
@@ -69,7 +77,7 @@ const ProfileSetting = () => {
 
   return (
     <Main>
-      <Wrapper>
+      <LayoutWrapper>
         <Form onSubmit={(e) => e.preventDefault()}>
           <Title>프로필 설정</Title>
           <Desc>나중에 얼마든지 변경할 수 있습니다.</Desc>
@@ -85,7 +93,7 @@ const ProfileSetting = () => {
             감귤마켓 시작하기
           </StartBtn>
         </Form>
-      </Wrapper>
+      </LayoutWrapper>
     </Main>
   );
 };

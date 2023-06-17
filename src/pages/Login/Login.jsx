@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import Wrapper from '../../components/common/Wrapper/Wrapper';
 import { useState } from 'react';
 import LoginFormInput from '../../components/common/Input/LoginFormInput';
 import { useNavigate } from 'react-router-dom';
@@ -68,7 +67,7 @@ const Login = () => {
 
   return (
     <S.Main>
-      <Wrapper>
+      <S.LayoutWrapper>
         <S.Form onSubmit={handleSubmit}>
           <S.Section>
             <S.Heading>로그인</S.Heading>
@@ -106,7 +105,7 @@ const Login = () => {
             </S.LoginBtn>
           </S.Section>
         </S.Form>
-      </Wrapper>
+      </S.LayoutWrapper>
     </S.Main>
   );
 };
