@@ -24,12 +24,12 @@ export const Header = styled.header`
 export const ListBtn = styled.button`
   width: 25px;
   height: 25px;
-  background: url(${ListOnIcon}) no-repeat center;
+  background: ${({ isList }) => (isList ? `url(${ListOnIcon}) ` : `url(${ListOffIcon}) `)} no-repeat center;
   margin-right: 22px;
 `;
 
 export const AlbumBtn = styled.button`
   width: 25px;
   height: 25px;
-  background: url(${AlbumOffIcon}) no-repeat center;
+  background: ${({ isAlbum }) => (isAlbum ? `url(${AlbumOnIcon})` : `url(${AlbumOffIcon})`)} no-repeat center;
 `;
