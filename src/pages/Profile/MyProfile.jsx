@@ -9,6 +9,7 @@ import PostSection from '../../components/Post/PostSection';
 import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import productList from '../../components/Product/dummyProducts';
+import FeedHeader from '../../components/common/Header/FeedHeader';
 
 const LayoutWrapper = styled(Wrapper)`
   background-color: ${({ theme }) => theme.colors.bgGray};
@@ -59,7 +60,7 @@ const MyProfile = () => {
   return (
     <LayoutWrapper>
       <Title className='a11y-hidden'>나의 프로필 페이지</Title>
-      <SaveHeader name='임시' mode='default' />
+      <FeedHeader />
       <Main>
         <ProfileDisplay />
         <SellingProduct isLoading={isLoading} products={products} />

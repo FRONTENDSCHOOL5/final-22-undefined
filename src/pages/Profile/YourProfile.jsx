@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
-import SaveHeader from '../../components/common/Header/SaveHeader';
 import ProfileDisplay from '../../components/Profile/ProfileDisplay';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
 import SellingProduct from '../../components/Product/SellingProduct';
@@ -9,6 +8,7 @@ import PostSection from '../../components/Post/PostSection';
 import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import productList from '../../components/Product/dummyProducts';
+import FeedHeader from '../../components/common/Header/FeedHeader';
 
 const LayoutWrapper = styled(Wrapper)`
   background-color: ${({ theme }) => theme.colors.bgGray};
@@ -59,7 +59,8 @@ const YourProfile = () => {
   return (
     <LayoutWrapper>
       <Title className='a11y-hidden'>사용자 프로필 페이지</Title>
-      <SaveHeader name='임시' mode='default' />
+      {/* <SaveHeader name='임시' mode='default' /> */}
+      <FeedHeader />
       <Main>
         <ProfileDisplay />
         <SellingProduct isLoading={isLoading} products={products} />
