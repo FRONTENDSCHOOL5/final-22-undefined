@@ -1,7 +1,12 @@
 import React from 'react';
+import TopSearchNav from './TopSearchNav';
 
 const Search = () => {
-  return <div>Search</div>;
+  return (
+    <>
+      <TopSearchNav />
+    </>
+  );
 };
 
 export default Search;
