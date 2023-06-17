@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './FeedHeader.style';
 import backButtonImg from './../../assets/icon/icon-arrow-left.png';
 import ModalButtonImg from './../../assets/icon/icon-more-vertical.png';
-import Modal from './../../components/common/Modal/Modal';
+import FeedModal from './../../components/common/Modal/FeedModal';
 
 const FeedHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,7 +34,7 @@ const FeedHeader = () => {
       </S.ButtonIcon>
       {isModalOpen && (
         <>
-          <Modal options={feedModalOptions} onClose={closeModal} />
+          <FeedModal options={feedModalOptions} onClose={closeModal} />
         </>
       )}
     </S.Header>
