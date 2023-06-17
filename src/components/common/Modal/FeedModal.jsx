@@ -27,7 +27,7 @@ const FeedModal = ({ options, onClose }) => {
 
   const optionClick = (option) => {
     if (option === '설정 및 개인정보') {
-      navigate('/profile'); // 프로필 페이지로 이동
+      navigate('/profile/edit'); // 프로필 수정 페이지로 이동
     } else if (option === '로그아웃') {
       setSelectedOption(option);
     }
@@ -68,10 +68,16 @@ const FeedModal = ({ options, onClose }) => {
     return null;
   };
 
+  const handleClickOutside = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      onClose();
+    }
+  };
+
   return (
     <>
-      <S.ModalBg>
-        <S.Ul ref={modalRef}>
+      <S.ModalBg ref={modalRef} onClick={handleClickOutside}>
+        <S.Ul>
           {options.map((option, index) => (
             <S.Li key={index}>
               <button onClick={() => optionClick(option)}>{option}</button>
