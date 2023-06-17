@@ -76,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* 스크롤바 전체 */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
     height: 7px;
   }
 
@@ -91,6 +91,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 12px;
     background-color: ${({ theme }) => theme.colors.primary};
   }
+
 `;
 
 export default GlobalStyle;
