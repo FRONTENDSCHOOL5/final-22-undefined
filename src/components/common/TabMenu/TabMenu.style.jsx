@@ -30,7 +30,7 @@ export const Li = styled.li`
 `;
 
 export const StyledLink = styled(Link)`
-  color: ${({ theme, active }) => active && theme.colors.primary};
+  color: ${({ theme, id, active }) => id === active && theme.colors.primary};
 `;
 
 export const IMG = styled.img`
