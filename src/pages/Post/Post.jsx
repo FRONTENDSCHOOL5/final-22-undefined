@@ -5,14 +5,18 @@ import removeIcon from '../../assets/icon/icon-delete.svg';
 import Ellipse from '../../assets/Ellipse-1.png';
 import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
+import { useNavigate } from 'react-router-dom';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
+
 const Post = () => {
   const [uploadImg, setUploadImg] = useState('');
   const [userImg, setUserImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [userContent, setUserContent] = useState('');
+  const navigate = useNavigate();
 
+  // 유저 프로필 이미지 요청
   useEffect(() => {
     const handleUserImg = async () => {
       try {
@@ -23,8 +27,6 @@ const Post = () => {
           },
         });
         const data = await res.json();
-        console.log(data);
-        console.log(data.user.image);
         setUserImg(data.user.image);
       } catch (error) {
         console.log(error.message);
@@ -33,6 +35,31 @@ const Post = () => {
     handleUserImg();
   }, []);
 
+  // 게시물 업로드
+  const uploadPost = async () => {
+    try {
+      const res = await fetch('https://api.mandarin.weniv.co.kr/post', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          post: {
+            content: `${userContent}`,
+            image: `https://api.mandarin.weniv.co.kr/${uploadImg}`,
+          },
+        }),
+      });
+      const data = await res.json();
+      console.log(data);
+      // navigate('/profile');
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  // 이미지 업로드
   const handleImgInput = async (e) => {
     if (!e.target.files || e.target.files.length === 0) {
       return;
@@ -41,7 +68,7 @@ const Post = () => {
     const file = e.target.files[0];
     console.log(file.name.split('.'));
     const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
-    console.log(fileExtenstion);
+    // console.log(fileExtenstion);
     if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
 
     const formData = new FormData();
@@ -54,11 +81,19 @@ const Post = () => {
       });
       const data = await res.json();
       console.log(data);
+      console.log(data.filename);
       setUploadImg(data.filename);
     } catch (error) {
       console.log(error.message);
     }
   };
+
+  // 이미지 삭제 확인
+  const deleteConfirm = () => {
+    setUploadImg('');
+    alert('삭제되었습니다.');
+  };
+  const cancelConfirm = () => alert('취소했습니다.');
 
   const cofirmDelete = (message = '', onConfirm, onCancel) => {
     if (!onConfirm || typeof onConfirm !== 'function') {
@@ -79,37 +114,38 @@ const Post = () => {
     return confirmAction;
   };
 
-  const deleteConfirm = () => {
-    setUploadImg('');
-    alert('삭제했습니다.');
-  };
-  const cancelConfirm = () => alert('취소했습니다.');
-
   const hndleDelete = cofirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
 
   const handleContent = (e) => {
     setUserContent(e.target.value);
   };
 
+  // 버튼 활성화 여부
   let isActivated = false;
   if (userContent || uploadImg) isActivated = true;
 
-  console.log(isActivated);
-  console.log(userContent);
+  // let userImgUrl = `https://api.mandarin.weniv.co.kr/${userImg}`
   return (
     <>
-      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} />
+      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={uploadPost} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
         <UserProfile src={userImg ? `https://api.mandarin.weniv.co.kr/${userImg}` : Ellipse} />
         <PostArticle>
           <Form>
-            <Textarea
-              value={userContent}
-              name='text'
-              placeholder='게시글 입력하기..'
-              onChange={handleContent}
-            ></Textarea>
+            <Textarea value={userContent} name='text' placeholder='게시글 입력하기..' onChange={handleContent} />
+
+            <Ul>
+              {uploadImg && (
+                <Li>
+                  <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
+                  <DeleteBtn onClick={hndleDelete}>
+                    <span className='a11y-hidden'>업로드 이미지 삭제</span>
+                  </DeleteBtn>
+                </Li>
+              )}
+            </Ul>
+
             <UploadImgBtn htmlFor='imgUpload'></UploadImgBtn>
             <UploadImgInp
               className='a11y-hidden'
@@ -119,18 +155,7 @@ const Post = () => {
               accept='image/*'
             />
           </Form>
-          <Section>
-            <Ul>
-              {uploadImg !== '' && (
-                <Li>
-                  <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
-                  <DeleteBtn onClick={hndleDelete}>
-                    <span className='a11y-hidden'>업로드 이미지 삭제</span>
-                  </DeleteBtn>
-                </Li>
-              )}
-            </Ul>
-          </Section>
+          <Section></Section>
         </PostArticle>
       </PostMain>
     </>
