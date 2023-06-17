@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from '../common/Button/Button';
 
 export const Header = styled.section`
-  padding-top: 78px;
+  padding-top: 30px;
   background-color: ${({ theme }) => theme.colors.white};
   border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`};
 `;
