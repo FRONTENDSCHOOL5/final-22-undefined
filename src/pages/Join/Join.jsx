@@ -7,6 +7,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Main = styled.main``;
 
+const LayoutWrapper = styled(Wrapper)`
+  padding: 0 34px;
+`;
+
 const Form = styled.form``;
 
 const Title = styled.h1`
@@ -36,7 +40,7 @@ const Join = () => {
 
   return (
     <Main>
-      <Wrapper>
+      <LayoutWrapper>
         <Form>
           <Title>이메일로 회원가입</Title>
           <ProfileFormInput
@@ -68,7 +72,7 @@ const Join = () => {
             다음
           </NextBtn>
         </Form>
-      </Wrapper>
+      </LayoutWrapper>
     </Main>
   );
 };
