@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import * as S from './ProfileEdit.style';
-import ProfileForm from '../../components/ProfileForm/ProfileForm';
+import ProfileForm from '../../components/Profile/ProfileForm';
 import { AuthContextStore } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -76,10 +76,10 @@ const ProfileEdit = () => {
   };
 
   return (
-    <S.Main>
-      <S.LayoutWrapper>
-        <S.Title className='a11y-hidden'>프로필 수정 페이지</S.Title>
-        <SaveHeader name='저장' mode={isActivated ? 'default' : 'disabled'} onClick={handleClick} />
+    <S.LayoutWrapper>
+      <SaveHeader name='저장' mode={isActivated ? 'default' : 'disabled'} onClick={handleClick} />
+      <S.Title className='a11y-hidden'>프로필 수정 페이지</S.Title>
+      <S.Main>
         <S.Form>
           <ProfileForm
             formData={formData}
@@ -90,8 +90,8 @@ const ProfileEdit = () => {
             setError={setError}
           />
         </S.Form>
-      </S.LayoutWrapper>
-    </S.Main>
+      </S.Main>
+    </S.LayoutWrapper>
   );
 };
 

@@ -10,20 +10,20 @@ const FeedModal = ({ options, onClose }) => {
   const [selectedOption, setSelectedOption] = useState('');
   const { setUserToken, setUserAccountname } = useContext(AuthContextStore);
 
-  useEffect(() => {
-    // 모달 외부 클릭시 모달 닫는 이벤트 리스너 추가
-    const clickOutSide = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        onClose();
-      }
-    };
+  // useEffect(() => {
+  //   // 모달 외부 클릭시 모달 닫는 이벤트 리스너 추가
+  //   const clickOutSide = (e) => {
+  //     if (modalRef.current && !modalRef.current.contains(e.target)) {
+  //       onClose();
+  //     }
+  //   };
 
-    document.addEventListener('mousedown', clickOutSide);
+  //   document.addEventListener('mousedown', clickOutSide);
 
-    return () => {
-      document.removeEventListener('mousedown', clickOutSide);
-    };
-  }, [onClose]);
+  //   return () => {
+  //     document.removeEventListener('mousedown', clickOutSide);
+  //   };
+  // }, [onClose]);
 
   const optionClick = (option) => {
     if (option === '설정 및 개인정보') {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import Button from '../../components/common/Button/Button';
-import ProfileForm from '../../components/ProfileForm/ProfileForm';
+import ProfileForm from '../../components/Profile/ProfileForm';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Main = styled.main``;
