@@ -1,23 +1,22 @@
 import styled, { keyframes } from 'styled-components';
-import Wrapper from './../Wrapper/Wrapper';
 
-const fadeIn = keyframes`
+const slide = keyframes`
   from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(10%);
     }
 
     to {
-        opacity: 3;
-        transform: none;
+        opacity: 1;
+        transform: translateY(0);
     }
 `;
 
 export const ModalBg = styled.div`
   position: fixed;
   top: 0;
-  width: 388px;
-  height: 80vh;
+  min-width: 389px;
+  min-height: 80vh;
   margin: 40px auto;
   border: none;
   background-color: rgba(0, 0, 0, 0.3);
@@ -34,7 +33,7 @@ export const Ul = styled.ul`
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   border-radius: 10px 10px 0 0;
   padding: 36px 0 16px;
-  animation: ${fadeIn} 0.5s ease-in-out;
+  animation: ${slide} 0.3s ease-in;
 
   ::before {
     position: absolute;
@@ -51,4 +50,5 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   padding: 10px 0px 10px 26px;
+  font-weight: 700;
 `;
