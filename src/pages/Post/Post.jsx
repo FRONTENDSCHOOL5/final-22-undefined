@@ -11,6 +11,7 @@ const Post = () => {
   const [uploadImg, setUploadImg] = useState('');
   const [userImg, setUserImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
+  const [userContent, setUserContent] = useState('');
 
   useEffect(() => {
     const handleUserImg = async () => {
@@ -86,21 +87,29 @@ const Post = () => {
 
   const hndleDelete = cofirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
 
-  // const deleteImg = () => {
-  //   if (window.confirm('정말 삭제하시겠습니까?')) {
-  //     setUploadImg('');
-  //   }
-  // };
+  const handleContent = (e) => {
+    setUserContent(e.target.value);
+  };
 
+  let isActivated = false;
+  if (userContent || uploadImg) isActivated = true;
+
+  console.log(isActivated);
+  console.log(userContent);
   return (
     <>
-      <SaveHeader name='업로드' />
+      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
         <UserProfile src={userImg ? `https://api.mandarin.weniv.co.kr/${userImg}` : Ellipse} />
         <PostArticle>
           <Form>
-            <Textarea name='text' placeholder='게시글 입력하기..'></Textarea>
+            <Textarea
+              value={userContent}
+              name='text'
+              placeholder='게시글 입력하기..'
+              onChange={handleContent}
+            ></Textarea>
             <UploadImgBtn htmlFor='imgUpload'></UploadImgBtn>
             <UploadImgInp
               className='a11y-hidden'
