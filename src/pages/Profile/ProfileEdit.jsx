@@ -76,10 +76,10 @@ const ProfileEdit = () => {
   };
 
   return (
-    <S.Main>
-      <S.LayoutWrapper>
-        <S.Title className='a11y-hidden'>프로필 수정 페이지</S.Title>
-        <SaveHeader name='저장' mode={isActivated ? 'default' : 'disabled'} onClick={handleClick} />
+    <S.LayoutWrapper>
+      <SaveHeader name='저장' mode={isActivated ? 'default' : 'disabled'} onClick={handleClick} />
+      <S.Title className='a11y-hidden'>프로필 수정 페이지</S.Title>
+      <S.Main>
         <S.Form>
           <ProfileForm
             formData={formData}
@@ -90,8 +90,8 @@ const ProfileEdit = () => {
             setError={setError}
           />
         </S.Form>
-      </S.LayoutWrapper>
-    </S.Main>
+      </S.Main>
+    </S.LayoutWrapper>
   );
 };
 
