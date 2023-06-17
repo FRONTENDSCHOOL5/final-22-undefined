@@ -100,3 +100,11 @@ export const ShareBtn = styled.button`
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   background: url(${ShareIcon}) no-repeat center / 18px;
 `;
+
+export const EditProfileBtn = styled(Button)`
+  width: 120px;
+`;
+
+export const AddProductBtn = styled(Button)`
+  width: 100px;
+`;
