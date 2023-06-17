@@ -4,6 +4,7 @@ import uploadIcon from '../../assets/icon/icon-upload.png';
 import removeIcon from '../../assets/icon/icon-delete.svg';
 import Ellipse from '../../assets/Ellipse-1.png';
 import { AuthContextStore } from '../../context/AuthContext';
+import SaveHeader from '../../components/common/Header/SaveHeader';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 const Post = () => {
@@ -93,19 +94,24 @@ const Post = () => {
 
   return (
     <>
+      <SaveHeader name='업로드' />
+      <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
-        <h2 className='a11y-hidden'>게시글 작성</h2>
         <UserProfile src={userImg ? `https://api.mandarin.weniv.co.kr/${userImg}` : Ellipse} />
         <PostArticle>
-          <h3 className='a11y-hidden'>게시글 작성 form</h3>
           <Form>
             <Textarea name='text' placeholder='게시글 입력하기..'></Textarea>
             <UploadImgBtn htmlFor='imgUpload'></UploadImgBtn>
-            <input className='a11y-hidden' type='file' id='imgUpload' onChange={handleImgInput} accept='image/*' />
+            <UploadImgInp
+              className='a11y-hidden'
+              type='file'
+              id='imgUpload'
+              onChange={handleImgInput}
+              accept='image/*'
+            />
           </Form>
-          <section>
-            <h4 className='a11y-hidden'>업로드 이미지</h4>
-            <ul>
+          <Section>
+            <Ul>
               {uploadImg !== '' && (
                 <Li>
                   <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
@@ -114,8 +120,8 @@ const Post = () => {
                   </DeleteBtn>
                 </Li>
               )}
-            </ul>
-          </section>
+            </Ul>
+          </Section>
         </PostArticle>
       </PostMain>
     </>
@@ -124,9 +130,12 @@ const Post = () => {
 
 export default Post;
 
+const Title = styled.h2``;
+
 const PostMain = styled.main`
-  display: flex;
+  margin-top: 48px;
   padding: 20px 16px;
+  display: flex;
 `;
 
 const UserProfile = styled.img`
@@ -140,12 +149,15 @@ const UserProfile = styled.img`
 const PostArticle = styled.article`
   flex-grow: 1;
 `;
+
 const Form = styled.form`
   padding-top: 10px;
 `;
+
+const Section = styled.section``;
+
 const Textarea = styled.textarea`
   width: 100%;
-  /* height: 18px; */
   padding: 0;
   margin-bottom: 16px;
   border: none;
@@ -157,6 +169,8 @@ const Textarea = styled.textarea`
     color: ${({ theme }) => theme.colors.gray};
   }
 `;
+
+const Ul = styled.ul``;
 
 const Li = styled.li`
   border-radius: 10px;
@@ -182,6 +196,8 @@ const UploadImgBtn = styled.label`
   border-radius: 50%;
   background: ${({ theme }) => `${theme.colors.primary} url(${uploadIcon}) no-repeat center`};
 `;
+
+const UploadImgInp = styled.input``;
 
 const DeleteBtn = styled.button`
   width: 22px;
