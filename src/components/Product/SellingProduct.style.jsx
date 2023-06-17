@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Section = styled.section`
   padding: 20px 0px 20px 21px;
   margin-top: 6px;
-  background-color: ${({ theme }) => theme.colors.white};
+  ${({ theme }) => css`
+    background-color: ${theme.colors.white};
+    border-top: 0.5px solid ${theme.colors.gray};
+    border-bottom: 0.5px solid ${theme.colors.gray};
+  `}
 `;
 
 export const Title = styled.h2`
