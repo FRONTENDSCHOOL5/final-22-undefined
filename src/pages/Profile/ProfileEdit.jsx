@@ -31,6 +31,7 @@ const ProfileEdit = () => {
     isActivated = true;
   }
 
+  // 페이지 로드시 사용자 정보 가져오기
   useEffect(() => {
     const getInfo = async () => {
       try {
@@ -53,6 +54,7 @@ const ProfileEdit = () => {
     getInfo();
   }, [userToken]);
 
+  // 버튼 클릭 시 정보 저장
   const handleClick = async () => {
     try {
       setIsLoading(true);
@@ -64,10 +66,8 @@ const ProfileEdit = () => {
 
       const data = await response.json();
       if (!data.user) throw Error('잘못된 접근입니다.');
-      const { username, accountname, intro, image } = data.user;
-      setFormData({ accountname, username, intro });
-      setImg(image);
       setIsLoading(false);
+      localStorage.setItem('accountname', JSON.stringify(formData.accountname));
       navigate('/profile');
     } catch (err) {
       console.log(err.message);
