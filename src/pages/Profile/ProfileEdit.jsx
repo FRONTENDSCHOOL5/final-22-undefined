@@ -3,6 +3,7 @@ import SaveHeader from '../../components/common/Header/SaveHeader';
 import * as S from './ProfileEdit.style';
 import ProfileForm from '../../components/ProfileForm/ProfileForm';
 import { AuthContextStore } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileEdit = () => {
   const { userToken } = useContext(AuthContextStore);
@@ -18,6 +19,7 @@ const ProfileEdit = () => {
     intro: '',
   });
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   // 버튼 활성화
   let isActivated = false;
@@ -51,7 +53,27 @@ const ProfileEdit = () => {
     getInfo();
   }, [userToken]);
 
-  const handleClick = () => {};
+  const handleClick = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch('https://api.mandarin.weniv.co.kr/user', {
+        method: 'PUT',
+        headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user: { ...formData, image: img } }),
+      });
+
+      const data = await response.json();
+      if (!data.user) throw Error('잘못된 접근입니다.');
+      const { username, accountname, intro, image } = data.user;
+      setFormData({ accountname, username, intro });
+      setImg(image);
+      setIsLoading(false);
+      navigate('/profile');
+    } catch (err) {
+      console.log(err.message);
+      setIsLoading(false);
+    }
+  };
 
   return (
     <S.Main>
