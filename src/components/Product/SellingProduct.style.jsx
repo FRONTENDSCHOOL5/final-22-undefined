@@ -36,11 +36,11 @@ export const ImgCover = styled.div`
   border-radius: 8px;
   border: ${({ theme }) => `0.5px solid ${theme.colors.gray}`};
   margin-bottom: 6px;
-  overflow: hidden;
 `;
 
 export const Img = styled.img`
   height: 100%;
+  border-radius: 8px;
   object-fit: cover;
 `;
 
