@@ -6,14 +6,16 @@ import Button from '../common/Button/Button';
 
 export const Header = styled.section`
   padding-top: 78px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`};
 `;
 
 export const Container = styled.div`
-  max-width: 300px;
+  max-width: 290px;
   margin: 0 auto;
   text-align: center;
   position: relative;
-  box-shadow: inset 0 0 20px lime;
+  /* box-shadow: inset 0 0 20px lime; */
 `;
 
 export const ProfileImg = styled.img`
@@ -39,7 +41,7 @@ export const Intro = styled.p`
   font-size: 14px;
   width: 280px;
   color: ${({ theme }) => theme.colors.txtColor};
-  margin: 16px auto 24px;
+  margin: 14px auto 26px;
 `;
 
 export const FollwerLink = styled(Link)`
@@ -76,7 +78,7 @@ export const BtnContainer = styled.div`
   display: flex;
   gap: 10px;
   justify-content: center;
-  box-shadow: inset 0 0 20px salmon;
+  margin-bottom: 26px;
 `;
 
 export const ChatBtn = styled.button`
