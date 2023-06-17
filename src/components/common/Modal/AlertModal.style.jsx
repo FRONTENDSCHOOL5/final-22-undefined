@@ -10,6 +10,7 @@ export const AlertSection = styled.div`
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.white};
   z-index: 999;
+  overflow: hidden;
 `;
 
 export const Strong = styled.strong`
@@ -21,12 +22,16 @@ export const Strong = styled.strong`
 
 export const Ul = styled.ul`
   border-top: ${({ theme }) => `0.5px solid ${theme.colors.gray}`};
+  display: flex;
+  justify-content: space-between;
 `;
 
-export const Li = styled.li``;
+export const Li = styled.li`
+  flex: 1;
+`;
 
 export const Button = styled.button`
-  width: 126px;
+  width: 100%;
   height: 46px;
   font-weight: 700;
   color: ${({ color }) => color || 'inherit'};

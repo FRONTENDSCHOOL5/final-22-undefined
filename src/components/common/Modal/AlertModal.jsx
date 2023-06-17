@@ -6,18 +6,16 @@ const AlertModal = ({ message, onClose, buttons, buttonFontColor, buttonBorder }
     <S.AlertSection>
       <S.Strong>{message}</S.Strong>
       <S.Ul>
-        <S.Li>
-          {buttons.map((button, index) => (
-            <S.Button
-              key={index}
-              onClick={() => onClose(button)}
-              color={buttonFontColor[index]}
-              style={buttonBorder[index]}
-            >
-              {button}
-            </S.Button>
-          ))}
-        </S.Li>
+        {buttons.map((button, index) => {
+          console.log(button);
+          return (
+            <S.Li key={index}>
+              <S.Button onClick={() => onClose(button)} color={buttonFontColor[index]} style={buttonBorder[index]}>
+                {button}
+              </S.Button>
+            </S.Li>
+          );
+        })}
       </S.Ul>
     </S.AlertSection>
   );
