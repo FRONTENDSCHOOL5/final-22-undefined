@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import * as S from './ProfileEdit.style';
-import ProfileForm from '../../components/ProfileForm/ProfileForm';
+import ProfileForm from '../../components/Profile/ProfileForm';
 import { AuthContextStore } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
