@@ -32,11 +32,7 @@ const FeedHeader = () => {
       <S.ButtonIcon onClick={openModal}>
         <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
       </S.ButtonIcon>
-      {isModalOpen && (
-        <>
-          <FeedModal options={feedModalOptions} onClose={closeModal} />
-        </>
-      )}
+      {isModalOpen && <FeedModal options={feedModalOptions} onClose={closeModal} />}
     </S.Header>
   );
 };

@@ -8,7 +8,12 @@ const AlertModal = ({ message, onClose, buttons, buttonFontColor, buttonBorder }
       <S.Ul>
         <S.Li>
           {buttons.map((button, index) => (
-            <S.Button key={index} onClick={onClose} color={buttonFontColor[index]} style={buttonBorder[index]}>
+            <S.Button
+              key={index}
+              onClick={() => onClose(button)}
+              color={buttonFontColor[index]}
+              style={buttonBorder[index]}
+            >
               {button}
             </S.Button>
           ))}

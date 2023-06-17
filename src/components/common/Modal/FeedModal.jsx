@@ -1,15 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
 import { useNavigate } from 'react-router-dom';
-import theme from './../../../styles/Theme';
+import { AuthContextStore } from '../../../context/AuthContext';
 
 const FeedModal = ({ options, onClose }) => {
-  const modalRef = useRef();
+  const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
+  const { setUserToken, setUserAccountname } = useContext(AuthContextStore);
 
   useEffect(() => {
+    // 모달 외부 클릭시 모달 닫는 이벤트 리스너 추가
     const clickOutSide = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
         onClose();
@@ -31,8 +33,23 @@ const FeedModal = ({ options, onClose }) => {
     }
   };
 
-  const closeModal = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('accountname');
+    setUserToken(null);
+    setUserAccountname(null);
     setSelectedOption('');
+    navigate('/');
+  };
+
+  const closeModal = (option) => {
+    console.log(selectedOption);
+    if (option === '로그아웃') {
+      console.log('하이');
+      handleLogout();
+    } else {
+      setSelectedOption('');
+    }
   };
 
   const renderAlertModal = () => {
@@ -41,7 +58,7 @@ const FeedModal = ({ options, onClose }) => {
         <AlertModal
           message='로그아웃하시겠어요?'
           onClose={closeModal}
-          buttons={['취소', ' 로그아웃']}
+          buttons={['취소', '로그아웃']}
           buttonFontColor={['#767676', '#F26E22']}
           buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
         />
