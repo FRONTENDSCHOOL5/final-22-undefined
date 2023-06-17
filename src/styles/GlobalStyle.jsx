@@ -73,6 +73,24 @@ const GlobalStyle = createGlobalStyle`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
+
+  /* 스크롤바 전체 */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 7px;
+  }
+
+  /* 스크롤바 막대 */
+  ::-webkit-scrollbar-track {
+    border-radius: 12px;
+    background-color: ${({ theme }) => theme.colors.gray};
+  }
+
+  /* 스크롤바 트랙 */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background-color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export default GlobalStyle;
