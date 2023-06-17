@@ -16,7 +16,7 @@ const fadeIn = keyframes`
 export const ModalBg = styled.div`
   position: fixed;
   top: 0;
-  width: 389px;
+  width: 388px;
   height: 80vh;
   margin: 40px auto;
   border: none;
