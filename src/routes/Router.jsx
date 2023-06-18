@@ -70,6 +70,7 @@ import PostUpload from '../pages/PostPage/PostUpload';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
 <<<<<<< HEAD
@@ -91,10 +92,20 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 =======
 >>>>>>> 3eb466a (add: IconHeader 구현을 위해 임의로 생성 #50)
 =======
+=======
+>>>>>>> fca3dd8 (add: IconHeader 구현을 위해 임의로 생성 #50)
 import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
+<<<<<<< HEAD
 >>>>>>> 97e7327 (fix: product/edit 경로 추가)
+<<<<<<< HEAD
 >>>>>>> d7c28f2 (fix: product/edit 경로 추가)
+=======
+=======
+=======
+>>>>>>> 7650e4e (add: IconHeader 구현을 위해 임의로 생성 #50)
+>>>>>>> baf1c97 (add: IconHeader 구현을 위해 임의로 생성 #50)
+>>>>>>> fca3dd8 (add: IconHeader 구현을 위해 임의로 생성 #50)
 
 const Router = () => {
   return (
@@ -146,7 +157,6 @@ const Router = () => {
 =======
 =======
         <Route path='/product' element={<AddProduct />} />
-        <Route path='/product/edit' element={<EditProduct />} />
         <Route path='/follow/:accountname/:type' element={<FollowList />} />
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
 >>>>>>> 97e7327 (fix: product/edit 경로 추가)
