@@ -2,20 +2,20 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import uploadIcon from '../../assets/icon/icon-upload.png';
 import removeIcon from '../../assets/icon/icon-delete.svg';
-import Ellipse from '../../assets/Ellipse-1.png';
 import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import { useNavigate } from 'react-router-dom';
+import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
 const Post = () => {
-  const [uploadImg, setUploadImg] = useState('');
   const [userProfileImg, setUserProfileImg] = useState('');
+  const [uploadImg, setUploadImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [userContent, setUserContent] = useState('');
+  const textarea = useRef(); // textarea 높이 자동 조절을 위해 쓰이는 ref
   const navigate = useNavigate();
-  const textarea = useRef();
 
   // 유저 프로필 이미지 요청
   useEffect(() => {
@@ -52,9 +52,10 @@ const Post = () => {
           },
         }),
       });
+
       const data = await res.json();
       console.log(data);
-      // navigate('/profile');
+      navigate('/profile');
     } catch (error) {
       console.log(error.message);
     }
@@ -134,7 +135,7 @@ const Post = () => {
       <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={uploadPost} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
-        <UserProfile src={userProfileImg ? `https://api.mandarin.weniv.co.kr/${userProfileImg}` : Ellipse} />
+        <PostUserProfileImg userProfileImg={userProfileImg} />
         <PostArticle>
           <Form>
             <Textarea
@@ -143,10 +144,9 @@ const Post = () => {
               placeholder='게시글 입력하기..'
               onChange={handleContent}
               ref={textarea}
-              rows={2}
+              rows={1}
             />
           </Form>
-
           <Section>
             <Ul>
               {uploadImg && (
@@ -183,29 +183,21 @@ const PostMain = styled.main`
   display: flex;
 `;
 
-const UserProfile = styled.img`
-  width: 42px;
-  height: 42px;
-  margin-right: 12px;
-  object-fit: cover;
-  border-radius: 50%;
-`;
-
 const PostArticle = styled.article`
   flex-grow: 1;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
 `;
 
 const Form = styled.form`
-  padding-top: 10px;
+  padding-top: 8px;
 `;
 
 const Section = styled.section``;
 
 const Textarea = styled.textarea`
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   border: none;
   resize: none;
   overflow: hidden;
