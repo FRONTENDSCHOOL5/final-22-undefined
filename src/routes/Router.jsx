@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Loading from '../pages/Loading/Loading';
-import Home from '../pages/Home/Home';
-import Search from '../pages/Search/Search';
-import Join from '../pages/Join/Join';
-import ProfileSetting from '../pages/Join/ProfileSetting';
-import Login from '../pages/Login/Login';
-import ProfileEdit from '../pages/Profile/ProfileEdit';
-import MyProfile from '../pages/Profile/MyProfile';
-import YourProfile from '../pages/Profile/YourProfile';
+import Loading from '../pages/LoadingPage/Loading';
+import Home from '../pages/HomePage/Home';
+import Search from '../pages/SearchPage/Search';
+import Join from '../pages/JoinPage/Join';
+import ProfileSetting from '../pages/JoinPage/ProfileSetting';
+import Login from '../pages/LoginPage/Login';
+import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
+import MyProfile from '../pages/ProfilePage/MyProfile';
+import YourProfile from '../pages/ProfilePage/YourProfile';
 
 const Router = () => {
   return (
