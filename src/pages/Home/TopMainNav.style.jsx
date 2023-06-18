@@ -1,12 +1,9 @@
 import styled from 'styled-components';
+import iconSearch from '../../assets/icon/icon-search.png';
 
-export const Container = styled.div`
-  max-width: 390px;
-  margin: 0px auto;
-  /* box-shadow: 0 0 10px black; */
-`;
-
-export const Wrapper = styled.div`
+export const Header = styled.header`
+  margin-bottom: 220px;
+  border-bottom: 0.5px solid #dbdbdb;
   padding: 13px 16px;
 `;
 
@@ -17,7 +14,8 @@ export const H1 = styled.h1`
   line-height: 22px;
 `;
 
-export const IMG = styled.img`
+export const SearchBtn = styled.button`
+  background: url(${iconSearch}) no-repeat center/ 16px 16px;
   width: 16px;
   height: 16px;
   float: right;

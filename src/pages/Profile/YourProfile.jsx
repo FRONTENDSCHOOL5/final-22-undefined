@@ -59,7 +59,6 @@ const YourProfile = () => {
   return (
     <LayoutWrapper>
       <Title className='a11y-hidden'>사용자 프로필 페이지</Title>
-      {/* <SaveHeader name='임시' mode='default' /> */}
       <FeedHeader />
       <Main>
         <ProfileDisplay />
