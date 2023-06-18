@@ -7,6 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 const ProfileDisplay = () => {
   const { userAccountname } = useContext(AuthContextStore);
   const { accountname } = useParams();
+  const { type } = useParams();
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
@@ -20,11 +21,11 @@ const ProfileDisplay = () => {
         <S.UserName>크롱</S.UserName>
         <S.AccountName>{`@ ${userId}`}</S.AccountName>
         <S.Intro className='sl-ellipsis'>애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장입니다</S.Intro>
-        <S.FollowerLink>
+        <S.FollowerLink to={`/follow/${userId}/follower`}>
           <strong>10</strong>
           <S.Type>followers</S.Type>
         </S.FollowerLink>
-        <S.FollowingLink>
+        <S.FollowingLink to={`/follow/${userId}/following`}>
           <strong>128</strong>
           <S.Type>followings</S.Type>
         </S.FollowingLink>
