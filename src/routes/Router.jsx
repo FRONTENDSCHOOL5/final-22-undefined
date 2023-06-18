@@ -17,8 +17,11 @@ import AddProduct from '../pages/ProductPage/AddProduct';
 import FollowList from '../pages/FollowListPage/FollowList';
 import PostUpload from '../pages/PostPage/PostUpload';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
+<<<<<<< HEAD
 import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
+=======
+>>>>>>> 7650e4e (add: IconHeader 구현을 위해 임의로 생성 #50)
 
 const Router = () => {
   return (
@@ -39,7 +42,6 @@ const Router = () => {
 <<<<<<< HEAD
 =======
         <Route path='/product' element={<AddProduct />} />
-        <Route path='/product/edit' element={<EditProduct />} />
         <Route path='/follow/:accountname/:type' element={<FollowList />} />
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
       </Routes>
