@@ -12,7 +12,7 @@ const ImgInput = ({ img, setImg }) => {
 
     const file = event.target.files[0];
     console.log(file);
-    const fileExtenstion = file.name.split('.')[1].toLowerCase();
+    const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
 
     if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
 
