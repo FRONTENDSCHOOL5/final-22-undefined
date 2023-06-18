@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Ellipse from '../../assets/Ellipse-1.png';
 import * as S from './ProfileDisplay.style';
 import { AuthContextStore } from '../../context/AuthContext';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ProfileDisplay = () => {
   const { userAccountname } = useContext(AuthContextStore);
@@ -30,8 +30,12 @@ const ProfileDisplay = () => {
         </S.FollowingLink>
         {isLoginUser ? (
           <S.BtnContainer>
-            <S.EditProfileBtn mode='active'>프로필 수정</S.EditProfileBtn>
-            <S.AddProductBtn mode='active'>상품 등록</S.AddProductBtn>
+            <Link to='/profile/edit'>
+              <S.EditProfileBtn mode='active'>프로필 수정</S.EditProfileBtn>
+            </Link>
+            <Link to='/product'>
+              <S.AddProductBtn mode='active'>상품 등록</S.AddProductBtn>
+            </Link>
           </S.BtnContainer>
         ) : (
           <S.BtnContainer>

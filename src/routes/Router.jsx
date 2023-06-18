@@ -9,6 +9,7 @@ import Login from '../pages/LoginPage/Login';
 import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
+import AddProduct from '../pages/ProductPage/AddProduct';
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path='/profile' element={<MyProfile />} />
         <Route path='/profile/:accountname' element={<YourProfile />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
+        <Route path='/product' element={<AddProduct />} />
       </Routes>
     </BrowserRouter>
   );
