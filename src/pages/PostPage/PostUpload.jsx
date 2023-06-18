@@ -11,7 +11,7 @@ const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.h
 
 const Post = () => {
   const [uploadImg, setUploadImg] = useState('');
-  const [userImg, setUserImg] = useState('');
+  const [userProfileImg, setUserProfileImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [userContent, setUserContent] = useState('');
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Post = () => {
           },
         });
         const data = await res.json();
-        setUserImg(data.user.image);
+        setUserProfileImg(data.user.image);
       } catch (error) {
         console.log(error.message);
       }
@@ -134,7 +134,7 @@ const Post = () => {
       <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={uploadPost} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
-        <UserProfile src={userImg ? `https://api.mandarin.weniv.co.kr/${userImg}` : Ellipse} />
+        <UserProfile src={userProfileImg ? `https://api.mandarin.weniv.co.kr/${userProfileImg}` : Ellipse} />
         <PostArticle>
           <Form>
             <Textarea
