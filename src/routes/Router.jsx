@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Loading from '../pages/Loading/Loading';
-import Home from '../pages/Home/Home';
-import Join from '../pages/Join/Join';
-import ProfileSetting from '../pages/Join/ProfileSetting';
-import Login from '../pages/Login/Login';
-import ProfileEdit from '../pages/Profile/ProfileEdit';
-import MyProfile from '../pages/Profile/MyProfile';
-import PostUpload from '../pages/PostPage/PostUpload';
+import Loading from '../pages/LoadingPage/Loading';
+import Home from '../pages/HomePage/Home';
+import Search from '../pages/SearchPage/Search';
+import Join from '../pages/JoinPage/Join';
+import ProfileSetting from '../pages/JoinPage/ProfileSetting';
+import Login from '../pages/LoginPage/Login';
+import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
+import MyProfile from '../pages/ProfilePage/MyProfile';
+import YourProfile from '../pages/ProfilePage/YourProfile';
 
 const Router = () => {
   return (
@@ -15,12 +16,14 @@ const Router = () => {
       <Routes>
         <Route path='/' element={<Loading />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/search' element={<Search />} />
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
         <Route path='/join/profile' element={<ProfileSetting />} />
         <Route path='/post' element={<PostUpload />} />
-        <Route path='/profile/edit' element={<ProfileEdit />} />
         <Route path='/profile' element={<MyProfile />} />
+        <Route path='/profile/:accountname' element={<YourProfile />} />
+        <Route path='/profile/edit' element={<ProfileEdit />} />
       </Routes>
     </BrowserRouter>
   );
