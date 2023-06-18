@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import uploadIcon from '../../assets/icon/icon-upload.png';
 import removeIcon from '../../assets/icon/icon-delete.svg';
@@ -15,6 +15,7 @@ const Post = () => {
   const { userToken } = useContext(AuthContextStore);
   const [userContent, setUserContent] = useState('');
   const navigate = useNavigate();
+  const textarea = useRef();
 
   // 유저 프로필 이미지 요청
   useEffect(() => {
@@ -116,8 +117,11 @@ const Post = () => {
 
   const hndleDelete = cofirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
 
+  // textarea 높이 자동 조절
   const handleContent = (e) => {
     setUserContent(e.target.value);
+    textarea.current.style.height = 'auto'; // 높이 초기화
+    textarea.current.style.height = textarea.current.scrollHeight + 'px';
   };
 
   // 버튼 활성화 여부
@@ -133,8 +137,17 @@ const Post = () => {
         <UserProfile src={userImg ? `https://api.mandarin.weniv.co.kr/${userImg}` : Ellipse} />
         <PostArticle>
           <Form>
-            <Textarea value={userContent} name='text' placeholder='게시글 입력하기..' onChange={handleContent} />
+            <Textarea
+              value={userContent}
+              name='text'
+              placeholder='게시글 입력하기..'
+              onChange={handleContent}
+              ref={textarea}
+              rows={2}
+            />
+          </Form>
 
+          <Section>
             <Ul>
               {uploadImg && (
                 <Li>
@@ -145,7 +158,6 @@ const Post = () => {
                 </Li>
               )}
             </Ul>
-
             <UploadImgBtn htmlFor='imgUpload'></UploadImgBtn>
             <UploadImgInp
               className='a11y-hidden'
@@ -154,8 +166,7 @@ const Post = () => {
               onChange={handleImgInput}
               accept='image/*'
             />
-          </Form>
-          <Section></Section>
+          </Section>
         </PostArticle>
       </PostMain>
     </>
@@ -182,6 +193,8 @@ const UserProfile = styled.img`
 
 const PostArticle = styled.article`
   flex-grow: 1;
+  padding-bottom: 10px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
 `;
 
 const Form = styled.form`
@@ -192,10 +205,10 @@ const Section = styled.section``;
 
 const Textarea = styled.textarea`
   width: 100%;
-  padding: 0;
   margin-bottom: 16px;
   border: none;
   resize: none;
+  overflow: hidden;
   &:focus {
     outline: none;
   }

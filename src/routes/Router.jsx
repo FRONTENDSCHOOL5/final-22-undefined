@@ -9,6 +9,7 @@ import Login from '../pages/LoginPage/Login';
 import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
+import PostUpload from '../pages/PostPage/PostUpload';
 
 const Router = () => {
   return (
