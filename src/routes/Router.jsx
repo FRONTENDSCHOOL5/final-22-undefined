@@ -12,6 +12,7 @@ import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
 <<<<<<< HEAD
@@ -21,6 +22,8 @@ import YourProfile from '../pages/ProfilePage/YourProfile';
 >>>>>>> 849f289 (add: IconHeader 구현을 위해 임의로 생성 #50)
 =======
 >>>>>>> 24a8e0c (fix: product/edit 경로 추가)
+=======
+>>>>>>> 3eb466a (add: IconHeader 구현을 위해 임의로 생성 #50)
 import AddProduct from '../pages/ProductPage/AddProduct';
 import FollowList from '../pages/FollowListPage/FollowList';
 import PostUpload from '../pages/PostPage/PostUpload';
@@ -29,6 +32,7 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage';
 <<<<<<< HEAD
 <<<<<<< HEAD
 import EditProduct from './../pages/ProductPage/EditProduct';
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
 =======
@@ -41,9 +45,12 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
 =======
 =======
+>>>>>>> 3eb466a (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
 >>>>>>> 0d10278 (add: IconHeader 구현을 위해 임의로 생성 #50)
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 849f289 (add: IconHeader 구현을 위해 임의로 생성 #50)
 =======
@@ -74,6 +81,8 @@ import Icon from './../pages/ProfilePage/Icon';
 =======
 import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
+=======
+>>>>>>> 3eb466a (add: IconHeader 구현을 위해 임의로 생성 #50)
 
 const Router = () => {
   return (
@@ -91,6 +100,7 @@ const Router = () => {
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -126,6 +136,13 @@ const Router = () => {
 =======
         <Route path='/profile/icon' element={<Icon />} />
 >>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
+        <Route path='/product' element={<AddProduct />} />
+        <Route path='/product/edit' element={<EditProduct />} />
+        <Route path='/follow/:accountname/:type' element={<FollowList />} />
+=======
+>>>>>>> 0d10278 (add: IconHeader 구현을 위해 임의로 생성 #50)
+>>>>>>> 3eb466a (add: IconHeader 구현을 위해 임의로 생성 #50)
       </Routes>
     </BrowserRouter>
   );
