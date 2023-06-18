@@ -12,6 +12,7 @@ import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
 <<<<<<< HEAD
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
+<<<<<<< HEAD
 =======
 import AddProduct from '../pages/ProductPage/AddProduct';
 import FollowList from '../pages/FollowListPage/FollowList';
@@ -22,6 +23,9 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
 =======
 >>>>>>> 7650e4e (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
+import Icon from './../pages/ProfilePage/Icon';
+>>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
 
 const Router = () => {
   return (
@@ -40,10 +44,14 @@ const Router = () => {
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <Route path='/product' element={<AddProduct />} />
         <Route path='/follow/:accountname/:type' element={<FollowList />} />
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
+=======
+        <Route path='/profile/icon' element={<Icon />} />
+>>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
       </Routes>
     </BrowserRouter>
   );
