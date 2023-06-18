@@ -16,7 +16,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/temp' element={<PostContent />} />
+        <Route path='/post/:accountname/userpost' element={<PostContent />} />
         <Route path='/' element={<Loading />} />
         <Route path='/home' element={<Home />} />
         <Route path='/search' element={<Search />} />

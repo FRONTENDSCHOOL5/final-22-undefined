@@ -10,11 +10,16 @@ const PostUserProfileImg = ({ userProfileImg, size }) => {
   );
 };
 
+PostUserProfileImg.defaultProps = {
+  size: '42px',
+}; //size props의 default값을 설정.
+
 export default PostUserProfileImg;
 
 const UserProfile = styled.img`
-  width: ${({ size }) => (size ? size : '42px')};
-  height: ${({ size }) => (size ? size : '42px')};
+  width: ${({ size }) => size};
+  height: ${({ size }) => size};
+  /* width: ${({ size }) => (size ? size : '42px')}; //defaultProps 없이는 이런식으로 조건부 렌더링 */
   margin-right: 12px;
   object-fit: cover;
   border-radius: 50%;
