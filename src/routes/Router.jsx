@@ -20,6 +20,7 @@ import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 849f289 (add: IconHeader 구현을 위해 임의로 생성 #50)
@@ -190,6 +191,9 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 23796c1 (add: IconHeader 구현을 위해 임의로 생성 #50)
 >>>>>>> cdbef3d (add: IconHeader 구현을 위해 임의로 생성 #50)
 >>>>>>> 23220aa (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
+import Icon from './../pages/ProfilePage/Icon';
+>>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
 
 const Router = () => {
   return (
@@ -207,6 +211,7 @@ const Router = () => {
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -313,6 +318,9 @@ const Router = () => {
 >>>>>>> 24a8e0c (fix: product/edit 경로 추가)
 >>>>>>> 00da64a (fix: product/edit 경로 추가)
 >>>>>>> e4c414f (fix: product/edit 경로 추가)
+=======
+        <Route path='/profile/icon' element={<Icon />} />
+>>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
       </Routes>
     </BrowserRouter>
   );
