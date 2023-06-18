@@ -44,7 +44,7 @@ export const Intro = styled.p`
   margin: 14px auto 26px;
 `;
 
-export const FollwerLink = styled(Link)`
+export const FollowerLink = styled(Link)`
   position: absolute;
   left: 0;
   top: 20%;

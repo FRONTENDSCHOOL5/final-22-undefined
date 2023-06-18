@@ -20,10 +20,10 @@ const ProfileDisplay = () => {
         <S.UserName>크롱</S.UserName>
         <S.AccountName>{`@ ${userId}`}</S.AccountName>
         <S.Intro className='sl-ellipsis'>애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장입니다</S.Intro>
-        <S.FollwerLink>
+        <S.FollowerLink>
           <strong>10</strong>
           <S.Type>followers</S.Type>
-        </S.FollwerLink>
+        </S.FollowerLink>
         <S.FollowingLink>
           <strong>128</strong>
           <S.Type>followings</S.Type>
