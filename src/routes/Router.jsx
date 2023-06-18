@@ -63,6 +63,7 @@ import YourProfile from '../pages/ProfilePage/YourProfile';
 =======
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
+<<<<<<< HEAD
 =======
 import AddProduct from '../pages/ProductPage/AddProduct';
 import FollowList from '../pages/FollowListPage/FollowList';
@@ -81,7 +82,9 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 =======
 =======
 >>>>>>> 7650e4e (add: IconHeader 구현을 위해 임의로 생성 #50)
+<<<<<<< HEAD
 >>>>>>> baf1c97 (add: IconHeader 구현을 위해 임의로 생성 #50)
+<<<<<<< HEAD
 >>>>>>> 23796c1 (add: IconHeader 구현을 위해 임의로 생성 #50)
 =======
 import Icon from './../pages/ProfilePage/Icon';
@@ -106,6 +109,13 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 7650e4e (add: IconHeader 구현을 위해 임의로 생성 #50)
 >>>>>>> baf1c97 (add: IconHeader 구현을 위해 임의로 생성 #50)
 >>>>>>> fca3dd8 (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
+=======
+=======
+import Icon from './../pages/ProfilePage/Icon';
+>>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
+>>>>>>> a793b05 (add: IconHeader 구현을 위해 임의로 생성 #50)
+>>>>>>> cde40ec (add: IconHeader 구현을 위해 임의로 생성 #50)
 
 const Router = () => {
   return (
@@ -130,6 +140,7 @@ const Router = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <Route path='/product' element={<AddProduct />} />
         <Route path='/product/edit' element={<EditProduct />} />
@@ -143,6 +154,8 @@ const Router = () => {
 >>>>>>> 24a8e0c (fix: product/edit 경로 추가)
 =======
 >>>>>>> d7c28f2 (fix: product/edit 경로 추가)
+=======
+>>>>>>> cde40ec (add: IconHeader 구현을 위해 임의로 생성 #50)
         <Route path='/product' element={<AddProduct />} />
         <Route path='/product/edit' element={<EditProduct />} />
         <Route path='/follow/:accountname/:type' element={<FollowList />} />
@@ -156,10 +169,14 @@ const Router = () => {
 >>>>>>> d7c28f2 (fix: product/edit 경로 추가)
 =======
 =======
+>>>>>>> a793b05 (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
         <Route path='/product' element={<AddProduct />} />
         <Route path='/follow/:accountname/:type' element={<FollowList />} />
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
+<<<<<<< HEAD
 >>>>>>> 97e7327 (fix: product/edit 경로 추가)
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 24a8e0c (fix: product/edit 경로 추가)
 =======
@@ -174,6 +191,13 @@ const Router = () => {
 >>>>>>> 3eb466a (add: IconHeader 구현을 위해 임의로 생성 #50)
 =======
 >>>>>>> d7c28f2 (fix: product/edit 경로 추가)
+=======
+=======
+=======
+        <Route path='/profile/icon' element={<Icon />} />
+>>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
+>>>>>>> a793b05 (add: IconHeader 구현을 위해 임의로 생성 #50)
+>>>>>>> cde40ec (add: IconHeader 구현을 위해 임의로 생성 #50)
       </Routes>
     </BrowserRouter>
   );
