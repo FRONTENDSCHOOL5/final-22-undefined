@@ -24,6 +24,7 @@ const LoginFormInput = ({ id, label, formData, setFormData, error, setError, inp
     isInvalid = true;
   }
 
+  // 오류 메세지 설정을 이메일과 비밀번호 모두에 해준 후 이메일의 경우에만 화면에 오류 메세지가 보이지 않도록 처리
   if (id === 'email' && error.email === '이메일 또는 비밀번호가 일치하지 않습니다.') isInvalid = false;
 
   return (
