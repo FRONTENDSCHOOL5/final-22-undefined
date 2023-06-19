@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <Wrapper>
       <TopMainNav />
-      {userToken ? <Contents setPost={setPost} /> : <Contents />}
+      {userToken ? <Contents post={post} setPost={setPost} /> : <Contents />}
       <TabMenu />
     </Wrapper>
   );

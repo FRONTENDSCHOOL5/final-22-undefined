@@ -41,7 +41,8 @@ const SearchIcon = styled.a`
   line-height: 17.53px;
 `;
 
-const Contents = () => {
+const Contents = ({ post, setPost }) => {
+  console.log('post:', post, 'setPost:', setPost);
   return (
     <Main>
       <Section>
