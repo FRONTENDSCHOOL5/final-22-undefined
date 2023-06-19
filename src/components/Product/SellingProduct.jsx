@@ -27,10 +27,6 @@ const SellingProduct = () => {
         setProducts(jsonData.product);
 
         setIsLoading(false);
-        // setTimeout(() => {
-        //   setProducts(productList);
-        //   setIsLoading(false);
-        // }, 1000);
       } catch (err) {
         console.log(err.message);
         setIsLoading(false);
@@ -50,6 +46,8 @@ const SellingProduct = () => {
             <ProductSkeleton />
             <ProductSkeleton />
           </>
+        ) : products.length === 0 ? (
+          <S.Item soldout>판매중인 상품이 없습니다.😅</S.Item>
         ) : (
           products.map((product) => (
             <S.Item key={product.id}>
