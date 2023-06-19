@@ -2,27 +2,30 @@ import React, { useRef, useState, useContext } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
 import { useNavigate } from 'react-router-dom';
+import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose }) => {
+const PostModal = ({ onClose, postId }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const [selectedOption, setSelectedOption] = useState('');
   const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState('');
+  const { userToken } = useContext(AuthContextStore);
   const postModalOptions = ['삭제', '수정'];
 
   const optionClick = (option) => {
     if (option === '삭제') {
       setSelectedOption(option);
     } else if (option === '수정') {
-      navigate('/profile'); // 일단 프로필로 설정, 후에 게시글 수정 페이지로 경로 설정
+      navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
     }
   };
 
   const closeModal = (option) => {
     if (option === '삭제') {
-      deletePost()
+      deletePost(postId)
         .then((response) => {
           if (response.success) {
-            changePage(); // 삭제 성공 시 페이지 재랜더링
+            console.log('삭제 완료');
+            navigate('/profile');
           } else {
             deleteError(response.error); // 삭제 실패 시 에러 처리
           }
@@ -30,35 +33,44 @@ const PostModal = ({ onClose }) => {
         .catch((error) => {
           deleteError('서버 오류'); // 서버 통신 실패 시 에러 처리
         });
-
-      setSelectedOption(option);
     } else if (option === '취소') {
       setSelectedOption('');
       onClose(); // onClose 콜백 호출
     }
   };
 
-  const deletePost = () => {
-    // 게시글 삭제 요청을 처리하는 비동기 함수
-    return new Promise((resolve, reject) => {
-      // 게시글 삭제 요청 처리 로직
+  const deletePost = async (postId) => {
+    console.log('postId 값:', postId);
+    try {
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          'Content-Type': 'application/json',
+        },
+      });
 
-      // 성공 시
-      resolve({ success: true });
-
-      // 실패 시
-      // reject({ success: false, error: '에러 메시지' });
-    });
+      if (response.ok) {
+        // 성공할 경우
+        return { success: true };
+      } else if (response.status === 404) {
+        // 게시글이 존재하지 않을 경우
+        throw new Error('존재하지 않는 게시글입니다.');
+      } else if (response.status === 401) {
+        // 다른 사용자가 해당 게시글을 수정할 경우
+        throw new Error('잘못된 요청입니다. 로그인 정보를 확인하세요.');
+      } else {
+        // 기타 실패할 경우
+        throw new Error('게시글 삭제 실패');
+      }
+    } catch (error) {
+      // 실패할 경우
+      return { success: false, error: error.message };
+    }
   };
 
   const deleteError = (error) => {
-    // 삭제 실패 에러 처리 로직
     console.log(error);
-  };
-
-  const changePage = () => {
-    // 페이지 재랜더링을 위한 로직
-    // changePage 함수의 구현은 해당 페이지 컴포넌트에서 진행
   };
 
   const renderAlertModal = () => {
