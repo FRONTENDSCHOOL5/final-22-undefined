@@ -70,46 +70,43 @@ const PostContent = () => {
 
   return (
     <>
-      <Wrapper>
-        <PostArticle>
-          <h3 className='a11y-hidden'>게시물 아이템</h3>
-          <UserInfoSect>
-            <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-            <PostUserProfileImg userProfileImg={myProfileImg} />
-            <UserNameInfo>
-              <InfoName>{userName}</InfoName>
-              <InfoAccount>{ParsedAccountName}</InfoAccount>
-            </UserNameInfo>
-            <More>more</More>
-          </UserInfoSect>
+      <PostArticle>
+        <h3 className='a11y-hidden'>게시물 아이템</h3>
+        <UserInfoSect>
+          <h4 className='a11y-hidden'>게시물 유저 정보</h4>
+          <PostUserProfileImg userProfileImg={myProfileImg} />
+          <UserNameInfo>
+            <InfoName>{userName}</InfoName>
+            <InfoAccount>{ParsedAccountName}</InfoAccount>
+          </UserNameInfo>
+          <More>more</More>
+        </UserInfoSect>
 
-          <UserContentSect>
-            <h4 className='a11y-hidden'>게시물 내용</h4>
-            <UserPostText>{myPostContent}</UserPostText>
-            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={myPostImg} />}
-            <LikeAndComment>
-              <LikeBtn onClick={handleLikeBtn}>
-                <span className='a11y-hidden'>좋아요 버튼</span>
-                <span>{likeCount}</span>
-              </LikeBtn>
+        <UserContentSect>
+          <h4 className='a11y-hidden'>게시물 내용</h4>
+          <UserPostText>{myPostContent}</UserPostText>
+          {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={myPostImg} />}
+          <LikeAndComment>
+            <LikeBtn onClick={handleLikeBtn}>
+              <span className='a11y-hidden'>좋아요 버튼</span>
+              <span>{likeCount}</span>
+            </LikeBtn>
 
-              <CommentLink href='#'>
-                <span className='a11y-hidden'>댓글 남기기 링크</span>
-                <span>0</span>
-              </CommentLink>
-            </LikeAndComment>
-            <TodayDate>{today}</TodayDate>
-          </UserContentSect>
-        </PostArticle>
-      </Wrapper>
+            <CommentLink href='#'>
+              <span className='a11y-hidden'>댓글 남기기 링크</span>
+              <span>0</span>
+            </CommentLink>
+          </LikeAndComment>
+          <TodayDate>{today}</TodayDate>
+        </UserContentSect>
+      </PostArticle>
     </>
   );
 };
 
 export default PostContent;
 
-const PostArticle = styled.article`
-p`;
+const PostArticle = styled.article``;
 
 const UserInfoSect = styled.section`
   display: flex;
