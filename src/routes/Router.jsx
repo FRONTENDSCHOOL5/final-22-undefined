@@ -12,13 +12,13 @@ import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
 import PostUpload from '../pages/PostPage/PostUpload';
-import PostContent from '../components/Post/PostContent';
+import PostItem from '../components/Post/PostItem';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/post/:accountname/userpost' element={<PostContent />} />
+        <Route path='/post/:accountname/userpost' element={<PostItem />} />
         <Route path='/' element={<Loading />} />
         <Route path='/home' element={<Home />} />
         <Route path='/search' element={<Search />} />
