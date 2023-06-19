@@ -17,6 +17,12 @@ export const Input = styled.input`
   border-radius: 32px;
   padding: 7px 16px;
   margin-left: 20px;
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17.53px;
+    color: #c4c4c4;
+  }
 `;
 
 export const Arrow = styled.a`
