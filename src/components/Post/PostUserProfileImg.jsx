@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Ellipse from '../../assets/Ellipse-1.png';
 
 const PostUserProfileImg = ({ userProfileImg, size }) => {
+  //userProfileImg로 props 보낼때, myProfileImg(본인 프로필 사진) 혹은 userProfileImg(다른 유저 사진)로 받을 수 있음
   return (
     <>
       <UserProfile

@@ -4,7 +4,8 @@ import home from '../../assets/symbol-logo-gray.png';
 import styled from 'styled-components';
 
 const Main = styled.main`
-  height: calc(100vh - 108px);
+  height: calc(80vh - 108px);
+  overflow-y: auto;
 `;
 
 const Section = styled.section`
@@ -27,25 +28,26 @@ const P = styled.p`
   }
 `;
 
-const SearchBtn = styled.button`
+const SearchIcon = styled.a`
   width: 120px;
   height: 44px;
   display: inline-block;
+  padding: 15px 0;
   background: #f26e22;
   border-radius: 44px;
   color: #ffff;
   font-weight: 500;
   font-size: 14px;
   line-height: 17.53px;
-  text-align: center;
 `;
 
-const Contents = () => {
+const Contents = ({ post, setPost }) => {
+  console.log('post:', post, 'setPost:', setPost);
   return (
     <Main>
       <Section>
         <P>유저를 검색해 팔로우 해보세요!</P>
-        <SearchBtn>검색하기</SearchBtn>
+        <SearchIcon href='/search'>검색하기</SearchIcon>
       </Section>
     </Main>
   );

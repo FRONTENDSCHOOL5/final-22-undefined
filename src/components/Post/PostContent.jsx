@@ -2,40 +2,25 @@ import React, { useContext, useEffect, useState } from 'react';
 import PostUserProfileImg from './PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
-import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import HeartIcon from '../../assets/icon/icon-heart.png';
+import CommentIcon from '../../assets/icon/icon-message-circle.png';
 
 const PostContent = () => {
   const [myProfileImg, setMyProfileImg] = useState('');
+  const [userName, setUserName] = useState('');
+  const [myPostContent, setMyPostContent] = useState('');
   const [myPostImg, setMyPostImg] = useState('');
-  const { userToken } = useContext(AuthContextStore);
-  const { accountname } = useParams();
+  const [likeCount, setLikeCount] = useState(0);
+  const { userToken, userAccountname } = useContext(AuthContextStore);
+  console.log(userAccountname);
+  const ParsedAccountName = JSON.parse(userAccountname);
 
-  // 유저 프로필 이미지 요청
+  // 유저 프로필 요청
   useEffect(() => {
     const getMyImg = async () => {
       try {
-        const res = await fetch('https://api.mandarin.weniv.co.kr/user/myinfo', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${JSON.parse(userToken)}`,
-          },
-        });
-        const data = await res.json();
-        console.log(data.user.image);
-        setMyProfileImg(data.user.image);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    getMyImg();
-  }, []);
-
-  // 나의 게시글 목록 불러오기
-  useEffect(() => {
-    const getMyContent = async () => {
-      try {
-        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${accountname}/userpost`, {
+        const res = await fetch(`https://api.mandarin.weniv.co.kr/profile/${ParsedAccountName}`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${JSON.parse(userToken)}`,
@@ -44,7 +29,30 @@ const PostContent = () => {
         });
         const data = await res.json();
         console.log(data);
-        console.log(data.post[0].image);
+        console.log(data.profile.image);
+        setMyProfileImg(data.profile.image);
+        setUserName(data.profile.username);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getMyImg();
+  }, []);
+
+  // 게시글 목록 불러오기
+  useEffect(() => {
+    const getMyContent = async () => {
+      try {
+        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${ParsedAccountName}/userpost`, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${JSON.parse(userToken)}`,
+            'Content-type': 'application/json',
+          },
+        });
+        const data = await res.json();
+        // console.log(data);
+        setMyPostContent(data.post[0].content);
         setMyPostImg(data.post[0].image);
       } catch (error) {
         console.log(error.message);
@@ -52,6 +60,8 @@ const PostContent = () => {
     };
     getMyContent();
   }, []);
+
+  const handleLikeBtn = () => {};
 
   let dateString = new Date();
   let options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -63,29 +73,35 @@ const PostContent = () => {
       <Wrapper>
         <PostArticle>
           <h3 className='a11y-hidden'>게시물 아이템</h3>
-
-          <section>
+          <UserInfoSect>
             <h4 className='a11y-hidden'>게시물 유저 정보</h4>
             <PostUserProfileImg userProfileImg={myProfileImg} />
-            <div>
-              <strong>username</strong>
-              <p>accountname</p>
-            </div>
-          </section>
+            <UserNameInfo>
+              <InfoName>{userName}</InfoName>
+              <InfoAccount>{ParsedAccountName}</InfoAccount>
+            </UserNameInfo>
+            <More>more</More>
+          </UserInfoSect>
 
-          <section>
+          <UserContentSect>
             <h4 className='a11y-hidden'>게시물 내용</h4>
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
-          </section>
 
-          <section>
-            <h4 className='a11y-hidden'>게시물 기타사항</h4>
-            <div>
-              <p>좋아요</p>
-              <p>댓글</p>
-            </div>
-            <p>{today}</p>
-          </section>
+            <UserPostText>{myPostContent}</UserPostText>
+            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={myPostImg} />}
+            <LikeAndComment>
+              <LikeBtn onClick={handleLikeBtn}>
+                <span className='a11y-hidden'>좋아요 버튼</span>
+                <span>{likeCount}</span>
+              </LikeBtn>
+
+              <CommentLink href='#'>
+                <span className='a11y-hidden'>댓글 남기기 링크</span>
+                <span>0</span>
+              </CommentLink>
+            </LikeAndComment>
+            <TodayDate>{today}</TodayDate>
+          </UserContentSect>
         </PostArticle>
       </Wrapper>
     </>
@@ -94,4 +110,81 @@ const PostContent = () => {
 
 export default PostContent;
 
-const PostArticle = styled.article``;
+const PostArticle = styled.article`
+p`;
+
+const UserInfoSect = styled.section`
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+`;
+
+const UserNameInfo = styled.div`
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+`;
+
+const InfoName = styled.p``;
+const InfoAccount = styled.p`
+  font-size: 12px;
+`;
+
+const More = styled.button`
+  position: absolute;
+  gap: 12px;
+  right: 0;
+`;
+
+const UserContentSect = styled.section`
+  padding-left: 54px;
+`;
+
+const UserPostText = styled.p`
+  margin-bottom: 16px;
+`;
+
+const UserPostImg = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  border: 1px solid ${({ theme }) => theme.colors.gray};
+  overflow: hidden;
+  object-fit: cover;
+`;
+
+const LikeAndComment = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+`;
+
+const LikeBtn = styled.button`
+  &::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: bottom;
+    background: url(${HeartIcon}) no-repeat center;
+  }
+`;
+
+const CommentLink = styled.a`
+  &::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: bottom;
+    background: url(${CommentIcon}) no-repeat center;
+  }
+`;
+
+const TodayDate = styled.p`
+  font-size: 10px;
+`;
