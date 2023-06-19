@@ -30,6 +30,7 @@ const IconHeader = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> b9ac2bc (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
@@ -39,6 +40,8 @@ const IconHeader = () => {
 >>>>>>> 4859fa5 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 =======
 >>>>>>> c880721 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
+=======
+>>>>>>> 39094f2 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
       {isModalOpen && <PostModal onClose={closeModal} postId={'64901465b2cb2056633c6795'} />}
       {/* {isModalOpen && type === 'product' && <ProductModal onClose={closeModal} />} */}
       {/* product 부분 댓글로 재사용가능하지 않을까? Comment!! */}
@@ -47,6 +50,8 @@ const IconHeader = () => {
 >>>>>>> f3c913d (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 =======
 >>>>>>> faa93e5 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
+=======
+>>>>>>> 9421e71 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 <<<<<<< HEAD
 =======
 >>>>>>> f3c913d (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
@@ -123,14 +128,20 @@ const IconHeader = () => {
       {isModalOpen && type === 'product' && <ProductModal onClose={closeModal} />}
       {/* product 부분 댓글로 재사용가능하지 않을까? CommentModal!! */}
 >>>>>>> e5c8868 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
+<<<<<<< HEAD
 >>>>>>> faa93e5 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b9ac2bc (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
+=======
+=======
+>>>>>>> 39094f2 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 =======
       {isModalOpen && <PostModal onClose={closeModal} postId={'64901465b2cb2056633c6795'} />}
       {/* {isModalOpen && type === 'product' && <ProductModal onClose={closeModal} />} */}
       {/* product 부분 댓글로 재사용가능하지 않을까? Comment!! */}
 >>>>>>> 134d3dd (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
+<<<<<<< HEAD
 =======
 >>>>>>> 665c96c (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 >>>>>>> 5165400 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
@@ -139,6 +150,9 @@ const IconHeader = () => {
 >>>>>>> 4859fa5 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 =======
 >>>>>>> c880721 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
+=======
+>>>>>>> 9421e71 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
+>>>>>>> 39094f2 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
     </>
   );
 };
