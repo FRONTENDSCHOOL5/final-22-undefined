@@ -58,7 +58,7 @@ const SellingProduct = () => {
           ))
         )}
       </S.List>
-      {products.length === 0 && <p>판매중인 상품이 없습니다.😅</p>}
+      {products.length === 0 && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
     </S.Section>
   );
 };
