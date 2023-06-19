@@ -46,8 +46,6 @@ const SellingProduct = () => {
             <ProductSkeleton />
             <ProductSkeleton />
           </>
-        ) : products.length === 0 ? (
-          <S.Item soldout>판매중인 상품이 없습니다.😅</S.Item>
         ) : (
           products.map((product) => (
             <S.Item key={product.id}>
@@ -60,6 +58,7 @@ const SellingProduct = () => {
           ))
         )}
       </S.List>
+      {products.length === 0 && <p>판매중인 상품이 없습니다.😅</p>}
     </S.Section>
   );
 };

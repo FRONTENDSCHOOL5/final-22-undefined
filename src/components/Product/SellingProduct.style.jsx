@@ -23,7 +23,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  width: ${({ soldout }) => (soldout ? 'calc(100% - 21px)' : '140px')};
+  width: 140px;
   flex-shrink: 0;
 
   &:last-child {
