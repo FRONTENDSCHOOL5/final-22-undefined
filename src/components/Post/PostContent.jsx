@@ -2,12 +2,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 =======
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
+=======
+>>>>>>> 879325b (feat: 사용자 식별 및 신고 기능 추가 #50)
 import React, { useContext, useEffect, useState } from 'react';
 import PostUserProfileImg from './PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
@@ -317,6 +320,7 @@ const TodayDate = styled.p`
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -327,3 +331,7 @@ const TodayDate = styled.p`
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
+=======
+=======
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 879325b (feat: 사용자 식별 및 신고 기능 추가 #50)
