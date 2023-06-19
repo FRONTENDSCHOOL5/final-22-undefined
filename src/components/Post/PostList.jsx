@@ -60,21 +60,20 @@ const PostList = () => {
   return (
     <>
       <Ul>
-        {userToken &&
-          postList.map((post, i) => {
-            return (
-              <Li key={post.id}>
-                <PostItem
-                  userProfileImg={userProfileImg}
-                  userName={userName}
-                  acountName={ParsedAccountName}
-                  postContent={post.content}
-                  postImg={post.image}
-                  today={today}
-                />
-              </Li>
-            );
-          })}
+        {postList.map((post) => {
+          return (
+            <Li key={post.id}>
+              <PostItem
+                userProfileImg={userProfileImg}
+                userName={userName}
+                acountName={ParsedAccountName}
+                postContent={post.content}
+                postImg={post.image}
+                today={today}
+              />
+            </Li>
+          );
+        })}
       </Ul>
     </>
   );
@@ -85,7 +84,8 @@ export default PostList;
 const Ul = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
+  padding: 20px 16px;
 `;
 
 const Li = styled.li``;
