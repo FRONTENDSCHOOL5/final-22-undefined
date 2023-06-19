@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Ellipse from '../../assets/Ellipse-1.png';
 
 const PostUserProfileImg = ({ userProfileImg, size }) => {
-  console.log(userProfileImg);
   return (
     <>
       <UserProfile
@@ -13,6 +12,7 @@ const PostUserProfileImg = ({ userProfileImg, size }) => {
             ? Ellipse
             : `https://api.mandarin.weniv.co.kr/${userProfileImg}`
         }
+        alt='사용자 프로필 이미지'
       />
     </>
   );
