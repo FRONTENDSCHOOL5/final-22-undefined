@@ -1,27 +1,33 @@
 import React, { useRef, useState, useContext } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose, postId }) => {
+const PostModal = ({ onClose, postId, accountName }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
+  const { username } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken } = useContext(AuthContextStore);
-  const postModalOptions = ['삭제', '수정'];
+  const myPostModalOptions = ['삭제', '수정'];
+  const otherPostModalOptions = ['신고하기'];
 
+  // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
     if (option === '삭제') {
       setSelectedOption(option);
     } else if (option === '수정') {
       navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
+    } else if (option === '신고하기') {
+      reportPost(postId);
     }
   };
 
+  // 모달 닫기
   const closeModal = (option) => {
     if (option === '삭제') {
-      deletePost(postId)
+      deletePost(postId) // 게시글 삭제 호출
         .then((response) => {
           if (response.success) {
             console.log('삭제 완료');
@@ -39,6 +45,7 @@ const PostModal = ({ onClose, postId }) => {
     }
   };
 
+  // 게시글 삭제 및 삭제 오류 처리
   const deletePost = async (postId) => {
     console.log('postId 값:', postId);
     try {
@@ -69,10 +76,41 @@ const PostModal = ({ onClose, postId }) => {
     }
   };
 
+  // 게시글 삭제 에러
   const deleteError = (error) => {
     console.log(error);
   };
 
+  // 게시글 신고
+  const reportPost = async (postId) => {
+    try {
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          report: {
+            post: '포스트 id',
+          },
+        }),
+      });
+
+      if (response.ok) {
+        // 성공할 경우
+        console.log('게시글 신고 완료');
+      } else {
+        // 실패할 경우
+        throw new Error('게시글 신고 실패');
+      }
+    } catch (error) {
+      // 실패할 경우
+      console.log(error);
+    }
+  };
+
+  // AlertModal 컴포넌트 확인 메시지 렌더링
   const renderAlertModal = () => {
     if (selectedOption === '삭제') {
       return (
@@ -89,25 +127,36 @@ const PostModal = ({ onClose, postId }) => {
     return null;
   };
 
+  // 어두운 배경 클릭할 때 모달창 처리
   const clickOutside = (e) => {
-    // 어두운 배경 클릭시 하단 모달창 닫기
     if (modalRef.current && modalRef.current === e.target) {
       onClose(); // onClose 콜백 호출
     }
   };
 
-  const optionElements = postModalOptions.map((option, index) => (
-    <S.Li key={index}>
-      <button onClick={() => optionClick(option)}>{option}</button>
-    </S.Li>
-  ));
+  // 사용자 계정에 따라 모달에 표시할 옵션 요소 생성 및 렌더링
+  let optionElements = null;
+  // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
+  if (username === accountName) {
+    optionElements = myPostModalOptions.map((option, index) => (
+      <S.Li key={index}>
+        <button onClick={() => optionClick(option)}>{option}</button>
+      </S.Li>
+    ));
+  } else {
+    optionElements = otherPostModalOptions.map((option, index) => (
+      <S.Li key={index}>
+        <button onClick={() => optionClick(option)}>{option}</button>
+      </S.Li>
+    ));
+  }
 
   return (
     <>
       <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
         <S.Ul>
           {optionElements}
-          {/* {options.map((option, index) => 이 부분을 함수로 위에 빼주고 props로 받음
+          {/* {options.map((option, index) => 이 부분을 위에 분기처리로 변경
             <S.Li key={index}>
               <button onClick={() => optionClick(option)}>{option}</button>
             </S.Li>

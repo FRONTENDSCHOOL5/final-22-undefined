@@ -5,8 +5,11 @@ import Wrapper from '../common/Wrapper/Wrapper';
 import styled from 'styled-components';
 import HeartIcon from '../../assets/icon/icon-heart.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
+import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
+import PostModal from '../common/Modal/PostModal';
 
 const PostContent = () => {
+  const [postId, setPostId] = useState(''); // postId 상태 추가
   const [myProfileImg, setMyProfileImg] = useState('');
   const [userName, setUserName] = useState('');
   const [myPostContent, setMyPostContent] = useState('');
@@ -54,6 +57,7 @@ const PostContent = () => {
         // console.log(data);
         setMyPostContent(data.post[0].content);
         setMyPostImg(data.post[0].image);
+        setPostId(data.post[0].id); // 추가
       } catch (error) {
         console.log(error.message);
       }
@@ -68,6 +72,17 @@ const PostContent = () => {
   let today = dateString.toLocaleDateString('ko-KR', options);
   console.log(today);
 
+  // 게시글 모달
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <Wrapper>
@@ -80,7 +95,11 @@ const PostContent = () => {
               <InfoName>{userName}</InfoName>
               <InfoAccount>{ParsedAccountName}</InfoAccount>
             </UserNameInfo>
-            <More>more</More>
+            {/* 게시글 모달 */}
+            <ButtonIcon onClick={openModal}>
+              <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
+            </ButtonIcon>
+            {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
           </UserInfoSect>
 
           <UserContentSect>
@@ -108,8 +127,7 @@ const PostContent = () => {
 
 export default PostContent;
 
-const PostArticle = styled.article`
-p`;
+const PostArticle = styled.article``;
 
 const UserInfoSect = styled.section`
   display: flex;
@@ -128,7 +146,8 @@ const InfoAccount = styled.p`
   font-size: 12px;
 `;
 
-const More = styled.button`
+// 모달 버튼 아이콘
+const ButtonIcon = styled.button`
   position: absolute;
   gap: 12px;
   right: 0;
