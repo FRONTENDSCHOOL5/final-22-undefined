@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
-import Comment from './Comment';
+import TabMenu from '../HomePage/TabMenu';
 
 import arrowLeft from '../../assets/icon/icon-arrow-left.png';
 import moreVertical from '../../assets/icon/icon-more-vertical.png';
-import Contents from './Contents';
 
 const Header = styled.header`
   border-bottom: 0.5px solid #dbdbdb;
@@ -34,15 +33,15 @@ const MoreVertical = styled.a`
   float: right;
   cursor: pointer;
 `;
+
 const ChatList = () => {
   return (
     <Wrapper>
       <Header>
-        <Arrow href='/chat' />
+        <Arrow href='/home' />
         <MoreVertical />
       </Header>
-      <Contents />
-      <Comment />
+      <TabMenu />
     </Wrapper>
   );
 };
