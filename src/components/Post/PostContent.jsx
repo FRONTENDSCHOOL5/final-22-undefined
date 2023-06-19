@@ -128,6 +128,7 @@ const PostContent = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
@@ -141,6 +142,8 @@ const PostContent = () => {
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> ca77f56 (remove: 삭제될 파일, postItem으로 변경)
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -178,6 +181,8 @@ const PostContent = () => {
 =======
 =======
 >>>>>>> 8c2eeb3 (remove: 삭제될 파일, postItem으로 변경)
+=======
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
@@ -192,12 +197,24 @@ const PostContent = () => {
 =======
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
+<<<<<<< HEAD
 >>>>>>> 8c2eeb3 (remove: 삭제될 파일, postItem으로 변경)
+<<<<<<< HEAD
 >>>>>>> ca77f56 (remove: 삭제될 파일, postItem으로 변경)
+=======
+=======
+=======
+=======
+            {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
+>>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
           </UserInfoSect>
 
           <UserContentSect>
             <h4 className='a11y-hidden'>게시물 내용</h4>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -221,6 +238,8 @@ const PostContent = () => {
 >>>>>>> 79914d9 (remove: 삭제될 파일, postItem으로 변경)
 =======
 >>>>>>> ca77f56 (remove: 삭제될 파일, postItem으로 변경)
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
 
 =======
@@ -234,6 +253,8 @@ const PostContent = () => {
 =======
 =======
 =======
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
 
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
@@ -242,7 +263,9 @@ const PostContent = () => {
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
 
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
+<<<<<<< HEAD
 >>>>>>> 8e757ac (remove: 삭제될 파일, postItem으로 변경)
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 4c5f2bc (remove: 삭제될 파일, postItem으로 변경)
 =======
@@ -250,13 +273,21 @@ const PostContent = () => {
 
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 =======
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
 
 =======
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> c0faa09 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 79914d9 (remove: 삭제될 파일, postItem으로 변경)
+=======
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
             <UserPostText>{myPostContent}</UserPostText>
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={myPostImg} />}
             <LikeAndComment>

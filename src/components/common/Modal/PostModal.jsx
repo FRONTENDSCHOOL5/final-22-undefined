@@ -10,12 +10,15 @@ import AlertModal from './AlertModal';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 =======
 =======
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 =======
@@ -26,7 +29,22 @@ import { AuthContextStore } from '../../../context/AuthContext';
 <<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+<<<<<<< HEAD
+import { useNavigate } from 'react-router-dom';
+=======
+import { useNavigate, useParams } from 'react-router-dom';
+import { AuthContextStore } from '../../../context/AuthContext';
+=======
+<<<<<<< HEAD
+import { useNavigate } from 'react-router-dom';
+>>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -149,6 +167,7 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 >>>>>>> e00e158 (style: 코드 오류 수정)
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
+<<<<<<< HEAD
   const [selectedOption, setSelectedOption] = useState('');
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -196,6 +215,25 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const isLoginUser = userId === JSON.parse(userAccountname);
 >>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
 
+<<<<<<< HEAD
+=======
+=======
+  const postModalOptions = ['삭제', '수정'];
+=======
+import { useNavigate, useParams } from 'react-router-dom';
+import { AuthContextStore } from '../../../context/AuthContext';
+
+const PostModal = ({ onClose, postId, accountName }) => {
+  const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
+  const { username } = useParams(); // 현재 사용자 계정
+  const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState('');
+  const { userToken } = useContext(AuthContextStore);
+  const myPostModalOptions = ['삭제', '수정'];
+  const otherPostModalOptions = ['신고하기'];
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 =======
@@ -304,6 +342,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       navigate('/profile'); // 일단 프로필로 설정, 후에 게시글 수정 페이지로 경로 설정
 =======
       navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
@@ -322,12 +361,16 @@ const PostModal = ({ onClose }) => {
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 879325b (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
       navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
     } else if (option === '신고하기') {
       reportPost(postId);
 =======
 =======
 >>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 =======
       navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
@@ -375,8 +418,28 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> 9e9f378 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+      navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
+    } else if (option === '신고하기') {
+      reportPost(postId);
+=======
+<<<<<<< HEAD
+      navigate('/profile'); // 일단 프로필로 설정, 후에 게시글 수정 페이지로 경로 설정
+=======
+      navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
+    } else if (option === '신고하기') {
+      reportPost(postId);
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
     }
   };
 
@@ -392,9 +455,12 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
       deletePost(postId) // 게시글 삭제 호출
 =======
 =======
@@ -404,7 +470,12 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 9e9f378 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
       deletePost()
 =======
@@ -465,8 +536,24 @@ const PostModal = ({ onClose }) => {
 =======
       deletePost(postId) // 게시글 삭제 호출
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> 9e9f378 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+      deletePost(postId) // 게시글 삭제 호출
+=======
+<<<<<<< HEAD
+      deletePost()
+=======
+      deletePost(postId) // 게시글 삭제 호출
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
         .then((response) => {
           if (response.success) {
 <<<<<<< HEAD
@@ -626,6 +713,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -636,6 +724,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> a60f7c8 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
   // 게시글 삭제 및 삭제 오류 처리
   const deletePost = async () => {
 =======
@@ -647,6 +737,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 4bc7d06 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 9e9f378 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -799,8 +891,28 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> 655ff17 (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> 92d0cdd (feat: 모달 props 전달 #50)
+=======
+=======
+=======
+  // 게시글 삭제 및 삭제 오류 처리
+  const deletePost = async () => {
+=======
+<<<<<<< HEAD
+  const deletePost = () => {
+    // 게시글 삭제 요청을 처리하는 비동기 함수
+    return new Promise((resolve, reject) => {
+      // 게시글 삭제 요청 처리 로직
+=======
+  // 게시글 삭제 및 삭제 오류 처리
+  const deletePost = async (postId) => {
+>>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
     console.log('postId 값:', postId);
     try {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
@@ -815,9 +927,12 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 
 <<<<<<< HEAD
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -840,6 +955,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 1051379 (feat: 모달 props 전달 #50)
 =======
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+=======
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -864,6 +981,17 @@ const PostModal = ({ onClose }) => {
       if (response.ok) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+=======
+=======
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+
+      if (response.ok) {
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 <<<<<<< HEAD
         // 성공할 경우
@@ -1021,6 +1149,46 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+  // 게시글 신고
+  const reportPost = async (postId) => {
+    try {
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          report: {
+            post: '포스트 id',
+          },
+        }),
+      });
+
+      if (response.ok) {
+        // 성공할 경우
+        console.log('게시글 신고 완료');
+      } else {
+        // 실패할 경우
+        throw new Error('게시글 신고 실패');
+      }
+    } catch (error) {
+      // 실패할 경우
+      console.log(error);
+    }
+  };
+
+  // AlertModal 컴포넌트 확인 메시지 렌더링
+=======
+=======
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 9e9f378 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
   const changePage = () => {
     // 페이지 재랜더링을 위한 로직
     // changePage 함수의 구현은 해당 페이지 컴포넌트에서 진행
@@ -1031,6 +1199,7 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 =======
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -1107,6 +1276,8 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
   // 게시글 신고
   const reportPost = async (postId) => {
     try {
@@ -1138,6 +1309,7 @@ const PostModal = ({ onClose }) => {
 
   // AlertModal 컴포넌트 확인 메시지 렌더링
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1151,11 +1323,16 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 879325b (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 =======
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
   const changePage = () => {
     // 페이지 재랜더링을 위한 로직
     // changePage 함수의 구현은 해당 페이지 컴포넌트에서 진행
   };
 
+<<<<<<< HEAD
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 >>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -1173,8 +1350,49 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> 9e9f378 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+=======
+  // 게시글 신고
+  const reportPost = async (postId) => {
+    try {
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          report: {
+            post: '포스트 id',
+          },
+        }),
+      });
+
+      if (response.ok) {
+        // 성공할 경우
+        console.log('게시글 신고 완료');
+      } else {
+        // 실패할 경우
+        throw new Error('게시글 신고 실패');
+      }
+    } catch (error) {
+      // 실패할 경우
+      console.log(error);
+    }
+  };
+
+  // AlertModal 컴포넌트 확인 메시지 렌더링
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
   const renderAlertModal = () => {
     if (selectedOption === '삭제') {
       return (
@@ -1218,6 +1436,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (isLoginUser) {
 =======
   if (username === accountName) {
@@ -1234,6 +1453,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 92d0cdd (feat: 모달 props 전달 #50)
+=======
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
   if (isLoginUser) {
 =======
   if (username === accountName) {
@@ -1304,6 +1525,8 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 655ff17 (feat: 모달 props 전달 #50)
+=======
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
   if (isLoginUser) {
 =======
   if (username === accountName) {
@@ -1317,8 +1540,20 @@ const PostModal = ({ onClose }) => {
 =======
   if (isLoginUser) {
 >>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> 655ff17 (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> 92d0cdd (feat: 모달 props 전달 #50)
+=======
+=======
+=======
+  if (isLoginUser) {
+=======
+  if (username === accountName) {
+>>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
     optionElements = myPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
