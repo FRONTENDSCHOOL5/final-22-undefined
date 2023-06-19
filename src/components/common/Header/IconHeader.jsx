@@ -26,6 +26,7 @@ const IconHeader = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> b9ac2bc (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
@@ -98,6 +99,11 @@ const IconHeader = () => {
 >>>>>>> e5c8868 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 >>>>>>> faa93e5 (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
 >>>>>>> b9ac2bc (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
+=======
+      {isModalOpen && <PostModal onClose={closeModal} postId={'64901465b2cb2056633c6795'} />}
+      {/* {isModalOpen && type === 'product' && <ProductModal onClose={closeModal} />} */}
+      {/* product 부분 댓글로 재사용가능하지 않을까? Comment!! */}
+>>>>>>> 134d3dd (style: 모달 아이콘 사용 및 추후에 삭제될 파일)
     </>
   );
 };
