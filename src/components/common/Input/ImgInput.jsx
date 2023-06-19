@@ -32,7 +32,6 @@ const ImgInput = ({ img, setImg }) => {
     }
   };
 
-  console.log(img);
   return (
     <>
       <S.Label htmlFor='profileImg'>
