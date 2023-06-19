@@ -121,6 +121,7 @@ const PostContent = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
@@ -130,6 +131,8 @@ const PostContent = () => {
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 =======
+=======
+>>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -149,6 +152,7 @@ const PostContent = () => {
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 >>>>>>> 8e757ac (remove: 삭제될 파일, postItem으로 변경)
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 4c5f2bc (remove: 삭제될 파일, postItem으로 변경)
 =======
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
@@ -162,6 +166,16 @@ const PostContent = () => {
 >>>>>>> c0faa09 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 79914d9 (remove: 삭제될 파일, postItem으로 변경)
+=======
+=======
+            {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
+=======
+            {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 9e9f378 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
           </UserInfoSect>
 
           <UserContentSect>
