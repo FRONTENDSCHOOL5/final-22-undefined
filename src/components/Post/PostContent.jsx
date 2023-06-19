@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext, useEffect, useState } from 'react';
 import PostUserProfileImg from './PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
@@ -213,3 +214,5 @@ const CommentLink = styled.a`
 const TodayDate = styled.p`
   font-size: 10px;
 `;
+=======
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
