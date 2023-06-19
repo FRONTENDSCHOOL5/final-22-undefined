@@ -12,13 +12,11 @@ import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
 import PostUpload from '../pages/PostPage/PostUpload';
-import PostItem from '../components/Post/PostItem';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/post/:accountname/userpost' element={<PostItem />} />
         <Route path='/' element={<Loading />} />
         <Route path='/home' element={<Home />} />
         <Route path='/search' element={<Search />} />
@@ -27,7 +25,7 @@ const Router = () => {
         <Route path='/chat' element={<ChatLists />} />
         <Route path='/chat/room' element={<ChatRoom />} />
         <Route path='/join/profile' element={<ProfileSetting />} />
-        <Route path='/post' element={<PostUpload />} />
+        <Route path='/post/upload' element={<PostUpload />} />
         <Route path='/profile' element={<MyProfile />} />
         <Route path='/profile/:accountname' element={<YourProfile />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
