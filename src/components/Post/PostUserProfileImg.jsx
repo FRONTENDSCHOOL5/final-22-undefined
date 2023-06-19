@@ -3,9 +3,17 @@ import styled from 'styled-components';
 import Ellipse from '../../assets/Ellipse-1.png';
 
 const PostUserProfileImg = ({ userProfileImg, size }) => {
+  console.log(userProfileImg);
   return (
     <>
-      <UserProfile size={size} src={userProfileImg ? `https://api.mandarin.weniv.co.kr/${userProfileImg}` : Ellipse} />
+      <UserProfile
+        size={size}
+        src={
+          userProfileImg === 'http://146.56.183.55:5050/Ellipse.png'
+            ? Ellipse
+            : `https://api.mandarin.weniv.co.kr/${userProfileImg}`
+        }
+      />
     </>
   );
 };

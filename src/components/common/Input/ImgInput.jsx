@@ -32,10 +32,14 @@ const ImgInput = ({ img, setImg }) => {
     }
   };
 
+  console.log(img);
   return (
     <>
       <S.Label htmlFor='profileImg'>
-        <S.ProfileImg src={img === '' ? Ellipse : `https://api.mandarin.weniv.co.kr/${img}`} alt='프로필 이미지' />
+        <S.ProfileImg
+          src={img === 'http://146.56.183.55:5050/Ellipse.png' ? Ellipse : `https://api.mandarin.weniv.co.kr/${img}`}
+          alt='프로필 이미지'
+        />
       </S.Label>
       <S.UploadInput id='profileImg' type='file' className='a11y-hidden' onChange={handleChange} accept='image/*' />
     </>
