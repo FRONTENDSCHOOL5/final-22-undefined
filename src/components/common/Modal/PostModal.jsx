@@ -5,11 +5,16 @@ import AlertModal from './AlertModal';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 =======
+=======
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 =======
+=======
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -97,11 +102,15 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 =======
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
+=======
+import { useNavigate } from 'react-router-dom';
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 
-const PostModal = ({ onClose, postId, accountname, setPosts }) => {
+const PostModal = ({ onClose }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
+<<<<<<< HEAD
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
@@ -111,6 +120,10 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const userId = accountname ? accountname : JSON.parse(userAccountname);
   const isLoginUser = userId === JSON.parse(userAccountname);
 >>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
+=======
+  const navigate = useNavigate();
+  const postModalOptions = ['삭제', '수정'];
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
   // 모달 옵션을 클릭했을 때
@@ -118,6 +131,7 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
     if (option === '삭제') {
       setSelectedOption(option);
     } else if (option === '수정') {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -134,10 +148,14 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 =======
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
+=======
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
       navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
     } else if (option === '신고하기') {
       reportPost(postId);
 =======
+=======
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
       navigate('/profile'); // 일단 프로필로 설정, 후에 게시글 수정 페이지로 경로 설정
 =======
@@ -145,8 +163,17 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
     } else if (option === '신고하기') {
       reportPost(postId);
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+      navigate('/profile'); // 일단 프로필로 설정, 후에 게시글 수정 페이지로 경로 설정
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
     }
   };
 
@@ -158,6 +185,7 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       deletePost()
 =======
       deletePost(postId) // 게시글 삭제 호출
@@ -169,15 +197,28 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
       deletePost(postId) // 게시글 삭제 호출
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
+=======
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
       deletePost(postId) // 게시글 삭제 호출
 =======
+=======
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
       deletePost()
 =======
       deletePost(postId) // 게시글 삭제 호출
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+      deletePost()
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
         .then((response) => {
           if (response.success) {
 <<<<<<< HEAD
@@ -239,6 +280,7 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
   const deletePost = () => {
@@ -265,14 +307,22 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 =======
 >>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
 =======
+=======
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
   // 게시글 삭제 및 삭제 오류 처리
   const deletePost = async () => {
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
   const deletePost = () => {
     // 게시글 삭제 요청을 처리하는 비동기 함수
     return new Promise((resolve, reject) => {
       // 게시글 삭제 요청 처리 로직
+<<<<<<< HEAD
 =======
   // 게시글 삭제 및 삭제 오류 처리
 <<<<<<< HEAD
@@ -321,12 +371,18 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
       // 성공 시
       resolve({ success: true });
 
       // 실패 시
       // reject({ success: false, error: '에러 메시지' });
     });
+<<<<<<< HEAD
 =======
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
       if (response.ok) {
@@ -363,8 +419,16 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 =======
 =======
 >>>>>>> e00e158 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 6ce78d2 (style: 코드 오류 수정)
+=======
+=======
+=======
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
   };
 
   // 게시글 삭제 에러
@@ -373,6 +437,7 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
     console.log(error);
   };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -387,6 +452,8 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
   // 게시글 신고
   const reportPost = async (postId) => {
     try {
@@ -423,6 +490,8 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 =======
 =======
 =======
+=======
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
   const changePage = () => {
@@ -467,8 +536,21 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 
   // AlertModal 컴포넌트 확인 메시지 렌더링
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+  const changePage = () => {
+    // 페이지 재랜더링을 위한 로직
+    // changePage 함수의 구현은 해당 페이지 컴포넌트에서 진행
+  };
+
+>>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
   const renderAlertModal = () => {
     if (selectedOption === '삭제') {
       return (
@@ -492,6 +574,7 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
     }
   };
 
+<<<<<<< HEAD
   // 사용자 계정에 따라 모달에 표시할 옵션 요소 생성 및 렌더링
   let optionElements = null;
   // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
@@ -532,6 +615,13 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
       </S.Li>
     ));
   }
+=======
+  const optionElements = postModalOptions.map((option, index) => (
+    <S.Li key={index}>
+      <button onClick={() => optionClick(option)}>{option}</button>
+    </S.Li>
+  ));
+>>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
 
   return (
     <>
