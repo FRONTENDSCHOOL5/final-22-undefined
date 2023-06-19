@@ -4,7 +4,7 @@ import Loading from '../pages/LoadingPage/Loading';
 import Home from '../pages/HomePage/Home';
 import Search from '../pages/SearchPage/Search';
 import Join from '../pages/JoinPage/Join';
-import ChatList from '../pages/ChatPage/ChatList';
+import ChatLists from '../pages/ChatPage/ChatLists';
 import ChatRoom from '../pages/ChatPage/ChatRoom';
 import ProfileSetting from '../pages/JoinPage/ProfileSetting';
 import Login from '../pages/LoginPage/Login';
@@ -24,7 +24,7 @@ const Router = () => {
         <Route path='/search' element={<Search />} />
         <Route path='/login' element={<Login />} />
         <Route path='/join' element={<Join />} />
-        <Route path='/chat' element={<ChatList />} />
+        <Route path='/chat' element={<ChatLists />} />
         <Route path='/chat/room' element={<ChatRoom />} />
         <Route path='/join/profile' element={<ProfileSetting />} />
         <Route path='/post' element={<PostUpload />} />

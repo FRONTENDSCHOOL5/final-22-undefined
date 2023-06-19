@@ -9,7 +9,7 @@ const TabMenu = () => {
           <S.HomeIcon href='/home'>홈</S.HomeIcon>
         </S.Menus>
         <S.Menus>
-          <S.ChatIcon href='#'>채팅</S.ChatIcon>
+          <S.ChatIcon href='/chat'>채팅</S.ChatIcon>
         </S.Menus>
         <S.Menus>
           <S.PostIcon href='/post'>게시물 작성</S.PostIcon>
