@@ -184,15 +184,20 @@ import { useNavigate } from 'react-router-dom';
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
 <<<<<<< HEAD
 =======
 =======
 const PostModal = ({ onClose, postId }) => {
+=======
+const PostModal = ({ onClose, postId, accountName }) => {
+>>>>>>> 4bc7d06 (feat: 사용자 식별 및 신고 기능 추가 #50)
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
 <<<<<<< HEAD
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
+<<<<<<< HEAD
 <<<<<<< HEAD
   const [selectedOption, setSelectedOption] = useState('');
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
@@ -244,6 +249,13 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
   const postModalOptions = ['삭제', '수정'];
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+  const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState('');
+  const { userToken } = useContext(AuthContextStore);
+  const myPostModalOptions = ['삭제', '수정'];
+  const otherPostModalOptions = ['신고하기'];
+>>>>>>> fa74fb8 (feat: 사용자 식별 및 신고 기능 추가 #50)
 
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> c0faa09 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -526,12 +538,15 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 <<<<<<< HEAD
 =======
 >>>>>>> 1051379 (feat: 모달 props 전달 #50)
+=======
+>>>>>>> a60f7c8 (feat: 사용자 식별 및 신고 기능 추가 #50)
   // 게시글 삭제 및 삭제 오류 처리
   const deletePost = async () => {
 =======
@@ -539,6 +554,8 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+=======
+>>>>>>> 4bc7d06 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -661,6 +678,9 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 =======
+=======
+  // 게시글 삭제 및 삭제 오류 처리
+>>>>>>> fa74fb8 (feat: 사용자 식별 및 신고 기능 추가 #50)
   const deletePost = async (postId) => {
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
@@ -1093,6 +1113,7 @@ const PostModal = ({ onClose }) => {
   // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (username === accountName) {
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 <<<<<<< HEAD
@@ -1127,6 +1148,13 @@ const PostModal = ({ onClose }) => {
   if (username === accountName) {
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 >>>>>>> 1051379 (feat: 모달 props 전달 #50)
+=======
+  if (username === accountName) {
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+=======
+  if (isLoginUser) {
+>>>>>>> 4bc7d06 (feat: 사용자 식별 및 신고 기능 추가 #50)
+>>>>>>> a60f7c8 (feat: 사용자 식별 및 신고 기능 추가 #50)
     optionElements = myPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
