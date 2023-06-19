@@ -101,9 +101,13 @@ const PostContent = () => {
               <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
             </ButtonIcon>
 <<<<<<< HEAD
+<<<<<<< HEAD
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
+=======
+            {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
           </UserInfoSect>
 
           <UserContentSect>

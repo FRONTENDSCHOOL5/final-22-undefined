@@ -3,6 +3,7 @@ import * as S from './Modal.style';
 import AlertModal from './AlertModal';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 
 const PostModal = ({ onClose, postId, accountname, setPosts }) => {
@@ -22,7 +23,14 @@ import { useNavigate } from 'react-router-dom';
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 
 const PostModal = ({ onClose }) => {
+=======
+import { useNavigate, useParams } from 'react-router-dom';
+import { AuthContextStore } from '../../../context/AuthContext';
+
+const PostModal = ({ onClose, postId, accountName }) => {
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
+  const { username } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
 <<<<<<< HEAD
@@ -45,6 +53,7 @@ const PostModal = ({ onClose }) => {
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken } = useContext(AuthContextStore);
+<<<<<<< HEAD
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
   const postModalOptions = ['삭제', '수정'];
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -57,6 +66,10 @@ const PostModal = ({ onClose }) => {
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
 >>>>>>> fa74fb8 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+  const myPostModalOptions = ['삭제', '수정'];
+  const otherPostModalOptions = ['신고하기'];
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 
   // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
@@ -70,10 +83,13 @@ const PostModal = ({ onClose }) => {
       navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
     } else if (option === '신고하기') {
       reportPost(postId);
+<<<<<<< HEAD
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
       navigate('/profile'); // 일단 프로필로 설정, 후에 게시글 수정 페이지로 경로 설정
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
     }
   };
 
@@ -83,6 +99,7 @@ const PostModal = ({ onClose }) => {
     if (option === '삭제') {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       deletePost()
 =======
       deletePost(postId) // 게시글 삭제 호출
@@ -90,6 +107,9 @@ const PostModal = ({ onClose }) => {
 =======
       deletePost()
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+      deletePost(postId) // 게시글 삭제 호출
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
         .then((response) => {
           if (response.success) {
 <<<<<<< HEAD
@@ -128,6 +148,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
   const deletePost = () => {
@@ -143,6 +164,9 @@ const PostModal = ({ onClose }) => {
 =======
   // 게시글 삭제 및 삭제 오류 처리
 >>>>>>> fa74fb8 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+  // 게시글 삭제 및 삭제 오류 처리
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
   const deletePost = async (postId) => {
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
 =======
@@ -211,12 +235,15 @@ const PostModal = ({ onClose }) => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const changePage = () => {
     // 페이지 재랜더링을 위한 로직
     // changePage 함수의 구현은 해당 페이지 컴포넌트에서 진행
   };
 
 =======
+=======
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
   // 게시글 신고
   const reportPost = async (postId) => {
     try {
@@ -247,6 +274,7 @@ const PostModal = ({ onClose }) => {
   };
 
   // AlertModal 컴포넌트 확인 메시지 렌더링
+<<<<<<< HEAD
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
   const changePage = () => {
@@ -255,6 +283,8 @@ const PostModal = ({ onClose }) => {
   };
 
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
   const renderAlertModal = () => {
     if (selectedOption === '삭제') {
       return (
@@ -281,7 +311,11 @@ const PostModal = ({ onClose }) => {
   // 사용자 계정에 따라 모달에 표시할 옵션 요소 생성 및 렌더링
   let optionElements = null;
   // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
+<<<<<<< HEAD
   if (isLoginUser) {
+=======
+  if (username === accountName) {
+>>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
     optionElements = myPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
