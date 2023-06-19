@@ -24,7 +24,10 @@ const PostSection = () => {
         });
 
         const data = await response.json();
+        console.log(data);
+
         setPosts(data.post);
+
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);
@@ -45,7 +48,7 @@ const PostSection = () => {
           <span className='a11y-hidden'>앨범으로 보기</span>
         </S.AlbumBtn>
       </S.Header>
-      {isList ? <PostList isLoading={isLoading} /> : <PostAlbum />}
+      {isList ? <PostList posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
     </S.Section>
   );
 };
