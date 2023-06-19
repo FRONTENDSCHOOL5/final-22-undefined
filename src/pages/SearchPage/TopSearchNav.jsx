@@ -4,7 +4,7 @@ import * as S from './TopSearchNav.style';
 const TopSearchNav = () => {
   return (
     <S.Header>
-      <S.Arrow type='button' />
+      <S.Arrow href='/home' />
       <S.Input type='text' placeholder='계정 검색' />
     </S.Header>
   );
