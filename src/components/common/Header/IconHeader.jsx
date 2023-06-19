@@ -4,7 +4,7 @@ import PostModal from './../Modal/PostModal';
 import ProductModal from '../Modal/ProductModal';
 import styled from 'styled-components';
 
-const IconHeader = ({ type }) => {
+const IconHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -20,9 +20,9 @@ const IconHeader = ({ type }) => {
       <ButtonIcon onClick={openModal}>
         <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
       </ButtonIcon>
-      {isModalOpen && type === 'post' && <PostModal onClose={closeModal} postId={'64901465b2cb2056633c6795'} />}
-      {isModalOpen && type === 'product' && <ProductModal onClose={closeModal} />}
-      {/* product 부분 댓글로 재사용가능하지 않을까? CommentModal!! */}
+      {isModalOpen && <PostModal onClose={closeModal} postId={'64901465b2cb2056633c6795'} />}
+      {/* {isModalOpen && type === 'product' && <ProductModal onClose={closeModal} />} */}
+      {/* product 부분 댓글로 재사용가능하지 않을까? Comment!! */}
     </>
   );
 };
