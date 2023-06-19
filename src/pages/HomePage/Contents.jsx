@@ -4,7 +4,8 @@ import home from '../../assets/symbol-logo-gray.png';
 import styled from 'styled-components';
 
 const Main = styled.main`
-  height: calc(100vh - 108px);
+  height: calc(80vh - 108px);
+  overflow-y: auto;
 `;
 
 const Section = styled.section`

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import iconSearch from '../../assets/icon/icon-search.png';
 
 export const Header = styled.header`
-  margin-bottom: 220px;
   border-bottom: 0.5px solid #dbdbdb;
   padding: 13px 16px;
 `;
