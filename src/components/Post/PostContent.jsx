@@ -75,7 +75,7 @@ const PostContent = () => {
 
           <section>
             <h4 className='a11y-hidden'>게시물 내용</h4>
-            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} />}
+            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
           </section>
 
           <section>
