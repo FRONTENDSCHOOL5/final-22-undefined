@@ -23,7 +23,7 @@ const PostList = ({ isLoading }) => {
         });
         const data = await res.json();
         console.log(data);
-        setUserProfileImg(data.profile.image);
+        setUserProfileImg(data.profile.image); //주소 + 이미지 이름으로 들어옴
         setUserName(data.profile.username);
       } catch (error) {
         console.log(error.message);
