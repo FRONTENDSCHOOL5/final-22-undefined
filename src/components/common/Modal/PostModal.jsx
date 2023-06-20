@@ -13,9 +13,8 @@ const PostModal = ({ onClose }) => {
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose, postId, accountName }) => {
+const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
@@ -54,7 +53,14 @@ const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
         .then((response) => {
           if (response.success) {
+<<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
+=======
+            // console.log('삭제 완료');
+            // window.location.replace('/profile');
+            onClose();
+            navigate('/profile');
+>>>>>>> e00e158 (style: 코드 오류 수정)
           } else {
             deleteError(response.error); // 삭제 실패 시 에러 처리
           }
@@ -89,12 +95,31 @@ const PostModal = ({ onClose, postId, accountName }) => {
       });
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 
+<<<<<<< HEAD
       // 성공 시
       resolve({ success: true });
 
       // 실패 시
       // reject({ success: false, error: '에러 메시지' });
     });
+=======
+      if (response.ok) {
+        return { success: true };
+      } else if (response.status === 404) {
+        // 게시글이 존재하지 않을 경우
+        throw new Error('존재하지 않는 게시글입니다.');
+      } else if (response.status === 401) {
+        // 다른 사용자가 해당 게시글을 수정할 경우
+        throw new Error('잘못된 요청입니다. 로그인 정보를 확인하세요.');
+      } else {
+        // 기타 실패할 경우
+        throw new Error('게시글 삭제 실패');
+      }
+    } catch (error) {
+      // 실패할 경우
+      return { success: false, error: error.message };
+    }
+>>>>>>> e00e158 (style: 코드 오류 수정)
   };
 
   // 게시글 삭제 에러

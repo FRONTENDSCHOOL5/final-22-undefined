@@ -27,6 +27,7 @@ const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState({});
   const [postId, setPostId] = useState(''); // postId 상태 추가
+  const [productId, setProductId] = useState(''); // productId 상태 추가
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
 
@@ -82,12 +83,18 @@ const ProfilePage = () => {
       <Main>
         <ProfileDisplay userInfo={userInfo} />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <SellingProduct />
         <PostSection userInfo={userInfo} />
 =======
         <SellingProduct onClick={openModal} />
         {isModalOpen && <ProductModal onClose={closeModal} />}
         <PostSection onClick={openModalTWo} setPostId={setPostId} />
+=======
+        <SellingProduct onClick={openModal} setProductId={setProductId} />
+        {isModalOpen && <ProductModal onClose={closeModal} productId={productId} />}
+        <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
+>>>>>>> e00e158 (style: 코드 오류 수정)
         {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />}
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
       </Main>
