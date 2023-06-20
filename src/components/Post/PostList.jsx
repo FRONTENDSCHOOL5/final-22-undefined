@@ -17,6 +17,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
@@ -32,6 +33,8 @@ const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
 =======
@@ -44,6 +47,8 @@ const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
 =======
+>>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
+=======
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
@@ -51,12 +56,22 @@ const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
 =======
 =======
+=======
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+>>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
@@ -169,10 +184,25 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 =======
 const PostList = ({ isLoading, posts, userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+=======
+=======
+const PostList = ({ isLoading }) => {
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+>>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -325,12 +355,17 @@ const PostList = ({ isLoading, posts, userInfo }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 6d33120 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
                 <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 =======
@@ -346,12 +381,16 @@ const PostList = ({ isLoading, posts, userInfo }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
                 <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
@@ -369,6 +408,10 @@ const PostList = ({ isLoading, posts, userInfo }) => {
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
               </Li>
             );
           })}

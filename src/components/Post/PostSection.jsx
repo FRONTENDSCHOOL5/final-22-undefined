@@ -19,6 +19,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
@@ -34,6 +35,8 @@ const PostSection = ({ userInfo, onClick, setPostId }) => {
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
 const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
 =======
@@ -46,6 +49,8 @@ const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
 =======
+>>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
+=======
 const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
@@ -53,12 +58,22 @@ const PostSection = ({ userInfo, onClick, setPostId }) => {
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
 =======
 =======
+=======
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
 const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+>>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
@@ -171,10 +186,25 @@ const PostSection = ({ onClick, setPostId }) => {
 =======
 const PostSection = ({ userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+=======
+=======
+const PostSection = () => {
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+>>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -233,6 +263,7 @@ const PostSection = ({ userInfo }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
 =======
@@ -257,6 +288,8 @@ const PostSection = ({ userInfo }) => {
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
       {isList ? (
         <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
       ) : (
@@ -288,6 +321,8 @@ const PostSection = ({ userInfo }) => {
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 =======
 =======
@@ -307,6 +342,8 @@ const PostSection = ({ userInfo }) => {
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
       {isList ? (
         <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
       ) : (
@@ -372,6 +409,8 @@ const PostSection = ({ userInfo }) => {
 =======
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
@@ -396,10 +435,25 @@ const PostSection = ({ userInfo }) => {
 =======
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+=======
+=======
+      {isList ? <PostList posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+>>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
+>>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };
