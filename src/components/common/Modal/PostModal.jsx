@@ -30,9 +30,10 @@ import { AuthContextStore } from '../../../context/AuthContext';
 const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { username } = useParams(); // 현재 사용자 계정
+  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
+<<<<<<< HEAD
 <<<<<<< HEAD
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
@@ -70,6 +71,13 @@ const PostModal = ({ onClose, postId, accountName }) => {
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+  const { userToken, userAccountname } = useContext(AuthContextStore);
+  const myPostModalOptions = ['삭제', '수정'];
+  const otherPostModalOptions = ['신고하기'];
+  const userId = accountname ? accountname : JSON.parse(userAccountname);
+  const isLoginUser = userId === JSON.parse(userAccountname);
+>>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
 
   // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
@@ -160,6 +168,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
   // 게시글 삭제 및 삭제 오류 처리
   const deletePost = async () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
   // 게시글 삭제 및 삭제 오류 처리
@@ -171,6 +180,8 @@ const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
 =======
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
+=======
+>>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
     console.log('postId 값:', postId);
     try {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
@@ -312,10 +323,14 @@ const PostModal = ({ onClose, postId, accountName }) => {
   let optionElements = null;
   // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (isLoginUser) {
 =======
   if (username === accountName) {
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+  if (isLoginUser) {
+>>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
     optionElements = myPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
