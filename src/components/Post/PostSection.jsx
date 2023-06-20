@@ -10,10 +10,16 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+const PostSection = ({ userInfo, onClick, setPostId }) => {
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 const PostSection = ({ userInfo }) => {
 =======
 const PostSection = ({ onClick, setPostId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 const PostSection = ({ userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
@@ -23,6 +29,9 @@ const PostSection = () => {
 =======
 const PostSection = ({ onClick, setPostId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -71,15 +80,19 @@ const PostSection = ({ onClick, setPostId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
       {isList ? (
         <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
       ) : (
         <PostAlbum posts={posts} />
       )}
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
@@ -90,6 +103,19 @@ const PostSection = ({ onClick, setPostId }) => {
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+=======
+<<<<<<< HEAD
+      {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
+=======
+      {isList ? (
+        <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
+      ) : (
+        <PostAlbum posts={posts} />
+      )}
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+>>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };

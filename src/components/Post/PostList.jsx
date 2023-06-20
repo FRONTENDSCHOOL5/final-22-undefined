@@ -8,10 +8,16 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 const PostList = ({ isLoading, posts, userInfo }) => {
 =======
 const PostList = ({ isLoading, onClick, setPostId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 const PostList = ({ isLoading, posts, userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
@@ -21,6 +27,9 @@ const PostList = ({ isLoading }) => {
 =======
 const PostList = ({ isLoading, onClick, setPostId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -34,6 +43,9 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
     <Container>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
       <Wrapper>
         {isLoading ? (
           <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
@@ -50,13 +62,19 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
         )}
       </Wrapper>
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
       {isLoading ? (
         <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
       ) : (
         <Ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
           {postList.map((post) => {
             return (
               <Li key={post.id}>
@@ -70,6 +88,7 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
                   onClick={onClick}
                   setPostId={() => setPostId(post.id)}
                 />
+<<<<<<< HEAD
 =======
           {posts.map((post) => {
             return (
@@ -87,15 +106,21 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
                   today={today}
                 />
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
               </Li>
             );
           })}
         </Ul>
       )}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
     </Container>
   );
 };

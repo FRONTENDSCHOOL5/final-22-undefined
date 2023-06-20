@@ -7,9 +7,12 @@ import CommentIcon from '../../assets/icon/icon-message-circle.png';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
 =======
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 =======
 >>>>>>> 761a38c (style: a태그를 Link 태그로 변경)
@@ -27,6 +30,7 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
 =======
 const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e00e158 (style: 코드 오류 수정)
 =======
 const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
@@ -36,17 +40,28 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
 =======
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
 =======
+=======
+import { Link } from 'react-router-dom';
+
+const PostItem = ({ userInfo, postContent, postImg, today }) => {
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 
 const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today, onClick, setPostId }) => {
   console.log(setPostId);
+<<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> e00e158 (style: 코드 오류 수정)
+=======
+>>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
   const handleClick = () => {
     onClick();
     setPostId();
   };
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
@@ -63,6 +78,11 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+>>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
   return (
     <>
       <PostArticle>
