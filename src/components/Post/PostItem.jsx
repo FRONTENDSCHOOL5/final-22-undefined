@@ -4,8 +4,8 @@ import HeartIcon from '../../assets/icon/icon-heart.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 
-const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today, onClick, setPostId }) => {
-  console.log(setPostId);
+const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
+  console.log(postImg);
   const handleClick = () => {
     onClick();
     setPostId();
@@ -16,10 +16,10 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
         <h3 className='a11y-hidden'>게시물 아이템</h3>
         <UserInfoSect>
           <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-          <PostUserProfileImg userProfileImg={userProfileImg} />
+          <PostUserProfileImg userProfileImg={userInfo.image} />
           <UserNameInfo>
-            <InfoName>{userName}</InfoName>
-            <InfoAccount>@ {acountName}</InfoAccount>
+            <InfoName>{userInfo.username}</InfoName>
+            <InfoAccount>@ {userInfo.acountName}</InfoAccount>
           </UserNameInfo>
           <ButtonIcon onClick={handleClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
@@ -29,7 +29,7 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
         <UserContentSect>
           <h4 className='a11y-hidden'>게시물 내용</h4>
           <UserPostText>{postContent}</UserPostText>
-          {postImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={postImg} />}
+          {postImg && <UserPostImg src={postImg} />}
           <LikeAndComment>
             <LikeBtn>
               <span className='a11y-hidden'>좋아요 버튼</span>

@@ -86,7 +86,7 @@ const ProfilePage = () => {
         <ProfileDisplay userInfo={userInfo} />
         <SellingProduct onClick={openModal} />
         {isModalOpen && <ProductModal onClose={closeModal} />}
-        <PostSection onClick={openModalTWo} setPostId={setPostId} />
+        <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
         {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />}
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
