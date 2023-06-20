@@ -99,11 +99,19 @@ const PostContent = () => {
             <ButtonIcon onClick={openModal}>
               <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
             </ButtonIcon>
+<<<<<<< HEAD
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
           </UserInfoSect>
 
           <UserContentSect>
             <h4 className='a11y-hidden'>게시물 내용</h4>
+<<<<<<< HEAD
+=======
+            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
+
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
             <UserPostText>{myPostContent}</UserPostText>
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={myPostImg} />}
             <LikeAndComment>
