@@ -6,12 +6,14 @@ import { AuthContextStore } from '../../../context/AuthContext';
 
 const PostModal = ({ onClose, postId, accountName }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { username } = useParams(); // 현재 사용자 계정
+  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
-  const { userToken } = useContext(AuthContextStore);
+  const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
+  const userId = accountname ? accountname : JSON.parse(userAccountname);
+  const isLoginUser = userId === JSON.parse(userAccountname);
 
   // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
@@ -26,6 +28,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
 
   // 모달 닫기
   const closeModal = (option) => {
+    console.log(postId);
     if (option === '삭제') {
       deletePost(postId) // 게시글 삭제 호출
         .then((response) => {
@@ -46,7 +49,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
   };
 
   // 게시글 삭제 및 삭제 오류 처리
-  const deletePost = async (postId) => {
+  const deletePost = async () => {
     console.log('postId 값:', postId);
     try {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
@@ -137,7 +140,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
   // 사용자 계정에 따라 모달에 표시할 옵션 요소 생성 및 렌더링
   let optionElements = null;
   // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
-  if (username === accountName) {
+  if (isLoginUser) {
     optionElements = myPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
