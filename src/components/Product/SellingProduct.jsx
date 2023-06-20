@@ -8,6 +8,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = ({ onClick }) => {
@@ -18,6 +19,9 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = () => {
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+=======
+const SellingProduct = ({ onClick }) => {
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -120,12 +124,16 @@ const SellingProduct = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 403c34a (style: 코드 오류 수정)
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
               <S.ImgCover onClick={onClick}>
@@ -150,6 +158,11 @@ const SellingProduct = () => {
 >>>>>>> 6ce78d2 (style: 코드 오류 수정)
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+=======
+=======
+              <S.ImgCover onClick={onClick}>
+>>>>>>> 56553de (style: 코드 오류 수정)
+>>>>>>> 403c34a (style: 코드 오류 수정)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>

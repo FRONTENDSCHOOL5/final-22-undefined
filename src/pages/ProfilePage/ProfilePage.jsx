@@ -27,6 +27,7 @@ const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState({});
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [postId, setPostId] = useState(''); // postId 상태 추가
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -36,6 +37,9 @@ const ProfilePage = () => {
 =======
   const [productId, setProductId] = useState(''); // productId 상태 추가
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
+=======
+  const [postId, setPostId] = useState(''); // postId 상태 추가
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
 
@@ -54,8 +58,11 @@ const ProfilePage = () => {
   const closeModalTwo = () => {
     setIsModalOpenTwo(false);
   };
+<<<<<<< HEAD
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
@@ -152,6 +159,7 @@ const ProfilePage = () => {
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
         <SellingProduct />
+<<<<<<< HEAD
         <PostSection userInfo={userInfo} />
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
@@ -177,8 +185,17 @@ const ProfilePage = () => {
         <SellingProduct />
         <PostSection userInfo={userInfo} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+        <PostSection />
+>>>>>>> 56553de (style: 코드 오류 수정)
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
+>>>>>>> 403c34a (style: 코드 오류 수정)
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>
