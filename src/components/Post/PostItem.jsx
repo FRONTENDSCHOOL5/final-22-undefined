@@ -9,6 +9,7 @@ import CommentIcon from '../../assets/icon/icon-message-circle.png';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
 =======
@@ -20,6 +21,8 @@ import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 =======
 >>>>>>> 761a38c (style: a태그를 Link 태그로 변경)
 >>>>>>> 5d3ecb1 (style: a태그를 Link 태그로 변경)
+=======
+>>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
 import { Link } from 'react-router-dom';
 
 <<<<<<< HEAD
