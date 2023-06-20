@@ -31,12 +31,16 @@ const ImgInput = ({ img, setImg }) => {
       console.log(error.message);
     }
   };
-
+  console.log(img);
   return (
     <>
       <S.Label htmlFor='profileImg'>
         <S.ProfileImg
-          src={img === 'http://146.56.183.55:5050/Ellipse.png' ? Ellipse : `https://api.mandarin.weniv.co.kr/${img}`}
+          src={
+            img === '' || img === 'http://146.56.183.55:5050/Ellipse.png'
+              ? Ellipse
+              : `https://api.mandarin.weniv.co.kr/${img}`
+          }
           alt='프로필 이미지'
         />
       </S.Label>
