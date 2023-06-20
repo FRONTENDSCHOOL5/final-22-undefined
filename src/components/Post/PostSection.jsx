@@ -15,6 +15,7 @@ const PostSection = ({ userInfo }) => {
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
 
+  // 유저 게시물 정보
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -25,9 +26,7 @@ const PostSection = ({ userInfo }) => {
 
         const data = await response.json();
         console.log(data);
-
         setPosts(data.post);
-
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);
