@@ -3,7 +3,7 @@ import PostItem from './PostItem';
 import styled from 'styled-components';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostList = ({ isLoading }) => {
+const PostList = ({ isLoading, onClick, setPostId }) => {
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
   const [postList, setPostList] = useState([]);
@@ -73,6 +73,8 @@ const PostList = ({ isLoading }) => {
                   postContent={post.content}
                   postImg={post.image}
                   today={today}
+                  onClick={onClick}
+                  setPostId={() => setPostId(post.id)}
                 />
               </Li>
             );

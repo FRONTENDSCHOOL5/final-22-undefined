@@ -9,6 +9,8 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import productList from '../../components/Product/dummyProducts';
 import FeedHeader from '../../components/common/Header/FeedHeader';
+import ProductModal from '../../components/common/Modal/ProductModal';
+import PostModal from '../../components/common/Modal/PostModal';
 
 const LayoutWrapper = styled(Wrapper)`
   background-color: ${({ theme }) => theme.colors.bgGray};
@@ -27,6 +29,25 @@ const ProfilePage = () => {
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState({});
+  const [postId, setPostId] = useState(''); // postId 상태 추가
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const openModalTWo = () => {
+    setIsModalOpenTwo(true);
+  };
+
+  const closeModalTwo = () => {
+    setIsModalOpenTwo(false);
+  };
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
@@ -63,8 +84,10 @@ const ProfilePage = () => {
       <FeedHeader />
       <Main>
         <ProfileDisplay userInfo={userInfo} />
-        <SellingProduct />
-        <PostSection />
+        <SellingProduct onClick={openModal} />
+        {isModalOpen && <ProductModal onClose={closeModal} />}
+        <PostSection onClick={openModalTWo} setPostId={setPostId} />
+        {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />}
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </LayoutWrapper>
