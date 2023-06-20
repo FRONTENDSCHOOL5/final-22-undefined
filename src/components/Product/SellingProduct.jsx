@@ -16,12 +16,15 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 506c3a9 (style: 코드 오류 수정)
 =======
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
 const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = ({ onClick }) => {
@@ -34,6 +37,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = () => {
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 const SellingProduct = ({ onClick }) => {
@@ -59,6 +63,11 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 506c3a9 (style: 코드 오류 수정)
 =======
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+=======
+const SellingProduct = ({ onClick }) => {
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -183,6 +192,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
@@ -193,10 +203,13 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 6d91338 (style: 코드 오류 수정)
 =======
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -251,6 +264,11 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 506c3a9 (style: 코드 오류 수정)
 =======
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+=======
+              <S.ImgCover onClick={onClick}>
+>>>>>>> 56553de (style: 코드 오류 수정)
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>

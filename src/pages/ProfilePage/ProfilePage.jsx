@@ -31,8 +31,11 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
   const [postId, setPostId] = useState(''); // postId 상태 추가
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -48,6 +51,7 @@ const ProfilePage = () => {
 =======
   const [productId, setProductId] = useState(''); // productId 상태 추가
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   const [postId, setPostId] = useState(''); // postId 상태 추가
@@ -68,6 +72,11 @@ const ProfilePage = () => {
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 506c3a9 (style: 코드 오류 수정)
+=======
+=======
+  const [postId, setPostId] = useState(''); // postId 상태 추가
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
 
@@ -89,10 +98,14 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
+<<<<<<< HEAD
 =======
 >>>>>>> 699f2ea (style: 코드 오류 수정)
 =======
@@ -101,6 +114,8 @@ const ProfilePage = () => {
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
@@ -258,14 +273,19 @@ const ProfilePage = () => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
 =======
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
+=======
 =======
         <PostSection />
 >>>>>>> 56553de (style: 코드 오류 수정)
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
 <<<<<<< HEAD
@@ -310,6 +330,9 @@ const ProfilePage = () => {
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
+>>>>>>> 8b24b9c (style: 코드 오류 수정)
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>
