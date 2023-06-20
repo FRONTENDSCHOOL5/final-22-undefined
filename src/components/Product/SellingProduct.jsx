@@ -13,10 +13,14 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = ({ onClick }) => {
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
@@ -38,6 +42,8 @@ const SellingProduct = ({ onClick }) => {
 =======
 const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> e00e158 (style: 코드 오류 수정)
+=======
+>>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -80,10 +86,13 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
       <Wrapper>
         <S.Title>판매 중인 상품</S.Title>
         <S.List>
@@ -111,6 +120,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 =======
@@ -119,6 +129,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
       <S.Title>판매 중인 상품</S.Title>
       <S.List>
         {isLoading ? (
@@ -131,6 +143,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
         ) : (
           products.map((product) => (
             <S.Item key={product.id}>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -202,6 +215,9 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
               <S.ImgCover onClick={() => handleClick(product.id)}>
 >>>>>>> e00e158 (style: 코드 오류 수정)
+=======
+              <S.ImgCover onClick={onClick}>
+>>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>
@@ -211,6 +227,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
         )}
       </S.List>
       {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -225,6 +242,9 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+>>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };
