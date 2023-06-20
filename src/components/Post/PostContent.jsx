@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> bdd4687 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -22,6 +23,8 @@
 >>>>>>> ca77f56 (remove: 삭제될 파일, postItem으로 변경)
 =======
 >>>>>>> bdd4687 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 import React, { useContext, useEffect, useState } from 'react';
 import PostUserProfileImg from './PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
@@ -123,6 +126,7 @@ const PostContent = () => {
             <ButtonIcon onClick={openModal}>
               <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
             </ButtonIcon>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -241,10 +245,13 @@ const PostContent = () => {
 =======
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
           </UserInfoSect>
 
           <UserContentSect>
             <h4 className='a11y-hidden'>게시물 내용</h4>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -343,6 +350,10 @@ const PostContent = () => {
 >>>>>>> 4c5f2bc (remove: 삭제될 파일, postItem으로 변경)
 >>>>>>> 4716414 (remove: 삭제될 파일, postItem으로 변경)
 >>>>>>> d15bede (remove: 삭제될 파일, postItem으로 변경)
+=======
+            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
+
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
             <UserPostText>{myPostContent}</UserPostText>
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={myPostImg} />}
             <LikeAndComment>
@@ -450,6 +461,7 @@ const TodayDate = styled.p`
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ca77f56 (remove: 삭제될 파일, postItem으로 변경)
 =======
@@ -477,3 +489,5 @@ const TodayDate = styled.p`
 >>>>>>> ca77f56 (remove: 삭제될 파일, postItem으로 변경)
 =======
 >>>>>>> bdd4687 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
