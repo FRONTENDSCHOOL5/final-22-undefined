@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import HeartIcon from '../../assets/icon/icon-heart.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 
 const PostItem = ({ userInfo, postContent, postImg, today }) => {
@@ -20,6 +21,11 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
     setPostId();
   };
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+
+const PostItem = ({ userInfo, postContent, postImg, today }) => {
+  console.log(postImg);
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
   return (
     <>
       <PostArticle>

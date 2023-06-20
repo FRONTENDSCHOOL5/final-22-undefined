@@ -26,26 +26,6 @@ const ProfilePage = () => {
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState({});
-  const [postId, setPostId] = useState(''); // postId 상태 추가
-  const [productId, setProductId] = useState(''); // productId 상태 추가
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const openModalTWo = () => {
-    setIsModalOpenTwo(true);
-  };
-
-  const closeModalTwo = () => {
-    setIsModalOpenTwo(false);
-  };
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
@@ -84,6 +64,7 @@ const ProfilePage = () => {
         <ProfileDisplay userInfo={userInfo} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <SellingProduct />
         <PostSection userInfo={userInfo} />
 =======
@@ -97,6 +78,10 @@ const ProfilePage = () => {
 >>>>>>> e00e158 (style: 코드 오류 수정)
         {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />}
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+        <SellingProduct />
+        <PostSection userInfo={userInfo} />
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>

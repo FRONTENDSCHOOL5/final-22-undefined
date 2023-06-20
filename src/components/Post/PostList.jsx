@@ -5,10 +5,14 @@ import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const PostList = ({ isLoading, posts, userInfo }) => {
 =======
 const PostList = ({ isLoading, onClick, setPostId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+const PostList = ({ isLoading, posts, userInfo }) => {
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -20,6 +24,7 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 
   return (
     <Container>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <Wrapper>
         {isLoading ? (
@@ -37,10 +42,13 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
         )}
       </Wrapper>
 =======
+=======
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
       {isLoading ? (
         <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
       ) : (
         <Ul>
+<<<<<<< HEAD
           {postList.map((post) => {
             return (
               <Li key={post.id}>
@@ -54,12 +62,21 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
                   onClick={onClick}
                   setPostId={() => setPostId(post.id)}
                 />
+=======
+          {posts.map((post) => {
+            return (
+              <Li key={post.id}>
+                <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
               </Li>
             );
           })}
         </Ul>
       )}
+<<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
     </Container>
   );
 };

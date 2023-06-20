@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
-const SellingProduct = ({ onClick, setProductId }) => {
+const SellingProduct = () => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -45,6 +45,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
   return (
     <S.Section>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Wrapper>
         <S.Title>판매 중인 상품</S.Title>
         <S.List>
@@ -70,6 +71,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
         {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
       </Wrapper>
 =======
+=======
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
       <S.Title>판매 중인 상품</S.Title>
       <S.List>
         {isLoading ? (
@@ -82,7 +85,11 @@ const SellingProduct = ({ onClick, setProductId }) => {
         ) : (
           products.map((product) => (
             <S.Item key={product.id}>
+<<<<<<< HEAD
               <S.ImgCover onClick={() => handleClick(product.id)}>
+=======
+              <S.ImgCover>
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>
@@ -92,7 +99,10 @@ const SellingProduct = ({ onClick, setProductId }) => {
         )}
       </S.List>
       {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
+<<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };

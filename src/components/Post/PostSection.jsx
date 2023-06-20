@@ -7,10 +7,14 @@ import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const PostSection = ({ userInfo }) => {
 =======
 const PostSection = ({ onClick, setPostId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+const PostSection = ({ userInfo }) => {
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -56,6 +60,7 @@ const PostSection = ({ onClick, setPostId }) => {
         </Wrapper>
       </S.Header>
 <<<<<<< HEAD
+<<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
       {isList ? (
@@ -64,6 +69,9 @@ const PostSection = ({ onClick, setPostId }) => {
         <PostAlbum posts={posts} />
       )}
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+      {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };
