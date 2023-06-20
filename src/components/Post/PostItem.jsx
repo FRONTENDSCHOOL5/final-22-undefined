@@ -1,10 +1,43 @@
 import PostUserProfileImg from './PostUserProfileImg';
 import styled from 'styled-components';
 import HeartIcon from '../../assets/icon/icon-heart.png';
+import HeartIconFill from '../../assets/icon/icon-heart-active.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ userInfo, postContent, postImg, today }) => {
-  console.log(postImg);
+const PostItem = ({ postId, userInfo, postContent, postImg, today }) => {
+  // console.log(postImg);
+  // console.log(postId);
+  // console.log(userInfo);
+  const [like, setLike] = useState(false);
+  const { userToken } = useContext(AuthContextStore);
+
+  // 좋아요 요청
+  const handleLike = async () => {
+    try {
+      if (!like) {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/heart`, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        setLike(true);
+      } else {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/unheart`, {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        setLike(false);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   return (
     <>
       <PostArticle>
@@ -14,7 +47,7 @@ const PostItem = ({ userInfo, postContent, postImg, today }) => {
           <PostUserProfileImg userProfileImg={userInfo.image} />
           <UserNameInfo>
             <InfoName>{userInfo.username}</InfoName>
-            <InfoAccount>@ {userInfo.acountName}</InfoAccount>
+            <InfoAccount>@ {userInfo.accountname}</InfoAccount>
           </UserNameInfo>
           <More>more</More>
         </UserInfoSect>
@@ -24,7 +57,7 @@ const PostItem = ({ userInfo, postContent, postImg, today }) => {
           <UserPostText>{postContent}</UserPostText>
           {postImg && <UserPostImg src={postImg} />}
           <LikeAndComment>
-            <LikeBtn>
+            <LikeBtn isLike={like} onClick={handleLike}>
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>0</span>
             </LikeBtn>
@@ -100,7 +133,8 @@ const LikeBtn = styled.button`
     margin-right: 6px;
     display: inline-block;
     vertical-align: bottom;
-    background: url(${HeartIcon}) no-repeat center;
+    background: ${({ isLike }) =>
+      isLike ? `url(${HeartIconFill}) no-repeat center` : `url(${HeartIcon}) no-repeat center`};
   }
 `;
 
