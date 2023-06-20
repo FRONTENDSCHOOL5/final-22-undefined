@@ -11,12 +11,15 @@ import Login from '../pages/LoginPage/Login';
 import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> 849f289 (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
+>>>>>>> 24a8e0c (fix: product/edit 경로 추가)
 import AddProduct from '../pages/ProductPage/AddProduct';
 import FollowList from '../pages/FollowListPage/FollowList';
 import PostUpload from '../pages/PostPage/PostUpload';
@@ -39,7 +42,21 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
 >>>>>>> 0d10278 (add: IconHeader 구현을 위해 임의로 생성 #50)
+<<<<<<< HEAD
 >>>>>>> 849f289 (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
+=======
+import MyProfile from '../pages/ProfilePage/MyProfile';
+import YourProfile from '../pages/ProfilePage/YourProfile';
+=======
+import AddProduct from '../pages/ProductPage/AddProduct';
+import FollowList from '../pages/FollowListPage/FollowList';
+import PostUpload from '../pages/PostPage/PostUpload';
+import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import EditProduct from './../pages/ProductPage/EditProduct';
+>>>>>>> 8747cf8 (fix: product/edit 경로 추가)
+>>>>>>> 97e7327 (fix: product/edit 경로 추가)
+>>>>>>> 24a8e0c (fix: product/edit 경로 추가)
 
 const Router = () => {
   return (
@@ -60,6 +77,7 @@ const Router = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <Route path='/product' element={<AddProduct />} />
         <Route path='/product/edit' element={<EditProduct />} />
@@ -69,12 +87,24 @@ const Router = () => {
         <Route path='/profile/icon' element={<Icon />} />
 >>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
 =======
+=======
+>>>>>>> 24a8e0c (fix: product/edit 경로 추가)
         <Route path='/product' element={<AddProduct />} />
         <Route path='/product/edit' element={<EditProduct />} />
         <Route path='/follow/:accountname/:type' element={<FollowList />} />
 =======
 >>>>>>> 0d10278 (add: IconHeader 구현을 위해 임의로 생성 #50)
+<<<<<<< HEAD
 >>>>>>> 849f289 (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
+=======
+=======
+        <Route path='/product' element={<AddProduct />} />
+        <Route path='/product/edit' element={<EditProduct />} />
+        <Route path='/follow/:accountname/:type' element={<FollowList />} />
+>>>>>>> 8747cf8 (fix: product/edit 경로 추가)
+>>>>>>> 97e7327 (fix: product/edit 경로 추가)
+>>>>>>> 24a8e0c (fix: product/edit 경로 추가)
       </Routes>
     </BrowserRouter>
   );
