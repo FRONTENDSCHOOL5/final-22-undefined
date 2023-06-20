@@ -1,8 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import layers from '../../assets/icon/iccon-img-layers.svg';
 
 export const Container = styled.div`
   padding: 16px;
+  margin-bottom: 60px;
 `;
 
 export const List = styled.ul`

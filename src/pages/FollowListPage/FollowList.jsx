@@ -9,7 +9,6 @@ const Main = styled.main`
   margin-top: 48px;
   padding: 24px 16px;
   overflow: auto;
-  max-height: calc(80vh - 48px);
 `;
 
 const FollowList = () => {
@@ -27,12 +26,12 @@ const FollowList = () => {
   // }, []);
 
   return (
-    <Wrapper>
-      <Main>
-        <FollowListHeader type={type === 'follower' ? 'Followers' : 'Followings'} />
+    <Main>
+      <FollowListHeader type={type === 'follower' ? 'Followers' : 'Followings'} />
+      <Wrapper>
         <Follows followList={followList} />
-      </Main>
-    </Wrapper>
+      </Wrapper>
+    </Main>
   );
 };
 
