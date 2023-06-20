@@ -72,6 +72,9 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 47883da (fix: product/edit 경로 추가)
 import EditProduct from './../pages/ProductPage/EditProduct';
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
 <<<<<<< HEAD
@@ -114,8 +117,17 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 =======
 import Icon from './../pages/ProfilePage/Icon';
 >>>>>>> 168f150 (add: IconHeader 구현을 위해 임의로 생성 #50)
+<<<<<<< HEAD
 >>>>>>> a793b05 (add: IconHeader 구현을 위해 임의로 생성 #50)
+<<<<<<< HEAD
 >>>>>>> cde40ec (add: IconHeader 구현을 위해 임의로 생성 #50)
+=======
+=======
+=======
+import EditProduct from './../pages/ProductPage/EditProduct';
+>>>>>>> 8747cf8 (fix: product/edit 경로 추가)
+>>>>>>> 21dad24 (fix: product/edit 경로 추가)
+>>>>>>> 47883da (fix: product/edit 경로 추가)
 
 const Router = () => {
   return (
@@ -172,6 +184,7 @@ const Router = () => {
 >>>>>>> a793b05 (add: IconHeader 구현을 위해 임의로 생성 #50)
 =======
         <Route path='/product' element={<AddProduct />} />
+        <Route path='/product/edit' element={<EditProduct />} />
         <Route path='/follow/:accountname/:type' element={<FollowList />} />
 >>>>>>> 8747cf8 (fix: product/edit 경로 추가)
 <<<<<<< HEAD
