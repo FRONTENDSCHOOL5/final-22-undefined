@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
+<<<<<<< HEAD
 const PostList = ({ isLoading, posts, userInfo }) => {
+=======
+const PostList = ({ isLoading, onClick, setPostId }) => {
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -16,6 +20,7 @@ const PostList = ({ isLoading, posts, userInfo }) => {
 
   return (
     <Container>
+<<<<<<< HEAD
       <Wrapper>
         {isLoading ? (
           <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
@@ -31,6 +36,30 @@ const PostList = ({ isLoading, posts, userInfo }) => {
           </Ul>
         )}
       </Wrapper>
+=======
+      {isLoading ? (
+        <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
+      ) : (
+        <Ul>
+          {postList.map((post) => {
+            return (
+              <Li key={post.id}>
+                <PostItem
+                  userProfileImg={userProfileImg}
+                  userName={userName}
+                  acountName={ParsedAccountName}
+                  postContent={post.content}
+                  postImg={post.image}
+                  today={today}
+                  onClick={onClick}
+                  setPostId={() => setPostId(post.id)}
+                />
+              </Li>
+            );
+          })}
+        </Ul>
+      )}
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
     </Container>
   );
 };

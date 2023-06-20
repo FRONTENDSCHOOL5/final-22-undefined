@@ -6,7 +6,11 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
+<<<<<<< HEAD
 const PostSection = ({ userInfo }) => {
+=======
+const PostSection = ({ onClick, setPostId }) => {
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -51,7 +55,15 @@ const PostSection = ({ userInfo }) => {
           </S.AlbumBtn>
         </Wrapper>
       </S.Header>
+<<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
+=======
+      {isList ? (
+        <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
+      ) : (
+        <PostAlbum posts={posts} />
+      )}
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };

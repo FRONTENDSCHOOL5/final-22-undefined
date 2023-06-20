@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
-const SellingProduct = () => {
+const SellingProduct = ({ onClick }) => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +38,7 @@ const SellingProduct = () => {
 
   return (
     <S.Section>
+<<<<<<< HEAD
       <Wrapper>
         <S.Title>판매 중인 상품</S.Title>
         <S.List>
@@ -62,6 +63,30 @@ const SellingProduct = () => {
         </S.List>
         {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
       </Wrapper>
+=======
+      <S.Title>판매 중인 상품</S.Title>
+      <S.List>
+        {isLoading ? (
+          <>
+            <ProductSkeleton />
+            <ProductSkeleton />
+            <ProductSkeleton />
+            <ProductSkeleton />
+          </>
+        ) : (
+          products.map((product) => (
+            <S.Item key={product.id}>
+              <S.ImgCover onClick={onClick}>
+                <S.Img src={product.itemImage} />
+              </S.ImgCover>
+              <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>
+              <S.Price className='s1-ellipsis'>{`${product.price.toLocaleString()}원`}</S.Price>
+            </S.Item>
+          ))
+        )}
+      </S.List>
+      {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };
