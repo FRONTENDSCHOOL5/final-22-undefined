@@ -16,6 +16,7 @@ import CommentIcon from '../../assets/icon/icon-message-circle.png';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
 =======
@@ -31,6 +32,8 @@ import CommentIcon from '../../assets/icon/icon-message-circle.png';
 >>>>>>> b4f37b2 (style: a태그를 Link 태그로 변경)
 =======
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> c1a425d (style: a태그를 Link 태그로 변경)
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 =======
 >>>>>>> 761a38c (style: a태그를 Link 태그로 변경)
@@ -61,6 +64,15 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
 =======
 >>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
 >>>>>>> ad2a39d (style: a태그를 Link 태그로 변경)
+=======
+=======
+>>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
+=======
+import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
+=======
+>>>>>>> 761a38c (style: a태그를 Link 태그로 변경)
+>>>>>>> 5d3ecb1 (style: a태그를 Link 태그로 변경)
+>>>>>>> 85c48b2 (style: a태그를 Link 태그로 변경)
 import { Link } from 'react-router-dom';
 
 <<<<<<< HEAD
