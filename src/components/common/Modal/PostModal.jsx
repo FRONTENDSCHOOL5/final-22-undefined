@@ -144,9 +144,10 @@ import { AuthContextStore } from '../../../context/AuthContext';
 const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { username } = useParams(); // 현재 사용자 계정
+  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
+<<<<<<< HEAD
 <<<<<<< HEAD
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
@@ -184,6 +185,13 @@ const PostModal = ({ onClose, postId, accountName }) => {
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+  const { userToken, userAccountname } = useContext(AuthContextStore);
+  const myPostModalOptions = ['삭제', '수정'];
+  const otherPostModalOptions = ['신고하기'];
+  const userId = accountname ? accountname : JSON.parse(userAccountname);
+  const isLoginUser = userId === JSON.parse(userAccountname);
+>>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
 
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -705,6 +713,7 @@ const PostModal = ({ onClose }) => {
   const deletePost = async () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 448785a (feat: 모달 props 전달 #50)
 <<<<<<< HEAD
 >>>>>>> c721b3a (feat: 모달 props 전달 #50)
@@ -712,6 +721,8 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 699f2ea (style: 코드 오류 수정)
+=======
+>>>>>>> 655ff17 (feat: 모달 props 전달 #50)
 =======
 =======
   // 게시글 삭제 및 삭제 오류 처리
@@ -729,7 +740,9 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 699f2ea (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 6d91338 (style: 코드 오류 수정)
 =======
 >>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
@@ -769,6 +782,12 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
 >>>>>>> 699f2ea (style: 코드 오류 수정)
 >>>>>>> 437936b (style: 코드 오류 수정)
+=======
+=======
+=======
+>>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
+>>>>>>> 655ff17 (feat: 모달 props 전달 #50)
+>>>>>>> 92d0cdd (feat: 모달 props 전달 #50)
     console.log('postId 값:', postId);
     try {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
@@ -1179,6 +1198,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (isLoginUser) {
 =======
   if (username === accountName) {
@@ -1193,6 +1213,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> a74faf0 (feat: 모달 props 전달 #50)
 =======
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 92d0cdd (feat: 모달 props 전달 #50)
   if (isLoginUser) {
 =======
   if (username === accountName) {
@@ -1261,12 +1283,23 @@ const PostModal = ({ onClose }) => {
 >>>>>>> a60f7c8 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 =======
+=======
+>>>>>>> 655ff17 (feat: 모달 props 전달 #50)
   if (isLoginUser) {
 =======
   if (username === accountName) {
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> 9e9f378 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> f707a15 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+  if (isLoginUser) {
+>>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
+>>>>>>> 655ff17 (feat: 모달 props 전달 #50)
+>>>>>>> 92d0cdd (feat: 모달 props 전달 #50)
     optionElements = myPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
