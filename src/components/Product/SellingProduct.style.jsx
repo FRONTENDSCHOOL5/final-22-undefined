@@ -57,3 +57,7 @@ export const Price = styled.strong`
   margin-bottom: 15px;
   color: ${({ theme }) => theme.colors.primary};
 `;
+
+export const Soldout = styled.p`
+  font-size: 14px;
+`;

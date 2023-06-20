@@ -21,6 +21,7 @@ export const Container = styled.div`
 export const ProfileImg = styled.img`
   width: 110px;
   height: 110px;
+  border-radius: 50%;
   object-fit: cover;
   display: block;
   margin: 0 auto 16px;
@@ -44,7 +45,7 @@ export const Intro = styled.p`
   margin: 14px auto 26px;
 `;
 
-export const FollwerLink = styled(Link)`
+export const FollowerLink = styled(Link)`
   position: absolute;
   left: 0;
   top: 20%;
