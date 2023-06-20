@@ -31,6 +31,7 @@ const ProfilePage = () => {
   const [postId, setPostId] = useState(''); // postId 상태 추가
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [productId, setProductId] = useState(''); // productId 상태 추가
 =======
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
@@ -40,6 +41,9 @@ const ProfilePage = () => {
 =======
   const [postId, setPostId] = useState(''); // postId 상태 추가
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
+=======
+  const [productId, setProductId] = useState(''); // productId 상태 추가
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
 
@@ -109,6 +113,7 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <SellingProduct />
 <<<<<<< HEAD
         <PostSection userInfo={userInfo} />
@@ -123,6 +128,8 @@ const ProfilePage = () => {
 >>>>>>> 6ce78d2 (style: 코드 오류 수정)
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
         <SellingProduct onClick={openModal} setProductId={setProductId} />
         {isModalOpen && <ProductModal onClose={closeModal} productId={productId} />}
         <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
@@ -157,6 +164,8 @@ const ProfilePage = () => {
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
         <SellingProduct />
 <<<<<<< HEAD
@@ -194,8 +203,20 @@ const ProfilePage = () => {
 =======
         <PostSection />
 >>>>>>> 56553de (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 403c34a (style: 코드 오류 수정)
+=======
+=======
+=======
+        <SellingProduct onClick={openModal} />
+        {isModalOpen && <ProductModal onClose={closeModal} />}
+        <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
+        {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />}
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
+>>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>
