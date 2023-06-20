@@ -13,8 +13,6 @@ const ProfileDisplay = ({ userInfo }) => {
   const userId = accountname ? accountname : JSON.parse(userAccountname);
   // 현재 프로필에 해당하는 사람이 로그인된 유저랑 같은 사람인지 여부
   const isLoginUser = userId === JSON.parse(userAccountname);
-  console.log(userId);
-  console.log('accountname', accountname);
   return (
     <S.Header>
       <S.Container>
