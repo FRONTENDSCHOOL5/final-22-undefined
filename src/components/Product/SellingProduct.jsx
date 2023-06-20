@@ -21,6 +21,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
@@ -37,12 +38,19 @@ import Wrapper from '../common/Wrapper/Wrapper';
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> d03f78f (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = ({ onClick }) => {
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 =======
 const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
@@ -98,7 +106,12 @@ const SellingProduct = () => {
 =======
 const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 71b2134 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> d03f78f (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -143,6 +156,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
@@ -151,6 +165,10 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
       <Wrapper>
         <S.Title>판매 중인 상품</S.Title>
         <S.List>
@@ -180,10 +198,14 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
@@ -194,6 +216,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
       <S.Title>판매 중인 상품</S.Title>
       <S.List>
         {isLoading ? (
@@ -206,6 +230,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
         ) : (
           products.map((product) => (
             <S.Item key={product.id}>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -248,6 +273,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> d03f78f (style: 코드 오류 수정)
+=======
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
@@ -280,6 +307,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
               <S.ImgCover onClick={onClick}>
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
               <S.ImgCover onClick={() => handleClick(product.id)}>
 >>>>>>> 6ce78d2 (style: 코드 오류 수정)
@@ -330,6 +358,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
               <S.ImgCover onClick={() => handleClick(product.id)}>
 >>>>>>> e00e158 (style: 코드 오류 수정)
 >>>>>>> d03f78f (style: 코드 오류 수정)
+=======
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>
@@ -344,12 +374,16 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
@@ -363,6 +397,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };
