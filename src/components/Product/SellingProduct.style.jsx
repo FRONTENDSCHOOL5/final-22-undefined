@@ -19,7 +19,7 @@ export const List = styled.ul`
   margin-top: 16px;
   display: flex;
   gap: 10px;
-  overflow-y: auto;
+  overflow-x: auto;
 `;
 
 export const Item = styled.li`

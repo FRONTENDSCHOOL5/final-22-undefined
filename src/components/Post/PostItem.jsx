@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import HeartIcon from '../../assets/icon/icon-heart.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
+import { Link } from 'react-router-dom';
 
 const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
   const handleClick = () => {
@@ -34,7 +35,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>0</span>
             </LikeBtn>
-            <CommentLink href='#'>
+            <CommentLink to='/#'>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>0</span>
             </CommentLink>
@@ -112,7 +113,7 @@ const LikeBtn = styled.button`
   }
 `;
 
-const CommentLink = styled.a`
+const CommentLink = styled(Link)`
   &::before {
     content: '';
     width: 20px;

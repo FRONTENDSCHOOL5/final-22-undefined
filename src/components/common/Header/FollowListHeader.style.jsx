@@ -6,10 +6,11 @@ export const Header = styled.header`
   height: 48px;
   background-color: ${({ theme }) => theme.colors.white};
   border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`};
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   gap: 13px;

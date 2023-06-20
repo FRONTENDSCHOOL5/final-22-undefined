@@ -16,7 +16,7 @@ export const Title = styled.h2``;
 
 export const Header = styled.header`
   border-bottom: ${({ theme }) => `0.5px solid ${theme.colors.gray}`};
-  padding: 5px 21px 0 0;
+  padding: 5px 0 0 0;
   height: 44px;
   text-align: right;
 `;

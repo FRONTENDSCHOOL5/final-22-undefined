@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import PostItem from './PostItem';
 import styled from 'styled-components';
 import { AuthContextStore } from '../../context/AuthContext';
+import Wrapper from '../common/Wrapper/Wrapper';
 
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
   const [userProfileImg, setUserProfileImg] = useState('');
@@ -15,26 +16,28 @@ const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 
   return (
     <Container>
-      {isLoading ? (
-        <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
-      ) : (
-        <Ul>
-          {posts.map((post) => {
-            return (
-              <Li key={post.id}>
-                <PostItem
-                  userInfo={userInfo}
-                  postContent={post.content}
-                  postImg={post.image}
-                  today={today}
-                  onClick={onClick}
-                  setPostId={() => setPostId(post.id)}
-                />
-              </Li>
-            );
-          })}
-        </Ul>
-      )}
+      <Wrapper>
+        {isLoading ? (
+          <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
+        ) : (
+          <Ul>
+            {posts.map((post) => {
+              return (
+                <Li key={post.id}>
+                  <PostItem
+                    userInfo={userInfo}
+                    postContent={post.content}
+                    postImg={post.image}
+                    today={today}
+                    onClick={onClick}
+                    setPostId={() => setPostId(post.id)}
+                  />
+                </Li>
+              );
+            })}
+          </Ul>
+        )}
+      </Wrapper>
     </Container>
   );
 };
@@ -51,6 +54,7 @@ const Li = styled.li`
 
 const Container = styled.div`
   padding: 20px 16px;
+  margin-bottom: 60px;
 `;
 
 const NoPost = styled.p`

@@ -26,7 +26,7 @@ const ProfileDisplay = ({ userInfo }) => {
         />
         {/* <PostUserProfileImg size='110px' userProfileImg={userInfo.image} /> */}
         <S.UserName>{userInfo.username}</S.UserName>
-        <S.AccountName>{`@ ${userId}`}</S.AccountName>
+        <S.AccountName>{`@ ${userInfo.accountname}`}</S.AccountName>
         <S.Intro className='sl-ellipsis'>{userInfo.intro}</S.Intro>
         <S.FollowerLink to={`/follow/${userId}/follower`}>
           <strong>{userInfo.followerCount}</strong>
