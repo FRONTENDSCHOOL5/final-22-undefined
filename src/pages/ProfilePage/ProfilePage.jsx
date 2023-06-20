@@ -64,7 +64,7 @@ const ProfilePage = () => {
       <Main>
         <ProfileDisplay userInfo={userInfo} />
         <SellingProduct />
-        <PostSection />
+        <PostSection userInfo={userInfo} />
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </LayoutWrapper>
