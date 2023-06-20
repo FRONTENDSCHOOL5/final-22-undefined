@@ -4,6 +4,9 @@ import HeartIcon from '../../assets/icon/icon-heart.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
 import { Link } from 'react-router-dom';
 
 <<<<<<< HEAD
