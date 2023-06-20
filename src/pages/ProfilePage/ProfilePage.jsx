@@ -50,10 +50,13 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 506c3a9 (style: 코드 오류 수정)
 =======
 >>>>>>> 6d33120 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> d03f78f (style: 코드 오류 수정)
   const [productId, setProductId] = useState(''); // productId 상태 추가
 =======
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
@@ -94,7 +97,13 @@ const ProfilePage = () => {
 =======
   const [postId, setPostId] = useState(''); // postId 상태 추가
 >>>>>>> f32b37f (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
+=======
+=======
+  const [productId, setProductId] = useState(''); // productId 상태 추가
+>>>>>>> 71b2134 (style: 코드 오류 수정)
+>>>>>>> d03f78f (style: 코드 오류 수정)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
 
@@ -202,6 +211,7 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <SellingProduct />
 <<<<<<< HEAD
         <PostSection userInfo={userInfo} />
@@ -232,6 +242,8 @@ const ProfilePage = () => {
 >>>>>>> 437936b (style: 코드 오류 수정)
 =======
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> d03f78f (style: 코드 오류 수정)
         <SellingProduct onClick={openModal} setProductId={setProductId} />
         {isModalOpen && <ProductModal onClose={closeModal} productId={productId} />}
         <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
@@ -277,6 +289,8 @@ const ProfilePage = () => {
 >>>>>>> 699f2ea (style: 코드 오류 수정)
 =======
 >>>>>>> f32b37f (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 71b2134 (style: 코드 오류 수정)
 <<<<<<< HEAD
 =======
 >>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
@@ -353,10 +367,17 @@ const ProfilePage = () => {
         {isModalOpen && <ProductModal onClose={closeModal} productId={productId} />}
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 6d33120 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 437936b (style: 코드 오류 수정)
+=======
+=======
+        <SellingProduct onClick={openModal} setProductId={setProductId} />
+        {isModalOpen && <ProductModal onClose={closeModal} productId={productId} />}
+>>>>>>> e00e158 (style: 코드 오류 수정)
+>>>>>>> d03f78f (style: 코드 오류 수정)
         <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
         {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />}
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)

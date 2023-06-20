@@ -141,10 +141,13 @@ const PostModal = ({ onClose }) => {
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
+<<<<<<< HEAD
 const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+const PostModal = ({ onClose, postId, accountname, setPosts }) => {
+>>>>>>> e00e158 (style: 코드 오류 수정)
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
 <<<<<<< HEAD
@@ -477,6 +480,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
 =======
@@ -487,10 +491,14 @@ const PostModal = ({ onClose }) => {
 =======
 >>>>>>> 437936b (style: 코드 오류 수정)
 =======
+>>>>>>> d03f78f (style: 코드 오류 수정)
+=======
 =======
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
 =======
 >>>>>>> 699f2ea (style: 코드 오류 수정)
+=======
+>>>>>>> 71b2134 (style: 코드 오류 수정)
 <<<<<<< HEAD
 =======
 =======
@@ -579,6 +587,11 @@ const PostModal = ({ onClose }) => {
 =======
 =======
             console.log('삭제 완료');
+=======
+            // console.log('삭제 완료');
+            // window.location.replace('/profile');
+            onClose();
+>>>>>>> e00e158 (style: 코드 오류 수정)
             navigate('/profile');
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
 >>>>>>> 699f2ea (style: 코드 오류 수정)
@@ -902,6 +915,7 @@ const PostModal = ({ onClose }) => {
 
       if (response.ok) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // 성공할 경우
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
 <<<<<<< HEAD
@@ -909,7 +923,12 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 56553de (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 8b24b9c (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> e00e158 (style: 코드 오류 수정)
+>>>>>>> d03f78f (style: 코드 오류 수정)
         return { success: true };
       } else if (response.status === 404) {
         // 게시글이 존재하지 않을 경우

@@ -116,6 +116,7 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
 =======
 =======
 const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
+<<<<<<< HEAD
 >>>>>>> e00e158 (style: 코드 오류 수정)
 <<<<<<< HEAD
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
@@ -194,8 +195,16 @@ import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today, onClick, setPostId }) => {
   console.log(setPostId);
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> f32b37f (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+>>>>>>> e00e158 (style: 코드 오류 수정)
+>>>>>>> 71b2134 (style: 코드 오류 수정)
+>>>>>>> d03f78f (style: 코드 오류 수정)
   const handleClick = () => {
     onClick();
     setPostId();

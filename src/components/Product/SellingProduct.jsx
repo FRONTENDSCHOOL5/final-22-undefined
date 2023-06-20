@@ -20,6 +20,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
@@ -34,6 +35,8 @@ import Wrapper from '../common/Wrapper/Wrapper';
 >>>>>>> 437936b (style: 코드 오류 수정)
 =======
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> d03f78f (style: 코드 오류 수정)
 const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = ({ onClick }) => {
@@ -89,7 +92,13 @@ const SellingProduct = () => {
 >>>>>>> 437936b (style: 코드 오류 수정)
 =======
 >>>>>>> f32b37f (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
+=======
+=======
+const SellingProduct = ({ onClick, setProductId }) => {
+>>>>>>> 71b2134 (style: 코드 오류 수정)
+>>>>>>> d03f78f (style: 코드 오류 수정)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -218,6 +227,7 @@ const SellingProduct = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
@@ -236,6 +246,8 @@ const SellingProduct = () => {
 >>>>>>> 437936b (style: 코드 오류 수정)
 =======
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> d03f78f (style: 코드 오류 수정)
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
@@ -260,6 +272,7 @@ const SellingProduct = () => {
 =======
               <S.ImgCover onClick={onClick}>
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
               <S.ImgCover onClick={() => handleClick(product.id)}>
@@ -312,6 +325,11 @@ const SellingProduct = () => {
 >>>>>>> 437936b (style: 코드 오류 수정)
 =======
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
+=======
+=======
+              <S.ImgCover onClick={() => handleClick(product.id)}>
+>>>>>>> e00e158 (style: 코드 오류 수정)
+>>>>>>> d03f78f (style: 코드 오류 수정)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>
