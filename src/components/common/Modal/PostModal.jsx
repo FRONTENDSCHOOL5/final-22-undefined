@@ -403,9 +403,8 @@ const PostModal = ({ onClose }) => {
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose, postId, accountName }) => {
+const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
@@ -713,6 +712,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
 =======
@@ -903,6 +903,11 @@ const PostModal = ({ onClose, postId, accountName }) => {
 =======
 =======
             console.log('삭제 완료');
+=======
+            // console.log('삭제 완료');
+            // window.location.replace('/profile');
+            onClose();
+>>>>>>> e00e158 (style: 코드 오류 수정)
             navigate('/profile');
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
 >>>>>>> 699f2ea (style: 코드 오류 수정)
@@ -1384,6 +1389,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
       if (response.ok) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         // 성공할 경우
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
 <<<<<<< HEAD
@@ -1413,6 +1419,8 @@ const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 56553de (style: 코드 오류 수정)
 >>>>>>> 403c34a (style: 코드 오류 수정)
 >>>>>>> 95ab459 (style: 코드 오류 수정)
+=======
+>>>>>>> e00e158 (style: 코드 오류 수정)
         return { success: true };
       } else if (response.status === 404) {
         // 게시글이 존재하지 않을 경우
