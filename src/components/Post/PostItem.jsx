@@ -4,6 +4,7 @@ import HeartIcon from '../../assets/icon/icon-heart.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 
 const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today }) => {
+  console.log(postImg);
   return (
     <>
       <PostArticle>
@@ -21,7 +22,7 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
         <UserContentSect>
           <h4 className='a11y-hidden'>게시물 내용</h4>
           <UserPostText>{postContent}</UserPostText>
-          {postImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={postImg} />}
+          {postImg && <UserPostImg src={postImg} />}
           <LikeAndComment>
             <LikeBtn>
               <span className='a11y-hidden'>좋아요 버튼</span>
