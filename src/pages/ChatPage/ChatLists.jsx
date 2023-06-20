@@ -5,6 +5,7 @@ import TabMenu from '../HomePage/TabMenu';
 
 import arrowLeft from '../../assets/icon/icon-arrow-left.png';
 import moreVertical from '../../assets/icon/icon-more-vertical.png';
+import ChatListsContents from './ChatListsContents';
 
 const Header = styled.header`
   border-bottom: 0.5px solid #dbdbdb;
@@ -41,6 +42,7 @@ const ChatList = () => {
         <Arrow href='/home' />
         <MoreVertical />
       </Header>
+      <ChatListsContents />
       <TabMenu />
     </Wrapper>
   );

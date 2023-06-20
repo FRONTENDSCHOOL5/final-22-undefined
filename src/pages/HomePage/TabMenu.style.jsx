@@ -13,6 +13,7 @@ export const Footer = styled.footer`
   right: 0px;
   bottom: 0px;
   border-top: 0.5px solid #dbdbdb;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const MenuList = styled.ul`

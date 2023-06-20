@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
@@ -13,6 +13,7 @@ const Footer = styled.footer`
   right: 0px;
   bottom: 0px;
   border-top: 0.5px solid #dbdbdb;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 const Input = styled.input`
@@ -33,15 +34,27 @@ const PostBtn = styled.button`
   font-weight: 500;
   line-height: 18px;
   text-align: right;
-  color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme, isActivated }) => (isActivated ? theme.colors.primary : theme.colors.gray)};
 `;
 
 const Comment = () => {
+  const [word, setWord] = useState('');
+
+  const handleOnChange = (e) => {
+    let txt = e.target.value;
+    setWord(txt);
+  };
+
+  let isActivated = false;
+  if (word) isActivated = true;
+
   return (
     <Footer>
       <PostUserProfileImg size={'36px'} />
-      <Input type='text' placeholder='댓글 입력하기...' />
-      <PostBtn type='submit'>게시</PostBtn>
+      <Input type='text' placeholder='댓글 입력하기...' onChange={handleOnChange} />
+      <PostBtn isActivated={isActivated} type='submit'>
+        전송
+      </PostBtn>
     </Footer>
   );
 };
