@@ -22,6 +22,9 @@ import { useNavigate } from 'react-router-dom';
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 699f2ea (style: 코드 오류 수정)
 const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
 <<<<<<< HEAD
@@ -61,6 +64,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
 <<<<<<< HEAD
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   const [selectedOption, setSelectedOption] = useState('');
@@ -153,6 +157,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
   const navigate = useNavigate();
+=======
+>>>>>>> 9a5a8f2 (style: 코드 오류 수정)
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
@@ -261,14 +267,19 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
 =======
 =======
 >>>>>>> 403c34a (style: 코드 오류 수정)
 =======
+>>>>>>> 6d91338 (style: 코드 오류 수정)
+=======
 =======
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
+=======
+>>>>>>> 699f2ea (style: 코드 오류 수정)
 <<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
@@ -305,8 +316,18 @@ const PostModal = ({ onClose }) => {
 =======
             changePage(); // 삭제 성공 시 페이지 재랜더링
 >>>>>>> 56553de (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 403c34a (style: 코드 오류 수정)
+=======
+=======
+=======
+            console.log('삭제 완료');
+            navigate('/profile');
+>>>>>>> 9a5a8f2 (style: 코드 오류 수정)
+>>>>>>> 699f2ea (style: 코드 오류 수정)
+>>>>>>> 6d91338 (style: 코드 오류 수정)
           } else {
             deleteError(response.error); // 삭제 실패 시 에러 처리
           }
@@ -392,19 +413,30 @@ const PostModal = ({ onClose }) => {
 =======
   const deletePost = async () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 448785a (feat: 모달 props 전달 #50)
 <<<<<<< HEAD
 >>>>>>> c721b3a (feat: 모달 props 전달 #50)
 =======
 =======
 =======
+>>>>>>> 699f2ea (style: 코드 오류 수정)
+=======
 =======
   // 게시글 삭제 및 삭제 오류 처리
 >>>>>>> fa74fb8 (feat: 사용자 식별 및 신고 기능 추가 #50)
   const deletePost = async (postId) => {
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+=======
+=======
+=======
+>>>>>>> 9a5a8f2 (style: 코드 오류 수정)
+>>>>>>> 699f2ea (style: 코드 오류 수정)
+>>>>>>> 6d91338 (style: 코드 오류 수정)
     console.log('postId 값:', postId);
     try {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {

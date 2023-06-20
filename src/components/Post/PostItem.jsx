@@ -89,10 +89,19 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
 =======
 =======
 const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
+<<<<<<< HEAD
   console.log(postImg);
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+>>>>>>> 9a5a8f2 (style: 코드 오류 수정)
+>>>>>>> 699f2ea (style: 코드 오류 수정)
+>>>>>>> 6d91338 (style: 코드 오류 수정)
   const handleClick = () => {
     onClick();
     setPostId();
