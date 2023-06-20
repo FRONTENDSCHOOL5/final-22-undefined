@@ -8,15 +8,23 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
+=======
+=======
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 const PostList = ({ isLoading, posts, userInfo }) => {
 =======
 const PostList = ({ isLoading, onClick, setPostId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 const PostList = ({ isLoading, posts, userInfo }) => {
@@ -30,6 +38,14 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 =======
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+=======
+=======
+const PostList = ({ isLoading, posts, userInfo }) => {
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -44,8 +60,11 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
       <Wrapper>
         {isLoading ? (
           <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
@@ -63,18 +82,26 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
       </Wrapper>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
       {isLoading ? (
         <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
       ) : (
         <Ul>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
           {postList.map((post) => {
             return (
               <Li key={post.id}>
@@ -89,10 +116,14 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
                   setPostId={() => setPostId(post.id)}
                 />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
           {posts.map((post) => {
             return (
               <Li key={post.id}>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
@@ -108,11 +139,16 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+                <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
               </Li>
             );
           })}
         </Ul>
       )}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
@@ -121,6 +157,11 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
     </Container>
   );
 };
