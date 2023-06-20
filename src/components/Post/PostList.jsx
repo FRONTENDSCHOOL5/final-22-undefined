@@ -1,13 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PostItem from './PostItem';
 import styled from 'styled-components';
-import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
-  const [userProfileImg, setUserProfileImg] = useState('');
-  const [userName, setUserName] = useState('');
-
   console.log(posts);
 
   let dateString = new Date();
