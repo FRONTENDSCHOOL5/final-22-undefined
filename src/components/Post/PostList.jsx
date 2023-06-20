@@ -10,6 +10,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
@@ -63,6 +64,9 @@ const PostList = ({ isLoading }) => {
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
 >>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+=======
+const PostList = ({ isLoading, onClick, setPostId }) => {
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
