@@ -6,10 +6,14 @@ import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = ({ onClick }) => {
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+=======
+const SellingProduct = ({ onClick, setProductId }) => {
+>>>>>>> 6c1e3b9 (style: 코드 오류 수정)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -102,6 +106,7 @@ const SellingProduct = ({ onClick }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
@@ -124,6 +129,9 @@ const SellingProduct = ({ onClick }) => {
 =======
               <S.ImgCover onClick={onClick}>
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+              <S.ImgCover onClick={() => handleClick(product.id)}>
+>>>>>>> 6ce78d2 (style: 코드 오류 수정)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>
