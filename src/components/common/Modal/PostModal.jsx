@@ -225,13 +225,18 @@ import { AuthContextStore } from '../../../context/AuthContext';
 
 const PostModal = ({ onClose, postId, accountName }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { username } = useParams(); // 현재 사용자 계정
+  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
-  const { userToken } = useContext(AuthContextStore);
+  const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
+<<<<<<< HEAD
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+  const userId = accountname ? accountname : JSON.parse(userAccountname);
+  const isLoginUser = userId === JSON.parse(userAccountname);
+>>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
 
 >>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -908,11 +913,24 @@ const PostModal = ({ onClose }) => {
       // 게시글 삭제 요청 처리 로직
 =======
   // 게시글 삭제 및 삭제 오류 처리
+<<<<<<< HEAD
   const deletePost = async (postId) => {
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+=======
+  const deletePost = async () => {
+>>>>>>> 448785a (feat: 모달 props 전달 #50)
+>>>>>>> c721b3a (feat: 모달 props 전달 #50)
+>>>>>>> 63d10d1 (feat: 모달 props 전달 #50)
+>>>>>>> dd841bc (feat: 모달 props 전달 #50)
     console.log('postId 값:', postId);
     try {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
@@ -1437,6 +1455,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (isLoginUser) {
 =======
   if (username === accountName) {
@@ -1455,6 +1474,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 92d0cdd (feat: 모달 props 전달 #50)
 =======
 >>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> dd841bc (feat: 모달 props 전달 #50)
   if (isLoginUser) {
 =======
   if (username === accountName) {
@@ -1527,6 +1548,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 655ff17 (feat: 모달 props 전달 #50)
 =======
 >>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 63d10d1 (feat: 모달 props 전달 #50)
   if (isLoginUser) {
 =======
   if (username === accountName) {
@@ -1547,13 +1570,27 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 =======
+=======
+>>>>>>> c721b3a (feat: 모달 props 전달 #50)
   if (isLoginUser) {
 =======
   if (username === accountName) {
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+=======
+  if (isLoginUser) {
+>>>>>>> 448785a (feat: 모달 props 전달 #50)
+>>>>>>> c721b3a (feat: 모달 props 전달 #50)
+>>>>>>> 63d10d1 (feat: 모달 props 전달 #50)
+>>>>>>> dd841bc (feat: 모달 props 전달 #50)
     optionElements = myPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
