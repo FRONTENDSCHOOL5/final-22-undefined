@@ -10,16 +10,13 @@ import { AuthContextStore } from '../../context/AuthContext';
 import productList from '../../components/Product/dummyProducts';
 import FeedHeader from '../../components/common/Header/FeedHeader';
 
-const LayoutWrapper = styled(Wrapper)`
-  background-color: ${({ theme }) => theme.colors.bgGray};
-`;
+const Section = styled.section``;
 
 const Title = styled.h1``;
 
 const Main = styled.main`
   margin-top: 48px;
-  overflow-y: auto;
-  height: calc(80vh - 111px);
+  background-color: ${({ theme }) => theme.colors.bgGray};
 `;
 
 const ProfilePage = () => {
@@ -58,7 +55,7 @@ const ProfilePage = () => {
   }, [userId]);
 
   return (
-    <LayoutWrapper>
+    <>
       <Title className='a11y-hidden'>{isLoginUser ? '나의 프로필 페이지' : 'OO의 프로필 페이지'}</Title>
       <FeedHeader />
       <Main>
@@ -67,7 +64,7 @@ const ProfilePage = () => {
         <PostSection userInfo={userInfo} />
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
-    </LayoutWrapper>
+    </>
   );
 };
 

@@ -3,10 +3,7 @@ import React from 'react';
 import home from '../../assets/symbol-logo-gray.png';
 import styled from 'styled-components';
 
-const Main = styled.main`
-  height: calc(80vh - 108px);
-  overflow-y: auto;
-`;
+const Main = styled.main``;
 
 const Section = styled.section`
   padding: 220px 0 294px;
