@@ -474,7 +474,10 @@ const Container = styled.div`
   padding: 20px 16px;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-bottom: 60px;
+=======
+>>>>>>> 0004abb (style: padding값 다른 요소로 변경)
 =======
 >>>>>>> 0004abb (style: padding값 다른 요소로 변경)
 =======
