@@ -9,16 +9,15 @@ import ChatRoom from '../pages/ChatPage/ChatRoom';
 import ProfileSetting from '../pages/JoinPage/ProfileSetting';
 import Login from '../pages/LoginPage/Login';
 import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
-import MyProfile from '../pages/ProfilePage/MyProfile';
-import YourProfile from '../pages/ProfilePage/YourProfile';
+import AddProduct from '../pages/ProductPage/AddProduct';
+import FollowList from '../pages/FollowListPage/FollowList';
 import PostUpload from '../pages/PostPage/PostUpload';
-import PostContent from '../components/Post/PostContent';
+import ProfilePage from '../pages/ProfilePage/ProfilePage';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/post/:accountname/userpost' element={<PostContent />} />
         <Route path='/' element={<Loading />} />
         <Route path='/home' element={<Home />} />
         <Route path='/search' element={<Search />} />
@@ -28,9 +27,11 @@ const Router = () => {
         <Route path='/chat/room' element={<ChatRoom />} />
         <Route path='/join/profile' element={<ProfileSetting />} />
         <Route path='/post' element={<PostUpload />} />
-        <Route path='/profile' element={<MyProfile />} />
-        <Route path='/profile/:accountname' element={<YourProfile />} />
+        <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
+        <Route path='/product' element={<AddProduct />} />
+        <Route path='/follow/:accountname/:type' element={<FollowList />} />
       </Routes>
     </BrowserRouter>
   );
