@@ -1,10 +1,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 =======
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 import React, { useContext, useEffect, useState } from 'react';
 import PostUserProfileImg from './PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
@@ -112,6 +115,7 @@ const PostContent = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
@@ -138,6 +142,8 @@ const PostContent = () => {
 =======
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
           </UserInfoSect>
 
           <UserContentSect>
@@ -146,6 +152,7 @@ const PostContent = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
 
@@ -171,6 +178,10 @@ const PostContent = () => {
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 >>>>>>> 8e757ac (remove: 삭제될 파일, postItem으로 변경)
 >>>>>>> 4c5f2bc (remove: 삭제될 파일, postItem으로 변경)
+=======
+            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
+
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
             <UserPostText>{myPostContent}</UserPostText>
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={myPostImg} />}
             <LikeAndComment>
@@ -274,6 +285,7 @@ const TodayDate = styled.p`
 `;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -282,3 +294,5 @@ const TodayDate = styled.p`
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
