@@ -85,17 +85,16 @@ const PostList = ({ isLoading }) => {
 
 export default PostList;
 
-const Ul = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 20px 16px;
+const Ul = styled.ul``;
+
+const Li = styled.li`
+  & + & {
+    margin-top: 20px;
+  }
 `;
 
-const Li = styled.li``;
-
 const Container = styled.div`
-  padding: 16px;
+  padding: 20px 16px;
 `;
 
 const NoPost = styled.p`
