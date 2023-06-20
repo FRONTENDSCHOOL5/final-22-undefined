@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
-const SellingProduct = () => {
+const SellingProduct = ({ onClick, setProductId }) => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,6 +36,12 @@ const SellingProduct = () => {
     getProducts();
   }, [userToken, userId]);
 
+  const handleClick = (productId) => {
+    onClick();
+    console.log(productId);
+    setProductId(productId);
+  };
+
   return (
     <S.Section>
       <Wrapper>
@@ -51,7 +57,7 @@ const SellingProduct = () => {
           ) : (
             products.map((product) => (
               <S.Item key={product.id}>
-                <S.ImgCover>
+                <S.ImgCover onClick={() => handleClick(product.id)}>
                   <S.Img src={product.itemImage} />
                 </S.ImgCover>
                 <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>

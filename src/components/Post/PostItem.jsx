@@ -2,9 +2,14 @@ import PostUserProfileImg from './PostUserProfileImg';
 import styled from 'styled-components';
 import HeartIcon from '../../assets/icon/icon-heart.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
+import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 import { Link } from 'react-router-dom';
 
-const PostItem = ({ userInfo, postContent, postImg, today }) => {
+const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
+  const handleClick = () => {
+    onClick();
+    setPostId();
+  };
   return (
     <>
       <PostArticle>
@@ -16,7 +21,9 @@ const PostItem = ({ userInfo, postContent, postImg, today }) => {
             <InfoName>{userInfo.username}</InfoName>
             <InfoAccount>@ {userInfo.accountname}</InfoAccount>
           </UserNameInfo>
-          <More>more</More>
+          <ButtonIcon onClick={handleClick}>
+            <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
+          </ButtonIcon>
         </UserInfoSect>
 
         <UserContentSect>
@@ -48,6 +55,7 @@ const UserInfoSect = styled.section`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+  position: relative;
 `;
 
 const UserNameInfo = styled.div`
@@ -61,8 +69,9 @@ const InfoAccount = styled.p`
   font-size: 12px;
 `;
 
-const More = styled.button`
-  /* position: absolute; */
+// 모달 버튼 아이콘
+const ButtonIcon = styled.button`
+  position: absolute;
   gap: 12px;
   right: 0;
 `;

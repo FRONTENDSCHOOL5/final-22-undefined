@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
-const PostList = ({ isLoading, posts, userInfo }) => {
+const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -24,7 +24,14 @@ const PostList = ({ isLoading, posts, userInfo }) => {
             {posts.map((post) => {
               return (
                 <Li key={post.id}>
-                  <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
+                  <PostItem
+                    userInfo={userInfo}
+                    postContent={post.content}
+                    postImg={post.image}
+                    today={today}
+                    onClick={onClick}
+                    setPostId={() => setPostId(post.id)}
+                  />
                 </Li>
               );
             })}

@@ -31,7 +31,7 @@ const FeedModal = ({ options, onClose }) => {
   const closeModal = (option) => {
     console.log(selectedOption);
     if (option === '로그아웃') {
-      console.log('하이');
+      console.log('로그아웃 성공');
       handleLogout();
     } else if (option === '취소') {
       setSelectedOption('');
