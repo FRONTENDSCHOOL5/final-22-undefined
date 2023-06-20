@@ -13,6 +13,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
@@ -20,10 +21,14 @@ const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
 =======
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 6d33120 (fix: 머지 오류 충돌 해결)
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
 =======
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
@@ -72,15 +77,20 @@ const PostList = ({ isLoading, posts, userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
 =======
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 6d33120 (fix: 머지 오류 충돌 해결)
+=======
 =======
 const PostList = ({ isLoading }) => {
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
 >>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
 =======
 const PostList = ({ isLoading, onClick, setPostId }) => {
@@ -91,6 +101,8 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 6d33120 (fix: 머지 오류 충돌 해결)
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -196,8 +208,11 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 6d33120 (fix: 머지 오류 충돌 해결)
                 <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 =======
@@ -210,6 +225,7 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
                   today={today}
                 />
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
@@ -225,6 +241,8 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
                 <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 6d33120 (fix: 머지 오류 충돌 해결)
               </Li>
             );
           })}
