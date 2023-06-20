@@ -5,7 +5,6 @@ import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import { Link } from 'react-router-dom';
 
 const PostItem = ({ userInfo, postContent, postImg, today }) => {
-  console.log(postImg);
   return (
     <>
       <PostArticle>
@@ -15,7 +14,7 @@ const PostItem = ({ userInfo, postContent, postImg, today }) => {
           <PostUserProfileImg userProfileImg={userInfo.image} />
           <UserNameInfo>
             <InfoName>{userInfo.username}</InfoName>
-            <InfoAccount>@ {userInfo.acountName}</InfoAccount>
+            <InfoAccount>@ {userInfo.accountname}</InfoAccount>
           </UserNameInfo>
           <More>more</More>
         </UserInfoSect>
