@@ -4,9 +4,8 @@ import AlertModal from './AlertModal';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose, postId, accountName }) => {
+const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
@@ -33,7 +32,9 @@ const PostModal = ({ onClose, postId, accountName }) => {
       deletePost(postId) // 게시글 삭제 호출
         .then((response) => {
           if (response.success) {
-            console.log('삭제 완료');
+            // console.log('삭제 완료');
+            // window.location.replace('/profile');
+            onClose();
             navigate('/profile');
           } else {
             deleteError(response.error); // 삭제 실패 시 에러 처리
@@ -61,7 +62,6 @@ const PostModal = ({ onClose, postId, accountName }) => {
       });
 
       if (response.ok) {
-        // 성공할 경우
         return { success: true };
       } else if (response.status === 404) {
         // 게시글이 존재하지 않을 경우

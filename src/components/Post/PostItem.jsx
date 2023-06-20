@@ -5,7 +5,6 @@ import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 
 const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
-  console.log(postImg);
   const handleClick = () => {
     onClick();
     setPostId();
@@ -19,7 +18,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
           <PostUserProfileImg userProfileImg={userInfo.image} />
           <UserNameInfo>
             <InfoName>{userInfo.username}</InfoName>
-            <InfoAccount>@ {userInfo.acountName}</InfoAccount>
+            <InfoAccount>@ {userInfo.accountname}</InfoAccount>
           </UserNameInfo>
           <ButtonIcon onClick={handleClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />

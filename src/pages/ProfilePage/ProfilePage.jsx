@@ -30,6 +30,7 @@ const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState({});
   const [postId, setPostId] = useState(''); // postId 상태 추가
+  const [productId, setProductId] = useState(''); // productId 상태 추가
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
 
@@ -84,8 +85,8 @@ const ProfilePage = () => {
       <FeedHeader />
       <Main>
         <ProfileDisplay userInfo={userInfo} />
-        <SellingProduct onClick={openModal} />
-        {isModalOpen && <ProductModal onClose={closeModal} />}
+        <SellingProduct onClick={openModal} setProductId={setProductId} />
+        {isModalOpen && <ProductModal onClose={closeModal} productId={productId} />}
         <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
         {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />}
       </Main>
