@@ -1,9 +1,8 @@
 import { useContext, useState, useEffect } from 'react';
 import TopMainNav from './TopMainNav';
 import Contents from './Contents';
-import TabMenu from './TabMenu';
+import TabMenu from '../../components/common/TabMenu/TabMenu';
 
-import Wrapper from '../../components/common/Wrapper/Wrapper';
 import { AuthContextStore } from '../../context/AuthContext';
 
 const Home = () => {
@@ -40,11 +39,11 @@ const Home = () => {
   }, [userToken]);
 
   return (
-    <Wrapper>
+    <>
       <TopMainNav />
       {userToken ? <Contents post={post} setPost={setPost} /> : <Contents />}
       <TabMenu />
-    </Wrapper>
+    </>
   );
 };
 

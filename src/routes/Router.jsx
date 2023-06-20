@@ -13,6 +13,7 @@ import AddProduct from '../pages/ProductPage/AddProduct';
 import FollowList from '../pages/FollowListPage/FollowList';
 import PostUpload from '../pages/PostPage/PostUpload';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import EditProduct from './../pages/ProductPage/EditProduct';
 
 const Router = () => {
   return (
@@ -31,6 +32,7 @@ const Router = () => {
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
         <Route path='/product' element={<AddProduct />} />
+        <Route path='/product/edit' element={<EditProduct />} />
         <Route path='/follow/:accountname/:type' element={<FollowList />} />
       </Routes>
     </BrowserRouter>

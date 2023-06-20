@@ -72,16 +72,6 @@ const Follows = () => {
           취소
         </StyledBtn>
       </Item>
-      <Item>
-        <ProfileImg src={Img} alt='OO의 프로필 이미지' />
-        <Container>
-          <UserName>애월읍 한라봉 최고 맛집</UserName>
-          <Intro className='sl-ellipsis'>
-            정성을 다해 농사짓는 한라봉 정성을 다해 농사짓는 한라봉 정성을 다해 농사짓는 한라봉
-          </Intro>
-        </Container>
-        <StyledBtn size='sm'>팔로우</StyledBtn>
-      </Item>
     </List>
   );
 };

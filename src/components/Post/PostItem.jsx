@@ -3,15 +3,22 @@ import styled from 'styled-components';
 import HeartIcon from '../../assets/icon/icon-heart.png';
 import HeartIconFill from '../../assets/icon/icon-heart-active.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
+import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
+import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ postId, userInfo, postContent, postImg, today }) => {
+const PostItem = ({ postId, userInfo, postContent, postImg, today, onClick, setPostId }) => {
   // console.log(postImg);
   // console.log(postId);
   // console.log(userInfo);
   const [like, setLike] = useState(false);
   const { userToken } = useContext(AuthContextStore);
+
+  const handleClick = () => {
+    onClick();
+    setPostId();
+  };
 
   // 좋아요 요청
   const handleLike = async () => {
@@ -49,7 +56,9 @@ const PostItem = ({ postId, userInfo, postContent, postImg, today }) => {
             <InfoName>{userInfo.username}</InfoName>
             <InfoAccount>@ {userInfo.accountname}</InfoAccount>
           </UserNameInfo>
-          <More>more</More>
+          <ButtonIcon onClick={handleClick}>
+            <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
+          </ButtonIcon>
         </UserInfoSect>
 
         <UserContentSect>
@@ -61,7 +70,7 @@ const PostItem = ({ postId, userInfo, postContent, postImg, today }) => {
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>0</span>
             </LikeBtn>
-            <CommentLink href='#'>
+            <CommentLink to='/#'>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>0</span>
             </CommentLink>
@@ -81,6 +90,7 @@ const UserInfoSect = styled.section`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+  position: relative;
 `;
 
 const UserNameInfo = styled.div`
@@ -94,8 +104,9 @@ const InfoAccount = styled.p`
   font-size: 12px;
 `;
 
-const More = styled.button`
-  /* position: absolute; */
+// 모달 버튼 아이콘
+const ButtonIcon = styled.button`
+  position: absolute;
   gap: 12px;
   right: 0;
 `;
@@ -138,7 +149,7 @@ const LikeBtn = styled.button`
   }
 `;
 
-const CommentLink = styled.a`
+const CommentLink = styled(Link)`
   &::before {
     content: '';
     width: 20px;
