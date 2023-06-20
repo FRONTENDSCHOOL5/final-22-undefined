@@ -1,12 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PostItem from './PostItem';
 import styled from 'styled-components';
-import { AuthContextStore } from '../../context/AuthContext';
 
 const PostList = ({ isLoading, posts, userInfo }) => {
-  const [userProfileImg, setUserProfileImg] = useState('');
-  const [userName, setUserName] = useState('');
-
   console.log(posts);
 
   let dateString = new Date();
@@ -22,7 +18,13 @@ const PostList = ({ isLoading, posts, userInfo }) => {
           {posts.map((post) => {
             return (
               <Li key={post.id}>
-                <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
+                <PostItem
+                  postId={post.id}
+                  userInfo={userInfo}
+                  postContent={post.content}
+                  postImg={post.image}
+                  today={today}
+                />
               </Li>
             );
           })}
