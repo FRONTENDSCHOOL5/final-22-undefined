@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
-const SellingProduct = () => {
+const SellingProduct = ({ onClick }) => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -86,10 +86,14 @@ const SellingProduct = () => {
           products.map((product) => (
             <S.Item key={product.id}>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+=======
+              <S.ImgCover onClick={onClick}>
+>>>>>>> 56553de (style: 코드 오류 수정)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>

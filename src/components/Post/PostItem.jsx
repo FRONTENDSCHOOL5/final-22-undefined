@@ -23,9 +23,13 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
 
+<<<<<<< HEAD
 const PostItem = ({ userInfo, postContent, postImg, today }) => {
   console.log(postImg);
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+=======
+const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today }) => {
+>>>>>>> 56553de (style: 코드 오류 수정)
   return (
     <>
       <PostArticle>

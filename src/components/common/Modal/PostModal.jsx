@@ -5,8 +5,9 @@ import AlertModal from './AlertModal';
 <<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 
-const PostModal = ({ onClose }) => {
+const PostModal = ({ onClose, postId }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
+<<<<<<< HEAD
 <<<<<<< HEAD
   const [selectedOption, setSelectedOption] = useState('');
   const navigate = useNavigate();
@@ -36,6 +37,9 @@ const PostModal = ({ onClose }) => {
   const navigate = useNavigate();
 =======
   const { username } = useParams(); // 현재 사용자 계정
+=======
+  const { accountname } = useParams(); // 현재 사용자 계정
+>>>>>>> 56553de (style: 코드 오류 수정)
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken } = useContext(AuthContextStore);
@@ -78,6 +82,7 @@ const PostModal = ({ onClose }) => {
         .then((response) => {
           if (response.success) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
             // console.log('삭제 완료');
@@ -85,6 +90,9 @@ const PostModal = ({ onClose }) => {
             onClose();
             navigate('/profile');
 >>>>>>> e00e158 (style: 코드 오류 수정)
+=======
+            changePage(); // 삭제 성공 시 페이지 재랜더링
+>>>>>>> 56553de (style: 코드 오류 수정)
           } else {
             deleteError(response.error); // 삭제 실패 시 에러 처리
           }
@@ -144,8 +152,11 @@ const PostModal = ({ onClose }) => {
 =======
 
       if (response.ok) {
+<<<<<<< HEAD
         // 성공할 경우
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
+=======
+>>>>>>> 56553de (style: 코드 오류 수정)
         return { success: true };
       } else if (response.status === 404) {
         // 게시글이 존재하지 않을 경우
