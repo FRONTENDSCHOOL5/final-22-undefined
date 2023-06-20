@@ -12,7 +12,7 @@ const ImgInput = ({ img, setImg }) => {
 
     const file = event.target.files[0];
     console.log(file);
-    const fileExtenstion = file.name.split('.')[1].toLowerCase();
+    const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
 
     if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
 
@@ -35,7 +35,10 @@ const ImgInput = ({ img, setImg }) => {
   return (
     <>
       <S.Label htmlFor='profileImg'>
-        <S.ProfileImg src={img === '' ? Ellipse : `https://api.mandarin.weniv.co.kr/${img}`} alt='프로필 이미지' />
+        <S.ProfileImg
+          src={img === 'http://146.56.183.55:5050/Ellipse.png' ? Ellipse : `https://api.mandarin.weniv.co.kr/${img}`}
+          alt='프로필 이미지'
+        />
       </S.Label>
       <S.UploadInput id='profileImg' type='file' className='a11y-hidden' onChange={handleChange} accept='image/*' />
     </>

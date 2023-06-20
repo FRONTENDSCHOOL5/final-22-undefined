@@ -1,36 +1,23 @@
 import React from 'react';
-import Cat from '../../assets/upload-file.png';
-import Orange from '../../assets/post-img-example.png';
 import * as S from './PostAlbum.style';
 
-const PostAlbum = () => {
+const PostAlbum = ({ posts }) => {
   return (
     <S.Container>
       <S.List>
-        <S.Item>
-          <S.Img src={Cat} />
-        </S.Item>
-        <S.Item>
-          <S.Img src={Orange} />
-        </S.Item>
-        <S.Item>
-          <S.Img src={Orange} />
-        </S.Item>
-        <S.Item>
-          <S.Img src={Orange} />
-        </S.Item>
-        <S.Item>
-          <S.Img src={Orange} />
-        </S.Item>
-        <S.Item>
-          <S.Img src={Orange} />
-        </S.Item>
-        <S.Item>
-          <S.Img src={Orange} />
-        </S.Item>
-        <S.Item>
-          <S.Img src={Orange} />
-        </S.Item>
+        {posts.map((post) =>
+          post.image ? (
+            post.image.includes(',') ? (
+              <S.Item key={post.id} multi>
+                <S.Img src={post.image.split(',')[0]} alt='대표 이미지' />
+              </S.Item>
+            ) : (
+              <S.Item key={post.id}>
+                <S.Img src={post.image} alt='대표 이미지' />
+              </S.Item>
+            )
+          ) : null,
+        )}
       </S.List>
     </S.Container>
   );

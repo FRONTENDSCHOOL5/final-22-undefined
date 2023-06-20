@@ -3,7 +3,7 @@ import PostItem from './PostItem';
 import styled from 'styled-components';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostList = () => {
+const PostList = ({ isLoading }) => {
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
   const [postList, setPostList] = useState([]);
@@ -58,24 +58,28 @@ const PostList = () => {
   let today = dateString.toLocaleDateString('ko-KR', options);
 
   return (
-    <>
-      <Ul>
-        {postList.map((post) => {
-          return (
-            <Li key={post.id}>
-              <PostItem
-                userProfileImg={userProfileImg}
-                userName={userName}
-                acountName={ParsedAccountName}
-                postContent={post.content}
-                postImg={post.image}
-                today={today}
-              />
-            </Li>
-          );
-        })}
-      </Ul>
-    </>
+    <Container>
+      {isLoading ? (
+        <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
+      ) : (
+        <Ul>
+          {postList.map((post) => {
+            return (
+              <Li key={post.id}>
+                <PostItem
+                  userProfileImg={userProfileImg}
+                  userName={userName}
+                  acountName={ParsedAccountName}
+                  postContent={post.content}
+                  postImg={post.image}
+                  today={today}
+                />
+              </Li>
+            );
+          })}
+        </Ul>
+      )}
+    </Container>
   );
 };
 
@@ -89,3 +93,11 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li``;
+
+const Container = styled.div`
+  padding: 16px;
+`;
+
+const NoPost = styled.p`
+  font-size: 14px;
+`;
