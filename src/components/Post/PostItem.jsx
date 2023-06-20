@@ -416,13 +416,29 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
 =======
 =======
 
+<<<<<<< HEAD
 const PostItem = ({ userInfo, postContent, postImg, today }) => {
   console.log(postImg);
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+=======
+=======
+const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today }) => {
+>>>>>>> 56553de (style: 코드 오류 수정)
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
+>>>>>>> 403c34a (style: 코드 오류 수정)
+>>>>>>> 8dc928b (style: 코드 오류 수정)
+>>>>>>> 95ab459 (style: 코드 오류 수정)
   return (
     <>
       <PostArticle>

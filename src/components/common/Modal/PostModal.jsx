@@ -58,8 +58,11 @@ import { useNavigate } from 'react-router-dom';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 699f2ea (style: 코드 오류 수정)
+=======
+>>>>>>> 8dc928b (style: 코드 오류 수정)
 const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
 <<<<<<< HEAD
@@ -178,6 +181,11 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
 =======
 =======
+=======
+const PostModal = ({ onClose, postId }) => {
+  const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
+<<<<<<< HEAD
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
 <<<<<<< HEAD
   const [selectedOption, setSelectedOption] = useState('');
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
@@ -260,6 +268,9 @@ const PostModal = ({ onClose }) => {
   const navigate = useNavigate();
 =======
   const { username } = useParams(); // 현재 사용자 계정
+=======
+  const { accountname } = useParams(); // 현재 사용자 계정
+>>>>>>> 56553de (style: 코드 오류 수정)
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken } = useContext(AuthContextStore);
@@ -654,6 +665,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
 =======
@@ -667,6 +679,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> d03f78f (style: 코드 오류 수정)
 =======
 >>>>>>> a13348b (style: 코드 오류 수정)
+=======
+>>>>>>> 95ab459 (style: 코드 오류 수정)
 =======
 =======
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
@@ -696,11 +710,17 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 506c3a9 (style: 코드 오류 수정)
 =======
 =======
+=======
+>>>>>>> 8dc928b (style: 코드 오류 수정)
 <<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
 =======
 =======
+>>>>>>> 403c34a (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
 <<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
@@ -799,10 +819,25 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 =======
 >>>>>>> e00e158 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 6ce78d2 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 0da4e19 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> a13348b (style: 코드 오류 수정)
+=======
+=======
+=======
+=======
+=======
+            changePage(); // 삭제 성공 시 페이지 재랜더링
+>>>>>>> 56553de (style: 코드 오류 수정)
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
+>>>>>>> 403c34a (style: 코드 오류 수정)
+>>>>>>> 8dc928b (style: 코드 오류 수정)
+>>>>>>> 95ab459 (style: 코드 오류 수정)
           } else {
             deleteError(response.error); // 삭제 실패 시 에러 처리
           }
@@ -1258,10 +1293,19 @@ const PostModal = ({ onClose }) => {
 =======
 
       if (response.ok) {
+<<<<<<< HEAD
         // 성공할 경우
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> c9652d4 (feat: 모달 props 전달 #50)
+=======
+=======
+=======
+>>>>>>> 56553de (style: 코드 오류 수정)
+>>>>>>> 403c34a (style: 코드 오류 수정)
+>>>>>>> 95ab459 (style: 코드 오류 수정)
         return { success: true };
       } else if (response.status === 404) {
         // 게시글이 존재하지 않을 경우

@@ -35,6 +35,7 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
 =======
@@ -47,6 +48,12 @@ const ProfilePage = () => {
 =======
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8dc928b (style: 코드 오류 수정)
+>>>>>>> 95ab459 (style: 코드 오류 수정)
   const [postId, setPostId] = useState(''); // postId 상태 추가
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -79,8 +86,11 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a13348b (style: 코드 오류 수정)
+=======
+>>>>>>> 95ab459 (style: 코드 오류 수정)
 =======
   const [postId, setPostId] = useState(''); // postId 상태 추가
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
@@ -132,7 +142,15 @@ const ProfilePage = () => {
 =======
 =======
 >>>>>>> 0da4e19 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> a13348b (style: 코드 오류 수정)
+=======
+=======
+=======
+  const [postId, setPostId] = useState(''); // postId 상태 추가
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
+>>>>>>> 8dc928b (style: 코드 오류 수정)
+>>>>>>> 95ab459 (style: 코드 오류 수정)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
 
@@ -157,6 +175,7 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8b24b9c (style: 코드 오류 수정)
 =======
@@ -164,11 +183,18 @@ const ProfilePage = () => {
 =======
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 =======
+=======
+>>>>>>> 8dc928b (style: 코드 오류 수정)
+>>>>>>> 95ab459 (style: 코드 오류 수정)
+=======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 95ab459 (style: 코드 오류 수정)
 =======
 >>>>>>> 699f2ea (style: 코드 오류 수정)
 =======
@@ -193,7 +219,12 @@ const ProfilePage = () => {
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> 8dc928b (style: 코드 오류 수정)
+>>>>>>> 95ab459 (style: 코드 오류 수정)
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
@@ -488,6 +519,7 @@ const ProfilePage = () => {
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
         <SellingProduct />
+<<<<<<< HEAD
         <PostSection userInfo={userInfo} />
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
@@ -527,10 +559,25 @@ const ProfilePage = () => {
         <SellingProduct />
         <PostSection userInfo={userInfo} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+=======
+=======
+        <PostSection />
+>>>>>>> 56553de (style: 코드 오류 수정)
+>>>>>>> 0b99f89 (style: 코드 오류 수정)
+>>>>>>> 403c34a (style: 코드 오류 수정)
+>>>>>>> 8dc928b (style: 코드 오류 수정)
+>>>>>>> 95ab459 (style: 코드 오류 수정)
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>
