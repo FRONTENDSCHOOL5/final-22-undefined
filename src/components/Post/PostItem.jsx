@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import HeartIcon from '../../assets/icon/icon-heart.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 
-const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today }) => {
+const PostItem = ({ userInfo, postContent, postImg, today }) => {
   console.log(postImg);
   return (
     <>
@@ -11,10 +11,10 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
         <h3 className='a11y-hidden'>게시물 아이템</h3>
         <UserInfoSect>
           <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-          <PostUserProfileImg userProfileImg={userProfileImg} />
+          <PostUserProfileImg userProfileImg={userInfo.image} />
           <UserNameInfo>
-            <InfoName>{userName}</InfoName>
-            <InfoAccount>@ {acountName}</InfoAccount>
+            <InfoName>{userInfo.username}</InfoName>
+            <InfoAccount>@ {userInfo.acountName}</InfoAccount>
           </UserNameInfo>
           <More>more</More>
         </UserInfoSect>
