@@ -26,6 +26,7 @@ const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
                     postImg={post.image}
                     today={today}
                     onClick={onClick}
+                    itemPostId={post.id}
                     setPostId={() => setPostId(post.id)}
                   />
                 </Li>

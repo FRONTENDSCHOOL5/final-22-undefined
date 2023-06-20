@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ postId, userInfo, postContent, postImg, today, onClick, setPostId }) => {
+const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, setPostId }) => {
   // console.log(postImg);
-  // console.log(postId);
+  // console.log(itemPostId);
   // console.log(userInfo);
   const [like, setLike] = useState(false);
   const { userToken } = useContext(AuthContextStore);
@@ -24,7 +24,7 @@ const PostItem = ({ postId, userInfo, postContent, postImg, today, onClick, setP
   const handleLike = async () => {
     try {
       if (!like) {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/heart`, {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/heart`, {
           method: 'POST',
           headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
         });
@@ -32,7 +32,7 @@ const PostItem = ({ postId, userInfo, postContent, postImg, today, onClick, setP
         console.log(data);
         setLike(true);
       } else {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/unheart`, {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/unheart`, {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
         });
