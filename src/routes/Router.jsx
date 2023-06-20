@@ -9,8 +9,16 @@ import ChatRoom from '../pages/ChatPage/ChatRoom';
 import ProfileSetting from '../pages/JoinPage/ProfileSetting';
 import Login from '../pages/LoginPage/Login';
 import ProfileEdit from '../pages/ProfilePage/ProfileEdit';
+<<<<<<< HEAD
 import MyProfile from '../pages/ProfilePage/MyProfile';
 import YourProfile from '../pages/ProfilePage/YourProfile';
+=======
+import AddProduct from '../pages/ProductPage/AddProduct';
+import FollowList from '../pages/FollowListPage/FollowList';
+import PostUpload from '../pages/PostPage/PostUpload';
+import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import EditProduct from './../pages/ProductPage/EditProduct';
+>>>>>>> 8747cf8 (fix: product/edit 경로 추가)
 
 const Router = () => {
   return (
@@ -28,6 +36,12 @@ const Router = () => {
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
+<<<<<<< HEAD
+=======
+        <Route path='/product' element={<AddProduct />} />
+        <Route path='/product/edit' element={<EditProduct />} />
+        <Route path='/follow/:accountname/:type' element={<FollowList />} />
+>>>>>>> 8747cf8 (fix: product/edit 경로 추가)
       </Routes>
     </BrowserRouter>
   );
