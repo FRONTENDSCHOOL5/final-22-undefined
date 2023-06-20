@@ -198,9 +198,8 @@ const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose, postId, accountName }) => {
+const PostModal = ({ onClose, postId, accountname, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
@@ -345,6 +344,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
 =======
@@ -357,15 +357,22 @@ const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
 =======
 >>>>>>> 699f2ea (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> 506c3a9 (style: 코드 오류 수정)
 <<<<<<< HEAD
             changePage(); // 삭제 성공 시 페이지 재랜더링
 =======
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> 6ce78d2 (style: 코드 오류 수정)
+=======
+>>>>>>> 506c3a9 (style: 코드 오류 수정)
             // console.log('삭제 완료');
             // window.location.replace('/profile');
             onClose();
             navigate('/profile');
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> e00e158 (style: 코드 오류 수정)
 =======
@@ -410,6 +417,11 @@ const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
 >>>>>>> 699f2ea (style: 코드 오류 수정)
 >>>>>>> 6d91338 (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> e00e158 (style: 코드 오류 수정)
+>>>>>>> 6c1e3b9 (style: 코드 오류 수정)
+>>>>>>> 506c3a9 (style: 코드 오류 수정)
           } else {
             deleteError(response.error); // 삭제 실패 시 에러 처리
           }
@@ -621,6 +633,17 @@ const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> c0faa09 (feat: 사용자 식별 및 신고 기능 추가 #50)
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      // 성공 시
+      resolve({ success: true });
+
+      // 실패 시
+      // reject({ success: false, error: '에러 메시지' });
+    });
+=======
+>>>>>>> 6c1e3b9 (style: 코드 오류 수정)
       if (response.ok) {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -649,6 +672,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
       // 실패할 경우
       return { success: false, error: error.message };
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -682,6 +706,11 @@ const PostModal = ({ onClose, postId, accountName }) => {
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 >>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+=======
+=======
+>>>>>>> e00e158 (style: 코드 오류 수정)
+>>>>>>> 6c1e3b9 (style: 코드 오류 수정)
+>>>>>>> 506c3a9 (style: 코드 오류 수정)
   };
 
   // 게시글 삭제 에러
