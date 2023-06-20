@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ProductModal = ({ onClose }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
 
   const productModalOptions = ['삭제', '수정', '웹사이트에서 상품 보기'];
@@ -14,9 +15,11 @@ const ProductModal = ({ onClose }) => {
       // 삭제 로직 수행
       setSelectedOption(option);
     } else if (option === '수정') {
-      // 게시물 수정 페이지 이동
+      // 상품 수정 페이지 이동
+      navigate('/edit-product');
     } else if (option === '웹사이트에서 상품 보기') {
       // 웹사이트 연결
+      window.open('https://');
     }
   };
 
@@ -63,7 +66,7 @@ const ProductModal = ({ onClose }) => {
       <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
         <S.Ul>
           {optionElements}
-          {/* {options.map((option, index) => 이 부분을 함수로 위에 빼주고 props로 받음
+          {/* {options.map((option, index) => 이 부분을 함수로 위에 빼줌
             <S.Li key={index}>
               <button onClick={() => optionClick(option)}>{option}</button>
             </S.Li>
