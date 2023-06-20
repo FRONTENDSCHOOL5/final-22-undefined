@@ -45,7 +45,7 @@ const ProfilePage = () => {
         });
 
         const data = await response.json();
-        console.log(data);
+
         setUserInfo(data.profile);
         setIsLoading(true);
       } catch (err) {
