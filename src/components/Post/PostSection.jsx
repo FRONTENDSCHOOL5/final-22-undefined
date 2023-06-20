@@ -5,7 +5,7 @@ import PostList from './PostList';
 import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostSection = ({ userInfo }) => {
+const PostSection = ({ userInfo, onClick, setPostId }) => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -48,7 +48,11 @@ const PostSection = ({ userInfo }) => {
           <span className='a11y-hidden'>앨범으로 보기</span>
         </S.AlbumBtn>
       </S.Header>
-      {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
+      {isList ? (
+        <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
+      ) : (
+        <PostAlbum posts={posts} />
+      )}
     </S.Section>
   );
 };

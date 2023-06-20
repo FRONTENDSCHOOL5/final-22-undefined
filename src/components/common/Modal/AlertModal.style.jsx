@@ -11,12 +11,13 @@ export const AlertSection = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   z-index: 999;
   overflow: hidden;
+  text-align: center;
 `;
 
 export const Strong = styled.strong`
   display: inline-block;
   border: none;
-  margin: 22px 50px;
+  margin: 22px auto;
   font-size: 16px;
 `;
 
