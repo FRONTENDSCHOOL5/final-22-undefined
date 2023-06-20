@@ -102,6 +102,7 @@ const PostModal = ({ onClose, postId, accountName }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [selectedOption, setSelectedOption] = useState('');
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 >>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
@@ -175,6 +176,12 @@ const PostModal = ({ onClose, postId, accountName }) => {
 const PostModal = ({ onClose, postId, accountname, setPosts }) => {
 >>>>>>> e00e158 (style: 코드 오류 수정)
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
+=======
+=======
+<<<<<<< HEAD
+  const [selectedOption, setSelectedOption] = useState('');
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+>>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
   const navigate = useNavigate();
 <<<<<<< HEAD
   const [selectedOption, setSelectedOption] = useState('');
@@ -251,6 +258,12 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 18a3e51 (feat: 모달 props 전달 #50)
 =======
   const navigate = useNavigate();
+=======
+  const { username } = useParams(); // 현재 사용자 계정
+  const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState('');
+  const { userToken } = useContext(AuthContextStore);
+>>>>>>> 543d5ab (feat: 모달 props 전달 #50)
   const postModalOptions = ['삭제', '수정'];
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 
@@ -822,6 +835,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -836,6 +850,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> bdd4687 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
   // 게시글 삭제 및 삭제 오류 처리
   const deletePost = async () => {
 =======
@@ -851,6 +867,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 39ce456 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
 <<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -1012,11 +1030,15 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
   // 게시글 삭제 및 삭제 오류 처리
   const deletePost = async () => {
 =======
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 <<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -1042,10 +1064,25 @@ const PostModal = ({ onClose }) => {
 =======
 =======
   const deletePost = async () => {
+<<<<<<< HEAD
 >>>>>>> 448785a (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> c721b3a (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> 63d10d1 (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> dd841bc (feat: 모달 props 전달 #50)
+=======
+=======
+=======
+=======
+=======
+  const deletePost = async (postId) => {
+>>>>>>> 543d5ab (feat: 모달 props 전달 #50)
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+>>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
     console.log('postId 값:', postId);
     try {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
@@ -1061,9 +1098,12 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 
 <<<<<<< HEAD
+=======
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
 =======
 >>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -1090,6 +1130,8 @@ const PostModal = ({ onClose }) => {
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 =======
 >>>>>>> a318025 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -1119,6 +1161,10 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 =======
+>>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+=======
+=======
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> a894544 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> d11d5e0 (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -1144,6 +1190,7 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 19392a7 (feat: 사용자 식별 및 신고 기능 추가 #50)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         // 성공할 경우
 >>>>>>> 543d5ab (feat: 모달 props 전달 #50)
 =======
@@ -1152,6 +1199,7 @@ const PostModal = ({ onClose }) => {
 >>>>>>> e00e158 (style: 코드 오류 수정)
 =======
 =======
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -1207,6 +1255,13 @@ const PostModal = ({ onClose }) => {
 =======
 >>>>>>> e00e158 (style: 코드 오류 수정)
 >>>>>>> d03f78f (style: 코드 오류 수정)
+=======
+
+      if (response.ok) {
+        // 성공할 경우
+>>>>>>> 543d5ab (feat: 모달 props 전달 #50)
+>>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
         return { success: true };
       } else if (response.status === 404) {
         // 게시글이 존재하지 않을 경우
@@ -1228,6 +1283,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e00e158 (style: 코드 오류 수정)
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
@@ -1239,10 +1295,14 @@ const PostModal = ({ onClose }) => {
 =======
 >>>>>>> a13348b (style: 코드 오류 수정)
 =======
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
+=======
 =======
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 =======
 >>>>>>> 0da4e19 (style: 코드 오류 수정)
+=======
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
 >>>>>>> e00e158 (style: 코드 오류 수정)
 <<<<<<< HEAD
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
@@ -1293,6 +1353,10 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 =======
+>>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+=======
+=======
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 >>>>>>> e00e158 (style: 코드 오류 수정)
 <<<<<<< HEAD
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
@@ -1308,10 +1372,24 @@ const PostModal = ({ onClose }) => {
 =======
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> ca494a3 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> 39ce456 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> bdd4687 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+=======
+=======
+>>>>>>> 543d5ab (feat: 모달 props 전달 #50)
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+>>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
   };
 
   // 게시글 삭제 에러
@@ -1636,6 +1714,7 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 879325b (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
@@ -1644,6 +1723,12 @@ const PostModal = ({ onClose }) => {
 =======
 >>>>>>> 39ce456 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> bdd4687 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+>>>>>>> 39ce456 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
   // 사용자 계정에 따라 모달에 표시할 옵션 요소 생성 및 렌더링
   let optionElements = null;
   // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
@@ -1789,9 +1874,24 @@ const PostModal = ({ onClose }) => {
 =======
   if (isLoginUser) {
 >>>>>>> 448785a (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> c721b3a (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> 63d10d1 (feat: 모달 props 전달 #50)
+<<<<<<< HEAD
 >>>>>>> dd841bc (feat: 모달 props 전달 #50)
+=======
+=======
+=======
+=======
+  // 사용자 계정에 따라 모달에 표시할 옵션 요소 생성 및 렌더링
+  let optionElements = null;
+  // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
+  if (username === accountName) {
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+>>>>>>> ee01cc4 (feat: 모달 props 전달 #50)
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
     optionElements = myPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
@@ -1809,14 +1909,19 @@ const PostModal = ({ onClose }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 879325b (feat: 사용자 식별 및 신고 기능 추가 #50)
 =======
 >>>>>>> 1051379 (feat: 모달 props 전달 #50)
 =======
 =======
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
+=======
 >>>>>>> 39ce456 (feat: 사용자 식별 및 신고 기능 추가 #50)
 >>>>>>> bdd4687 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
 =======
   const optionElements = postModalOptions.map((option, index) => (
     <S.Li key={index}>
@@ -1824,6 +1929,7 @@ const PostModal = ({ onClose }) => {
     </S.Li>
   ));
 >>>>>>> 48de2f6 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1839,10 +1945,19 @@ const PostModal = ({ onClose }) => {
 >>>>>>> 1051379 (feat: 모달 props 전달 #50)
 =======
 =======
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
+=======
 >>>>>>> e2251c3 (feat: 모달 props 전달 #50)
 =======
 >>>>>>> 39ce456 (feat: 사용자 식별 및 신고 기능 추가 #50)
+<<<<<<< HEAD
 >>>>>>> bdd4687 (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+=======
+=======
+>>>>>>> e2251c3 (feat: 모달 props 전달 #50)
+>>>>>>> b7def75 (feat: 모달 props 전달 #50)
+>>>>>>> c9652d4 (feat: 모달 props 전달 #50)
 
   return (
     <>
