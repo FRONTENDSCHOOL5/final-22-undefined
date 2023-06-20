@@ -22,6 +22,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
@@ -42,6 +43,12 @@ import Wrapper from '../common/Wrapper/Wrapper';
 =======
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 0da4e19 (style: 코드 오류 수정)
+>>>>>>> a13348b (style: 코드 오류 수정)
 const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = ({ onClick }) => {
@@ -49,8 +56,11 @@ const SellingProduct = ({ onClick }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> a13348b (style: 코드 오류 수정)
 =======
 const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
@@ -111,7 +121,15 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 =======
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+const SellingProduct = ({ onClick, setProductId }) => {
+>>>>>>> 6c1e3b9 (style: 코드 오류 수정)
+>>>>>>> 0da4e19 (style: 코드 오류 수정)
+>>>>>>> a13348b (style: 코드 오류 수정)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -253,6 +271,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
@@ -275,6 +294,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> d03f78f (style: 코드 오류 수정)
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> a13348b (style: 코드 오류 수정)
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
@@ -333,6 +354,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> e00e158 (style: 코드 오류 수정)
 =======
               <S.ImgCover onClick={onClick}>
+<<<<<<< HEAD
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
               <S.ImgCover onClick={() => handleClick(product.id)}>
@@ -360,6 +382,12 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> d03f78f (style: 코드 오류 수정)
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+              <S.ImgCover onClick={() => handleClick(product.id)}>
+>>>>>>> 6ce78d2 (style: 코드 오류 수정)
+>>>>>>> a13348b (style: 코드 오류 수정)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>
