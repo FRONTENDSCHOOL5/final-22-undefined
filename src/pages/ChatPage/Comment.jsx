@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
+import imgBtn from '../../assets/img-button.png';
 
 const Footer = styled.footer`
   max-width: 390px;
@@ -50,7 +50,8 @@ const Comment = () => {
 
   return (
     <Footer>
-      <PostUserProfileImg size={'36px'} />
+      <label htmlFor='imgUpload'></label>
+      <input className='a11y-hidden' type='file' id='imgUpload' accept='image/*' />
       <Input type='text' placeholder='댓글 입력하기...' onChange={handleOnChange} />
       <PostBtn isActivated={isActivated} type='submit'>
         전송
