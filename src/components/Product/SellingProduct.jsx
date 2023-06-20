@@ -23,6 +23,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
@@ -45,10 +46,17 @@ import Wrapper from '../common/Wrapper/Wrapper';
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 =======
 =======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
+=======
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 0da4e19 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> a13348b (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 const SellingProduct = ({ onClick, setProductId }) => {
 =======
 const SellingProduct = ({ onClick }) => {
@@ -69,6 +77,9 @@ const SellingProduct = () => {
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 =======
 const SellingProduct = ({ onClick }) => {
 >>>>>>> 0b99f89 (style: 코드 오류 수정)
@@ -129,7 +140,12 @@ const SellingProduct = ({ onClick, setProductId }) => {
 const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
 >>>>>>> 0da4e19 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> a13348b (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -175,10 +191,14 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
@@ -187,6 +207,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
       <Wrapper>
         <S.Title>판매 중인 상품</S.Title>
         <S.List>
@@ -217,17 +239,24 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 =======
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
@@ -236,6 +265,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
       <S.Title>판매 중인 상품</S.Title>
       <S.List>
         {isLoading ? (
@@ -248,6 +279,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
         ) : (
           products.map((product) => (
             <S.Item key={product.id}>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -296,6 +328,10 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> a13348b (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
@@ -304,6 +340,9 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 =======
               <S.ImgCover onClick={onClick}>
 >>>>>>> 56553de (style: 코드 오류 수정)
@@ -387,7 +426,12 @@ const SellingProduct = ({ onClick, setProductId }) => {
 =======
               <S.ImgCover onClick={() => handleClick(product.id)}>
 >>>>>>> 6ce78d2 (style: 코드 오류 수정)
+<<<<<<< HEAD
 >>>>>>> a13348b (style: 코드 오류 수정)
+=======
+=======
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>
@@ -403,8 +447,11 @@ const SellingProduct = ({ onClick, setProductId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
@@ -412,11 +459,15 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
@@ -427,6 +478,8 @@ const SellingProduct = ({ onClick, setProductId }) => {
 >>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };

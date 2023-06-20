@@ -18,6 +18,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
@@ -31,6 +32,8 @@ const PostSection = ({ userInfo, onClick, setPostId }) => {
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
 =======
@@ -41,10 +44,21 @@ const PostSection = ({ userInfo, onClick, setPostId }) => {
 >>>>>>> f32b37f (fix: 머지 오류 충돌 해결)
 =======
 =======
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+=======
 const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+=======
+=======
+const PostSection = ({ userInfo, onClick, setPostId }) => {
+=======
+=======
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 >>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
 =======
@@ -71,6 +85,7 @@ const PostSection = ({ onClick, setPostId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const PostSection = ({ userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
@@ -83,6 +98,8 @@ const PostSection = ({ onClick, setPostId }) => {
 =======
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
@@ -93,6 +110,8 @@ const PostSection = ({ onClick, setPostId }) => {
 =======
 =======
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
 =======
 const PostSection = ({ userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
@@ -140,8 +159,22 @@ const PostSection = ({ onClick, setPostId }) => {
 =======
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+>>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+=======
+=======
+const PostSection = ({ userInfo }) => {
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -199,6 +232,7 @@ const PostSection = ({ onClick, setPostId }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
 =======
@@ -221,6 +255,8 @@ const PostSection = ({ onClick, setPostId }) => {
 >>>>>>> 3dfcb90 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
       {isList ? (
         <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
       ) : (
@@ -250,6 +286,8 @@ const PostSection = ({ onClick, setPostId }) => {
 >>>>>>> f32b37f (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 =======
 =======
@@ -267,6 +305,8 @@ const PostSection = ({ onClick, setPostId }) => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
       {isList ? (
         <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
       ) : (
@@ -330,6 +370,8 @@ const PostSection = ({ onClick, setPostId }) => {
 =======
 =======
 =======
+=======
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
@@ -339,10 +381,25 @@ const PostSection = ({ onClick, setPostId }) => {
         <PostAlbum posts={posts} />
       )}
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 158c390 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 >>>>>>> 8905a45 (fix: 머지 오류 충돌 해결)
+=======
+=======
+=======
+=======
+=======
+      {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
+>>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 8bcb1cf (fix: 머지 오류 충돌 해결)
+>>>>>>> e5aebaa (fix: 머지 오류 충돌 해결)
+>>>>>>> b982543 (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };
