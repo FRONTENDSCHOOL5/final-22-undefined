@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 import React, { useContext, useEffect, useState } from 'react';
 import PostUserProfileImg from './PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
@@ -102,17 +105,25 @@ const PostContent = () => {
             </ButtonIcon>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 =======
 >>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 =======
             {isModalOpen && <PostModal onClose={closeModal} postId={postId} />}
 >>>>>>> 0a7ddaf (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
           </UserInfoSect>
 
           <UserContentSect>
             <h4 className='a11y-hidden'>게시물 내용</h4>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
+
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
 =======
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
 
@@ -218,5 +229,8 @@ const CommentLink = styled.a`
 const TodayDate = styled.p`
   font-size: 10px;
 `;
+<<<<<<< HEAD
 =======
 >>>>>>> 7ea2eef (feat: 사용자 식별 및 신고 기능 추가 #50)
+=======
+>>>>>>> 0782992 (remove: 삭제될 파일, postItem으로 변경)
