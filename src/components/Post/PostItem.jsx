@@ -5,6 +5,7 @@ import CommentIcon from '../../assets/icon/icon-message-circle.png';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
 import { Link } from 'react-router-dom';
@@ -27,10 +28,17 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 9a5a8f2 (style: 코드 오류 수정)
+=======
+import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
+
+const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today, onClick, setPostId }) => {
+  console.log(setPostId);
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   const handleClick = () => {
     onClick();
     setPostId();
   };
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
@@ -44,6 +52,8 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
 >>>>>>> 56553de (style: 코드 오류 수정)
 =======
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   return (
     <>
       <PostArticle>

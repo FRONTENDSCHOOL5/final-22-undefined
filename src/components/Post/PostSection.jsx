@@ -9,6 +9,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const PostSection = ({ userInfo }) => {
 =======
 const PostSection = ({ onClick, setPostId }) => {
@@ -19,6 +20,9 @@ const PostSection = ({ userInfo }) => {
 =======
 const PostSection = () => {
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+=======
+const PostSection = ({ onClick, setPostId }) => {
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -66,13 +70,17 @@ const PostSection = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
       {isList ? (
         <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
       ) : (
         <PostAlbum posts={posts} />
       )}
+<<<<<<< HEAD
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 =======
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
@@ -80,6 +88,8 @@ const PostSection = () => {
 =======
       {isList ? <PostList posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 >>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };
