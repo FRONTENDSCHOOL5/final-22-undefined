@@ -13,6 +13,8 @@ const ProfileDisplay = ({ userInfo }) => {
   const userId = accountname ? accountname : JSON.parse(userAccountname);
   // 현재 프로필에 해당하는 사람이 로그인된 유저랑 같은 사람인지 여부
   const isLoginUser = userId === JSON.parse(userAccountname);
+  console.log(userId);
+  console.log('accountname', accountname);
   return (
     <S.Header>
       <S.Container>
@@ -26,7 +28,7 @@ const ProfileDisplay = ({ userInfo }) => {
         />
         {/* <PostUserProfileImg size='110px' userProfileImg={userInfo.image} /> */}
         <S.UserName>{userInfo.username}</S.UserName>
-        <S.AccountName>{`@ ${userId}`}</S.AccountName>
+        <S.AccountName>{`@ ${userInfo.accountname}`}</S.AccountName>
         <S.Intro className='sl-ellipsis'>{userInfo.intro}</S.Intro>
         <S.FollowerLink to={`/follow/${userId}/follower`}>
           <strong>{userInfo.followerCount}</strong>
