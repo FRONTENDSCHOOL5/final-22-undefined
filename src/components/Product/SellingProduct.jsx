@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
-const SellingProduct = ({ onClick }) => {
+const SellingProduct = ({ onClick, setProductId }) => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -87,6 +87,7 @@ const SellingProduct = ({ onClick }) => {
             <S.Item key={product.id}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <S.ImgCover onClick={() => handleClick(product.id)}>
 =======
               <S.ImgCover>
@@ -94,6 +95,9 @@ const SellingProduct = ({ onClick }) => {
 =======
               <S.ImgCover onClick={onClick}>
 >>>>>>> 56553de (style: 코드 오류 수정)
+=======
+              <S.ImgCover onClick={() => handleClick(product.id)}>
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>

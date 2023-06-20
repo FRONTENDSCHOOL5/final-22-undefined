@@ -8,6 +8,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const PostSection = ({ userInfo }) => {
 =======
 const PostSection = ({ onClick, setPostId }) => {
@@ -15,6 +16,9 @@ const PostSection = ({ onClick, setPostId }) => {
 =======
 const PostSection = ({ userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+=======
+const PostSection = () => {
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -61,6 +65,7 @@ const PostSection = ({ userInfo }) => {
       </S.Header>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
       {isList ? (
@@ -72,6 +77,9 @@ const PostSection = ({ userInfo }) => {
 =======
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+=======
+      {isList ? <PostList posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };

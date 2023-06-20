@@ -6,6 +6,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const PostList = ({ isLoading, posts, userInfo }) => {
 =======
 const PostList = ({ isLoading, onClick, setPostId }) => {
@@ -13,6 +14,9 @@ const PostList = ({ isLoading, onClick, setPostId }) => {
 =======
 const PostList = ({ isLoading, posts, userInfo }) => {
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+=======
+const PostList = ({ isLoading }) => {
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
   const [userProfileImg, setUserProfileImg] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -66,8 +70,19 @@ const PostList = ({ isLoading, posts, userInfo }) => {
           {posts.map((post) => {
             return (
               <Li key={post.id}>
+<<<<<<< HEAD
                 <PostItem userInfo={userInfo} postContent={post.content} postImg={post.image} today={today} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+=======
+                <PostItem
+                  userProfileImg={userProfileImg}
+                  userName={userName}
+                  acountName={ParsedAccountName}
+                  postContent={post.content}
+                  postImg={post.image}
+                  today={today}
+                />
+>>>>>>> a11ca1a (fix: 머지 오류 충돌 해결)
               </Li>
             );
           })}
