@@ -30,6 +30,9 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
   const [postId, setPostId] = useState(''); // postId 상태 추가
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -85,6 +88,7 @@ const ProfilePage = () => {
   };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 =======
@@ -93,6 +97,10 @@ const ProfilePage = () => {
 >>>>>>> 699f2ea (style: 코드 오류 수정)
 =======
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
+=======
+=======
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
@@ -145,6 +153,7 @@ const ProfilePage = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <SellingProduct />
 <<<<<<< HEAD
         <PostSection userInfo={userInfo} />
@@ -167,6 +176,8 @@ const ProfilePage = () => {
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 506c3a9 (style: 코드 오류 수정)
+=======
+>>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
         <SellingProduct onClick={openModal} setProductId={setProductId} />
         {isModalOpen && <ProductModal onClose={closeModal} productId={productId} />}
         <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
@@ -206,10 +217,13 @@ const ProfilePage = () => {
 >>>>>>> 6c1e3b9 (style: 코드 오류 수정)
 =======
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 =======
 >>>>>>> 5b505c9 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 699f2ea (style: 코드 오류 수정)
+=======
+>>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
         <SellingProduct />
 <<<<<<< HEAD
@@ -228,16 +242,21 @@ const ProfilePage = () => {
 >>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
 >>>>>>> b9046a9 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
 =======
+>>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
+>>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
+=======
 =======
         <SellingProduct />
         <PostSection userInfo={userInfo} />
 >>>>>>> fd2cd79 (fix: 머지 오류 충돌 해결)
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
 <<<<<<< HEAD
@@ -288,6 +307,9 @@ const ProfilePage = () => {
 =======
 >>>>>>> 749a836 (fix: 머지 오류 충돌 해결)
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> d47bdef (fix: 머지 오류 충돌 해결)
+>>>>>>> 31d36ce (fix: 머지 오류 충돌 해결)
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>
