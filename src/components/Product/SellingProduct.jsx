@@ -27,6 +27,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c3ddbf8 (fix: 머지 오류 충돌 해결)
 =======
@@ -200,6 +201,9 @@ const SellingProduct = () => {
 >>>>>>> 699f2ea (style: 코드 오류 수정)
 >>>>>>> 62f40cd (style: 코드 오류 수정)
 >>>>>>> deba31d (style: 코드 오류 수정)
+=======
+const SellingProduct = ({ onClick }) => {
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
@@ -333,6 +337,7 @@ const SellingProduct = () => {
         ) : (
           products.map((product) => (
             <S.Item key={product.id}>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -532,6 +537,9 @@ const SellingProduct = () => {
 >>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> deba31d (style: 코드 오류 수정)
+=======
+              <S.ImgCover onClick={onClick}>
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
                 <S.Img src={product.itemImage} />
               </S.ImgCover>
               <S.Name className='s1-ellipsis'>{product.itemName}</S.Name>

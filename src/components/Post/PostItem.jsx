@@ -20,6 +20,7 @@ import CommentIcon from '../../assets/icon/icon-message-circle.png';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> a85ea4a (style: a태그를 Link 태그로 변경)
 =======
@@ -316,10 +317,17 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
 >>>>>>> 6d91338 (style: 코드 오류 수정)
 >>>>>>> 62f40cd (style: 코드 오류 수정)
 >>>>>>> deba31d (style: 코드 오류 수정)
+=======
+import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
+
+const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, today, onClick, setPostId }) => {
+  console.log(setPostId);
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   const handleClick = () => {
     onClick();
     setPostId();
   };
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -503,6 +511,8 @@ const PostItem = ({ userProfileImg, userName, acountName, postContent, postImg, 
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
 >>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
 >>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   return (
     <>
       <PostArticle>

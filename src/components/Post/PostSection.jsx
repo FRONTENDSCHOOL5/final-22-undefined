@@ -20,6 +20,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 const PostSection = ({ userInfo, onClick, setPostId }) => {
 =======
@@ -205,6 +206,9 @@ const PostSection = () => {
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
 >>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
 >>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
+=======
+const PostSection = ({ onClick, setPostId }) => {
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -264,6 +268,7 @@ const PostSection = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       {isList ? <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} /> : <PostAlbum posts={posts} />}
 =======
 =======
@@ -290,11 +295,14 @@ const PostSection = () => {
 >>>>>>> b982543 (fix: 머지 오류 충돌 해결)
 =======
 >>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
       {isList ? (
         <PostList posts={posts} isLoading={isLoading} onClick={onClick} setPostId={setPostId} />
       ) : (
         <PostAlbum posts={posts} />
       )}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -454,6 +462,8 @@ const PostSection = () => {
 >>>>>>> 88327f8 (fix: 머지 오류 충돌 해결)
 >>>>>>> 5c4af22 (fix: 머지 오류 충돌 해결)
 >>>>>>> 4ea439b (fix: 머지 오류 충돌 해결)
+=======
+>>>>>>> 751c89b (fix: 머지 오류 충돌 해결)
     </S.Section>
   );
 };
