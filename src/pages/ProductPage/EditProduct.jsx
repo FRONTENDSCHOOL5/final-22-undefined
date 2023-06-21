@@ -10,7 +10,7 @@ const LayoutWrapper = styled(Wrapper)`
 const EditProduct = () => {
   return (
     <LayoutWrapper>
-      <SaveHeader />
+      <SaveHeader name='저장'></SaveHeader>
     </LayoutWrapper>
   );
 };
