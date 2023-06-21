@@ -99,12 +99,6 @@ const PostContent = () => {
             <ButtonIcon onClick={openModal}>
               <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
             </ButtonIcon>
-          </UserInfoSect>
-
-          <UserContentSect>
-            <h4 className='a11y-hidden'>게시물 내용</h4>
-            {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <img src={myPostImg} alt='게시물 이미지' />}
-
             <UserPostText>{myPostContent}</UserPostText>
             {myPostImg !== 'https://api.mandarin.weniv.co.kr/' && <UserPostImg src={myPostImg} />}
             <LikeAndComment>
