@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
 
-const PostList = ({ isLoading, posts, userInfo, updatePosts }) => {
+const PostList = ({ isLoading, posts, userInfo, setPosts }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
 
@@ -48,7 +48,7 @@ const PostList = ({ isLoading, posts, userInfo, updatePosts }) => {
             })}
           </Ul>
         )}
-        {isModalOpen && <PostModal onClose={closeModal} postId={postId} updatePosts={updatePosts} />}
+        {isModalOpen && <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} />}
       </Wrapper>
     </Container>
   );

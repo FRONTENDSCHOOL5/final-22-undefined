@@ -47,8 +47,8 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
           headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        console.log(data);
-        console.log(data.post.heartCount);
+        // console.log(data);
+        // console.log(data.post.heartCount);
         const addCount = data.post.heartCount;
         setIsHearted(true);
         //setLikeCount((prev) => prev + 1); // 이건 불필요하다. post요청을 보내면 기본으로 1이 증가. 렌더링되는 좋아요 개수는 서버단에서 변화하는 heartCount의 숫자를 보여줘야함. 자기것과 다른유저들이 눌러주면서 통신하며 늘어난 값도 포함 돼야함.

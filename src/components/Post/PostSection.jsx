@@ -16,31 +16,27 @@ const PostSection = ({ userInfo }) => {
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
 
-  const getPosts = async () => {
-    try {
-      setIsLoading(true);
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${userId}/userpost`, {
-        headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
-      });
-
-      const data = await response.json();
-      console.log(data);
-      setPosts(data.post);
-      setIsLoading(false);
-    } catch (err) {
-      console.log(err.message);
-      setIsLoading(false);
-    }
-  };
-
   // 유저 게시물 정보
   useEffect(() => {
+    const getPosts = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${userId}/userpost`, {
+          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        });
+
+        const data = await response.json();
+        console.log(data);
+        setPosts(data.post);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err.message);
+        setIsLoading(false);
+      }
+    };
+
     getPosts();
   }, [userId, userToken]);
-
-  const updatePosts = () => {
-    getPosts();
-  };
 
   return (
     <S.Section>
@@ -56,7 +52,7 @@ const PostSection = ({ userInfo }) => {
         </Wrapper>
       </S.Header>
       {isList ? (
-        <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} updatePosts={updatePosts} />
+        <PostList userInfo={userInfo} posts={posts} isLoading={isLoading} setPosts={setPosts} />
       ) : (
         <PostAlbum posts={posts} />
       )}

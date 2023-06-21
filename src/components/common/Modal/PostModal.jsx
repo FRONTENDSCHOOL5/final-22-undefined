@@ -4,7 +4,7 @@ import AlertModal from './AlertModal';
 import { useNavigate } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose, postId, accountname, updatePosts }) => {
+const PostModal = ({ onClose, postId, accountname, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
@@ -34,7 +34,7 @@ const PostModal = ({ onClose, postId, accountname, updatePosts }) => {
           if (response.success) {
             // console.log('삭제 완료');
             onClose();
-            updatePosts();
+            setPosts(posts.filter((post) => post.id !== postId));
           } else {
             onClose();
             deleteError(response.error); // 삭제 실패 시 에러 처리
