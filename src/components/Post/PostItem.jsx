@@ -15,7 +15,6 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
   const [isHearted, setIsHearted] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
-  // const [initialLikeCount, setInitialLikeCount] = useState(0);
   const { userToken } = useContext(AuthContextStore);
 
   const handleClick = () => {
