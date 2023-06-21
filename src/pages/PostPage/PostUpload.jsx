@@ -55,7 +55,7 @@ const Post = () => {
       });
 
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       navigate('/profile');
     } catch (error) {
       console.log(error.message);
@@ -69,7 +69,7 @@ const Post = () => {
     }
 
     const file = e.target.files[0];
-    console.log(file.name.split('.'));
+    // console.log(file.name.split('.'));
     const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
     // console.log(fileExtenstion);
     if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
@@ -83,8 +83,8 @@ const Post = () => {
         body: formData,
       });
       const data = await res.json();
-      console.log(data);
-      console.log(data.filename);
+      // console.log(data);
+      // console.log(data.filename);
       setUploadImg(data.filename);
     } catch (error) {
       console.log(error.message);

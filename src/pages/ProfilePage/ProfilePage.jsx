@@ -6,10 +6,7 @@ import SellingProduct from '../../components/Product/SellingProduct';
 import PostSection from '../../components/Post/PostSection';
 import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
-import productList from '../../components/Product/dummyProducts';
 import FeedHeader from '../../components/common/Header/FeedHeader';
-
-const Section = styled.section``;
 
 const Title = styled.h1``;
 
@@ -61,7 +58,6 @@ const ProfilePage = () => {
         <ProfileDisplay userInfo={userInfo} />
         <SellingProduct />
         <PostSection userInfo={userInfo} />
-        {/* {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />} */}
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>
