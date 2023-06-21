@@ -45,7 +45,6 @@ const Post = () => {
       } else {
         post = { content: `${userContent}`, image: `https://api.mandarin.weniv.co.kr/${uploadImg}` };
       }
-
       const res = await fetch('https://api.mandarin.weniv.co.kr/post', {
         method: 'POST',
         headers: {

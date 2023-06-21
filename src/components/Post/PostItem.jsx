@@ -1,15 +1,82 @@
 import PostUserProfileImg from './PostUserProfileImg';
 import styled from 'styled-components';
 import HeartIcon from '../../assets/icon/icon-heart.png';
+import HeartIconFill from '../../assets/icon/icon-heart-active.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId }) => {
+const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, setPostId }) => {
+  // console.log(postImg);
+  // console.log(itemPostId);
+  // console.log(userInfo);
+  const [isHearted, setIsHearted] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+  const [commentCount, setCommentCount] = useState(0);
+  // const [initialLikeCount, setInitialLikeCount] = useState(0);
+  const { userToken } = useContext(AuthContextStore);
+
   const handleClick = () => {
     onClick();
     setPostId();
   };
+
+  // 좋아요, 댓글 갯수 초기 업데이트
+  useEffect(() => {
+    const fetchInitialLikeCount = async () => {
+      try {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}`, {
+          method: 'GET',
+          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        const initialLikeCount = data.post.heartCount;
+        const initialCommentCount = data.post.commentCount;
+        const initialHeartedState = data.post.hearted; //useEffect통해 초기값 판별해서 Hearticon이 차있을지 차있지않을지 값을 정해줌.
+        setLikeCount(initialLikeCount);
+        setCommentCount(initialCommentCount);
+        setIsHearted(initialHeartedState);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchInitialLikeCount();
+  }, [itemPostId, userToken]);
+
+  // 좋아요 요청
+  const handleLike = async () => {
+    try {
+      if (!isHearted) {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/heart`, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        console.log(data.post.heartCount);
+        const addCount = data.post.heartCount;
+        setIsHearted(true);
+        //setLikeCount((prev) => prev + 1); // 이건 불필요하다. post요청을 보내면 기본으로 1이 증가. 렌더링되는 좋아요 개수는 서버단에서 변화하는 heartCount의 숫자를 보여줘야함. 자기것과 다른유저들이 눌러주면서 통신하며 늘어난 값도 포함 돼야함.
+        setLikeCount(addCount);
+      } else {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/unheart`, {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        const delCount = data.post.heartCount;
+        setIsHearted(false);
+        setLikeCount(delCount);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <>
       <PostArticle>
@@ -31,13 +98,13 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, setPostId })
           <UserPostText>{postContent}</UserPostText>
           {postImg && <UserPostImg src={postImg} />}
           <LikeAndComment>
-            <LikeBtn>
+            <LikeBtn isHearted={isHearted} onClick={handleLike}>
               <span className='a11y-hidden'>좋아요 버튼</span>
-              <span>0</span>
+              <span>{likeCount}</span>
             </LikeBtn>
             <CommentLink to='/#'>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
-              <span>0</span>
+              <span>{commentCount}</span>
             </CommentLink>
           </LikeAndComment>
           <TodayDate>{today}</TodayDate>
@@ -109,7 +176,7 @@ const LikeBtn = styled.button`
     margin-right: 6px;
     display: inline-block;
     vertical-align: bottom;
-    background: url(${HeartIcon}) no-repeat center;
+    background: ${({ isHearted }) => `url(${isHearted ? HeartIconFill : HeartIcon}) no-repeat center`};
   }
 `;
 
