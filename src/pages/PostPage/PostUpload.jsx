@@ -51,7 +51,7 @@ const Post = () => {
           Authorization: `Bearer ${JSON.parse(userToken)}`,
           'Content-type': 'application/json',
         },
-       body: JSON.stringify({ post }),,
+        body: JSON.stringify({ post }),
       });
 
       const data = await res.json();
