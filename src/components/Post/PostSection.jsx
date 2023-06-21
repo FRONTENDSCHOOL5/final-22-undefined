@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
-const PostSection = ({ userInfo, onClick, setPostId }) => {
+const PostSection = ({ userInfo }) => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
