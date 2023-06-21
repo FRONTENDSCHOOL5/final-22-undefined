@@ -9,9 +9,6 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
 const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }) => {
-  // console.log(postImg);
-  // console.log(itemPostId);
-  // console.log(userInfo);
   const [isHearted, setIsHearted] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
