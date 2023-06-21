@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Wrapper from '../../components/common/Wrapper/Wrapper';
 import TabMenu from '../HomePage/TabMenu';
 
 import arrowLeft from '../../assets/icon/icon-arrow-left.png';
@@ -37,14 +36,14 @@ const MoreVertical = styled.a`
 
 const ChatList = () => {
   return (
-    <Wrapper>
+    <>
       <Header>
         <Arrow href='/home' />
         <MoreVertical />
       </Header>
       <ChatListsContents />
       <TabMenu />
-    </Wrapper>
+    </>
   );
 };
 
