@@ -14,30 +14,35 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
   // console.log(userInfo);
   const [like, setLike] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-  // const [likeCount, setLikeCount] = useState(() => {
-  //   return getPostDetail();
-  // });
+  const [commentCount, setCommentCount] = useState(0);
+  // const [initialLikeCount, setInitialLikeCount] = useState(0);
   const { userToken } = useContext(AuthContextStore);
-
+  console.log(likeCount);
   const handleClick = () => {
     onClick();
     setPostId();
   };
 
-  // useEffect(() => {
-  //   const getPostDetail = async () => {
-  //     try {
-  //       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}`, {
-  //         headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
-  //       });
-  //       const data = await response.json();
-  //       console.log(data);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   };
-  //   return data.post.heartCount;
-  // }, []);
+  // 게시물 초기 상세값 업데이트
+  useEffect(() => {
+    const fetchInitialLikeCount = async () => {
+      try {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}`, {
+          method: 'GET',
+          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        const initialLikeCount = data.post.heartCount;
+        const initialCommentCount = data.post.commentCount;
+        setLikeCount(initialLikeCount);
+        setCommentCount(initialCommentCount);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchInitialLikeCount();
+  }, [itemPostId, userToken]);
 
   // 좋아요 요청
   const handleLike = async () => {
@@ -96,7 +101,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
             </LikeBtn>
             <CommentLink to='/#'>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
-              <span>0</span>
+              <span>{commentCount}</span>
             </CommentLink>
           </LikeAndComment>
           <TodayDate>{today}</TodayDate>
