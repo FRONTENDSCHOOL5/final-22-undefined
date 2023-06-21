@@ -6,13 +6,13 @@ import post from '../../assets/icon/icon-edit.png';
 import profile from '../../assets/icon/icon-user.png';
 
 export const Footer = styled.footer`
-  max-width: 390px;
   margin: 20px auto 0px;
-  position: absolute;
+  position: fixed;
   left: 0px;
   right: 0px;
   bottom: 0px;
   border-top: 0.5px solid #dbdbdb;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const MenuList = styled.ul`

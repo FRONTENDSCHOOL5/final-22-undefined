@@ -5,7 +5,7 @@ import Comment from './Comment';
 
 import arrowLeft from '../../assets/icon/icon-arrow-left.png';
 import moreVertical from '../../assets/icon/icon-more-vertical.png';
-import Contents from './Contents';
+import ChatRoomContents from './ChatRoomContents';
 
 const Header = styled.header`
   border-bottom: 0.5px solid #dbdbdb;
@@ -41,7 +41,7 @@ const ChatList = () => {
         <Arrow href='/chat' />
         <MoreVertical />
       </Header>
-      <Contents />
+      <ChatRoomContents />
       <Comment />
     </Wrapper>
   );
