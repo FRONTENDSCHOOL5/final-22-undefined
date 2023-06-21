@@ -50,12 +50,6 @@ const Comment = () => {
 
   return (
     <Footer>
-<<<<<<< HEAD
-      <label htmlFor='imgUpload'></label>
-      <input className='a11y-hidden' type='file' id='imgUpload' accept='image/*' />
-=======
-      <PostUserProfileImg size={'36px'} />
->>>>>>> 843eb89 (fix: 머지 충돌 해결)
       <Input type='text' placeholder='댓글 입력하기...' onChange={handleOnChange} />
       <PostBtn isActivated={isActivated} type='submit'>
         전송
