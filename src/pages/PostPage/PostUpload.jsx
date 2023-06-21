@@ -117,7 +117,7 @@ const Post = () => {
     return confirmAction;
   };
 
-  const hndleDelete = cofirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
+  const handleDelete = cofirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
 
   // textarea 높이 자동 조절
   const handleContent = (e) => {
@@ -153,7 +153,7 @@ const Post = () => {
               {uploadImg && (
                 <Li>
                   <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
-                  <DeleteBtn onClick={hndleDelete}>
+                  <DeleteBtn onClick={handleDelete}>
                     <span className='a11y-hidden'>업로드 이미지 삭제</span>
                   </DeleteBtn>
                 </Li>
