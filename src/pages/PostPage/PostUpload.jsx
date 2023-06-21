@@ -9,8 +9,9 @@ import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
+const defaultProfileImg = 'http://146.56.183.55:5050/Ellipse.png';
 const Post = () => {
-  const [userProfileImg, setUserProfileImg] = useState('');
+  const [userProfileImg, setUserProfileImg] = useState(defaultProfileImg);
   const [uploadImg, setUploadImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [userContent, setUserContent] = useState('');
@@ -136,7 +137,7 @@ const Post = () => {
       <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={uploadPost} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
-        <PostUserProfileImg userProfileImg={userProfileImg} />
+        <PostUserProfileImg defaultProfileImg={defaultProfileImg} userProfileImg={userProfileImg} />
         <PostArticle>
           <Form>
             <Textarea

@@ -2,17 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Ellipse from '../../assets/Ellipse-1.png';
 
-const PostUserProfileImg = ({ userProfileImg, size }) => {
+const PostUserProfileImg = ({ defaultProfileImg, userProfileImg, size }) => {
   //userProfileImg로 props 보낼때, myProfileImg(본인 프로필 사진) 혹은 userProfileImg(다른 유저 사진)로 받을 수 있음
+  console.log(userProfileImg);
   return (
     <>
       <UserProfile
         size={size}
-        src={
-          userProfileImg === 'http://146.56.183.55:5050/Ellipse.png'
-            ? Ellipse
-            : `https://api.mandarin.weniv.co.kr/${userProfileImg}`
-        }
+        src={userProfileImg !== defaultProfileImg ? `https://api.mandarin.weniv.co.kr/${userProfileImg}` : Ellipse}
         alt='사용자 프로필 이미지'
       />
     </>
