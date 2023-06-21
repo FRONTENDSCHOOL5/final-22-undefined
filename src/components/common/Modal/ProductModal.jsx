@@ -4,7 +4,7 @@ import AlertModal from './AlertModal';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const ProductModal = ({ onClose, productId }) => {
+const ProductModal = ({ onClose, productId, updateProduct }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const { accountname } = useParams(); // 현재 사용자 계정
   const navigate = useNavigate();
@@ -38,9 +38,10 @@ const ProductModal = ({ onClose, productId }) => {
       deletePost(productId) // 게시글 삭제 호출
         .then((response) => {
           if (response.success) {
-            console.log('삭제 완료');
-            navigate('/profile');
+            onClose();
+            updateProduct();
           } else {
+            onClose();
             deleteError(response.error); // 삭제 실패 시 에러 처리
           }
         })

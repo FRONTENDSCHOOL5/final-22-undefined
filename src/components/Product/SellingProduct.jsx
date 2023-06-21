@@ -4,41 +4,56 @@ import ProductSkeleton from '../Skeleton/ProductSkeleton';
 import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
+import ProductModal from '../common/Modal/ProductModal';
 
-const SellingProduct = ({ onClick, setProductId }) => {
+const SellingProduct = () => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [productId, setProductId] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const userId = accountname ? accountname : JSON.parse(userAccountname);
 
+  const getProducts = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          'Content-type': 'application/json',
+        },
+      });
+
+      const jsonData = await response.json();
+      setProducts(jsonData.product);
+
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err.message);
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${JSON.parse(userToken)}`,
-            'Content-type': 'application/json',
-          },
-        });
-
-        const jsonData = await response.json();
-        setProducts(jsonData.product);
-
-        setIsLoading(false);
-      } catch (err) {
-        console.log(err.message);
-        setIsLoading(false);
-      }
-    };
     getProducts();
   }, [userToken, userId]);
 
+  const updateProduct = () => {
+    getProducts();
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleClick = (productId) => {
-    onClick();
-    console.log(productId);
+    openModal();
     setProductId(productId);
   };
 
@@ -67,6 +82,7 @@ const SellingProduct = ({ onClick, setProductId }) => {
           )}
         </S.List>
         {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
+        {isModalOpen && <ProductModal onClose={closeModal} productId={productId} updateProduct={updateProduct} />}
       </Wrapper>
     </S.Section>
   );
