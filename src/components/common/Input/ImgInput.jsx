@@ -12,9 +12,9 @@ const ImgInput = ({ img, setImg }) => {
 
     const file = event.target.files[0];
     console.log(file);
-    const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
+    const fileExtension = file.name.split('.').slice(-1)[0].toLowerCase();
 
-    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
+    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) return;
 
     const formData = new FormData();
     formData.append('image', event.target.files[0]);

@@ -70,9 +70,9 @@ const Post = () => {
 
     const file = e.target.files[0];
     console.log(file.name.split('.'));
-    const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
+    const fileExtension = file.name.split('.').slice(-1)[0].toLowerCase();
     // console.log(fileExtenstion);
-    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
+    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) return;
 
     const formData = new FormData();
     formData.append('image', file);
@@ -98,7 +98,7 @@ const Post = () => {
   };
   const cancelConfirm = () => alert('취소했습니다.');
 
-  const cofirmDelete = (message = '', onConfirm, onCancel) => {
+  const confirmDelete = (message = '', onConfirm, onCancel) => {
     if (!onConfirm || typeof onConfirm !== 'function') {
       return;
     }
@@ -117,7 +117,7 @@ const Post = () => {
     return confirmAction;
   };
 
-  const handleDelete = cofirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
+  const handleDelete = confirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
 
   // textarea 높이 자동 조절
   const handleContent = (e) => {
