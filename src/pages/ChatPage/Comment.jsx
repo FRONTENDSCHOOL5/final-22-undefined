@@ -4,14 +4,12 @@ import styled from 'styled-components';
 import imgBtn from '../../assets/img-button.png';
 
 const Footer = styled.footer`
-  max-width: 390px;
   padding: 13px 16px;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
+  position: fixed;
   left: 0px;
   right: 0px;
   bottom: 0px;
+  display: flex;
   border-top: 0.5px solid #dbdbdb;
   background-color: ${({ theme }) => theme.colors.white};
 `;

@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import TopMainNav from './TopMainNav';
 import Contents from './Contents';
-import TabMenu from '../../components/common/TabMenu/TabMenu';
+import TabMenu from './TabMenu';
 
 import { AuthContextStore } from '../../context/AuthContext';
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 const ContentsMain = styled.main`
-  min-height: 80vh;
+  height: 100vh;
   background: #f2f2f2;
   padding: 16px;
 
