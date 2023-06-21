@@ -12,7 +12,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
   // console.log(postImg);
   // console.log(itemPostId);
   // console.log(userInfo);
-  const [like, setLike] = useState(false);
+  const [hearted, setHerated] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
   // const [initialLikeCount, setInitialLikeCount] = useState(0);
@@ -47,15 +47,16 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
   // 좋아요 요청
   const handleLike = async () => {
     try {
-      if (!like) {
+      if (!hearted) {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/heart`, {
           method: 'POST',
           headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
+        console.log(data);
         console.log(data.post.heartCount);
         const addCount = data.post.heartCount;
-        setLike(true);
+        setHerated(true);
         //setLikeCount((prev) => prev + 1); // 이건 불필요하다. post요청을 보내면 기본으로 1이 증가. 렌더링되는 좋아요 개수는 서버단에서 변화하는 heartCount의 숫자를 보여줘야함. 자기것과 다른유저들이 눌러주면서 통신하며 늘어난 값도 포함 돼야함.
         setLikeCount(addCount);
       } else {
@@ -66,7 +67,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
         const data = await response.json();
         console.log(data);
         const delCount = data.post.heartCount;
-        setLike(false);
+        setHerated(false);
         setLikeCount(delCount);
       }
     } catch (error) {
@@ -95,7 +96,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
           <UserPostText>{postContent}</UserPostText>
           {postImg && <UserPostImg src={postImg} />}
           <LikeAndComment>
-            <LikeBtn isLiked={like} onClick={handleLike}>
+            <LikeBtn isHearted={hearted} onClick={handleLike}>
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{likeCount}</span>
             </LikeBtn>
@@ -173,7 +174,7 @@ const LikeBtn = styled.button`
     margin-right: 6px;
     display: inline-block;
     vertical-align: bottom;
-    background: ${({ isLiked }) => `url(${isLiked ? HeartIconFill : HeartIcon}) no-repeat center`};
+    background: ${({ isHearted }) => `url(${isHearted ? HeartIconFill : HeartIcon}) no-repeat center`};
   }
 `;
 
