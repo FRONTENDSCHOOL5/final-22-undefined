@@ -29,7 +29,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const getUserInfo = async () => {
       try {
-        setIsLoading(false);
+        setIsLoading(true);
         const response = await fetch(`https://api.mandarin.weniv.co.kr/profile/${userId}`, {
           headers: {
             Authorization: `Bearer ${JSON.parse(userToken)}`,
@@ -40,10 +40,10 @@ const ProfilePage = () => {
         const data = await response.json();
 
         setUserInfo(data.profile);
-        setIsLoading(true);
+        setIsLoading(false);
       } catch (err) {
         console.log(err.message);
-        setIsLoading(true);
+        setIsLoading(false);
       }
     };
 
@@ -55,7 +55,7 @@ const ProfilePage = () => {
       <Title className='a11y-hidden'>{isLoginUser ? '나의 프로필 페이지' : 'OO의 프로필 페이지'}</Title>
       <FeedHeader />
       <Main>
-        <ProfileDisplay userInfo={userInfo} />
+        <ProfileDisplay userInfo={userInfo} isLoading={isLoading} />
         <SellingProduct />
         <PostSection userInfo={userInfo} />
       </Main>
