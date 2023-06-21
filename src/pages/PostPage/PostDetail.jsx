@@ -30,7 +30,7 @@ const PostDetail = () => {
   return (
     <>
       <FeedHeader />
-      <PostDetailComment />
+      {/* <PostDetailComment /> */}
       <Comment defaultProfileImg={defaultProfileImg} userProfileImg={userProfileImg} />
     </>
   );

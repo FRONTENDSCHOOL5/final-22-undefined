@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
 import imgBtn from '../../assets/img-button.png';
+import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 const Footer = styled.footer`
-  max-width: 390px;
+  /* max-width: 390px; */
   padding: 13px 16px;
   display: flex;
   justify-content: space-between;
@@ -31,13 +31,13 @@ const Input = styled.input`
 
 const PostBtn = styled.button`
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 18px;
   text-align: right;
   color: ${({ theme, isActivated }) => (isActivated ? theme.colors.primary : theme.colors.gray)};
 `;
 
-const Comment = () => {
+const Comment = ({ defaultProfileImg, userProfileImg }) => {
   const [word, setWord] = useState('');
 
   const handleOnChange = (e) => {
@@ -50,9 +50,10 @@ const Comment = () => {
 
   return (
     <Footer>
+      <PostUserProfileImg defaultProfileImg={defaultProfileImg} size={'36px'} userProfileImg={userProfileImg} />
       <Input type='text' placeholder='댓글 입력하기...' onChange={handleOnChange} />
       <PostBtn isActivated={isActivated} type='submit'>
-        전송
+        게시
       </PostBtn>
     </Footer>
   );
