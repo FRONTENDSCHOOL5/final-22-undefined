@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 const slide = keyframes`
   from {
         opacity: 0;
-        transform: translateY(10%);
+        transform: translateY(100%);
     }
 
     to {
@@ -15,19 +15,17 @@ const slide = keyframes`
 export const ModalBg = styled.div`
   position: fixed;
   top: 0;
-  min-width: 389px;
-  min-height: 80vh;
-  margin: 40px auto;
-  border: none;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
 `;
 
 export const Ul = styled.ul`
-  position: sticky; // fixed는 viewport에 고정이고 sticky는 내가 정한 offset에 닿을 때부터 고정 (부모 내에 유지)
-  top: 100%;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  max-width: 390px;
   height: auto;
   background-color: ${({ theme }) => theme.colors.white};
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
