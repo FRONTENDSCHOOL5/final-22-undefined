@@ -148,6 +148,14 @@ const Post = () => {
               ref={textarea}
               rows={1}
             />
+            <UploadImgBtn htmlFor='imgUpload'></UploadImgBtn>
+            <UploadImgInp
+              className='a11y-hidden'
+              type='file'
+              id='imgUpload'
+              onChange={handleImgInput}
+              accept='image/*'
+            />
           </Form>
           <Section>
             <Ul>
@@ -160,14 +168,6 @@ const Post = () => {
                 </Li>
               )}
             </Ul>
-            <UploadImgBtn htmlFor='imgUpload'></UploadImgBtn>
-            <UploadImgInp
-              className='a11y-hidden'
-              type='file'
-              id='imgUpload'
-              onChange={handleImgInput}
-              accept='image/*'
-            />
           </Section>
         </PostArticle>
       </PostMain>
