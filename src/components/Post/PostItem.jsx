@@ -102,7 +102,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{likeCount}</span>
             </LikeBtn>
-            <CommentLink to='/#'>
+            <CommentLink to={`/post/${itemPostId}/comments`}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>{commentCount}</span>
             </CommentLink>
