@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 export const AlertSection = styled.div`
+  position: fixed;
   width: 252px;
   height: 110px;
   border-radius: 10px;
-  position: absolute;
-  top: 50%;
+  top: ${({ scrollPosition }) => (scrollPosition > 0 ? '50%' : '50%')};
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.white};
   z-index: 999;
-  overflow: hidden;
   text-align: center;
+  overflow: hidden;
 `;
 
 export const Strong = styled.strong`
