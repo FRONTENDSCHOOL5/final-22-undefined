@@ -20,6 +20,7 @@ export const ModalBg = styled.div`
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
+  overflow: hidden;
 `;
 
 export const Ul = styled.ul`
@@ -31,7 +32,7 @@ export const Ul = styled.ul`
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   border-radius: 10px 10px 0 0;
   padding: 36px 0 16px;
-  animation: ${slide} 0.3s ease-in;
+  animation: ${slide} 0.3s ease-in-out;
 
   ::before {
     position: absolute;
