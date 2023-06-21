@@ -137,7 +137,7 @@ const Post = () => {
       <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={uploadPost} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
-        <PostUserProfileImg defaultProfileImg={defaultProfileImg} userProfileImg={userProfileImg} />
+        <PostUserProfileImg userProfileImg={userProfileImg} />
         <PostArticle>
           <Form>
             <Textarea
