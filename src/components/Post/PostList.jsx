@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import PostItem from './PostItem';
 import styled from 'styled-components';
 import Wrapper from '../common/Wrapper/Wrapper';
 
 const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
-  console.log(posts);
+  // console.log(posts);
 
   let dateString = new Date();
   let options = { year: 'numeric', month: 'long', day: 'numeric' };

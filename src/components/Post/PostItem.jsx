@@ -32,7 +32,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
           headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         const initialLikeCount = data.post.heartCount;
         const initialCommentCount = data.post.commentCount;
         const initialHeartedState = data.post.hearted; //useEffect통해 초기값 판별해서 Hearticon이 차있을지 차있지않을지 값을 정해줌.
@@ -67,7 +67,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
           headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         const delCount = data.post.heartCount;
         setIsHearted(false);
         setLikeCount(delCount);
