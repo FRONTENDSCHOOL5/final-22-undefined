@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PostItem from './PostItem';
 import styled from 'styled-components';
 import Wrapper from '../common/Wrapper/Wrapper';
+import PostModal from '../common/Modal/PostModal';
 
-const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
-  // console.log(posts);
+const PostList = ({ isLoading, posts, userInfo, updatePosts }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [postId, setPostId] = useState('');
 
   let dateString = new Date();
   let options = { year: 'numeric', month: 'long', day: 'numeric' };
   let today = dateString.toLocaleDateString('ko-KR', options);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleClick = (id) => {
+    openModal();
+    setPostId(id);
+  };
 
   return (
     <Container>
@@ -25,15 +40,15 @@ const PostList = ({ isLoading, posts, userInfo, onClick, setPostId }) => {
                     postContent={post.content}
                     postImg={post.image}
                     today={today}
-                    onClick={onClick}
                     itemPostId={post.id}
-                    setPostId={() => setPostId(post.id)}
+                    onClick={() => handleClick(post.id)}
                   />
                 </Li>
               );
             })}
           </Ul>
         )}
+        {isModalOpen && <PostModal onClose={closeModal} postId={postId} updatePosts={updatePosts} />}
       </Wrapper>
     </Container>
   );

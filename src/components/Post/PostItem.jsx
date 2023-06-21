@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, setPostId }) => {
+const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }) => {
   // console.log(postImg);
   // console.log(itemPostId);
   // console.log(userInfo);
@@ -17,11 +17,6 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
   const [commentCount, setCommentCount] = useState(0);
   // const [initialLikeCount, setInitialLikeCount] = useState(0);
   const { userToken } = useContext(AuthContextStore);
-
-  const handleClick = () => {
-    onClick();
-    setPostId();
-  };
 
   // 좋아요, 댓글 갯수 초기 업데이트
   useEffect(() => {
@@ -88,7 +83,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
             <InfoName>{userInfo.username}</InfoName>
             <InfoAccount>@ {userInfo.accountname}</InfoAccount>
           </UserNameInfo>
-          <ButtonIcon onClick={handleClick}>
+          <ButtonIcon onClick={onClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
           </ButtonIcon>
         </UserInfoSect>
