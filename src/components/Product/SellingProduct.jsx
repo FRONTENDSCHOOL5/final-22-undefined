@@ -16,33 +16,28 @@ const SellingProduct = () => {
 
   const userId = accountname ? accountname : JSON.parse(userAccountname);
 
-  const getProducts = async () => {
-    try {
-      setIsLoading(true);
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
-          'Content-type': 'application/json',
-        },
-      });
-
-      const jsonData = await response.json();
-      setProducts(jsonData.product);
-
-      setIsLoading(false);
-    } catch (err) {
-      console.log(err.message);
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getProducts = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(userToken)}`,
+            'Content-type': 'application/json',
+          },
+        });
+
+        const jsonData = await response.json();
+        setProducts(jsonData.product);
+
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err.message);
+        setIsLoading(false);
+      }
+    };
     getProducts();
   }, [userToken, userId]);
-
-  const updateProduct = () => {
-    getProducts();
-  };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -82,7 +77,9 @@ const SellingProduct = () => {
           )}
         </S.List>
         {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
-        {isModalOpen && <ProductModal onClose={closeModal} productId={productId} updateProduct={updateProduct} />}
+        {isModalOpen && (
+          <ProductModal onClose={closeModal} productId={productId} products={products} setProducts={setProducts} />
+        )}
       </Wrapper>
     </S.Section>
   );
