@@ -41,6 +41,7 @@ export const AccountName = styled.strong`
 export const Intro = styled.p`
   font-size: 14px;
   width: 280px;
+  height: 18px;
   color: ${({ theme }) => theme.colors.txtColor};
   margin: 14px auto 26px;
 `;

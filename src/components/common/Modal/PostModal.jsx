@@ -4,7 +4,7 @@ import AlertModal from './AlertModal';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose, postId, setPosts }) => {
+const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
   const { accountname } = useParams(); // 현재 사용자 계정
@@ -28,16 +28,16 @@ const PostModal = ({ onClose, postId, setPosts }) => {
 
   // 모달 닫기
   const closeModal = (option) => {
-    console.log(postId);
+    // console.log(postId);
     if (option === '삭제') {
       deletePost(postId) // 게시글 삭제 호출
         .then((response) => {
           if (response.success) {
             // console.log('삭제 완료');
-            // window.location.replace('/profile');
             onClose();
-            navigate('/profile');
+            setPosts(posts.filter((post) => post.id !== postId));
           } else {
+            onClose();
             deleteError(response.error); // 삭제 실패 시 에러 처리
           }
         })
@@ -52,7 +52,7 @@ const PostModal = ({ onClose, postId, setPosts }) => {
 
   // 게시글 삭제 및 삭제 오류 처리
   const deletePost = async () => {
-    console.log('postId 값:', postId);
+    // console.log('postId 값:', postId);
     try {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
         method: 'DELETE',

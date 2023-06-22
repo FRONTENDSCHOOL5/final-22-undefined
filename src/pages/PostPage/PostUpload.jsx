@@ -39,23 +39,18 @@ const Post = () => {
   // 게시물 업로드
   const uploadPost = async () => {
     try {
-      let post;
-      if (uploadImg === '') {
-        post = { content: `${userContent}` };
-      } else {
-        post = { content: `${userContent}`, image: `https://api.mandarin.weniv.co.kr/${uploadImg}` };
-      }
+      const image = uploadImg ? `https://api.mandarin.weniv.co.kr/${uploadImg}` : '';
       const res = await fetch('https://api.mandarin.weniv.co.kr/post', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${JSON.parse(userToken)}`,
           'Content-type': 'application/json',
         },
-        body: JSON.stringify({ post }),
+        body: JSON.stringify({ post: { content: userContent, image } }),
       });
 
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       navigate('/profile');
     } catch (error) {
       console.log(error.message);
@@ -69,7 +64,7 @@ const Post = () => {
     }
 
     const file = e.target.files[0];
-    console.log(file.name.split('.'));
+    // console.log(file.name.split('.'));
     const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
     // console.log(fileExtenstion);
     if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
@@ -83,8 +78,8 @@ const Post = () => {
         body: formData,
       });
       const data = await res.json();
-      console.log(data);
-      console.log(data.filename);
+      // console.log(data);
+      // console.log(data.filename);
       setUploadImg(data.filename);
     } catch (error) {
       console.log(error.message);

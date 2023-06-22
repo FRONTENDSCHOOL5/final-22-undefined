@@ -3,10 +3,15 @@ import React from 'react';
 import home from '../../assets/symbol-logo-gray.png';
 import styled from 'styled-components';
 
-const Main = styled.main``;
+const Main = styled.main`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 108px);
+  margin-top: 48px;
+`;
 
 const Section = styled.section`
-  padding: 220px 0 294px;
   text-align: center;
 `;
 
@@ -39,7 +44,6 @@ const SearchIcon = styled.a`
 `;
 
 const Contents = ({ post, setPost }) => {
-  console.log('post:', post, 'setPost:', setPost);
   return (
     <Main>
       <Section>
