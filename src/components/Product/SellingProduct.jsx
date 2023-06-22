@@ -4,12 +4,15 @@ import ProductSkeleton from '../Skeleton/ProductSkeleton';
 import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
+import ProductModal from '../common/Modal/ProductModal';
 
-const SellingProduct = ({ onClick, setProductId }) => {
+const SellingProduct = () => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [productId, setProductId] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const userId = accountname ? accountname : JSON.parse(userAccountname);
 
@@ -36,9 +39,16 @@ const SellingProduct = ({ onClick, setProductId }) => {
     getProducts();
   }, [userToken, userId]);
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleClick = (productId) => {
-    onClick();
-    console.log(productId);
+    openModal();
     setProductId(productId);
   };
 
@@ -67,6 +77,9 @@ const SellingProduct = ({ onClick, setProductId }) => {
           )}
         </S.List>
         {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
+        {isModalOpen && (
+          <ProductModal onClose={closeModal} productId={productId} products={products} setProducts={setProducts} />
+        )}
       </Wrapper>
     </S.Section>
   );

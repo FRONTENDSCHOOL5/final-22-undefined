@@ -1,18 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Wrapper from '../../components/common/Wrapper/Wrapper';
 import ProfileDisplay from '../../components/Profile/ProfileDisplay';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
 import SellingProduct from '../../components/Product/SellingProduct';
 import PostSection from '../../components/Post/PostSection';
 import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
-import productList from '../../components/Product/dummyProducts';
 import FeedHeader from '../../components/common/Header/FeedHeader';
-import ProductModal from '../../components/common/Modal/ProductModal';
-import PostModal from '../../components/common/Modal/PostModal';
-
-const Section = styled.section``;
 
 const Title = styled.h1``;
 
@@ -26,26 +20,6 @@ const ProfilePage = () => {
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState({});
-  const [postId, setPostId] = useState(''); // postId 상태 추가
-  const [productId, setProductId] = useState(''); // productId 상태 추가
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalOpenTwo, setIsModalOpenTwo] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const openModalTWo = () => {
-    setIsModalOpenTwo(true);
-  };
-
-  const closeModalTwo = () => {
-    setIsModalOpenTwo(false);
-  };
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : JSON.parse(userAccountname);
@@ -55,7 +29,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const getUserInfo = async () => {
       try {
-        setIsLoading(false);
+        setIsLoading(true);
         const response = await fetch(`https://api.mandarin.weniv.co.kr/profile/${userId}`, {
           headers: {
             Authorization: `Bearer ${JSON.parse(userToken)}`,
@@ -66,10 +40,10 @@ const ProfilePage = () => {
         const data = await response.json();
 
         setUserInfo(data.profile);
-        setIsLoading(true);
+        setIsLoading(false);
       } catch (err) {
         console.log(err.message);
-        setIsLoading(true);
+        setIsLoading(false);
       }
     };
 
@@ -81,11 +55,9 @@ const ProfilePage = () => {
       <Title className='a11y-hidden'>{isLoginUser ? '나의 프로필 페이지' : 'OO의 프로필 페이지'}</Title>
       <FeedHeader />
       <Main>
-        <ProfileDisplay userInfo={userInfo} />
-        <SellingProduct onClick={openModal} setProductId={setProductId} />
-        {isModalOpen && <ProductModal onClose={closeModal} productId={productId} />}
-        <PostSection userInfo={userInfo} onClick={openModalTWo} setPostId={setPostId} />
-        {isModalOpenTwo && <PostModal onClose={closeModalTwo} postId={postId} />}
+        <ProfileDisplay userInfo={userInfo} isLoading={isLoading} setUserInfo={setUserInfo} />
+        <SellingProduct />
+        <PostSection userInfo={userInfo} />
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>
