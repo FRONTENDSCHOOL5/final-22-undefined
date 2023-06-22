@@ -42,7 +42,7 @@ const Home = () => {
     <>
       <TopMainNav />
       {userToken ? <Contents post={post} setPost={setPost} /> : <Contents />}
-      <TabMenu />
+      <TabMenu active='0' />
     </>
   );
 };
