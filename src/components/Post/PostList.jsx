@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import PostItem from './PostItem';
 import styled from 'styled-components';
 import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
 
-const PostList = ({ isLoading, posts, userInfo, setPosts }) => {
+const PostList = forwardRef(({ posts, userInfo, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
 
@@ -28,31 +28,25 @@ const PostList = ({ isLoading, posts, userInfo, setPosts }) => {
   return (
     <Container>
       <Wrapper>
-        {isLoading ? (
-          <NoPost>아직 작성된 게시물이 없습니다.</NoPost>
-        ) : (
-          <Ul>
-            {posts.map((post) => {
-              return (
-                <Li key={post.id}>
-                  <PostItem
-                    userInfo={userInfo}
-                    postContent={post.content}
-                    postImg={post.image}
-                    today={today}
-                    itemPostId={post.id}
-                    onClick={() => handleClick(post.id)}
-                  />
-                </Li>
-              );
-            })}
-          </Ul>
-        )}
+        <Ul>
+          {posts.map((post, index) => (
+            <Li key={post.id} ref={index === posts.length - 1 ? ref : null}>
+              <PostItem
+                userInfo={userInfo}
+                postContent={post.content}
+                postImg={post.image}
+                today={today}
+                itemPostId={post.id}
+                onClick={() => handleClick(post.id)}
+              />
+            </Li>
+          ))}
+        </Ul>
         {isModalOpen && <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} />}
       </Wrapper>
     </Container>
   );
-};
+});
 
 export default PostList;
 

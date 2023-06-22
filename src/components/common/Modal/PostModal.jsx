@@ -1,13 +1,14 @@
 import React, { useRef, useState, useContext } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const PostModal = ({ onClose, postId, accountname, posts, setPosts }) => {
+const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
+  const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
@@ -56,7 +57,7 @@ const PostModal = ({ onClose, postId, accountname, posts, setPosts }) => {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
         method: 'DELETE',
         headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json',
         },
       });
@@ -90,7 +91,7 @@ const PostModal = ({ onClose, postId, accountname, posts, setPosts }) => {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
