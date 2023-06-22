@@ -57,7 +57,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
         method: 'DELETE',
         headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json',
         },
       });
@@ -91,7 +91,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({

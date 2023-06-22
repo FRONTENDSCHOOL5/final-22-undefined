@@ -26,8 +26,10 @@ const ProductModal = ({ onClose, productId, products, setProducts }) => {
     } else if (option === '웹사이트에서 상품 보기') {
       // 웹사이트 연결
       window.open('https://naver.com');
+      onClose();
     } else if (option === '웹사이트에서 상품 보기') {
       window.open('https://naver.com');
+      onClose();
     }
   };
 
@@ -61,7 +63,7 @@ const ProductModal = ({ onClose, productId, products, setProducts }) => {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${productId}`, {
         method: 'DELETE',
         headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json',
         },
       });
