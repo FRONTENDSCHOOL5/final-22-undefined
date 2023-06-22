@@ -49,13 +49,8 @@ const Home = () => {
   return (
     <>
       <TopMainNav />
-<<<<<<< HEAD
-      {userToken ? <Contents post={post} setPost={setPost} /> : <Contents />}
-      <TabMenu active='0' />
-=======
       <Contents post={post} />
       <TabMenu />
->>>>>>> a281bda (style: feed에 postList 가져오는 코드 작성하기 (#8))
     </>
   );
 };
