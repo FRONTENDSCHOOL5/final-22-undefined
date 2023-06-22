@@ -8,12 +8,17 @@ import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }) => {
+const PostItem = ({ userInfo, postContent, postImg, postDate, itemPostId, onClick }) => {
   const [isHearted, setIsHearted] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
   // const [initialLikeCount, setInitialLikeCount] = useState(0);
   const { userToken } = useContext(AuthContextStore);
+
+  const date = new Date(postDate);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
   // 좋아요, 댓글 갯수 초기 업데이트
   useEffect(() => {
@@ -99,7 +104,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
               <span>{commentCount}</span>
             </CommentLink>
           </LikeAndComment>
-          <TodayDate>{today}</TodayDate>
+          <TodayDate>{`${year}년 ${month}월 ${day}일`}</TodayDate>
         </UserContentSect>
       </PostArticle>
     </>

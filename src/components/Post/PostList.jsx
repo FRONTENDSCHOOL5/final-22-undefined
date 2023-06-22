@@ -8,10 +8,6 @@ const PostList = forwardRef(({ posts, userInfo, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
 
-  let dateString = new Date();
-  let options = { year: 'numeric', month: 'long', day: 'numeric' };
-  let today = dateString.toLocaleDateString('ko-KR', options);
-
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -35,7 +31,8 @@ const PostList = forwardRef(({ posts, userInfo, setPosts }, ref) => {
                 userInfo={userInfo}
                 postContent={post.content}
                 postImg={post.image}
-                today={today}
+                postDate={post.updatedAt}
+                // post={post}
                 itemPostId={post.id}
                 onClick={() => handleClick(post.id)}
               />
