@@ -29,7 +29,7 @@ const Router = () => {
         <Route path='/chat/room' element={<ChatRoom />} />
         <Route path='/join/profile' element={<ProfileSetting />} />
         <Route path='/post/upload' element={<PostUpload />} />
-        <Route path='/post/:post_id/comments' element={<PostDetail />} />
+        <Route path='/postdetail/:post_id' element={<PostDetail />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
