@@ -19,7 +19,7 @@ const PostDetail = () => {
         const res = await fetch('https://api.mandarin.weniv.co.kr/user/myinfo', {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${JSON.parse(userToken)}`,
+            Authorization: `Bearer ${userToken}`,
           },
         });
         const data = await res.json();
