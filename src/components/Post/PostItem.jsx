@@ -24,7 +24,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
 
   // 좋아요, 댓글 갯수 초기 업데이트
   useEffect(() => {
-    const fetchInitialLikeCount = async () => {
+    const fetchInitialCount = async () => {
       try {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}`, {
           method: 'GET',
@@ -42,7 +42,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, onClick, itemPostId, 
         console.log(error.message);
       }
     };
-    fetchInitialLikeCount();
+    fetchInitialCount();
   }, [itemPostId, userToken]);
 
   // 좋아요 요청
