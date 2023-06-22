@@ -65,7 +65,7 @@ const SellingProduct = () => {
               <ProductSkeleton />
             </>
           ) : (
-            products.map((product) => (
+            products?.map((product) => (
               <S.Item key={product.id}>
                 <S.ImgCover onClick={() => handleClick(product.id)}>
                   <S.Img src={product.itemImage} />
@@ -76,7 +76,7 @@ const SellingProduct = () => {
             ))
           )}
         </S.List>
-        {products.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
+        {products?.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
         {isModalOpen && (
           <ProductModal onClose={closeModal} productId={productId} products={products} setProducts={setProducts} />
         )}

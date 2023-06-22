@@ -4,7 +4,7 @@ import ProfileDisplay from '../../components/Profile/ProfileDisplay';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
 import SellingProduct from '../../components/Product/SellingProduct';
 import PostSection from '../../components/Post/PostSection';
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import FeedHeader from '../../components/common/Header/FeedHeader';
 
@@ -20,6 +20,7 @@ const ProfilePage = () => {
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState({});
+  const navigate = useNavigate();
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : userAccountname;
@@ -38,8 +39,8 @@ const ProfilePage = () => {
         });
 
         const data = await response.json();
-
-        setUserInfo(data.profile);
+        if (data.message === '해당 계정이 존재하지 않습니다.') navigate('/profile');
+        else setUserInfo(data.profile);
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);
