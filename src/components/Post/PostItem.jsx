@@ -4,15 +4,17 @@ import HeartIcon from '../../assets/icon/icon-heart.png';
 import HeartIconFill from '../../assets/icon/icon-heart-active.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
 const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }) => {
   const [isHearted, setIsHearted] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
+  const [heartCount, setHeartCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
+  const [createdDate, setCreatedDate] = useState('');
   const { userToken } = useContext(AuthContextStore);
+  const Date = createdDate.substring(0, 10).split('-');
 
   // 좋아요, 댓글 갯수 초기 업데이트
   useEffect(() => {
@@ -23,13 +25,13 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        // console.log(data);
-        const initialLikeCount = data.post.heartCount;
+        const initialheartCount = data.post.heartCount;
         const initialCommentCount = data.post.commentCount;
         const initialHeartedState = data.post.hearted; //useEffect통해 초기값 판별해서 Hearticon이 차있을지 차있지않을지 값을 정해줌.
-        setLikeCount(initialLikeCount);
+        setHeartCount(initialheartCount);
         setCommentCount(initialCommentCount);
         setIsHearted(initialHeartedState);
+        setCreatedDate(data.post.createdAt);
       } catch (error) {
         console.log(error.message);
       }
@@ -46,22 +48,19 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        // console.log(data);
-        // console.log(data.post.heartCount);
+        console.log(data);
         const addCount = data.post.heartCount;
         setIsHearted(true);
-        //setLikeCount((prev) => prev + 1); // 이건 불필요하다. post요청을 보내면 기본으로 1이 증가. 렌더링되는 좋아요 개수는 서버단에서 변화하는 heartCount의 숫자를 보여줘야함. 자기것과 다른유저들이 눌러주면서 통신하며 늘어난 값도 포함 돼야함.
-        setLikeCount(addCount);
+        setHeartCount(addCount);
       } else {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/unheart`, {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        // console.log(data);
         const delCount = data.post.heartCount;
         setIsHearted(false);
-        setLikeCount(delCount);
+        setHeartCount(delCount);
       }
     } catch (error) {
       console.log(error.message);
@@ -74,10 +73,10 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
         <h3 className='a11y-hidden'>게시물 아이템</h3>
         <UserInfoSect>
           <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-          <PostUserProfileImg userProfileImg={userInfo.image} />
+          <PostUserProfileImg userProfileImg={userInfo?.image} />
           <UserNameInfo>
-            <InfoName>{userInfo.username}</InfoName>
-            <InfoAccount>@ {userInfo.accountname}</InfoAccount>
+            <InfoName>{userInfo?.username}</InfoName>
+            <InfoAccount>@ {userInfo?.accountname}</InfoAccount>
           </UserNameInfo>
           <ButtonIcon onClick={onClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
@@ -91,14 +90,16 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
           <LikeAndComment>
             <LikeBtn isHearted={isHearted} onClick={handleLike}>
               <span className='a11y-hidden'>좋아요 버튼</span>
-              <span>{likeCount}</span>
+              <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to={`/post/${itemPostId}/comments`}>
+            <CommentLink to={`/postdetail/${itemPostId}`}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>{commentCount}</span>
             </CommentLink>
           </LikeAndComment>
-          <TodayDate>{today}</TodayDate>
+          <TodayDate>
+            {Date[0]}년 {Date[1]}월 {Date[2]?.padStart(2, 0)}일
+          </TodayDate>
         </UserContentSect>
       </PostArticle>
     </>
