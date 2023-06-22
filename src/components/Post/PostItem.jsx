@@ -21,7 +21,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
       try {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}`, {
           method: 'GET',
-          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+          headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
         // console.log(data);
@@ -44,7 +44,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
       if (!isHearted) {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/heart`, {
           method: 'POST',
-          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+          headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
         // console.log(data);
@@ -56,7 +56,7 @@ const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }
       } else {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/unheart`, {
           method: 'DELETE',
-          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+          headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
         // console.log(data);

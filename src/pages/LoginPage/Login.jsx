@@ -55,8 +55,8 @@ const Login = () => {
     const token = data.user.token;
     const accountname = data.user.accountname;
     localStorage.clear();
-    localStorage.setItem('token', JSON.stringify(token));
-    localStorage.setItem('accountname', JSON.stringify(accountname));
+    localStorage.setItem('token', token);
+    localStorage.setItem('accountname', accountname);
     setUserToken(token);
     setUserAccountname(accountname);
   };

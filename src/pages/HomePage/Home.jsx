@@ -14,7 +14,7 @@ const Home = () => {
       const response = await fetch('https://api.mandarin.weniv.co.kr/post/feed', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
         },
       });
