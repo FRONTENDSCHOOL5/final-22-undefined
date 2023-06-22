@@ -9,12 +9,11 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const navigate = useNavigate();
   const { accountname } = useParams(); // 현재 사용자 계정
   const [selectedOption, setSelectedOption] = useState('');
-  const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
-  const userId = accountname ? accountname : JSON.parse(userAccountname);
-  const isLoginUser = userId === JSON.parse(userAccountname);
+  const userId = accountname ? accountname : userAccountname;
+  const isLoginUser = userId === userAccountname;
 
   // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
