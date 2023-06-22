@@ -3,14 +3,37 @@ import FeedHeader from '../../components/common/Header/FeedHeader';
 import Comment from '../../pages/ChatPage/Comment';
 import { AuthContextStore } from '../../context/AuthContext';
 import styled from 'styled-components';
-import PostInComment from '../../components/Post/PostInComment';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
+import { useParams } from 'react-router-dom';
+import PostItem from '../../components/Post/PostItem';
 
 const defaultProfileImg = 'http://146.56.183.55:5050/Ellipse.png';
 
 const PostDetail = () => {
+  const [userInfo, setUserInfo] = useState({});
+  const { post_id } = useParams();
   const [userProfileImg, setUserProfileImg] = useState(defaultProfileImg);
   const { userToken } = useContext(AuthContextStore);
+
+  //userInfo를 위한 요청
+  useEffect(() => {
+    const getUserInfo = async () => {
+      try {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}`, {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+            'Content-Type': 'application/json',
+          },
+        });
+        const data = await response.json();
+        // console.log(data.post);
+        setUserInfo(data.post);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    getUserInfo();
+  }, [post_id]);
 
   // 프로필 이미지 요청(댓글 페이지는 언제나 자기 프로필 사진)
   useEffect(() => {
@@ -37,9 +60,14 @@ const PostDetail = () => {
       <Main>
         <PostWrapper>
           <PostArticle>
+            <PostItem
+              userInfo={userInfo.author}
+              itemPostId={post_id}
+              postContent={userInfo.content}
+              postImg={userInfo.image}
+            />
             댓글 해당 게시물
             <h2 className='a11y-hidden'>댓글 해당 게시물</h2>
-            <PostInComment />
           </PostArticle>
           <PostSection>
             <h2 className='a11y-hidden'>댓글 목록</h2>
