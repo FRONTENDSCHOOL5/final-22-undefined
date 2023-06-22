@@ -66,7 +66,7 @@ const Post = () => {
 
     const file = e.target.files[0];
     // console.log(file.name.split('.'));
-    const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
+    const fileExtension = file.name.split('.').slice(-1)[0].toLowerCase();
     // console.log(fileExtenstion);
     if (!ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) return;
 
