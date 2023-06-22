@@ -8,7 +8,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ userInfo, postContent, postImg, today, itemPostId, onClick }) => {
+const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
   const [isHearted, setIsHearted] = useState(false);
   const [heartCount, setHeartCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
