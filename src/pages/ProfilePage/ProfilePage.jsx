@@ -55,7 +55,7 @@ const ProfilePage = () => {
       <Title className='a11y-hidden'>{isLoginUser ? '나의 프로필 페이지' : 'OO의 프로필 페이지'}</Title>
       <FeedHeader />
       <Main>
-        <ProfileDisplay userInfo={userInfo} isLoading={isLoading} />
+        <ProfileDisplay userInfo={userInfo} isLoading={isLoading} setUserInfo={setUserInfo} />
         <SellingProduct />
         <PostSection userInfo={userInfo} />
       </Main>
