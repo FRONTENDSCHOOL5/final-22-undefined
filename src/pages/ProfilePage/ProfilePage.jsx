@@ -22,9 +22,9 @@ const ProfilePage = () => {
   const [userInfo, setUserInfo] = useState({});
 
   // 현재 프로필의 accountname
-  const userId = accountname ? accountname : JSON.parse(userAccountname);
+  const userId = accountname ? accountname : userAccountname;
   // 현재 프로필에 해당하는 사람이 로그인된 유저랑 같은 사람인지 여부
-  const isLoginUser = userId === JSON.parse(userAccountname);
+  const isLoginUser = userId === userAccountname;
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -32,7 +32,7 @@ const ProfilePage = () => {
         setIsLoading(true);
         const response = await fetch(`https://api.mandarin.weniv.co.kr/profile/${userId}`, {
           headers: {
-            Authorization: `Bearer ${JSON.parse(userToken)}`,
+            Authorization: `Bearer ${userToken}`,
             'Content-Type': 'application/json',
           },
         });

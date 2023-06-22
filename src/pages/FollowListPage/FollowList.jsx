@@ -21,7 +21,7 @@ const FollowList = () => {
     const getFollowList = async () => {
       try {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/profile/${accountname}/${type}`, {
-          headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-type': 'application/json' },
+          headers: { Authorization: `Bearer ${userToken}`, 'Content-type': 'application/json' },
         });
 
         const data = await response.json();

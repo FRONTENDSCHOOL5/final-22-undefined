@@ -45,7 +45,7 @@ const ProfileSkeleton = () => {
   const { accountname } = useParams();
 
   // 현재 프로필의 accountname
-  const userId = accountname ? accountname : JSON.parse(userAccountname);
+  const userId = accountname ? accountname : userAccountname;
 
   return (
     <>
