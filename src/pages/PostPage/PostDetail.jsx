@@ -58,27 +58,28 @@ const PostDetail = () => {
     <>
       <FeedHeader />
       <Main>
-        <PostWrapper>
-          <PostArticle>
-            <PostItem
-              userInfo={userInfo.author}
-              itemPostId={post_id}
-              postContent={userInfo.content}
-              postImg={userInfo.image}
-            />
-            댓글 해당 게시물
-            <h2 className='a11y-hidden'>댓글 해당 게시물</h2>
-          </PostArticle>
-          <PostSection>
-            <h2 className='a11y-hidden'>댓글 목록</h2>
-            <Ul>
-              <Li>
-                댓글 목록
-                {/* PostItem 혹은 PostUserProfileImg 공통 컴퍼넌트를 쓰고 싶지만 프랍스가 너무 많아서 못쓰겠어.. */}
-              </Li>
-            </Ul>
-          </PostSection>
-        </PostWrapper>
+        <ArticleWrapper>
+          <PostWrapper>
+            <PostArticle>
+              <PostItem
+                userInfo={userInfo.author}
+                itemPostId={post_id}
+                postContent={userInfo.content}
+                postImg={userInfo.image}
+              />
+              <h2 className='a11y-hidden'>댓글 해당 게시물</h2>
+            </PostArticle>
+          </PostWrapper>
+        </ArticleWrapper>
+        <PostSection>
+          <h2 className='a11y-hidden'>댓글 목록</h2>
+          <Ul>
+            <Li>
+              댓글 목록
+              {/* PostItem 혹은 PostUserProfileImg 공통 컴퍼넌트를 쓰고 싶지만 프랍스가 너무 많아서 못쓰겠어.. */}
+            </Li>
+          </Ul>
+        </PostSection>
       </Main>
       {/* <PostDetailComment /> */}
       <Comment defaultProfileImg={defaultProfileImg} userProfileImg={userProfileImg} />
@@ -89,6 +90,11 @@ const PostDetail = () => {
 export default PostDetail;
 
 const Main = styled.main``;
+const ArticleWrapper = styled.div`
+  width: 100%;
+  padding: 20px 16px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
+`;
 const PostWrapper = styled(Wrapper)`
   margin-top: 48px;
 `;
