@@ -14,7 +14,7 @@ const SellingProduct = () => {
   const [productId, setProductId] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const userId = accountname ? accountname : JSON.parse(userAccountname);
+  const userId = accountname ? accountname : userAccountname;
 
   useEffect(() => {
     const getProducts = async () => {
@@ -22,7 +22,7 @@ const SellingProduct = () => {
         setIsLoading(true);
         const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${userId}`, {
           headers: {
-            Authorization: `Bearer ${JSON.parse(userToken)}`,
+            Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
           },
         });

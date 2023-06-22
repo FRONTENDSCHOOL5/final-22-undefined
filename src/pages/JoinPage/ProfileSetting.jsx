@@ -4,7 +4,6 @@ import Wrapper from '../../components/common/Wrapper/Wrapper';
 import Button from '../../components/common/Button/Button';
 import ProfileForm from '../../components/Profile/ProfileForm';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Ellipse from '../../assets/Ellipse-1.png';
 
 const Main = styled.main``;
 
@@ -57,7 +56,7 @@ const ProfileSetting = () => {
   // 프로필 수정 페이지에서 버튼이 form 밖에 있어서 onSubmit으로 하지 않고 onClick으로 구현
   const handleClick = async () => {
     try {
-      const image = `https://api.mandarin.weniv.co.kr/${img === '' ? 'Ellipse.png' : img}`;
+      const image = img === '' ? 'https://api.mandarin.weniv.co.kr/Ellipse.png' : img;
 
       const response = await fetch('https://api.mandarin.weniv.co.kr/user', {
         method: 'POST',

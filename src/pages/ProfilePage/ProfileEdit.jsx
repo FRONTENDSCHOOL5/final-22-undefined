@@ -38,7 +38,7 @@ const ProfileEdit = () => {
         setIsLoading(true);
         const response = await fetch('https://api.mandarin.weniv.co.kr/user/myinfo', {
           // token을 그냥 userToken으로 넣어주면 오류 생김 ... 나중에 체크해볼 것
-          headers: { Authorization: `Bearer ${JSON.parse(userToken)}` },
+          headers: { Authorization: `Bearer ${userToken}` },
         });
 
         const data = await response.json();
@@ -60,14 +60,14 @@ const ProfileEdit = () => {
       setIsLoading(true);
       const response = await fetch('https://api.mandarin.weniv.co.kr/user', {
         method: 'PUT',
-        headers: { Authorization: `Bearer ${JSON.parse(userToken)}`, 'Content-Type': 'application/json' },
+        headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ user: { ...formData, image: img } }),
       });
 
       const data = await response.json();
       if (!data.user) throw Error('잘못된 접근입니다.');
       setIsLoading(false);
-      localStorage.setItem('accountname', JSON.stringify(formData.accountname));
+      localStorage.setItem('accountname', formData.accountname);
       navigate('/profile');
     } catch (err) {
       console.log(err.message);

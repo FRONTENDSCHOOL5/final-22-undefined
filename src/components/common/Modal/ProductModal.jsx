@@ -12,8 +12,8 @@ const ProductModal = ({ onClose, productId, products, setProducts }) => {
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const productModalOptions = ['삭제', '수정', '웹사이트에서 상품 보기'];
   const otherProductModalOptions = ['웹사이트에서 상품 보기'];
-  const userId = accountname ? accountname : JSON.parse(userAccountname);
-  const isLoginUser = userId === JSON.parse(userAccountname);
+  const userId = accountname ? accountname : userAccountname;
+  const isLoginUser = userId === userAccountname;
 
   // 모달 옵션을 클릭했을 떄
   const optionClick = (option) => {
@@ -63,7 +63,7 @@ const ProductModal = ({ onClose, productId, products, setProducts }) => {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${productId}`, {
         method: 'DELETE',
         headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json',
         },
       });

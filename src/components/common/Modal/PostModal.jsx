@@ -9,6 +9,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const navigate = useNavigate();
   const { accountname } = useParams(); // 현재 사용자 계정
   const [selectedOption, setSelectedOption] = useState('');
+  const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
@@ -91,7 +92,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${JSON.parse(userToken)}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({

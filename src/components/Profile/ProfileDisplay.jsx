@@ -10,9 +10,9 @@ const ProfileDisplay = ({ userInfo, setUserInfo, isLoading }) => {
   const { accountname } = useParams();
 
   // 현재 프로필의 accountname
-  const userId = accountname ? accountname : JSON.parse(userAccountname);
+  const userId = accountname ? accountname : userAccountname;
   // 현재 프로필에 해당하는 사람이 로그인된 유저랑 같은 사람인지 여부
-  const isLoginUser = userId === JSON.parse(userAccountname);
+  const isLoginUser = userId === userAccountname;
   const { isfollow } = userInfo;
 
   const handleFollow = async () => {
@@ -22,7 +22,7 @@ const ProfileDisplay = ({ userInfo, setUserInfo, isLoading }) => {
         {
           method: isfollow ? 'DELETE' : 'POST',
           headers: {
-            Authorization: `Bearer ${JSON.parse(userToken)}`,
+            Authorization: `Bearer ${userToken}`,
             'Content-Type': 'application/json',
           },
         },
