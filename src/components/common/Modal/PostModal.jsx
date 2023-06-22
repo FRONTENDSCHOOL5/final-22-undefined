@@ -91,7 +91,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${userToken}`,
+          Authorization: `Bearer ${JSON.parse(userToken)}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({

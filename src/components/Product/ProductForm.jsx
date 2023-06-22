@@ -1,49 +1,49 @@
 import React from 'react';
 import ImgInput from '../common/Input/ImgInput';
-import ProfileFormInput from '../common/Input/ProfileFormInput';
+import ProductFormInput from '../common/Input/ProductFormInput';
 
-const ProfileForm = ({ formData, setFormData, img, setImg, error, setError }) => {
+const ProductForm = ({ formData, setFormData, img, setImg, error, setError }) => {
   return (
     <>
       <ImgInput img={img} setImg={setImg} />
-      <ProfileFormInput
-        id='username'
-        label='사용자 이름'
+      <ProductFormInput
+        id='itemName'
+        label='상품명'
         formData={formData}
         setFormData={setFormData}
         error={error}
         setError={setError}
         inputProps={{
           type: 'text',
-          placeholder: '2~10자 이내여야 합니다.',
+          placeholder: '2~15자 이내여야 합니다.',
         }}
       />
-      <ProfileFormInput
-        id='accountname'
-        label='계정 ID'
+      <ProductFormInput
+        id='price'
+        label='가격'
         formData={formData}
         setFormData={setFormData}
         error={error}
         setError={setError}
         inputProps={{
           type: 'text',
-          placeholder: '영문, 숫자, 특수문자(,),(_)만 사용 가능합니다.',
+          placeholder: '숫자만 입력 가능합니다.',
         }}
       />
-      <ProfileFormInput
-        id='intro'
-        label='소개'
+      <ProductFormInput
+        id='link'
+        label='판매 링크'
         formData={formData}
         setFormData={setFormData}
         error={error}
         setError={setError}
         inputProps={{
           type: 'text',
-          placeholder: '자신과 판매할 상품에 대하여 소개해주세요',
+          placeholder: 'URL을 입력해 주세요.',
         }}
       />
     </>
   );
 };
 
-export default ProfileForm;
+export default ProductForm;

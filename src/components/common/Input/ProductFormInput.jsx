@@ -4,17 +4,17 @@ import { AuthContextStore } from '../../../context/AuthContext';
 
 const ERROR_MSG = {
   required: '필수 입력사항을 입력해주세요.',
-  emailPattern: '잘못된 이메일 형식입니다.',
-  pwPattern: '대/소문자, 숫자 6자 이상이어야 합니다.',
-  length: '2자~10자 이내여야 합니다.',
-  idPattern: '2~16자 이내의 영문, 숫자, 밑줄, 마침표만 사용할 수 있습니다.',
+  itemNamePattern: '잘못된 네이밍 형식입니다.',
+  pricePattern: '숫자가 아닌 형식이 포함되었습니다.',
+  urlPattern: '잘못된 URL 형식입니다.',
+  length: '2자~15자 이내여야 합니다.',
 };
 
-const EMAIL_REGEX = /^[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-const PASSWORD_REGEX = /^[A-Za-z0-9]{6,}$/;
-const ID_REGEX = /^[a-z0-9A-Z_.]{2,16}$/;
+const ITEMNAME_REGEX = /^[가-힣a-z0-9]{2,15}+$/i;
+const PRICE_REGEX = (/\B(?=(\d{3})+(?!\d))/g, ',');
+const URL_REGEX = /(http(s)?:\/\/)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}/gi;
 
-const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
+const ProductFormInput = ({ id, label, formData, setFormData, error, setError, inputProps }) => {
   // 현재 로그인한 유저의 accountname을 가져오기 위함
   const { userAccountname } = useContext(AuthContextStore);
 
@@ -124,4 +124,4 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
   );
 };
 
-export default ProfileFormInput;
+export default ProductFormInput;
