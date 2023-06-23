@@ -6,12 +6,12 @@ import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import { useNavigate } from 'react-router-dom';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
+import Ellipse from '../../assets/Ellipse-1.png';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
-const defaultProfileImg = 'http://146.56.183.55:5050/Ellipse.png';
 const Post = () => {
-  const [userProfileImg, setUserProfileImg] = useState(defaultProfileImg);
+  const [userProfileImg, setUserProfileImg] = useState(Ellipse);
   const [uploadImg, setUploadImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [userContent, setUserContent] = useState('');
@@ -29,6 +29,7 @@ const Post = () => {
           },
         });
         const data = await res.json();
+        console.log(data);
         setUserProfileImg(data.user.image);
       } catch (error) {
         console.log(error.message);
