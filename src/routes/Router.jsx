@@ -14,9 +14,13 @@ import FollowList from '../pages/FollowListPage/FollowList';
 import PostUpload from '../pages/PostPage/PostUpload';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import EditProduct from './../pages/ProductPage/EditProduct';
+<<<<<<< HEAD
 import { AuthContextStore } from '../context/AuthContext';
 import AuthRoute from './AuthRoute';
 import NonAuthRoute from './NonAuthRoute';
+=======
+import PostDetail from '../pages/PostPage/PostDetail';
+>>>>>>> 4082c574f9e9a668021eeabdac6b4f0339a5db5f
 
 const Router = () => {
   const { userToken } = useContext(AuthContextStore);

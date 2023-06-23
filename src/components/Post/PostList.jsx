@@ -20,7 +20,7 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
     openModal();
     setPostId(id);
   };
-
+  console.log(posts);
   return (
     <Container>
       <Wrapper>
@@ -50,8 +50,4 @@ const Li = styled.li`
 const Container = styled.div`
   padding: 20px 16px;
   margin-bottom: 60px;
-`;
-
-const NoPost = styled.p`
-  font-size: 14px;
 `;

@@ -1,13 +1,13 @@
 import { useContext, useState, useEffect } from 'react';
 import TopMainNav from './TopMainNav';
 import Contents from './Contents';
-import TabMenu from '../../components/common/TabMenu/TabMenu';
+import TabMenu from './TabMenu';
 
 import { AuthContextStore } from '../../context/AuthContext';
 
 const Home = () => {
   const { userToken } = useContext(AuthContextStore);
-  const [post, setPost] = useState(null);
+  const [posts, setPosts] = useState([]);
 
   const handlePostList = async () => {
     try {
@@ -22,8 +22,7 @@ const Home = () => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log('데이터:', data);
-        setPost(data);
+        setPosts(data.posts);
       } else {
         console.error('요청에 실패했습니다.');
       }
@@ -41,8 +40,8 @@ const Home = () => {
   return (
     <>
       <TopMainNav />
-      {userToken ? <Contents post={post} setPost={setPost} /> : <Contents />}
-      <TabMenu active='0' />
+      <Contents posts={posts} />
+      <TabMenu />
     </>
   );
 };

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 const ContentsMain = styled.main`
-  min-height: 80vh;
+  height: 100vh;
   background: #f2f2f2;
   padding: 16px;
 
@@ -19,7 +19,7 @@ const ContentsMain = styled.main`
 const Contents = () => {
   return (
     <ContentsMain>
-      <PostUserProfileImg size={'42px'} />
+      <PostUserProfileImg />
       <section>
         <span>가입을 축하드립니다!</span>
       </section>

@@ -10,10 +10,11 @@ import { AuthContextStore } from '../../context/AuthContext';
 
 const PostItem = ({ post, itemPostId, onClick }) => {
   const [isHearted, setIsHearted] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
+  const [heartCount, setHeartCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
-  // const [initialLikeCount, setInitialLikeCount] = useState(0);
+  const [createdDate, setCreatedDate] = useState('');
   const { userToken } = useContext(AuthContextStore);
+  const Date = createdDate.substring(0, 10).split('-');
 
   const date = new Date(post?.updatedAt);
   const year = date.getFullYear();
@@ -22,25 +23,25 @@ const PostItem = ({ post, itemPostId, onClick }) => {
 
   // 좋아요, 댓글 갯수 초기 업데이트
   useEffect(() => {
-    const fetchInitialLikeCount = async () => {
+    const fetchInitialCount = async () => {
       try {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}`, {
           method: 'GET',
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        // console.log(data);
-        const initialLikeCount = data.post.heartCount;
+        const initialheartCount = data.post.heartCount;
         const initialCommentCount = data.post.commentCount;
         const initialHeartedState = data.post.hearted; //useEffect통해 초기값 판별해서 Hearticon이 차있을지 차있지않을지 값을 정해줌.
-        setLikeCount(initialLikeCount);
+        setHeartCount(initialheartCount);
         setCommentCount(initialCommentCount);
         setIsHearted(initialHeartedState);
+        setCreatedDate(data.post.createdAt);
       } catch (error) {
         console.log(error.message);
       }
     };
-    fetchInitialLikeCount();
+    fetchInitialCount();
   }, [itemPostId, userToken]);
 
   // 좋아요 요청
@@ -52,22 +53,19 @@ const PostItem = ({ post, itemPostId, onClick }) => {
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        // console.log(data);
-        // console.log(data.post.heartCount);
+        console.log(data);
         const addCount = data.post.heartCount;
         setIsHearted(true);
-        //setLikeCount((prev) => prev + 1); // 이건 불필요하다. post요청을 보내면 기본으로 1이 증가. 렌더링되는 좋아요 개수는 서버단에서 변화하는 heartCount의 숫자를 보여줘야함. 자기것과 다른유저들이 눌러주면서 통신하며 늘어난 값도 포함 돼야함.
-        setLikeCount(addCount);
+        setHeartCount(addCount);
       } else {
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/unheart`, {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
         const data = await response.json();
-        // console.log(data);
         const delCount = data.post.heartCount;
         setIsHearted(false);
-        setLikeCount(delCount);
+        setHeartCount(delCount);
       }
     } catch (error) {
       console.log(error.message);
@@ -97,9 +95,9 @@ const PostItem = ({ post, itemPostId, onClick }) => {
           <LikeAndComment>
             <LikeBtn isHearted={isHearted} onClick={handleLike}>
               <span className='a11y-hidden'>좋아요 버튼</span>
-              <span>{likeCount}</span>
+              <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to='/#'>
+            <CommentLink to={`/postdetail/${itemPostId}`}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>{commentCount}</span>
             </CommentLink>

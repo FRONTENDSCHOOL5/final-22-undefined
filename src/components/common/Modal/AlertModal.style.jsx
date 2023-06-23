@@ -5,7 +5,7 @@ export const AlertSection = styled.div`
   width: 252px;
   height: 110px;
   border-radius: 10px;
-  top: ${({ scrollPosition }) => (scrollPosition > 0 ? '50%' : '50%')};
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.white};

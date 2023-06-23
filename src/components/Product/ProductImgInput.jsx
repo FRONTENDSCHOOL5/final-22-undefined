@@ -1,10 +1,10 @@
 import React from 'react';
-import Ellipse from '../../../assets/Ellipse-1.png';
-import * as S from './ImgInput.style';
+import ProductBasic from '../../assets/ProductBasic.png';
+import * as S from './ProductImgInput.style';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
-const ImgInput = ({ img, setImg }) => {
+const ProductImgInput = ({ img, setImg, label }) => {
   const handleChange = async (event) => {
     if (!event.target.files || event.target.files.length === 0) {
       return;
@@ -12,9 +12,9 @@ const ImgInput = ({ img, setImg }) => {
 
     const file = event.target.files[0];
     console.log(file);
-    const fileExtension = file.name.split('.').slice(-1)[0].toLowerCase();
+    const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
 
-    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) return;
+    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
 
     const formData = new FormData();
     formData.append('image', event.target.files[0]);
@@ -34,12 +34,13 @@ const ImgInput = ({ img, setImg }) => {
 
   return (
     <>
-      <S.Label htmlFor='profileImg'>
-        <S.ProfileImg src={img === '' ? Ellipse : img} alt='프로필 이미지' />
+      <S.Label htmlFor='productImg'>
+        {label}
+        <S.ProductImg src={img === '' ? ProductBasic : img} alt='상품 이미지' />
       </S.Label>
-      <S.UploadInput id='profileImg' type='file' className='a11y-hidden' onChange={handleChange} accept='image/*' />
+      <S.UploadInput id='productImg' type='file' className='a11y-hidden' onChange={handleChange} accept='image/*' />
     </>
   );
 };
 
-export default ImgInput;
+export default ProductImgInput;
