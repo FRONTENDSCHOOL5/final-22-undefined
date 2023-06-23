@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
-import Button from '../../components/common/Button/Button';
-import ProfileForm from '../../components/Profile/ProfileForm';
+import SaveHeader from '../../components/common/Header/SaveHeader';
+import { AuthContextStore } from '../../context/AuthContext';
+import ProductForm from '../../components/Product/ProductForm';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Main = styled.main``;
 
 const LayoutWrapper = styled(Wrapper)`
-  padding: 0 34px;
+  padding: 30px 34px;
 `;
 
-const Form = styled.form``;
-
-const Title = styled.h1``;
-
-const Desc = styled.p`
-  font-size: 14px;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.txtColor};
-  margin-bottom: 30px;
+const Form = styled.form`
+  padding-top: 78px;
 `;
 
-const ProfileSetting = () => {
+const AddProduct = () => {
+  const { userToken } = useContext(AuthContextStore);
   const [formData, setFormData] = useState({
     itemName: '',
     price: '',
@@ -34,39 +29,46 @@ const ProfileSetting = () => {
     price: '',
     link: '',
   });
-  const { state } = useLocation();
+
   const navigate = useNavigate();
 
   let isActivated = false;
-  if (error.username === 'noError' && error.accountname === 'noError') isActivated = true;
+  if (
+    formData.itemName.trim() !== '' &&
+    formData.price.trim() !== '' &&
+    formData.link.trim() !== '' &&
+    (error.itemName === '' || error.itemName === 'noError') &&
+    (error.price === '' || error.price === 'noError') &&
+    (error.link === '' || error.link === 'noError')
+  ) {
+    isActivated = true;
+  }
 
-  useEffect(() => {
-    if (!state?.email || !state?.password) navigate('/join');
-  }, []);
-
-  // 프로필 수정 페이지에서 버튼이 form 밖에 있어서 onSubmit으로 하지 않고 onClick으로 구현
-  const handleClick = async () => {
+  const addClick = async () => {
     try {
-      let user;
-      if (img === '') {
-        user = { ...state, ...formData };
-      } else {
-        user = { ...state, ...formData, image: `https://api.mandarin.weniv.co.kr/${img}` };
-      }
+      const image = img === '' ? 'https://api.mandarin.weniv.co.kr/ProductBasic.png' : img;
 
-      const response = await fetch('https://api.mandarin.weniv.co.kr/user', {
+      const response = await fetch('https://api.mandarin.weniv.co.kr/product', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userToken}`,
+          'Content-type': 'application/json',
         },
-        body: JSON.stringify({ user }),
+        body: JSON.stringify({
+          product: {
+            itemName: formData.itemName,
+            price: parseInt(formData.price.replace(/[^0-9]/g, '')),
+            link: formData.link,
+            itemImage: img,
+          },
+        }),
       });
 
       const data = await response.json();
-      if (data.message === '회원가입 성공') {
-        navigate('/');
+      if (response.ok) {
+        navigate('/profile');
       } else {
-        navigate('/join');
+        console.log(data.message);
       }
     } catch (err) {
       console.log(err.message);
@@ -76,10 +78,9 @@ const ProfileSetting = () => {
   return (
     <Main>
       <LayoutWrapper>
+        <SaveHeader name='저장' mode={isActivated ? 'default' : 'disabled'} onClick={addClick} />
         <Form onSubmit={(e) => e.preventDefault()}>
-          <Title>프로필 설정</Title>
-          <Desc>나중에 얼마든지 변경할 수 있습니다.</Desc>
-          <ProfileForm
+          <ProductForm
             formData={formData}
             setFormData={setFormData}
             img={img}
@@ -87,13 +88,10 @@ const ProfileSetting = () => {
             error={error}
             setError={setError}
           />
-          <StartBtn mode={isActivated ? 'default' : 'disabled'} size='lg' onClick={handleClick}>
-            감귤마켓 시작하기
-          </StartBtn>
         </Form>
       </LayoutWrapper>
     </Main>
   );
 };
 
-export default ProfileSetting;
+export default AddProduct;
