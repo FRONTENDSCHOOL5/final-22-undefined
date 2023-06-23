@@ -59,8 +59,6 @@ const PostSection = ({ userInfo }) => {
     }
   };
 
-  console.log(posts);
-
   useEffect(() => {
     if (isLast) return;
     const observer = new IntersectionObserver(callback, {

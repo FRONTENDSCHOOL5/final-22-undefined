@@ -15,7 +15,7 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
   const [createdDate, setCreatedDate] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const Date = createdDate.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
-  console.log(Date);
+
   // 좋아요, 댓글 갯수 초기 업데이트
   useEffect(() => {
     const fetchInitialCount = async () => {
@@ -73,11 +73,16 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
         <h3 className='a11y-hidden'>게시물 아이템</h3>
         <UserInfoSect>
           <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-          <PostUserProfileImg userProfileImg={userInfo?.image} />
-          <UserNameInfo>
-            <InfoName>{userInfo?.username}</InfoName>
-            <InfoAccount>@ {userInfo?.accountname}</InfoAccount>
-          </UserNameInfo>
+          <ProfileLink to={`/profile/${userInfo?.accountname}`}>
+            <PostUserProfileImg userProfileImg={userInfo?.image} />
+          </ProfileLink>
+          <NameLink to={`/profile/${userInfo?.accountname}`}>
+            <UserNameInfo>
+              <InfoName>{userInfo?.username}</InfoName>
+              <InfoAccount>@ {userInfo?.accountname}</InfoAccount>
+            </UserNameInfo>
+          </NameLink>
+
           <ButtonIcon onClick={onClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
           </ButtonIcon>
@@ -92,7 +97,7 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to={`/postdetail/${itemPostId}`} >
+            <CommentLink to={`/postdetail/${itemPostId}`}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>{commentCount}</span>
             </CommentLink>
@@ -118,6 +123,8 @@ const UserInfoSect = styled.section`
 const UserNameInfo = styled.div`
   flex-grow: 1;
 `;
+const ProfileLink = styled(Link)``;
+const NameLink = styled(Link)``;
 
 const InfoName = styled.p`
   margin-bottom: 2px;
