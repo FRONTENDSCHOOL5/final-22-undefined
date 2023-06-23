@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import { AuthContextStore } from '../../context/AuthContext';
 import ProductForm from '../../components/Product/ProductForm';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Main = styled.main``;
 
