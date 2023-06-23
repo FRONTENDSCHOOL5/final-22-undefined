@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import imgBtn from '../../assets/img-button.png';
+import uploadImgBtn from '../../assets/upload-file.png';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
 
@@ -34,11 +35,24 @@ const Comment = ({ atChatroom, userProfileImg, postId }) => {
     setText(e.target.value);
   };
 
+  const handleImgUpload = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+  };
+
   let isActivated = false;
   if (text) isActivated = true;
+
   return (
     <Footer>
-      <PostUserProfileImg size={'36px'} userProfileImg={userProfileImg} />
+      {atChatroom ? (
+        <Form>
+          <label htmlFor='imgUpload'></label>
+          <input className='a11y-hidden' type='file' id='imgUpload' accept='image/*' onChange={handleImgUpload} />
+        </Form>
+      ) : (
+        <PostUserProfileImg size={'36px'} userProfileImg={userProfileImg} />
+      )}
       <Input
         type='text'
         placeholder={atChatroom ? '메시지 입력하기...' : '댓글 입력하기...'}
@@ -62,6 +76,7 @@ const Footer = styled.footer`
   left: 0px;
   right: 0px;
   bottom: 0px;
+  display: flex;
   border-top: 0.5px solid #dbdbdb;
   background-color: ${({ theme }) => theme.colors.white};
 `;
@@ -85,4 +100,20 @@ const PostBtn = styled.button`
   line-height: 18px;
   text-align: right;
   color: ${({ theme, isActivated }) => (isActivated ? theme.colors.primary : theme.colors.gray)};
+`;
+
+const Form = styled.form`
+  label {
+    display: inline-block;
+    background: url(${imgBtn}) no-repeat center / 36px 36px;
+    width: 36px;
+    height: 36px;
+    margin-right: 18px;
+    cursor: pointer;
+  }
+  label:hover {
+    background: url(${uploadImgBtn}) no-repeat center / 36px 36px;
+    width: 36px;
+    height: 36px;
+  }
 `;
