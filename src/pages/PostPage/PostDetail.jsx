@@ -7,12 +7,10 @@ import Wrapper from '../../components/common/Wrapper/Wrapper';
 import { useParams } from 'react-router-dom';
 import PostItem from '../../components/Post/PostItem';
 
-const defaultProfileImg = 'http://146.56.183.55:5050/Ellipse.png';
-
 const PostDetail = () => {
   const [userInfo, setUserInfo] = useState({});
   const { post_id } = useParams();
-  const [userProfileImg, setUserProfileImg] = useState(defaultProfileImg);
+  const [userProfileImg, setUserProfileImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
 
   //userInfo를 위한 요청
@@ -26,7 +24,6 @@ const PostDetail = () => {
           },
         });
         const data = await response.json();
-        // console.log(data.post);
         setUserInfo(data.post);
       } catch (err) {
         console.log(err.message);
@@ -82,7 +79,7 @@ const PostDetail = () => {
         </PostSection>
       </Main>
       {/* <PostDetailComment /> */}
-      <Comment defaultProfileImg={defaultProfileImg} userProfileImg={userProfileImg} />
+      <Comment atChatroom={false} userProfileImg={userProfileImg} />
     </>
   );
 };

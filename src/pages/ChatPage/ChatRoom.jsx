@@ -42,7 +42,7 @@ const ChatList = () => {
         <MoreVertical />
       </Header>
       <ChatRoomContents />
-      <Comment />
+      <Comment atChatroom={true} />
     </Wrapper>
   );
 };

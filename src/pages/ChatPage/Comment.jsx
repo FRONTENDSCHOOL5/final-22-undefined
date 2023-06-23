@@ -37,7 +37,7 @@ const PostBtn = styled.button`
   color: ${({ theme, isActivated }) => (isActivated ? theme.colors.primary : theme.colors.gray)};
 `;
 
-const Comment = ({ defaultProfileImg, userProfileImg }) => {
+const Comment = ({ atChatroom, userProfileImg }) => {
   const [word, setWord] = useState('');
 
   const handleOnChange = (e) => {
@@ -47,13 +47,17 @@ const Comment = ({ defaultProfileImg, userProfileImg }) => {
 
   let isActivated = false;
   if (word) isActivated = true;
-
+  console.log(atChatroom);
   return (
     <Footer>
-      <PostUserProfileImg defaultProfileImg={defaultProfileImg} size={'36px'} userProfileImg={userProfileImg} />
-      <Input type='text' placeholder='댓글 입력하기...' onChange={handleOnChange} />
+      <PostUserProfileImg size={'36px'} userProfileImg={userProfileImg} />
+      <Input
+        type='text'
+        placeholder={atChatroom ? '메시지 입력하기...' : '댓글 입력하기...'}
+        onChange={handleOnChange}
+      />
       <PostBtn isActivated={isActivated} type='submit'>
-        게시
+        {atChatroom ? '전송' : '게시'}
       </PostBtn>
     </Footer>
   );
