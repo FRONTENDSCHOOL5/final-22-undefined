@@ -12,9 +12,9 @@ const PostItem = ({ post, itemPostId, onClick }) => {
   const [isHearted, setIsHearted] = useState(false);
   const [heartCount, setHeartCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
-  const [createdDate, setCreatedDate] = useState('');
+  // const [createdDate, setCreatedDate] = useState('');
   const { userToken } = useContext(AuthContextStore);
-  const Date = createdDate.substring(0, 10).split('-');
+  // const Date = createdDate.substring(0, 10).split('-');
 
   const date = new Date(post?.updatedAt);
   const year = date.getFullYear();
@@ -36,7 +36,7 @@ const PostItem = ({ post, itemPostId, onClick }) => {
         setHeartCount(initialheartCount);
         setCommentCount(initialCommentCount);
         setIsHearted(initialHeartedState);
-        setCreatedDate(data.post.createdAt);
+        // setCreatedDate(data.post.createdAt);
       } catch (error) {
         console.log(error.message);
       }
