@@ -2,7 +2,7 @@ import React from 'react';
 import ProductImgInput from '../Product/ProductImgInput';
 import ProductFormInput from '../common/Input/ProductFormInput';
 
-const ProductForm = ({ formData, setFormData, img, setImg, error, setError }) => {
+const ProductForm = ({ formData, setFormData, img, setImg, error, setError, websiteLink, setWebsiteLink }) => {
   return (
     <>
       <ProductImgInput id='itemImg' label='이미지 등록' img={img} setImg={setImg} />
