@@ -15,7 +15,6 @@ const PostDetail = () => {
   const [userProfileImg, setUserProfileImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [comments, setComments] = useState([]);
-  console.log(comments);
 
   //userInfo를 위한 요청
   useEffect(() => {
@@ -86,11 +85,11 @@ const PostDetail = () => {
         <CommentWrapper>
           <PostSection>
             <h2 className='a11y-hidden'>댓글 목록</h2>
-            {comments &&
-              comments.map((item) => {
-                return (
-                  <Ul>
-                    <Li key={item.id}>
+            <Ul>
+              {comments &&
+                comments.map((item) => {
+                  return (
+                    <Li key={item.author._id}>
                       <UserAuth>
                         <ProfileLink to={`/profile/${item.author.accountname}`}>
                           <PostUserProfileImg size={'36px'} userProfileImg={userProfileImg} />
@@ -105,9 +104,9 @@ const PostDetail = () => {
                       </UserAuth>
                       <PostComment>{item.content}</PostComment>
                     </Li>
-                  </Ul>
-                );
-              })}
+                  );
+                })}
+            </Ul>
           </PostSection>
         </CommentWrapper>
       </Main>
@@ -121,31 +120,32 @@ export default PostDetail;
 const Main = styled.main``;
 const ArticleWrapper = styled.div`
   width: 100%;
-  padding: 20px 16px;
+  margin-top: 48px;
+
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
 `;
 const PostWrapper = styled(Wrapper)`
-  margin-top: 48px;
+  padding: 20px 16px;
 `;
 const CommentWrapper = styled(Wrapper)`
-  padding: 20px 0;
+  padding: 30px 16px;
+  margin-bottom: 62.5px;
 `;
 const PostArticle = styled.article``;
 const PostSection = styled.section``;
 const Ul = styled.ul``;
 const Li = styled.li`
+  position: relative;
   & + & {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 `;
 const UserAuth = styled.div`
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 4px;
 `;
 const ProfileLink = styled(Link)``;
 const NameLink = styled(Link)`
-  margin: 5px 5px 0 0;
+  margin: 4px 5px 0 0;
 `;
 const UploadTime = styled.span`
   font-size: 10px;
@@ -167,7 +167,9 @@ const PostComment = styled.p`
 `;
 // 모달 버튼 아이콘
 const ButtonIcon = styled.button`
+  width: 18px;
   position: absolute;
   gap: 12px;
+  top: 5px;
   right: 0;
 `;

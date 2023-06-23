@@ -137,6 +137,7 @@ const InfoAccount = styled.p`
 const ButtonIcon = styled.button`
   position: absolute;
   gap: 12px;
+  top: 0;
   right: 0;
 `;
 
