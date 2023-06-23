@@ -7,7 +7,7 @@ import { AuthContextStore } from '../../context/AuthContext';
 
 const Home = () => {
   const { userToken } = useContext(AuthContextStore);
-  const [post, setPost] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const handlePostList = async () => {
     try {
@@ -22,16 +22,7 @@ const Home = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // let getPost = {
-        //   id: data.posts[0].id,
-        //   userName: data.posts[0].author.username,
-        //   accountName: data.posts[0].author.accountname,
-        //   content: data.posts[0].content,
-        //   image: data.posts[0].image,
-        // };
-        // console.log(getPost);
-        console.log(data.posts);
-        setPost(data.posts);
+        setPosts(data.posts);
       } else {
         console.error('요청에 실패했습니다.');
       }
@@ -49,7 +40,7 @@ const Home = () => {
   return (
     <>
       <TopMainNav />
-      <Contents post={post} />
+      <Contents posts={posts} />
       <TabMenu />
     </>
   );
