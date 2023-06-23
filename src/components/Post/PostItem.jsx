@@ -14,8 +14,8 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
   const [commentCount, setCommentCount] = useState(0);
   const [createdDate, setCreatedDate] = useState('');
   const { userToken } = useContext(AuthContextStore);
-  const Date = createdDate.substring(0, 10).split('-');
-
+  const Date = createdDate.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
+  console.log(Date);
   // 좋아요, 댓글 갯수 초기 업데이트
   useEffect(() => {
     const fetchInitialCount = async () => {
@@ -97,9 +97,7 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
               <span>{commentCount}</span>
             </CommentLink>
           </LikeAndComment>
-          <TodayDate>
-            {Date[0]}년 {Date[1]}월 {Date[2]?.padStart(2, 0)}일
-          </TodayDate>
+          <TodayDate>{Date}</TodayDate>
         </UserContentSect>
       </PostArticle>
     </>
