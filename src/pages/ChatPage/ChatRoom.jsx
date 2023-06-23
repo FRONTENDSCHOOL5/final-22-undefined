@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Wrapper from '../../components/common/Wrapper/Wrapper';
 import Comment from './Comment';
 
 import arrowLeft from '../../assets/icon/icon-arrow-left.png';
@@ -36,14 +35,14 @@ const MoreVertical = styled.a`
 `;
 const ChatList = () => {
   return (
-    <Wrapper>
+    <>
       <Header>
         <Arrow href='/chat' />
         <MoreVertical />
       </Header>
       <ChatRoomContents />
-      <Comment />
-    </Wrapper>
+      <Comment atChatroom={true} />
+    </>
   );
 };
 

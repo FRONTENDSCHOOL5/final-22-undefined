@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 
 import home from '../../assets/symbol-logo-gray.png';
 import styled from 'styled-components';
@@ -43,12 +43,35 @@ const SearchIcon = styled.a`
   line-height: 17.53px;
 `;
 
-const Contents = ({ post, setPost }) => {
+const Contents = ({ post }) => {
   return (
     <Main>
       <Section>
-        <P>유저를 검색해 팔로우 해보세요!</P>
-        <SearchIcon href='/search'>검색하기</SearchIcon>
+        {post.length !== 0 ? (
+          post.map((item) => (
+            <ul>
+              <li>
+                <div>
+                  <img src='' alt='' />
+                  <p>{item.author.username}</p>
+                  <p>{item.author.accountname}</p>
+                  <button>수정/삭제</button>
+                </div>
+                <div>
+                  <p>{item.content}</p>
+                  <button>좋아용!</button>
+                  <button>댓글!</button>
+                  <p>{item.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일')}</p>
+                </div>
+              </li>
+            </ul>
+          ))
+        ) : (
+          <>
+            <P>유저를 검색해 팔로우 해보세요!</P>
+            <SearchIcon href='/search'>검색하기</SearchIcon>
+          </>
+        )}
       </Section>
     </Main>
   );

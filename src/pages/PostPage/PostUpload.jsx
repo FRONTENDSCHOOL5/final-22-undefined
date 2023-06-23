@@ -6,11 +6,12 @@ import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import { useNavigate } from 'react-router-dom';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
+import Ellipse from '../../assets/Ellipse-1.png';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
 const Post = () => {
-  const [userProfileImg, setUserProfileImg] = useState('');
+  const [userProfileImg, setUserProfileImg] = useState(Ellipse);
   const [uploadImg, setUploadImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [userContent, setUserContent] = useState('');
@@ -28,6 +29,7 @@ const Post = () => {
           },
         });
         const data = await res.json();
+        console.log(data);
         setUserProfileImg(data.user.image);
       } catch (error) {
         console.log(error.message);
@@ -65,9 +67,9 @@ const Post = () => {
 
     const file = e.target.files[0];
     // console.log(file.name.split('.'));
-    const fileExtenstion = file.name.split('.').slice(-1)[0].toLowerCase();
+    const fileExtension = file.name.split('.').slice(-1)[0].toLowerCase();
     // console.log(fileExtenstion);
-    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtenstion}`)) return;
+    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) return;
 
     const formData = new FormData();
     formData.append('image', file);
@@ -93,7 +95,7 @@ const Post = () => {
   };
   const cancelConfirm = () => alert('취소했습니다.');
 
-  const cofirmDelete = (message = '', onConfirm, onCancel) => {
+  const confirmDelete = (message = '', onConfirm, onCancel) => {
     if (!onConfirm || typeof onConfirm !== 'function') {
       return;
     }
@@ -112,7 +114,7 @@ const Post = () => {
     return confirmAction;
   };
 
-  const hndleDelete = cofirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
+  const handleDelete = confirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
 
   // textarea 높이 자동 조절
   const handleContent = (e) => {
@@ -142,18 +144,6 @@ const Post = () => {
               ref={textarea}
               rows={1}
             />
-          </Form>
-          <Section>
-            <Ul>
-              {uploadImg && (
-                <Li>
-                  <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
-                  <DeleteBtn onClick={hndleDelete}>
-                    <span className='a11y-hidden'>업로드 이미지 삭제</span>
-                  </DeleteBtn>
-                </Li>
-              )}
-            </Ul>
             <UploadImgBtn htmlFor='imgUpload'></UploadImgBtn>
             <UploadImgInp
               className='a11y-hidden'
@@ -162,6 +152,18 @@ const Post = () => {
               onChange={handleImgInput}
               accept='image/*'
             />
+          </Form>
+          <Section>
+            <Ul>
+              {uploadImg && (
+                <Li>
+                  <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
+                  <DeleteBtn onClick={handleDelete}>
+                    <span className='a11y-hidden'>업로드 이미지 삭제</span>
+                  </DeleteBtn>
+                </Li>
+              )}
+            </Ul>
           </Section>
         </PostArticle>
       </PostMain>

@@ -14,6 +14,7 @@ import FollowList from '../pages/FollowListPage/FollowList';
 import PostUpload from '../pages/PostPage/PostUpload';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import EditProduct from './../pages/ProductPage/EditProduct';
+import PostDetail from '../pages/PostPage/PostDetail';
 
 const Router = () => {
   return (
@@ -27,7 +28,8 @@ const Router = () => {
         <Route path='/chat' element={<ChatLists />} />
         <Route path='/chat/room' element={<ChatRoom />} />
         <Route path='/join/profile' element={<ProfileSetting />} />
-        <Route path='/post' element={<PostUpload />} />
+        <Route path='/post/upload' element={<PostUpload />} />
+        <Route path='/postdetail/:post_id' element={<PostDetail />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/profile/:accountname' element={<ProfilePage />} />
         <Route path='/profile/edit' element={<ProfileEdit />} />
