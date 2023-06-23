@@ -7,8 +7,8 @@ import { AuthContextStore } from '../../../context/AuthContext';
 const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
+  const { accountname } = useParams(); // 현재 사용자 계정
   const [selectedOption, setSelectedOption] = useState('');
-  const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
@@ -96,7 +96,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
         },
         body: JSON.stringify({
           report: {
-            post: '포스트 id',
+            post: 'postId',
           },
         }),
       });
@@ -104,6 +104,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
       if (response.ok) {
         // 성공할 경우
         console.log('게시글 신고 완료');
+        onClose();
       } else {
         // 실패할 경우
         throw new Error('게시글 신고 실패');

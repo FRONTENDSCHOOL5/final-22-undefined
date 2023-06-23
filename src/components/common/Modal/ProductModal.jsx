@@ -22,12 +22,14 @@ const ProductModal = ({ onClose, productId, products, setProducts }) => {
       setSelectedOption(option);
     } else if (option === '수정') {
       // 상품 수정 페이지 이동
-      navigate('/edit-product');
+      navigate('/product/edit');
     } else if (option === '웹사이트에서 상품 보기') {
       // 웹사이트 연결
       window.open('https://naver.com');
+      onClose();
     } else if (option === '웹사이트에서 상품 보기') {
       window.open('https://naver.com');
+      onClose();
     }
   };
 
