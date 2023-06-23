@@ -128,7 +128,7 @@ const PostWrapper = styled(Wrapper)`
   margin-top: 48px;
 `;
 const CommentWrapper = styled(Wrapper)`
-  padding: 20px 16px;
+  padding: 20px 0;
 `;
 const PostArticle = styled.article``;
 const PostSection = styled.section``;
