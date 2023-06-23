@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import home from '../../assets/icon/icon-home.png';
-import chat from '../../assets/icon/icon-message-circle.png';
+import chat from '../../assets/icon/icon-message-circle.svg';
 import post from '../../assets/icon/icon-edit.png';
 import profile from '../../assets/icon/icon-user.png';
 
@@ -12,7 +12,11 @@ export const Footer = styled.footer`
   right: 0px;
   bottom: 0px;
   border-top: 0.5px solid #dbdbdb;
-  background-color: ${({ theme }) => theme.colors.white};
+  ${({ theme: { colors } }) => css`
+    background-color: ${colors.white};
+    border-top: 1px solid ${colors.gray};
+    color: ${colors.txtColor};
+  `}
 `;
 
 export const MenuList = styled.ul`
@@ -29,12 +33,10 @@ export const Menus = styled.li`
 export const Icon = styled.a`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   font-size: 10px;
   font-weight: 400;
   line-height: 14px;
-  text-align: center;
   &::before {
     content: '';
     display: block;
