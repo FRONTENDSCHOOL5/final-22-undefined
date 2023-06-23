@@ -8,10 +8,10 @@ import { AuthContextStore } from '../../context/AuthContext';
 const Comment = ({ atChatroom, userProfileImg, postId }) => {
   const [text, setText] = useState('');
   const { userToken } = useContext(AuthContextStore);
-  console.log(userToken);
 
   const addComment = async () => {
     try {
+      // 댓글 서버에 보내기
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments`, {
         method: 'POST',
         headers: {
@@ -26,6 +26,17 @@ const Comment = ({ atChatroom, userProfileImg, postId }) => {
       });
       const data = await response.json();
       console.log(data);
+
+      //클릭시
+      // const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
+      //   headers: {
+      //     Authorization: `Bearer ${userToken}`,
+      //     'Content-Type': 'application/json',
+      //   },
+      // });
+      // const result = await res.json();
+      // console.log(result.post.commentCount);
+      // setCommentCount(result.post.commentCount);
     } catch (error) {
       console.log(error.message);
     }

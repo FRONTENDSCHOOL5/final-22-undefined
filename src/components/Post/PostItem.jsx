@@ -4,7 +4,7 @@ import HeartIcon from '../../assets/icon/icon-heart.png';
 import HeartIconFill from '../../assets/icon/icon-heart-active.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
