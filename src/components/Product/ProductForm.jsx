@@ -1,11 +1,11 @@
 import React from 'react';
-import ImgInput from '../common/Input/ImgInput';
+import ProductImgInput from '../Product/ProductImgInput';
 import ProductFormInput from '../common/Input/ProductFormInput';
 
 const ProductForm = ({ formData, setFormData, img, setImg, error, setError }) => {
   return (
     <>
-      <ImgInput img={img} setImg={setImg} />
+      <ProductImgInput id='itemImg' label='이미지 등록' img={img} setImg={setImg} />
       <ProductFormInput
         id='itemName'
         label='상품명'
@@ -28,6 +28,7 @@ const ProductForm = ({ formData, setFormData, img, setImg, error, setError }) =>
         inputProps={{
           type: 'text',
           placeholder: '숫자만 입력 가능합니다.',
+          value: formData.price,
         }}
       />
       <ProductFormInput
