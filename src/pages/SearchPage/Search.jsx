@@ -4,16 +4,19 @@ import Contents from './Contents';
 import TabMenu from '../HomePage/TabMenu';
 
 import { AuthContextStore } from '../../context/AuthContext';
-import styled from 'styled-components';
+
+import useDebounce from '../../hooks/useDebounce';
 
 const Search = () => {
   const { userToken } = useContext(AuthContextStore);
   const [inputTxt, setInputTxt] = useState('');
   const [userList, setUserList] = useState([]);
 
+  const debounceValue = useDebounce(inputTxt);
+
   const handleSearchList = async () => {
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/user/searchuser/?keyword=${inputTxt}`, {
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/user/searchuser/?keyword=${debounceValue}`, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${userToken}`,
@@ -35,10 +38,10 @@ const Search = () => {
   };
 
   useEffect(() => {
-    if (inputTxt.length > 0) {
+    if (debounceValue.length > 0) {
       handleSearchList();
     }
-  }, [inputTxt]);
+  }, [debounceValue]);
 
   const handleSearchId = (event) => {
     let inputEvent = event.target.value;
