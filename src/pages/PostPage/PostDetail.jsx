@@ -79,7 +79,7 @@ const PostDetail = () => {
         </PostSection>
       </Main>
       {/* <PostDetailComment /> */}
-      <Comment atChatroom={false} userProfileImg={userProfileImg} />
+      <Comment atChatroom={false} userProfileImg={userProfileImg} postId={post_id} />
     </>
   );
 };
