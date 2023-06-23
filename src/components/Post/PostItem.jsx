@@ -92,7 +92,7 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to={`/postdetail/${itemPostId}`}>
+            <CommentLink to={`/postdetail/${itemPostId}`} >
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>{commentCount}</span>
             </CommentLink>
