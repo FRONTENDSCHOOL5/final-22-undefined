@@ -46,8 +46,6 @@ const AddProduct = () => {
 
   const addClick = async () => {
     try {
-      const image = img === '' ? 'https://api.mandarin.weniv.co.kr/ProductBasic.png' : img;
-
       const response = await fetch('https://api.mandarin.weniv.co.kr/product', {
         method: 'POST',
         headers: {
