@@ -47,8 +47,8 @@ const Contents = ({ post }) => {
   return (
     <Main>
       <Section>
-        {post.map((item) => {
-          return (
+        {post.length !== 0 ? (
+          post.map((item) => (
             <ul>
               <li>
                 <div>
@@ -61,30 +61,20 @@ const Contents = ({ post }) => {
                   <p>{item.content}</p>
                   <button>좋아용!</button>
                   <button>댓글!</button>
+                  <p>{item.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일')}</p>
                 </div>
               </li>
             </ul>
-          );
-        })}
-        <P>유저를 검색해 팔로우 해보세요!</P>
-        <SearchIcon href='/search'>검색하기</SearchIcon>
+          ))
+        ) : (
+          <>
+            <P>유저를 검색해 팔로우 해보세요!</P>
+            <SearchIcon href='/search'>검색하기</SearchIcon>
+          </>
+        )}
       </Section>
     </Main>
   );
 };
 
 export default Contents;
-
-{
-  /* <li key={post.id}>
-<div
-userInfo={userInfo}
-postContent={post.content}
-postImg={post.image}
-today={today}
-onClick={onClick}
-itemPostId={post.id}
-setPostId={() => setPostId(post.id)}
-/>
-</li> */
-}
