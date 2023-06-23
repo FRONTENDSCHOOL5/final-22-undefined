@@ -83,7 +83,7 @@ const Footer = styled.footer`
   padding: 13px 16px;
   display: flex;
   justify-content: space-between;
-  position: sticky;
+  position: fixed;
   left: 0px;
   right: 0px;
   bottom: 0px;
