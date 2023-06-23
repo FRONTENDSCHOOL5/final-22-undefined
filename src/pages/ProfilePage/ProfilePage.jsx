@@ -58,7 +58,7 @@ const ProfilePage = () => {
       <Main>
         <ProfileDisplay userInfo={userInfo} isLoading={isLoading} setUserInfo={setUserInfo} />
         <SellingProduct />
-        <PostSection userInfo={userInfo} />
+        <PostSection />
       </Main>
       <TabMenu active={isLoginUser ? '3' : '0'} />
     </>

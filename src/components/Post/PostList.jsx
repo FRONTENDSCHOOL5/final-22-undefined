@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
 
-const PostList = forwardRef(({ posts, userInfo, setPosts }, ref) => {
+const PostList = forwardRef(({ posts, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
 
@@ -27,15 +27,7 @@ const PostList = forwardRef(({ posts, userInfo, setPosts }, ref) => {
         <Ul>
           {posts.map((post, index) => (
             <Li key={post.id} ref={index === posts.length - 1 ? ref : null}>
-              <PostItem
-                userInfo={userInfo}
-                postContent={post.content}
-                postImg={post.image}
-                postDate={post.updatedAt}
-                // post={post}
-                itemPostId={post.id}
-                onClick={() => handleClick(post.id)}
-              />
+              <PostItem post={post} itemPostId={post.id} onClick={() => handleClick(post.id)} />
             </Li>
           ))}
         </Ul>
