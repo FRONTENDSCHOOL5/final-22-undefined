@@ -25,8 +25,8 @@ const Comment = ({ setIsCommentUpdated, atChatroom, userProfileImg, postId }) =>
         }),
       });
       const data = await response.json();
-      console.log(data);
       setIsCommentUpdated(true);
+      setText('');
     } catch (error) {
       console.log(error.message);
     }
@@ -56,6 +56,7 @@ const Comment = ({ setIsCommentUpdated, atChatroom, userProfileImg, postId }) =>
       )}
       <Input
         type='text'
+        value={text}
         placeholder={atChatroom ? '메시지 입력하기...' : '댓글 입력하기...'}
         onChange={handleOnChange}
       />
