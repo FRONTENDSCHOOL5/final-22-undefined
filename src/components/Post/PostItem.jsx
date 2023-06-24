@@ -8,36 +8,12 @@ import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ post, itemPostId, onClick }) => {
-  const [isHearted, setIsHearted] = useState(false);
-  const [heartCount, setHeartCount] = useState(0);
-  const [commentCount, setCommentCount] = useState(0);
-  const [createdDate, setCreatedDate] = useState('');
+const PostItem = ({ post, itemPostId, onClick, upDatedCommentCount }) => {
+  const [isHearted, setIsHearted] = useState(post.hearted);
+  const [heartCount, setHeartCount] = useState(post.heartCount);
+  const [commentCount, setCommentCount] = useState(post.commentCount);
   const { userToken } = useContext(AuthContextStore);
-  const Date = createdDate.substring(0, 10).split('-');
-
-  // 좋아요, 댓글 갯수 초기 업데이트
-  useEffect(() => {
-    const fetchInitialCount = async () => {
-      try {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}`, {
-          method: 'GET',
-          headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
-        });
-        const data = await response.json();
-        const initialheartCount = data.post.heartCount;
-        const initialCommentCount = data.post.commentCount;
-        const initialHeartedState = data.post.hearted; //useEffect통해 초기값 판별해서 Hearticon이 차있을지 차있지않을지 값을 정해줌.
-        setHeartCount(initialheartCount);
-        setCommentCount(initialCommentCount);
-        setIsHearted(initialHeartedState);
-        setCreatedDate(data.post.createdAt);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchInitialCount();
-  }, [itemPostId, userToken]);
+  const Date = post.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
 
   // 좋아요 요청
   const handleLike = async () => {
@@ -73,10 +49,10 @@ const PostItem = ({ post, itemPostId, onClick }) => {
         <h3 className='a11y-hidden'>게시물 아이템</h3>
         <UserInfoSect>
           <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-          <PostUserProfileImg userProfileImg={post?.author?.image} />
+          <PostUserProfileImg userProfileImg={post.author.image} />
           <UserNameInfo>
-            <InfoName>{post?.author?.username}</InfoName>
-            <InfoAccount>@ {post?.author?.accountname}</InfoAccount>
+            <InfoName>{post.author.username}</InfoName>
+            <InfoAccount>@ {post.author.accountname}</InfoAccount>
           </UserNameInfo>
           <ButtonIcon onClick={onClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
@@ -92,11 +68,12 @@ const PostItem = ({ post, itemPostId, onClick }) => {
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to={`/postdetail/${itemPostId}`}>
+            <CommentLink to={`/postdetail/${itemPostId}`} state={{ post: post }}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>{commentCount}</span>
             </CommentLink>
           </LikeAndComment>
+          <TodayDate>{Date}</TodayDate>
         </UserContentSect>
       </PostArticle>
     </>
@@ -105,21 +82,24 @@ const PostItem = ({ post, itemPostId, onClick }) => {
 
 export default PostItem;
 
-const PostArticle = styled.article``;
+const PostArticle = styled.article`
+  position: relative;
+`;
 
 const UserInfoSect = styled.section`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
-  position: relative;
 `;
 
 const UserNameInfo = styled.div`
   flex-grow: 1;
 `;
+const ProfileLink = styled(Link)``;
+const NameLink = styled(Link)``;
 
 const InfoName = styled.p`
-  margin-bottom: 2px;
+  margin: 4px 0;
 `;
 const InfoAccount = styled.p`
   font-size: 12px;
@@ -128,7 +108,8 @@ const InfoAccount = styled.p`
 // 모달 버튼 아이콘
 const ButtonIcon = styled.button`
   position: absolute;
-  gap: 12px;
+  /* gap: 12px; */
+  top: 3px;
   right: 0;
 `;
 

@@ -17,6 +17,7 @@ import EditProduct from './../pages/ProductPage/EditProduct';
 import { AuthContextStore } from '../context/AuthContext';
 import AuthRoute from './AuthRoute';
 import NonAuthRoute from './NonAuthRoute';
+import PostDetail from '../pages/PostPage/PostDetail';
 
 const Router = () => {
   const { userToken } = useContext(AuthContextStore);
@@ -36,6 +37,7 @@ const Router = () => {
           <Route path='/chat' element={<ChatLists />} />
           <Route path='/chat/room' element={<ChatRoom />} />
           <Route path='/post' element={<PostUpload />} />
+          <Route path='/postdetail/:post_id' element={<PostDetail />} />
           <Route path='/profile' element={<ProfilePage />} />
           <Route path='/profile/:accountname' element={<ProfilePage />} />
           <Route path='/profile/edit' element={<ProfileEdit />} />
