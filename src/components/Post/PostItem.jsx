@@ -95,8 +95,6 @@ const UserInfoSect = styled.section`
 const UserNameInfo = styled.div`
   flex-grow: 1;
 `;
-const ProfileLink = styled(Link)``;
-const NameLink = styled(Link)``;
 
 const InfoName = styled.p`
   margin: 4px 0;
@@ -109,8 +107,8 @@ const InfoAccount = styled.p`
 const ButtonIcon = styled.button`
   position: absolute;
   /* gap: 12px; */
-  top: 3px;
-  right: 0;
+  top: 5px;
+  right: -5px;
 `;
 
 const UserContentSect = styled.section`
