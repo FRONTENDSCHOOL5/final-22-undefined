@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
+const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick, isCommentUpdated }) => {
   const [isHearted, setIsHearted] = useState(false);
   const [heartCount, setHeartCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
@@ -37,7 +37,7 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
       }
     };
     fetchInitialCount();
-  }, [itemPostId, userToken]);
+  }, [isCommentUpdated, userToken]);
 
   // 좋아요 요청
   const handleLike = async () => {

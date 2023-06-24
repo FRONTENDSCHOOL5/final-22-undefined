@@ -15,7 +15,7 @@ const PostDetail = () => {
   const [userProfileImg, setUserProfileImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [comments, setComments] = useState([]);
-  const [isUpdated, setIsUpdated] = useState(false);
+  const [isCommentUpdated, setIsCommentUpdated] = useState(false);
 
   //userInfo를 위한 요청
   useEffect(() => {
@@ -38,15 +38,14 @@ const PostDetail = () => {
           },
         });
         const result = await res.json();
-        console.log(result.comments);
         setComments(result.comments);
-        setIsUpdated(false); //comment에서 게시 클릭시 true로 바뀐 이후 본래 false 상태로 전환 해줘야 이후 상태를 재업데이트 할 수 있음.
+        setIsCommentUpdated(false); //comment에서 게시 클릭시 true로 바뀐 이후 본래 false 상태로 전환 해줘야 이후 상태를 재업데이트 할 수 있음.
       } catch (err) {
         console.log(err.message);
       }
     };
     getUserInfo();
-  }, [isUpdated, post_id]);
+  }, [isCommentUpdated, post_id]);
 
   // 프로필 이미지 요청(댓글 페이지는 언제나 자기 프로필 사진)
   useEffect(() => {
@@ -75,6 +74,7 @@ const PostDetail = () => {
           <PostWrapper>
             <PostArticle>
               <PostItem
+                isCommentUpdated={isCommentUpdated}
                 userInfo={userInfo.author}
                 itemPostId={post_id}
                 postContent={userInfo.content}
@@ -112,7 +112,12 @@ const PostDetail = () => {
           </PostSection>
         </CommentWrapper>
       </Main>
-      <Comment setIsUpdated={setIsUpdated} atChatroom={false} userProfileImg={userProfileImg} postId={post_id} />
+      <Comment
+        setIsCommentUpdated={setIsCommentUpdated}
+        atChatroom={false}
+        userProfileImg={userProfileImg}
+        postId={post_id}
+      />
     </>
   );
 };

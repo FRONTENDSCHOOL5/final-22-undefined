@@ -5,7 +5,7 @@ import uploadImgBtn from '../../assets/upload-file.png';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const Comment = ({ setIsUpdated, atChatroom, userProfileImg, postId }) => {
+const Comment = ({ setIsCommentUpdated, atChatroom, userProfileImg, postId }) => {
   const [text, setText] = useState('');
   const { userToken } = useContext(AuthContextStore);
 
@@ -26,7 +26,7 @@ const Comment = ({ setIsUpdated, atChatroom, userProfileImg, postId }) => {
       });
       const data = await response.json();
       console.log(data);
-      setIsUpdated(true)
+      setIsCommentUpdated(true);
     } catch (error) {
       console.log(error.message);
     }
