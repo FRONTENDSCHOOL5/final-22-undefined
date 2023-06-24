@@ -218,11 +218,12 @@ const UploadImg = styled.img`
 
 const UploadImgBtn = styled.label`
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 16px;
+  bottom: 25px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  cursor: pointer;
   background: ${({ theme }) => `${theme.colors.primary} url(${uploadIcon}) no-repeat center`};
 `;
 
