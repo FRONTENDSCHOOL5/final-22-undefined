@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PostUserProfileImg from './PostUserProfileImg';
 
-const PostCommentItem = ({ comments }) => {
+const PostCommentItem = ({ commentList }) => {
   //작성 경과 시간 함수
   const calcUploadTime = (date) => {
     const TEN_SECOND = 10 * 1000;
@@ -31,8 +31,8 @@ const PostCommentItem = ({ comments }) => {
   return (
     <>
       <Ul>
-        {comments &&
-          comments.map((comment) => {
+        {commentList &&
+          commentList.map((comment) => {
             return (
               <Li key={comment.id}>
                 <UserAuth>
