@@ -52,7 +52,7 @@ const Intro = styled.p`
 `;
 
 const Follow = ({ item }) => {
-  const { userToken } = useContext(AuthContextStore);
+  const { userToken, userAccountname } = useContext(AuthContextStore);
   const [follow, setFollow] = useState(item);
   const { accountname, image, username, intro, isfollow } = follow;
 
@@ -75,6 +75,8 @@ const Follow = ({ item }) => {
       console.log(err.message);
     }
   };
+
+  if (follow.accountname === userAccountname) return null;
 
   return (
     <Item>
