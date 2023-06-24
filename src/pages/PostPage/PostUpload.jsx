@@ -4,16 +4,21 @@ import uploadIcon from '../../assets/icon/icon-upload.png';
 import removeIcon from '../../assets/icon/icon-delete.svg';
 import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
 const Post = () => {
+  const { pathname, state } = useLocation();
+  const loadedText = pathname.includes('edit') ? state.content : '';
+  const loadedlImg = pathname.includes('edit') ? [state.image.replace('https://api.mandarin.weniv.co.kr/', '')] : []; // state로 받아온 image는 주소가 전부 포함돼 있기 때문에 잘라줌.
+
+  const [userContent, setUserContent] = useState(loadedText); // edit 페이지 url로 접속시, 초기값은 pathname과 List~Item에서 navigate state를 통해 가져온 content와 image값을 활용함.
+  const [uploadedImages, setUploadedImages] = useState(loadedlImg);
   const [userProfileImg, setUserProfileImg] = useState('');
-  const [uploadedImages, setUploadedImages] = useState([]);
+
   const { userToken } = useContext(AuthContextStore);
-  const [userContent, setUserContent] = useState('');
   const textarea = useRef(); // textarea 높이 자동 조절을 위해 쓰이는 ref
   const navigate = useNavigate();
 
@@ -203,7 +208,7 @@ const Ul = styled.ul``;
 
 const Li = styled.li`
   border-radius: 10px;
-  width: 304px;
+  max-width: 304px;
   height: 228px;
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.gray};
