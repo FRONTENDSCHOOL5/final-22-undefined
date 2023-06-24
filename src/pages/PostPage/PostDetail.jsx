@@ -15,6 +15,7 @@ const PostDetail = () => {
   const [userProfileImg, setUserProfileImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [comments, setComments] = useState([]);
+  const [isUpdated, setIsUpdated] = useState(false);
 
   //userInfo를 위한 요청
   useEffect(() => {
@@ -30,7 +31,7 @@ const PostDetail = () => {
         setUserInfo(data.post);
 
         //댓글 리스트 불러오기
-        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}/comments`, {
+        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}/comments/?limit=10&skip=0`, {
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-Type': 'application/json',
@@ -39,12 +40,13 @@ const PostDetail = () => {
         const result = await res.json();
         console.log(result.comments);
         setComments(result.comments);
+        setIsUpdated(false); //comment에서 게시 클릭시 true로 바뀐 이후 본래 false 상태로 전환 해줘야 이후 상태를 재업데이트 할 수 있음.
       } catch (err) {
         console.log(err.message);
       }
     };
     getUserInfo();
-  }, [post_id]);
+  }, [isUpdated, post_id]);
 
   // 프로필 이미지 요청(댓글 페이지는 언제나 자기 프로필 사진)
   useEffect(() => {
@@ -89,7 +91,7 @@ const PostDetail = () => {
               {comments &&
                 comments.map((item) => {
                   return (
-                    <Li key={item.author._id}>
+                    <Li key={item.id}>
                       <UserAuth>
                         <ProfileLink to={`/profile/${item.author.accountname}`}>
                           <PostUserProfileImg size={'36px'} userProfileImg={userProfileImg} />
@@ -110,7 +112,7 @@ const PostDetail = () => {
           </PostSection>
         </CommentWrapper>
       </Main>
-      <Comment atChatroom={false} userProfileImg={userProfileImg} postId={post_id} />
+      <Comment setIsUpdated={setIsUpdated} atChatroom={false} userProfileImg={userProfileImg} postId={post_id} />
     </>
   );
 };
