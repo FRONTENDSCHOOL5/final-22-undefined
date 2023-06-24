@@ -82,11 +82,11 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick, isComme
               <InfoAccount>@ {userInfo?.accountname}</InfoAccount>
             </UserNameInfo>
           </NameLink>
-
-          <ButtonIcon onClick={onClick}>
-            <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
-          </ButtonIcon>
         </UserInfoSect>
+
+        <ButtonIcon onClick={onClick}>
+          <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
+        </ButtonIcon>
 
         <UserContentSect>
           <h4 className='a11y-hidden'>게시물 내용</h4>
@@ -111,13 +111,14 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick, isComme
 
 export default PostItem;
 
-const PostArticle = styled.article``;
+const PostArticle = styled.article`
+  position: relative;
+`;
 
 const UserInfoSect = styled.section`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
-  position: relative;
 `;
 
 const UserNameInfo = styled.div`
@@ -127,7 +128,7 @@ const ProfileLink = styled(Link)``;
 const NameLink = styled(Link)``;
 
 const InfoName = styled.p`
-  margin-bottom: 2px;
+  margin: 4px 0;
 `;
 const InfoAccount = styled.p`
   font-size: 12px;
@@ -136,8 +137,8 @@ const InfoAccount = styled.p`
 // 모달 버튼 아이콘
 const ButtonIcon = styled.button`
   position: absolute;
-  gap: 12px;
-  top: 0;
+  /* gap: 12px; */
+  top: 3px;
   right: 0;
 `;
 

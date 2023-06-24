@@ -7,7 +7,7 @@ import PostModal from '../common/Modal/PostModal';
 const PostList = forwardRef(({ posts, userInfo, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
-  console.log(userInfo);
+
   const openModal = () => {
     setIsModalOpen(true);
   };
