@@ -159,10 +159,11 @@ const UploadTime = styled.span`
 `;
 const Username = styled.strong`
   font-weight: 500;
-  font-size: 14px;
+  /* font-size: 14px; */
   line-height: 18px;
 `;
 const PostComment = styled.p`
+  /* font-size: 14px; */
   padding-left: 48px;
 `;
 // 모달 버튼 아이콘
