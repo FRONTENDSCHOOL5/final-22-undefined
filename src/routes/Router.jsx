@@ -36,7 +36,7 @@ const Router = () => {
           <Route path='/search' element={<Search />} />
           <Route path='/chat' element={<ChatLists />} />
           <Route path='/chat/room' element={<ChatRoom />} />
-          <Route path='/post' element={<PostUpload />} />
+          <Route path='/post/upload' element={<PostUpload />} />
           <Route path='/post/edit' element={<PostUpload />} />
           <Route path='/postdetail/:post_id' element={<PostDetail />} />
           <Route path='/profile' element={<ProfilePage />} />
