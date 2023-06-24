@@ -86,7 +86,12 @@ const PostSection = () => {
           </S.AlbumBtn>
         </Wrapper>
       </S.Header>
-      {isList ? <PostList posts={posts} setPosts={setPosts} ref={target} /> : <PostAlbum posts={posts} ref={target} />}
+      {posts.length > 0 &&
+        (isList ? (
+          <PostList posts={posts} setPosts={setPosts} ref={target} />
+        ) : (
+          <PostAlbum posts={posts} ref={target} />
+        ))}
     </S.Section>
   );
 };
