@@ -27,7 +27,7 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
         <Ul>
           {posts.map((post, index) => (
             <Li key={post.id} ref={index === posts.length - 1 ? ref : null}>
-              <PostItem post={post} itemPostId={post.id} onClick={() => handleClick(post.id)} />
+              <PostItem post={post} onClick={() => handleClick(post.id)} />
             </Li>
           ))}
         </Ul>
