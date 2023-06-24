@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PostUserProfileImg from './PostUserProfileImg';
 
-const PostCommentItem = ({ commentList }) => {
+const PostCommentList = ({ commentList }) => {
   //작성 경과 시간 함수
   const calcUploadTime = (date) => {
     const TEN_SECOND = 10 * 1000;
@@ -56,7 +56,7 @@ const PostCommentItem = ({ commentList }) => {
   );
 };
 
-export default PostCommentItem;
+export default PostCommentList;
 
 const Ul = styled.ul``;
 const Li = styled.li`
