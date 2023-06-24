@@ -7,15 +7,16 @@ const Main = styled.main`
 `;
 
 const UserList = styled.ul`
-  /* max-width: 390px; */
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   li {
+    max-width: 390px;
     padding-bottom: 20px;
   }
   a {
+    width: 100%;
     display: flex;
   }
 `;
@@ -29,8 +30,8 @@ const Contents = ({ userList }) => {
             <a>
               <img src='' alt='' />
               <div>
-                <span>{item.username}</span>
-                <span>{item.accountname}</span>
+                <p>{item.username}</p>
+                <p>{item.accountname}</p>
               </div>
             </a>
           </li>

@@ -6,13 +6,12 @@ import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import { useNavigate } from 'react-router-dom';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
-import Ellipse from '../../assets/Ellipse-1.png';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
 const Post = () => {
-  const [userProfileImg, setUserProfileImg] = useState(Ellipse);
-  const [uploadImg, setUploadImg] = useState('');
+  const [userProfileImg, setUserProfileImg] = useState('');
+  const [uploadedImages, setUploadedImages] = useState([]);
   const { userToken } = useContext(AuthContextStore);
   const [userContent, setUserContent] = useState('');
   const textarea = useRef(); // textarea 높이 자동 조절을 위해 쓰이는 ref
@@ -29,7 +28,6 @@ const Post = () => {
           },
         });
         const data = await res.json();
-        console.log(data);
         setUserProfileImg(data.user.image);
       } catch (error) {
         console.log(error.message);
@@ -41,7 +39,12 @@ const Post = () => {
   // 게시물 업로드
   const uploadPost = async () => {
     try {
-      const image = uploadImg ? `https://api.mandarin.weniv.co.kr/${uploadImg}` : '';
+      let image;
+      if (uploadedImages.length === 0) image = '';
+      else {
+        image = uploadedImages.map((image) => `https://api.mandarin.weniv.co.kr/${image}`).join(',');
+      }
+
       const res = await fetch('https://api.mandarin.weniv.co.kr/post', {
         method: 'POST',
         headers: {
@@ -50,9 +53,7 @@ const Post = () => {
         },
         body: JSON.stringify({ post: { content: userContent, image } }),
       });
-
       const data = await res.json();
-      // console.log(data);
       navigate('/profile');
     } catch (error) {
       console.log(error.message);
@@ -65,56 +66,46 @@ const Post = () => {
       return;
     }
 
-    const file = e.target.files[0];
-    // console.log(file.name.split('.'));
-    const fileExtension = file.name.split('.').slice(-1)[0].toLowerCase();
-    // console.log(fileExtenstion);
-    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) return;
+    const length = e.target.files.length;
+
+    if (uploadedImages.length + length > 3) return alert('이미지는 최대 3개까지 업로드할 수 있습니다.');
 
     const formData = new FormData();
-    formData.append('image', file);
+    for (let i = 0; i < length; i++) {
+      const file = e.target.files[i];
+      const fileExtension = file.name.split('.').pop().toLowerCase();
+      if (ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) {
+        formData.append('image', file);
+      }
+    }
 
     try {
-      const res = await fetch('https://api.mandarin.weniv.co.kr/image/uploadfile', {
+      const res = await fetch('https://api.mandarin.weniv.co.kr/image/uploadfiles', {
         method: 'POST',
         body: formData,
       });
+
       const data = await res.json();
-      // console.log(data);
-      // console.log(data.filename);
-      setUploadImg(data.filename);
+      console.log(data);
+
+      const filenames = data.map((data) => data.filename);
+      setUploadedImages((prev) => [...prev, ...filenames]);
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  console.log(uploadedImages);
+
   // 이미지 삭제 확인
-  const deleteConfirm = () => {
-    setUploadImg('');
+  const deleteConfirm = (index) => {
+    setUploadedImages((prevImages) => {
+      const updatedImages = [...prevImages];
+      updatedImages.splice(index, 1);
+      return updatedImages;
+    });
     alert('삭제되었습니다.');
   };
-  const cancelConfirm = () => alert('취소했습니다.');
-
-  const confirmDelete = (message = '', onConfirm, onCancel) => {
-    if (!onConfirm || typeof onConfirm !== 'function') {
-      return;
-    }
-    if (onCancel && typeof onCancel !== 'function') {
-      return;
-    }
-
-    const confirmAction = () => {
-      if (window.confirm(message)) {
-        onConfirm();
-      } else {
-        onCancel();
-      }
-    };
-
-    return confirmAction;
-  };
-
-  const handleDelete = confirmDelete('정말 삭제하시겠습니까?', deleteConfirm, cancelConfirm);
 
   // textarea 높이 자동 조절
   const handleContent = (e) => {
@@ -125,7 +116,7 @@ const Post = () => {
 
   // 버튼 활성화 여부
   let isActivated = false;
-  if (userContent || uploadImg) isActivated = true;
+  if (userContent || uploadedImages.length > 0) isActivated = true;
 
   // let userImgUrl = `https://api.mandarin.weniv.co.kr/${userImg}`
   return (
@@ -144,6 +135,18 @@ const Post = () => {
               ref={textarea}
               rows={1}
             />
+          </Form>
+          <Section>
+            <Ul>
+              {uploadedImages.map((image, index) => (
+                <Li key={index}>
+                  <UploadImg src={`https://api.mandarin.weniv.co.kr/${image}`} alt='게시글 업로드 이미지' />
+                  <DeleteBtn onClick={() => deleteConfirm(index)}>
+                    <span className='a11y-hidden'>업로드 이미지 삭제</span>
+                  </DeleteBtn>
+                </Li>
+              ))}
+            </Ul>
             <UploadImgBtn htmlFor='imgUpload'></UploadImgBtn>
             <UploadImgInp
               className='a11y-hidden'
@@ -151,19 +154,8 @@ const Post = () => {
               id='imgUpload'
               onChange={handleImgInput}
               accept='image/*'
+              multiple
             />
-          </Form>
-          <Section>
-            <Ul>
-              {uploadImg && (
-                <Li>
-                  <UploadImg src={`https://api.mandarin.weniv.co.kr/${uploadImg}`} alt='게시글 업로드 이미지' />
-                  <DeleteBtn onClick={handleDelete}>
-                    <span className='a11y-hidden'>업로드 이미지 삭제</span>
-                  </DeleteBtn>
-                </Li>
-              )}
-            </Ul>
           </Section>
         </PostArticle>
       </PostMain>

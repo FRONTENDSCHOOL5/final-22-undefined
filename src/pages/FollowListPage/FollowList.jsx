@@ -20,12 +20,13 @@ const FollowList = () => {
   useEffect(() => {
     const getFollowList = async () => {
       try {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/profile/${accountname}/${type}`, {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/profile/${accountname}/${type}?limit=0`, {
           headers: { Authorization: `Bearer ${userToken}`, 'Content-type': 'application/json' },
         });
 
         const data = await response.json();
         console.log(data);
+        setFollowList(data);
       } catch (err) {
         console.log(err.message);
       }
@@ -37,7 +38,7 @@ const FollowList = () => {
     <Main>
       <FollowListHeader type={type === 'follower' ? 'Followers' : 'Followings'} />
       <Wrapper>
-        <Follows followList={followList} />
+        <Follows followList={followList} setFollowList={setFollowList} />
       </Wrapper>
     </Main>
   );
