@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
+const PostItem = ({ post, itemPostId, onClick }) => {
   const [isHearted, setIsHearted] = useState(false);
   const [heartCount, setHeartCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
@@ -73,10 +73,10 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
         <h3 className='a11y-hidden'>게시물 아이템</h3>
         <UserInfoSect>
           <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-          <PostUserProfileImg userProfileImg={userInfo?.image} />
+          <PostUserProfileImg userProfileImg={post?.author?.image} />
           <UserNameInfo>
-            <InfoName>{userInfo?.username}</InfoName>
-            <InfoAccount>@ {userInfo?.accountname}</InfoAccount>
+            <InfoName>{post?.author?.username}</InfoName>
+            <InfoAccount>@ {post?.author?.accountname}</InfoAccount>
           </UserNameInfo>
           <ButtonIcon onClick={onClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
@@ -85,8 +85,8 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
 
         <UserContentSect>
           <h4 className='a11y-hidden'>게시물 내용</h4>
-          <UserPostText>{postContent}</UserPostText>
-          {postImg && <UserPostImg src={postImg} />}
+          <UserPostText>{post?.content}</UserPostText>
+          {post?.image && <UserPostImg src={post?.image} />}
           <LikeAndComment>
             <LikeBtn isHearted={isHearted} onClick={handleLike}>
               <span className='a11y-hidden'>좋아요 버튼</span>
@@ -97,9 +97,6 @@ const PostItem = ({ userInfo, postContent, postImg, itemPostId, onClick }) => {
               <span>{commentCount}</span>
             </CommentLink>
           </LikeAndComment>
-          <TodayDate>
-            {Date[0]}년 {Date[1]}월 {Date[2]?.padStart(2, 0)}일
-          </TodayDate>
         </UserContentSect>
       </PostArticle>
     </>

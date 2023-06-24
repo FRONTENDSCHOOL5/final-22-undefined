@@ -6,7 +6,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 
-const PostSection = ({ userInfo }) => {
+const PostSection = () => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
@@ -88,11 +88,7 @@ const PostSection = ({ userInfo }) => {
           </S.AlbumBtn>
         </Wrapper>
       </S.Header>
-      {isList ? (
-        <PostList userInfo={userInfo} posts={posts} setPosts={setPosts} ref={target} />
-      ) : (
-        <PostAlbum posts={posts} ref={target} />
-      )}
+      {isList ? <PostList posts={posts} setPosts={setPosts} ref={target} /> : <PostAlbum posts={posts} ref={target} />}
     </S.Section>
   );
 };

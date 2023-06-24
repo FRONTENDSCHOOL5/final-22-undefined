@@ -27,13 +27,7 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
         <Ul>
           {posts.map((post, index) => (
             <Li key={post.id} ref={index === posts.length - 1 ? ref : null}>
-              <PostItem
-                userInfo={post.author}
-                postContent={post.content}
-                postImg={post.image}
-                itemPostId={post.id}
-                onClick={() => handleClick(post.id)}
-              />
+              <PostItem post={post} itemPostId={post.id} onClick={() => handleClick(post.id)} />
             </Li>
           ))}
         </Ul>
@@ -56,8 +50,4 @@ const Li = styled.li`
 const Container = styled.div`
   padding: 20px 16px;
   margin-bottom: 60px;
-`;
-
-const NoPost = styled.p`
-  font-size: 14px;
 `;
