@@ -95,8 +95,6 @@ const Post = () => {
     }
   };
 
-  console.log(uploadedImages);
-
   // 이미지 삭제 확인
   const deleteConfirm = (index) => {
     setUploadedImages((prevImages) => {
@@ -154,7 +152,7 @@ const Post = () => {
               id='imgUpload'
               onChange={handleImgInput}
               accept='image/*'
-              multiple
+              multiple={true}
             />
           </Section>
         </PostArticle>

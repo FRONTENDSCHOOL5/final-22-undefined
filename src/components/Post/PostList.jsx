@@ -20,7 +20,7 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
     openModal();
     setPostId(id);
   };
-  console.log(posts);
+
   return (
     <Container>
       <Wrapper>
