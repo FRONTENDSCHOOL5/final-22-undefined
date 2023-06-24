@@ -4,33 +4,40 @@ import Comment from '../../pages/ChatPage/Comment';
 import { AuthContextStore } from '../../context/AuthContext';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import PostItem from '../../components/Post/PostItem';
+import PostCommentList from '../../components/Post/PostCommentList';
 
 const PostDetail = () => {
-  const [userInfo, setUserInfo] = useState({});
   const { post_id } = useParams();
-  const [userProfileImg, setUserProfileImg] = useState('');
+  const [myProfileImg, setMyProfileImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
+  const [commentList, setCommentList] = useState([]);
+  const [isCommentUpdated, setIsCommentUpdated] = useState(false);
+  const [commentCount, setCommentCount] = useState('');
 
-  //userInfo를 위한 요청
+  const { state } = useLocation(); //Link로 이동된 페이지이기 때문에 state전달을 위한 location
+  console.log(state);
+
   useEffect(() => {
     const getUserInfo = async () => {
       try {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}`, {
+        //댓글 리스트 정보 요청
+        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}/comments/?limit=10&skip=0`, {
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-Type': 'application/json',
           },
         });
-        const data = await response.json();
-        setUserInfo(data.post);
+        const result = await res.json();
+        setCommentList(result.comments);
+        setIsCommentUpdated(false); //comment에서 댓글을 올리면 true로 바뀌도로 설정돼있는데, 그럼 이 댓글 리스트 정보 요청이 발생하고, list가 업데이트됨. 그 이후 본래 false 상태로 전환 해줘야 이후 게시를해도 상태를 재업데이트 할 수 있음.
       } catch (err) {
         console.log(err.message);
       }
     };
     getUserInfo();
-  }, [post_id]);
+  }, [isCommentUpdated, post_id]);
 
   // 프로필 이미지 요청(댓글 페이지는 언제나 자기 프로필 사진)
   useEffect(() => {
@@ -43,7 +50,7 @@ const PostDetail = () => {
           },
         });
         const data = await res.json();
-        setUserProfileImg(data.user.image);
+        setMyProfileImg(data.user.image);
       } catch (error) {
         console.log(error.message);
       }
@@ -58,28 +65,24 @@ const PostDetail = () => {
         <ArticleWrapper>
           <PostWrapper>
             <PostArticle>
-              <PostItem
-                userInfo={userInfo.author}
-                itemPostId={post_id}
-                postContent={userInfo.content}
-                postImg={userInfo.image}
-              />
+              <PostItem post={state.post} itemPostId={post_id} />
               <h2 className='a11y-hidden'>댓글 해당 게시물</h2>
             </PostArticle>
           </PostWrapper>
         </ArticleWrapper>
-        <PostSection>
-          <h2 className='a11y-hidden'>댓글 목록</h2>
-          <Ul>
-            <Li>
-              댓글 목록
-              {/* PostItem 혹은 PostUserProfileImg 공통 컴퍼넌트를 쓰고 싶지만 프랍스가 너무 많아서 못쓰겠어.. */}
-            </Li>
-          </Ul>
-        </PostSection>
+        <CommentWrapper>
+          <PostSection>
+            <h2 className='a11y-hidden'>댓글 목록</h2>
+            <PostCommentList commentList={commentList} />
+          </PostSection>
+        </CommentWrapper>
       </Main>
-      {/* <PostDetailComment /> */}
-      <Comment atChatroom={false} userProfileImg={userProfileImg} postId={post_id} />
+      <Comment
+        setIsCommentUpdated={setIsCommentUpdated}
+        atChatroom={false}
+        userProfileImg={myProfileImg}
+        postId={post_id}
+      />
     </>
   );
 };
@@ -89,13 +92,16 @@ export default PostDetail;
 const Main = styled.main``;
 const ArticleWrapper = styled.div`
   width: 100%;
-  padding: 20px 16px;
+  margin-top: 48px;
+
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
 `;
 const PostWrapper = styled(Wrapper)`
-  margin-top: 48px;
+  padding: 20px 16px;
+`;
+const CommentWrapper = styled(Wrapper)`
+  padding: 30px 16px;
+  margin-bottom: 62.5px;
 `;
 const PostArticle = styled.article``;
 const PostSection = styled.section``;
-const Ul = styled.ul``;
-const Li = styled.li``;

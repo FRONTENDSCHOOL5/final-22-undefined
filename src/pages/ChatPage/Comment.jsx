@@ -5,7 +5,7 @@ import uploadImgBtn from '../../assets/upload-file.png';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const Comment = ({ atChatroom, userProfileImg, postId }) => {
+const Comment = ({ setIsCommentUpdated, atChatroom, userProfileImg, postId }) => {
   const [text, setText] = useState('');
   const { userToken } = useContext(AuthContextStore);
 
@@ -25,18 +25,8 @@ const Comment = ({ atChatroom, userProfileImg, postId }) => {
         }),
       });
       const data = await response.json();
-      console.log(data);
-
-      //클릭시
-      // const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
-      //   headers: {
-      //     Authorization: `Bearer ${userToken}`,
-      //     'Content-Type': 'application/json',
-      //   },
-      // });
-      // const result = await res.json();
-      // console.log(result.post.commentCount);
-      // setCommentCount(result.post.commentCount);
+      setIsCommentUpdated(true);
+      setText('');
     } catch (error) {
       console.log(error.message);
     }
@@ -66,6 +56,7 @@ const Comment = ({ atChatroom, userProfileImg, postId }) => {
       )}
       <Input
         type='text'
+        value={text}
         placeholder={atChatroom ? '메시지 입력하기...' : '댓글 입력하기...'}
         onChange={handleOnChange}
       />
@@ -87,7 +78,6 @@ const Footer = styled.footer`
   left: 0px;
   right: 0px;
   bottom: 0px;
-  display: flex;
   border-top: 0.5px solid #dbdbdb;
   background-color: ${({ theme }) => theme.colors.white};
 `;
