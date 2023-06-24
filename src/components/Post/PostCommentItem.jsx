@@ -6,7 +6,7 @@ import PostUserProfileImg from './PostUserProfileImg';
 
 const PostCommentItem = ({ comments }) => {
   //작성 경과 시간 함수
-  const getUploadTime = (date) => {
+  const calcUploadTime = (date) => {
     const TEN_SECOND = 10 * 1000;
     const A_MINUTE = 60 * 1000;
     const A_HOUR = 60 * A_MINUTE;
@@ -42,7 +42,7 @@ const PostCommentItem = ({ comments }) => {
                   <NameLink to={`/profile/${comment.author.accountname}`}>
                     <Username>{comment.author.username}</Username>
                   </NameLink>
-                  <UploadTime>{getUploadTime(comment.createdAt)}</UploadTime>
+                  <UploadTime>{calcUploadTime(comment.createdAt)}</UploadTime>
                   <ButtonIcon>
                     <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
                   </ButtonIcon>
