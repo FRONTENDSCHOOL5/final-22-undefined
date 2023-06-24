@@ -42,8 +42,10 @@ export default PostList;
 const Ul = styled.ul``;
 
 const Li = styled.li`
+  /* border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`}; */
+  padding-bottom: 20px;
   & + & {
-    margin-top: 20px;
+    margin-top: 50px;
   }
 `;
 

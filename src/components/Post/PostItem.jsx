@@ -8,11 +8,12 @@ import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ post, onClick }) => {
+const PostItem = ({ post, itemPostId, onClick, upDatedCommentCount }) => {
   const [isHearted, setIsHearted] = useState(post.hearted);
   const [heartCount, setHeartCount] = useState(post.heartCount);
   const [commentCount, setCommentCount] = useState(post.commentCount);
   const { userToken } = useContext(AuthContextStore);
+  const Date = post.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
 
   // 좋아요 요청
   const handleLike = async () => {
@@ -67,11 +68,12 @@ const PostItem = ({ post, onClick }) => {
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to={`/postdetail/${post.id}`}>
+            <CommentLink to={`/postdetail/${itemPostId}`} state={{ post: post }}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>{commentCount}</span>
             </CommentLink>
           </LikeAndComment>
+          <TodayDate>{Date}</TodayDate>
         </UserContentSect>
       </PostArticle>
     </>
@@ -80,21 +82,24 @@ const PostItem = ({ post, onClick }) => {
 
 export default PostItem;
 
-const PostArticle = styled.article``;
+const PostArticle = styled.article`
+  position: relative;
+`;
 
 const UserInfoSect = styled.section`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
-  position: relative;
 `;
 
 const UserNameInfo = styled.div`
   flex-grow: 1;
 `;
+const ProfileLink = styled(Link)``;
+const NameLink = styled(Link)``;
 
 const InfoName = styled.p`
-  margin-bottom: 2px;
+  margin: 4px 0;
 `;
 const InfoAccount = styled.p`
   font-size: 12px;
@@ -103,7 +108,8 @@ const InfoAccount = styled.p`
 // 모달 버튼 아이콘
 const ButtonIcon = styled.button`
   position: absolute;
-  gap: 12px;
+  /* gap: 12px; */
+  top: 3px;
   right: 0;
 `;
 
