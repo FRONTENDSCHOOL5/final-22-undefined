@@ -3,10 +3,15 @@ import styled from 'styled-components';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { useNavigate } from 'react-router-dom';
 
-const ChatListCard = styled.section`
-  min-width: 358px;
-  padding: 24px 16px;
-  cursor: pointer;
+const ChatListCard = styled.main`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  min-height: calc(100vh - 108px);
+  margin-top: 48px;
+  padding: 20px 16px 0;
 
   div {
     display: inline-block;
