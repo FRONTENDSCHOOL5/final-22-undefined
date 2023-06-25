@@ -29,10 +29,10 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
             <Li key={post.id} ref={index === posts.length - 1 ? ref : null}>
               <PostItem
                 post={post}
-                itemPostId={post.id}
                 onClick={() => {
                   handleClick(post.id);
                 }}
+                commentCnt={post.commentCount}
               />
             </Li>
           ))}
