@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
+import { AuthContextStore } from '../../context/AuthContext';
+
 import TopSearchNav from './TopSearchNav';
 import Contents from './Contents';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
-
-import { AuthContextStore } from '../../context/AuthContext';
 
 import useDebounce from '../../hooks/useDebounce';
 
@@ -52,7 +52,7 @@ const Search = () => {
     <>
       <TopSearchNav onChange={handleSearchId} />
       <Contents userList={userList} />
-      <TabMenu />
+      <TabMenu active={'0'} />
     </>
   );
 };
