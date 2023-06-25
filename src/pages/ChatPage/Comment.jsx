@@ -9,7 +9,8 @@ const Comment = ({ setCommentList, atChatroom, userProfileImg, postId, setCommen
   const [text, setText] = useState('');
   const { userToken } = useContext(AuthContextStore);
 
-  const addComment = async () => {
+  const addComment = async (e) => {
+    e.preventDefault();
     try {
       // 댓글 서버에 보내기, data는 업로드한 comment에 대한 정보
       const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments`, {
@@ -49,22 +50,24 @@ const Comment = ({ setCommentList, atChatroom, userProfileImg, postId, setCommen
   return (
     <Footer>
       {atChatroom ? (
-        <Form>
+        <UploadForm>
           <label htmlFor='imgUpload'></label>
           <input className='a11y-hidden' type='file' id='imgUpload' accept='image/*' onChange={handleImgUpload} />
-        </Form>
+        </UploadForm>
       ) : (
         <PostUserProfileImg size={'36px'} userProfileImg={userProfileImg} />
       )}
-      <Input
-        type='text'
-        value={text}
-        placeholder={atChatroom ? '메시지 입력하기...' : '댓글 입력하기...'}
-        onChange={handleOnChange}
-      />
-      <PostBtn isActivated={isActivated} type='submit' onClick={addComment}>
-        {atChatroom ? '전송' : '게시'}
-      </PostBtn>
+      <SendForm onSubmit={addComment}>
+        <Input
+          type='text'
+          value={text}
+          placeholder={atChatroom ? '메시지 입력하기...' : '댓글 입력하기...'}
+          onChange={handleOnChange}
+        />
+        <PostBtn isActivated={isActivated} type='submit'>
+          {atChatroom ? '전송' : '게시'}
+        </PostBtn>
+      </SendForm>
     </Footer>
   );
 };
@@ -76,6 +79,7 @@ const Footer = styled.footer`
   padding: 13px 16px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   left: 0px;
   right: 0px;
@@ -101,11 +105,10 @@ const PostBtn = styled.button`
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
-  text-align: right;
   color: ${({ theme, isActivated }) => (isActivated ? theme.colors.primary : theme.colors.gray)};
 `;
 
-const Form = styled.form`
+const UploadForm = styled.form`
   label {
     display: inline-block;
     background: url(${imgBtn}) no-repeat center / 36px 36px;
@@ -115,8 +118,14 @@ const Form = styled.form`
     cursor: pointer;
   }
   label:hover {
+    transition: 0.3s;
     background: url(${uploadImgBtn}) no-repeat center / 36px 36px;
     width: 36px;
     height: 36px;
   }
+`;
+
+const SendForm = styled.form`
+  display: flex;
+  flex-grow: 1;
 `;
