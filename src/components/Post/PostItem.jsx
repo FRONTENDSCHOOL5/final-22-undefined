@@ -5,13 +5,13 @@ import HeartIconFill from '../../assets/icon/icon-heart-active.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 import { Link } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
+import Carousel from '../common/Carousel/Carousel';
 
-const PostItem = ({ post, itemPostId, onClick, upDatedCommentCount }) => {
+const PostItem = ({ post, onClick, commentCnt }) => {
   const [isHearted, setIsHearted] = useState(post.hearted);
   const [heartCount, setHeartCount] = useState(post.heartCount);
-  const [commentCount, setCommentCount] = useState(post.commentCount);
   const { userToken } = useContext(AuthContextStore);
   const Date = post.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
 
@@ -19,7 +19,7 @@ const PostItem = ({ post, itemPostId, onClick, upDatedCommentCount }) => {
   const handleLike = async () => {
     try {
       if (!isHearted) {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/heart`, {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${post.id}/heart`, {
           method: 'POST',
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
@@ -29,7 +29,7 @@ const PostItem = ({ post, itemPostId, onClick, upDatedCommentCount }) => {
         setIsHearted(true);
         setHeartCount(addCount);
       } else {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/unheart`, {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${post.id}/unheart`, {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
@@ -61,16 +61,16 @@ const PostItem = ({ post, itemPostId, onClick, upDatedCommentCount }) => {
 
         <UserContentSect>
           <h4 className='a11y-hidden'>게시물 내용</h4>
-          <UserPostText>{post?.content}</UserPostText>
-          {post?.image && <UserPostImg src={post?.image} />}
+          <UserPostText>{post.content}</UserPostText>
+          {post.image && (post.image.includes(',') ? <Carousel img={post.image} /> : <UserPostImg src={post.image} />)}
           <LikeAndComment>
             <LikeBtn isHearted={isHearted} onClick={handleLike}>
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to={`/postdetail/${itemPostId}`} state={{ post: post }}>
+            <CommentLink to={`/postdetail/${post.id}`}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
-              <span>{commentCount}</span>
+              <span>{commentCnt}</span>
             </CommentLink>
           </LikeAndComment>
           <TodayDate>{Date}</TodayDate>

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './PostAlbum.style';
 import Wrapper from '../common/Wrapper/Wrapper';
+import { Link } from 'react-router-dom';
 
 const PostAlbum = ({ posts }) => {
   return (
@@ -10,13 +11,17 @@ const PostAlbum = ({ posts }) => {
           {posts.map((post) =>
             post.image ? (
               post.image.includes(',') ? (
-                <S.Item key={post.id} multi>
-                  <S.Img src={post.image.split(',')[0]} alt='대표 이미지' />
-                </S.Item>
+                <Link to={`/postdetail/${post.id}`} key={post.id}>
+                  <S.Item multi>
+                    <S.Img src={post.image.split(',')[0]} alt='대표 이미지' />
+                  </S.Item>
+                </Link>
               ) : (
-                <S.Item key={post.id}>
-                  <S.Img src={post.image} alt='대표 이미지' />
-                </S.Item>
+                <Link to={`/postdetail/${post.id}`} key={post.id}>
+                  <S.Item>
+                    <S.Img src={post.image} alt='대표 이미지' />
+                  </S.Item>
+                </Link>
               )
             ) : null,
           )}

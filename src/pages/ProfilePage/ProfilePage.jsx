@@ -4,7 +4,7 @@ import ProfileDisplay from '../../components/Profile/ProfileDisplay';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
 import SellingProduct from '../../components/Product/SellingProduct';
 import PostSection from '../../components/Post/PostSection';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import FeedHeader from '../../components/common/Header/FeedHeader';
 
