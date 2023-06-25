@@ -31,7 +31,6 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
                 post={post}
                 itemPostId={post.id}
                 onClick={() => {
-                  navigate('/post/edit', { state: { content: post.content, image: post.image } });
                   handleClick(post.id);
                 }}
               />
