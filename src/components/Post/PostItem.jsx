@@ -13,7 +13,6 @@ const PostItem = ({ post, onClick, commentCnt }) => {
   const [heartCount, setHeartCount] = useState(post.heartCount);
   const { userToken } = useContext(AuthContextStore);
   const Date = post.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
-  console.log(commentCnt);
 
   // 좋아요 요청
   const handleLike = async () => {
@@ -42,7 +41,6 @@ const PostItem = ({ post, onClick, commentCnt }) => {
       console.log(error.message);
     }
   };
-  console.log(commentCnt);
   return (
     <>
       <PostArticle>
