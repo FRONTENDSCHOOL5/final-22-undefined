@@ -43,7 +43,7 @@ const Router = () => {
           <Route path='/profile/:accountname' element={<ProfilePage />} />
           <Route path='/profile/edit' element={<ProfileEdit />} />
           <Route path='/product' element={<AddProduct />} />
-          <Route path='/product/edit' element={<EditProduct />} />
+          <Route path='/product/:productId/edit' element={<EditProduct />} />
           <Route path='/follow/:accountname/:type' element={<FollowList />} />
         </Route>
       </Routes>

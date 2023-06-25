@@ -1,19 +1,21 @@
 import React, { useRef, useState, useContext } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
 const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
   const { accountname } = useParams(); // 현재 사용자 계정
+  const { pathname } = useLocation();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
   const userId = accountname ? accountname : userAccountname;
   const isLoginUser = userId === userAccountname;
+  const isHomeFollowedPosts = pathname === '/home';
 
   // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
@@ -154,6 +156,14 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
         <button onClick={() => optionClick(option)}>{option}</button>
       </S.Li>
     ));
+  }
+
+  if (isHomeFollowedPosts && !isLoginUser) {
+    optionElements.push(
+      <S.Li key='report'>
+        <button onClick={() => optionClick('신고하기')}>신고하기</button>
+      </S.Li>,
+    );
   }
 
   return (
