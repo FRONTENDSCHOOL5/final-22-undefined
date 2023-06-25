@@ -1,29 +1,33 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import MainLayout from '../../components/common/MainLayout/MainLayout';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
-const ContentsMain = styled.main`
+const ChatTxt = styled(MainLayout)`
   height: 100vh;
-  background: #f2f2f2;
-  padding: 16px;
+  ${({ theme: { colors } }) => css`
+    background-color: ${colors.bgGray};
+  `}
 
-  section {
+  div {
     display: inline-block;
     max-width: 240px;
     padding: 12px;
-    border: 1px solid #c4c4c4;
+    ${({ theme: { colors } }) => css`
+      border: 1px solid ${colors.gray};
+    `}
     border-radius: 0 10px 10px 10px;
   }
 `;
 
 const Contents = () => {
   return (
-    <ContentsMain>
+    <ChatTxt>
       <PostUserProfileImg />
-      <section>
-        <span>가입을 축하드립니다!</span>
-      </section>
-    </ContentsMain>
+      <div>
+        <p>가입을 축하드립니다!</p>
+      </div>
+    </ChatTxt>
   );
 };
 
