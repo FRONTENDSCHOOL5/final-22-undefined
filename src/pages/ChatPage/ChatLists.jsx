@@ -1,5 +1,5 @@
 import React from 'react';
-import TabMenu from '../HomePage/TabMenu';
+import TabMenu from '../../components/common/TabMenu/TabMenu';
 
 import ChatListsContents from './ChatListsContents';
 import FeedHeader from '../../components/common/Header/FeedHeader';
@@ -9,7 +9,7 @@ const ChatList = () => {
     <>
       <FeedHeader />
       <ChatListsContents />
-      <TabMenu />
+      <TabMenu active={'1'} />
     </>
   );
 };

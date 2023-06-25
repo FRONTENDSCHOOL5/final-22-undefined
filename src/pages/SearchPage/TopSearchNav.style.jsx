@@ -3,17 +3,23 @@ import styled from 'styled-components';
 import arrowLeft from '../../assets/icon/icon-arrow-left.png';
 
 export const Header = styled.header`
+  height: 48px;
   margin: 0px auto;
-  border-bottom: 0.5px solid #dbdbdb;
   padding: 8px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`};
 `;
 
 export const Input = styled.input`
   width: 100%;
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.colors.bgGray};
   border-radius: 32px;
   padding: 7px 16px;
   margin-left: 20px;
@@ -21,7 +27,7 @@ export const Input = styled.input`
     font-weight: 400;
     font-size: 14px;
     line-height: 17.53px;
-    color: #c4c4c4;
+    color: ${({ theme }) => theme.colors.txtColor};
   }
 `;
 
