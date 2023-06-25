@@ -207,11 +207,15 @@ const Textarea = styled.textarea`
   }
 `;
 
-const Ul = styled.ul``;
+const Ul = styled.ul`
+  display: flex;
+  gap: 10px;
+`;
 
 const Li = styled.li`
   border-radius: 10px;
-  max-width: 304px;
+  flex-shrink: 0;
+  width: 304px;
   height: 228px;
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.gray};

@@ -96,7 +96,7 @@ const UserNameInfo = styled.div`
 `;
 
 const InfoName = styled.p`
-  margin: 4px 0;
+  margin-bottom: 6px;
 `;
 const InfoAccount = styled.p`
   font-size: 12px;
