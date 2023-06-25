@@ -1,13 +1,14 @@
 import { useContext, useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 
 import TopMainNav from '../../components/common/Header/TopMainNav';
 import MainLayout from '../../components/common/MainLayout/MainLayout';
 import Contents from './Contents';
-import TabMenu from './TabMenu';
+import TabMenu from '../../components/common/TabMenu/TabMenu';
 
 const Home = () => {
-  const { userToken } = useContext(AuthContextStore);
+  const { userToken, userAccountname } = useContext(AuthContextStore);
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -40,6 +41,11 @@ const Home = () => {
     }
   }, [userToken]);
 
+  const { accountname } = useParams();
+  const userId = accountname ? accountname : userAccountname;
+  // 현재 프로필에 해당하는 사람이 로그인된 유저랑 같은 사람인지 여부
+  const isLoginUser = userId === userAccountname;
+
   return (
     <>
       <TopMainNav />
@@ -50,7 +56,7 @@ const Home = () => {
           <Contents posts={posts} />
         )}
       </MainLayout>
-      <TabMenu />
+      <TabMenu active={isLoginUser ? '0' : '1'} />
     </>
   );
 };
