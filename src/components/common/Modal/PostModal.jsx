@@ -22,7 +22,12 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     if (option === '삭제') {
       setSelectedOption(option);
     } else if (option === '수정') {
-      navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
+      console.log('수정');
+      for (let i = 0; i < posts.length; i++) {
+        if (posts[i].id === postId) {
+          navigate('/post/edit', { state: { content: posts[i].content, image: posts[i].image } });
+        }
+      }
     } else if (option === '신고하기') {
       reportPost(postId);
     }

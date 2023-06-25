@@ -11,13 +11,15 @@ const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.h
 
 const Post = () => {
   const { pathname, state } = useLocation();
+  console.log(state.image);
   const loadedText = pathname.includes('edit') ? state.content : '';
-  const loadedlImg = pathname.includes('edit') ? [state.image.replace('https://api.mandarin.weniv.co.kr/', '')] : []; // state로 받아온 image는 주소가 전부 포함돼 있기 때문에 잘라줌.
-
+  const loadedlImg = pathname.includes('edit')
+    ? [state.image.replaceAll('https://api.mandarin.weniv.co.kr/', '')][0].split(',')
+    : []; // state로 받아온 image는 주소가 전부 포함돼 있기 때문에 잘라줌.
+  // console.log(loadedlImg);
   const [userContent, setUserContent] = useState(loadedText); // edit 페이지 url로 접속시, 초기값은 pathname과 List~Item에서 navigate state를 통해 가져온 content와 image값을 활용함.
   const [uploadedImages, setUploadedImages] = useState(loadedlImg);
   const [userProfileImg, setUserProfileImg] = useState('');
-
   const { userToken } = useContext(AuthContextStore);
   const textarea = useRef(); // textarea 높이 자동 조절을 위해 쓰이는 ref
   const navigate = useNavigate();
@@ -49,14 +51,14 @@ const Post = () => {
       else {
         image = uploadedImages.map((image) => `https://api.mandarin.weniv.co.kr/${image}`).join(',');
       }
-
+      const contents = userContent.replace('\r\n', '<br>');
       const res = await fetch('https://api.mandarin.weniv.co.kr/post', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
         },
-        body: JSON.stringify({ post: { content: userContent, image } }),
+        body: JSON.stringify({ post: { content: contents, image } }),
       });
       const data = await res.json();
       navigate('/profile');
@@ -121,6 +123,7 @@ const Post = () => {
   if (userContent || uploadedImages.length > 0) isActivated = true;
 
   // let userImgUrl = `https://api.mandarin.weniv.co.kr/${userImg}`
+  // console.log(uploadedImages[0].split(','));
   return (
     <>
       <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={uploadPost} />
@@ -193,8 +196,9 @@ const Textarea = styled.textarea`
   border: none;
   resize: none;
   overflow: hidden;
-  /* word-break: break-all; */
   line-height: 20px;
+  word-break: break-all;
+
   &:focus {
     outline: none;
   }
