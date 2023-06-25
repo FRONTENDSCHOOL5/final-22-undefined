@@ -5,7 +5,7 @@ import uploadImgBtn from '../../assets/upload-file.png';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const Comment = ({ setIsCommentUpdated, atChatroom, userProfileImg, postId }) => {
+const Comment = ({ setUpdatedCommentCount, setIsCommentUpdated, atChatroom, userProfileImg, postId }) => {
   const [text, setText] = useState('');
   const { userToken } = useContext(AuthContextStore);
 
@@ -27,6 +27,17 @@ const Comment = ({ setIsCommentUpdated, atChatroom, userProfileImg, postId }) =>
       const data = await response.json();
       setIsCommentUpdated(true);
       setText('');
+
+      // 댓글 갯수 동적 업데이트 위한 요청
+      const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-type': 'application/json',
+        },
+      });
+      const result = await res.json();
+      console.log(result.post.commentCount);
+      setUpdatedCommentCount(result.post.commentCount);
     } catch (error) {
       console.log(error.message);
     }

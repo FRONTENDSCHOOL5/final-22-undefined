@@ -14,6 +14,7 @@ const PostItem = ({ post, itemPostId, onClick, updatedCommentCount }) => {
   const [commentCount, setCommentCount] = useState(post.commentCount);
   const { userToken } = useContext(AuthContextStore);
   const Date = post.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
+
   // 좋아요 요청
   const handleLike = async () => {
     try {
@@ -41,7 +42,6 @@ const PostItem = ({ post, itemPostId, onClick, updatedCommentCount }) => {
       console.log(error.message);
     }
   };
-  console.log(updatedCommentCount);
   return (
     <>
       <PostArticle>
@@ -69,7 +69,7 @@ const PostItem = ({ post, itemPostId, onClick, updatedCommentCount }) => {
             </LikeBtn>
             <CommentLink to={`/postdetail/${itemPostId}`} state={{ post: post }}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
-              <span>{commentCount}</span>
+              <span>{updatedCommentCount ? updatedCommentCount : commentCount}</span>
             </CommentLink>
           </LikeAndComment>
           <TodayDate>{Date}</TodayDate>

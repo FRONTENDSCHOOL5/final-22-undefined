@@ -99,9 +99,6 @@ const Post = () => {
       console.log(error.message);
     }
   };
-
-  console.log(uploadedImages);
-
   // 이미지 삭제 확인
   const deleteConfirm = (index) => {
     setUploadedImages((prevImages) => {
@@ -196,6 +193,8 @@ const Textarea = styled.textarea`
   border: none;
   resize: none;
   overflow: hidden;
+  /* word-break: break-all; */
+  line-height: 20px;
   &:focus {
     outline: none;
   }

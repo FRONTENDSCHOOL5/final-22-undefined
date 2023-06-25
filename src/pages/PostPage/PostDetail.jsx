@@ -14,10 +14,9 @@ const PostDetail = () => {
   const { userToken } = useContext(AuthContextStore);
   const [commentList, setCommentList] = useState([]);
   const [isCommentUpdated, setIsCommentUpdated] = useState(false);
-  const [commentCount, setCommentCount] = useState('');
-
-  const { state } = useLocation(); //Link로 이동된 페이지이기 때문에 state전달을 위한 location
-  console.log(state);
+  const { state } = useLocation(); //Link로 이동된 페이지이기 때문에, 전달받을 state를위한 location
+  const [updatedCommentCount, setUpdatedCommentCount] = useState(state.post.commentCount);
+  // console.log(updatedCommentCount);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -30,8 +29,8 @@ const PostDetail = () => {
           },
         });
         const result = await res.json();
-        setCommentList(result.comments);
-        setIsCommentUpdated(false); //comment에서 댓글을 올리면 true로 바뀌도로 설정돼있는데, 그럼 이 댓글 리스트 정보 요청이 발생하고, list가 업데이트됨. 그 이후 본래 false 상태로 전환 해줘야 이후 게시를해도 상태를 재업데이트 할 수 있음.
+        setCommentList(result.comments); // 불리언 값에 의한 갱신마다 PostCommentList가 렌더하도록
+        setIsCommentUpdated(false); //comment에서 댓글을 올리면 true로 바뀌도로 설정돼있는데, 그럼 이 댓글 리스트 정보 요청이 발생하고, commentList가 업데이트됨. 그 이후 본래 false 상태로 전환 해줘야 이후 게시를해도 상태를 재업데이트 할 수 있음.
       } catch (err) {
         console.log(err.message);
       }
@@ -57,7 +56,6 @@ const PostDetail = () => {
     };
     handleUserImg();
   }, []);
-
   return (
     <>
       <FeedHeader />
@@ -65,7 +63,7 @@ const PostDetail = () => {
         <ArticleWrapper>
           <PostWrapper>
             <PostArticle>
-              <PostItem post={state.post} itemPostId={post_id} />
+              <PostItem post={state.post} itemPostId={post_id} updatedCommentCount={updatedCommentCount} />
               <h2 className='a11y-hidden'>댓글 해당 게시물</h2>
             </PostArticle>
           </PostWrapper>
@@ -78,6 +76,7 @@ const PostDetail = () => {
         </CommentWrapper>
       </Main>
       <Comment
+        setUpdatedCommentCount={setUpdatedCommentCount}
         setIsCommentUpdated={setIsCommentUpdated}
         atChatroom={false}
         userProfileImg={myProfileImg}
