@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import PostUserProfileImg from './PostUserProfileImg';
 import CommentModal from '../common/Modal/CommentModal';
 
-const PostCommentList = ({ commentList, postId, posts, setPosts }) => {
+const PostCommentList = ({ commentList, postId, setCommentList, setCommentCnt }) => {
   //작성 경과 시간 함수
   const calcUploadTime = (date) => {
     const TEN_SECOND = 10 * 1000;
@@ -32,7 +32,6 @@ const PostCommentList = ({ commentList, postId, posts, setPosts }) => {
   // 댓글 모달 관련
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCommentId, setSelectedCommentId] = useState(null);
-  const [comments, setComments] = useState([]);
 
   const openModal = (commentId) => {
     setIsModalOpen(true);
@@ -42,22 +41,6 @@ const PostCommentList = ({ commentList, postId, posts, setPosts }) => {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedCommentId(null);
-  };
-
-  const handleDeleteComment = (commentId) => {
-    // 댓글 삭제 후에 댓글 목록을 업데이트합니다.
-    const updatedComments = comments.filter((comment) => comment.id !== commentId);
-    setComments(updatedComments);
-
-    // 댓글 삭제 후에 부모 컴포넌트의 댓글 목록을 업데이트합니다.
-    const updatedPosts = [...posts];
-    const postIndex = updatedPosts.findIndex((post) => post.id === postId);
-    if (postIndex !== -1) {
-      const updatedPost = { ...updatedPosts[postIndex] };
-      updatedPost.comments = updatedComments;
-      updatedPosts[postIndex] = updatedPost;
-      setPosts(updatedPosts);
-    }
   };
 
   return (
@@ -91,7 +74,10 @@ const PostCommentList = ({ commentList, postId, posts, setPosts }) => {
           onClose={closeModal}
           commentId={selectedCommentId}
           postId={postId}
-          onDeleteComment={handleDeleteComment}
+          commentAuthor={commentList.find((comment) => comment.id === selectedCommentId)?.author.accountname}
+          setCommentList={setCommentList}
+          commentList={commentList}
+          setCommentCnt={setCommentCnt}
         />
       )}
     </>
