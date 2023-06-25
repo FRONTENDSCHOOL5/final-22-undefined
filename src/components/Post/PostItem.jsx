@@ -5,16 +5,15 @@ import HeartIconFill from '../../assets/icon/icon-heart-active.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.png';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 import { Link } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ post, itemPostId, onClick, upDatedCommentCount }) => {
+const PostItem = ({ post, itemPostId, onClick, updatedCommentCount }) => {
   const [isHearted, setIsHearted] = useState(post.hearted);
   const [heartCount, setHeartCount] = useState(post.heartCount);
   const [commentCount, setCommentCount] = useState(post.commentCount);
   const { userToken } = useContext(AuthContextStore);
   const Date = post.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
-
   // 좋아요 요청
   const handleLike = async () => {
     try {
@@ -42,7 +41,7 @@ const PostItem = ({ post, itemPostId, onClick, upDatedCommentCount }) => {
       console.log(error.message);
     }
   };
-
+  console.log(updatedCommentCount);
   return (
     <>
       <PostArticle>
@@ -117,6 +116,8 @@ const UserContentSect = styled.section`
 
 const UserPostText = styled.p`
   margin-bottom: 16px;
+  word-break: break-all;
+  line-height: 20px;
 `;
 
 const UserPostImg = styled.img`
