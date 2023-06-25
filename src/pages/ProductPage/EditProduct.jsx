@@ -30,17 +30,19 @@ const EditProduct = () => {
     link: '',
   });
 
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { product_id } = useParams();
+  const { productId } = useParams();
 
   let isActivated = false;
   if (
-    formData.itemName.trim() !== '' &&
-    formData.price.trim() !== '' &&
-    formData.link.trim() !== '' &&
+    formData.itemName?.trim() !== '' &&
+    formData.price?.trim() !== '' &&
+    formData.link?.trim() !== '' &&
     (error.itemName === '' || error.itemName === 'noError') &&
     (error.price === '' || error.price === 'noError') &&
-    (error.link === '' || error.link === 'noError')
+    (error.link === '' || error.link === 'noError') &&
+    !isLoading
   ) {
     isActivated = true;
   }
@@ -48,9 +50,12 @@ const EditProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${product_id}`, {
+        setIsLoading(true);
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/product/detail/${productId}`, {
+          method: 'GET',
           headers: {
             Authorization: `Bearer ${userToken}`,
+            'Content-type': 'application/json',
           },
         });
 
@@ -63,17 +68,20 @@ const EditProduct = () => {
           link,
         });
         setImg(itemImage);
+        setIsLoading(false);
       } catch (err) {
         console.log(err.message);
+        setIsLoading(false);
       }
     };
 
     getProduct();
-  }, [product_id, userToken]);
+  }, [productId, userToken]);
 
   const addClick = async () => {
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${product_id}`, {
+      setIsLoading(true);
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${productId}`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${userToken}`,
@@ -90,13 +98,13 @@ const EditProduct = () => {
       });
 
       const data = await response.json();
-      if (response.ok) {
-        navigate('/profile');
-      } else {
-        console.log(data.message);
-      }
+      if (!data.product) throw Error('잘못된 접근입니다.');
+      setIsLoading(false);
+      localStorage.setItem('product', JSON.stringify(formData));
+      navigate('/profile');
     } catch (err) {
       console.log(err.message);
+      setIsLoading(false);
     }
   };
 
@@ -104,7 +112,7 @@ const EditProduct = () => {
     <Main>
       <LayoutWrapper>
         <SaveHeader name='저장' mode={isActivated ? 'default' : 'disabled'} onClick={addClick} />
-        <Form onSubmit={(e) => e.preventDefault()}>
+        <Form>
           <ProductForm
             formData={formData}
             setFormData={setFormData}

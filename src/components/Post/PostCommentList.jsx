@@ -3,8 +3,9 @@ import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PostUserProfileImg from './PostUserProfileImg';
+import CommentModal from '../common/Modal/CommentModal';
 
-const PostCommentList = ({ commentList }) => {
+const PostCommentList = ({ commentList, postId, posts, setPosts }) => {
   //작성 경과 시간 함수
   const calcUploadTime = (date) => {
     const TEN_SECOND = 10 * 1000;
@@ -28,6 +29,21 @@ const PostCommentList = ({ commentList }) => {
     });
   };
 
+  // 댓글 모달 관련
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCommentId, setSelectedCommentId] = useState(null);
+  const [comments, setComments] = useState(commentList);
+
+  const openModal = (commentId) => {
+    setIsModalOpen(true);
+    setSelectedCommentId(commentId);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedCommentId(null);
+  };
+
   return (
     <>
       <Ul>
@@ -43,7 +59,8 @@ const PostCommentList = ({ commentList }) => {
                     <Username>{comment.author.username}</Username>
                   </NameLink>
                   <UploadTime>{calcUploadTime(comment.createdAt)}</UploadTime>
-                  <ButtonIcon>
+                  {/* 댓글 모달 */}
+                  <ButtonIcon onClick={() => openModal(comment.id)}>
                     <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
                   </ButtonIcon>
                 </UserAuth>
@@ -52,6 +69,18 @@ const PostCommentList = ({ commentList }) => {
             );
           })}
       </Ul>
+      {/* 댓글 모달 */}
+      {isModalOpen && (
+        <CommentModal
+          onClose={closeModal}
+          commentId={selectedCommentId}
+          comments={commentList}
+          postId={postId}
+          posts={posts}
+          setPosts={setPosts}
+          setComments={setComments}
+        />
+      )}
     </>
   );
 };

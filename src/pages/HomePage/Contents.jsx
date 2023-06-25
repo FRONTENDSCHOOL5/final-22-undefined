@@ -1,5 +1,4 @@
 import { React, useState } from 'react';
-
 import home from '../../assets/symbol-logo-gray.png';
 import styled from 'styled-components';
 import PostList from '../../components/Post/PostList';
@@ -40,12 +39,12 @@ const SearchIcon = styled.a`
   line-height: 17.53px;
 `;
 
-const Contents = ({ posts }) => {
+const Contents = ({ posts, setPosts }) => {
   return (
     <Main>
       {posts.length !== 0 ? (
         <>
-          <PostList posts={posts} />
+          <PostList posts={posts} setPosts={setPosts} />
         </>
       ) : (
         <>
