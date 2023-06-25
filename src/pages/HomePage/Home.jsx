@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import TopMainNav from './TopMainNav';
+import TopMainNav from '../../components/common/Header/TopMainNav';
 import Contents from './Contents';
 import TabMenu from './TabMenu';
 
