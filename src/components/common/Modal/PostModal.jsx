@@ -158,7 +158,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     ));
   }
 
-  if (isHomeFollowedPosts && !isLoginUser) {
+  if (!isLoginUser || isHomeFollowedPosts) {
     optionElements.push(
       <S.Li key='report'>
         <button onClick={() => optionClick('신고하기')}>신고하기</button>
