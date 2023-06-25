@@ -31,7 +31,7 @@ const PostCommentList = ({ commentList }) => {
   return (
     <>
       <Ul>
-        {commentList &&
+        {commentList.length > 0 &&
           commentList.map((comment) => {
             return (
               <Li key={comment.id}>
