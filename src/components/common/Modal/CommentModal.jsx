@@ -1,68 +1,47 @@
-import React, { useRef, useState, useContext } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
 import * as S from './Modal.style';
 import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
-const CommentModal = ({ onClose, commentId, comments, setComments, postId, posts, setPosts }) => {
+const CommentModal = ({ onClose, commentId, postId, onDeleteComment }) => {
   const modalRef = useRef();
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
-  const myCommentModalOptions = ['삭제'];
-  const otherCommentModalOptions = ['신고하기'];
-  const userId = accountname ? accountname : userAccountname;
-  const isLoginUser = userId === userAccountname;
+  // const userId = accountname ? accountname : userAccountname;
+  // const isLoginUser = userId === userAccountname;
+  // const [comments, setComments] = useState([]);
 
-  const optionClick = (option) => {
+  const optionClick = async (option) => {
     if (option === '삭제') {
-      deleteComment(commentId)
-        .then((response) => {
-          if (response.success) {
-            onClose();
-            setComments(comments.filter((comment) => comment.id !== commentId));
-          } else {
-            onClose();
-            deleteError(response.error);
-          }
-        })
-        .catch((error) => {
-          deleteError('서버 오류');
-        });
+      try {
+        const response = await deleteComment();
+        if (response.success) {
+          onDeleteComment(commentId);
+          onClose();
+        } else {
+          deleteError(response.error);
+        }
+      } catch (error) {
+        deleteError('서버 오류');
+      }
     } else if (option === '신고하기') {
-      reportComment(commentId);
+      reportComment();
       onClose();
     }
   };
 
-  // const closeModal = (option) => {
-  //   if (option === '삭제') {
-  //     deleteComment(commentId)
-  //       .then((response) => {
-  //         if (response.success) {
-  //           onClose();
-  //           setComments(comments.filter((comment) => comment.id !== commentId));
-  //         } else {
-  //           onClose();
-  //           deleteError(response.error);
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         deleteError('서버 오류');
-  //       });
-  //   } else if (option === '취소') {
-  //     onClose();
-  //   }
-  // };
-
-  const deleteComment = async (commentId) => {
+  const deleteComment = async () => {
+    // console.log('postId 값:', postId);
+    // console.log('commentId 값:', commentId);
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comment/${commentId}`, {
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments/${commentId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json',
         },
       });
-
+      console.log(response);
       if (response.ok) {
         return { success: true };
       } else if (response.status === 404) {
@@ -81,9 +60,9 @@ const CommentModal = ({ onClose, commentId, comments, setComments, postId, posts
     console.log(error);
   };
 
-  const reportComment = async (commentId) => {
+  const reportComment = async () => {
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}comment/${commentId}/report`, {
+      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments/${commentId}/report`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${userToken}`,
@@ -98,7 +77,6 @@ const CommentModal = ({ onClose, commentId, comments, setComments, postId, posts
 
       if (response.ok) {
         console.log('댓글 신고 완료');
-        onClose();
       } else {
         throw new Error('댓글 신고 실패');
       }
@@ -113,19 +91,21 @@ const CommentModal = ({ onClose, commentId, comments, setComments, postId, posts
     }
   };
 
+  const isLoginUser = accountname ? accountname === userAccountname : true; // 댓글이 현재 사용자의 것인지 확인합니다.
+
   let optionElements = null;
   if (isLoginUser) {
-    optionElements = myCommentModalOptions.map((option, index) => (
-      <S.Li key={index}>
-        <button onClick={() => optionClick(option)}>{option}</button>
+    optionElements = (
+      <S.Li>
+        <button onClick={() => optionClick('삭제')}>삭제</button>
       </S.Li>
-    ));
+    );
   } else {
-    optionElements = otherCommentModalOptions.map((option, index) => (
-      <S.Li key={index}>
-        <button onClick={() => optionClick(option)}>{option}</button>
+    optionElements = (
+      <S.Li>
+        <button onClick={() => optionClick('신고하기')}>신고하기</button>
       </S.Li>
-    ));
+    );
   }
 
   return (
