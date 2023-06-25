@@ -8,18 +8,18 @@ import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
-const PostItem = ({ post, itemPostId, onClick, updatedCommentCount }) => {
+const PostItem = ({ post, onClick, commentCnt }) => {
   const [isHearted, setIsHearted] = useState(post.hearted);
   const [heartCount, setHeartCount] = useState(post.heartCount);
-  const [commentCount, setCommentCount] = useState(post.commentCount);
   const { userToken } = useContext(AuthContextStore);
   const Date = post.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
+  console.log(commentCnt);
 
   // 좋아요 요청
   const handleLike = async () => {
     try {
       if (!isHearted) {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/heart`, {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${post.id}/heart`, {
           method: 'POST',
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
@@ -29,7 +29,7 @@ const PostItem = ({ post, itemPostId, onClick, updatedCommentCount }) => {
         setIsHearted(true);
         setHeartCount(addCount);
       } else {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${itemPostId}/unheart`, {
+        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${post.id}/unheart`, {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
@@ -42,6 +42,7 @@ const PostItem = ({ post, itemPostId, onClick, updatedCommentCount }) => {
       console.log(error.message);
     }
   };
+  console.log(commentCnt);
   return (
     <>
       <PostArticle>
@@ -67,9 +68,9 @@ const PostItem = ({ post, itemPostId, onClick, updatedCommentCount }) => {
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to={`/postdetail/${itemPostId}`} state={{ post: post }}>
+            <CommentLink to={`/postdetail/${post.id}`} state={{ post: post }}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
-              <span>{updatedCommentCount ? updatedCommentCount : commentCount}</span>
+              <span>{commentCnt}</span>
             </CommentLink>
           </LikeAndComment>
           <TodayDate>{Date}</TodayDate>
