@@ -7,6 +7,7 @@ import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
+import Carousel from '../common/Carousel/Carousel';
 
 const PostItem = ({ post, onClick, commentCnt }) => {
   const [isHearted, setIsHearted] = useState(post.hearted);
@@ -59,14 +60,14 @@ const PostItem = ({ post, onClick, commentCnt }) => {
 
         <UserContentSect>
           <h4 className='a11y-hidden'>게시물 내용</h4>
-          <UserPostText>{post?.content}</UserPostText>
-          {post?.image && <UserPostImg src={post?.image} />}
+          <UserPostText>{post.content}</UserPostText>
+          {post.image && (post.image.includes(',') ? <Carousel img={post.image} /> : <UserPostImg src={post.image} />)}
           <LikeAndComment>
             <LikeBtn isHearted={isHearted} onClick={handleLike}>
               <span className='a11y-hidden'>좋아요 버튼</span>
               <span>{heartCount}</span>
             </LikeBtn>
-            <CommentLink to={`/postdetail/${post.id}`} state={{ post: post }}>
+            <CommentLink to={`/postdetail/${post.id}`}>
               <span className='a11y-hidden'>댓글 남기기 링크</span>
               <span>{commentCnt}</span>
             </CommentLink>

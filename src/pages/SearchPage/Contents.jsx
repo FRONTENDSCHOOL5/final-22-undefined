@@ -1,11 +1,8 @@
 import React from 'react';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
+import MainLayout from '../../components/common/MainLayout/MainLayout';
 import styled from 'styled-components';
-
-const Main = styled.main`
-  height: calc(100vh - 108px);
-`;
 
 const UserList = styled.ul`
   width: 100%;
@@ -35,7 +32,7 @@ const UserList = styled.ul`
 
 const Contents = ({ userList }) => {
   return (
-    <Main>
+    <MainLayout>
       {userList.map((item) => (
         <UserList key={item.id}>
           <li>
@@ -49,7 +46,7 @@ const Contents = ({ userList }) => {
           </li>
         </UserList>
       ))}
-    </Main>
+    </MainLayout>
   );
 };
 

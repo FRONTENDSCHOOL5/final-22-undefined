@@ -4,8 +4,8 @@ import * as S from './TopMainNav.style';
 const TopMainNav = () => {
   return (
     <S.Header>
-      <S.H1>감귤마켓 피드</S.H1>
-      <S.SearchBtn href='/search' />
+      <h1>감귤마켓 피드</h1>
+      <a href='/search' />
     </S.Header>
   );
 };

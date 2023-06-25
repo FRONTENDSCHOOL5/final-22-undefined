@@ -4,7 +4,7 @@ import Comment from '../../pages/ChatPage/Comment';
 import { AuthContextStore } from '../../context/AuthContext';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import PostItem from '../../components/Post/PostItem';
 import PostCommentList from '../../components/Post/PostCommentList';
 
@@ -13,10 +13,6 @@ const PostDetail = () => {
   const [myProfileImg, setMyProfileImg] = useState('');
   const { userToken } = useContext(AuthContextStore);
   const [commentList, setCommentList] = useState([]);
-  // const [isCommentUpdated, setIsCommentUpdated] = useState(false);
-  //const { state } = useLocation(); //Link로 이동된 페이지이기 때문에, 전달받을 state를위한 location
-  // const [updatedCommentCount, setUpdatedCommentCount] = useState(state.post.commentCount);
-  // console.log(updatedCommentCount);
   const [commentCnt, setCommentCnt] = useState(0);
   const [post, setPost] = useState({});
 
@@ -45,7 +41,7 @@ const PostDetail = () => {
     const getUserInfo = async () => {
       try {
         //댓글 리스트 정보 요청
-        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}/comments/?limit=10&skip=0`, {
+        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}/comments/?limit=0&skip=0`, {
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-Type': 'application/json',
@@ -59,6 +55,8 @@ const PostDetail = () => {
     };
     getUserInfo();
   }, [post_id]);
+
+  // console.log(commentList);
 
   // 프로필 이미지 요청(댓글 페이지는 언제나 자기 프로필 사진)
   useEffect(() => {
@@ -85,7 +83,7 @@ const PostDetail = () => {
         <ArticleWrapper>
           <PostWrapper>
             <PostArticle>
-              {Object.keys(post).length > 0 && <PostItem post={post} itemPostId={post_id} commentCnt={commentCnt} />}
+              {Object.keys(post).length > 0 && <PostItem post={post} commentCnt={commentCnt} />}
               <h2 className='a11y-hidden'>댓글 해당 게시물</h2>
             </PostArticle>
           </PostWrapper>

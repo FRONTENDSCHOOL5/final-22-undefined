@@ -1,13 +1,15 @@
 import { useContext, useState, useEffect } from 'react';
-import TopMainNav from './TopMainNav';
-import Contents from './Contents';
-import TabMenu from './TabMenu';
-
 import { AuthContextStore } from '../../context/AuthContext';
+
+import TopMainNav from '../../components/common/Header/TopMainNav';
+import MainLayout from '../../components/common/MainLayout/MainLayout';
+import Contents from './Contents';
+import TabMenu from '../../components/common/TabMenu/TabMenu';
 
 const Home = () => {
   const { userToken } = useContext(AuthContextStore);
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handlePostList = async () => {
     try {
@@ -23,6 +25,7 @@ const Home = () => {
 
       if (response.ok) {
         setPosts(data.posts);
+        setIsLoading(false);
       } else {
         console.error('요청에 실패했습니다.');
       }
@@ -40,8 +43,14 @@ const Home = () => {
   return (
     <>
       <TopMainNav />
-      <Contents posts={posts} />
-      <TabMenu />
+      <MainLayout>
+        {isLoading ? (
+          <div style={{ background: 'white', width: '100vw', height: '100vh' }}></div>
+        ) : (
+          <Contents posts={posts} />
+        )}
+      </MainLayout>
+      <TabMenu active={'0'} />
     </>
   );
 };

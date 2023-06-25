@@ -24,7 +24,7 @@ const PostSection = () => {
     setPosts([]);
     setSkip(0);
     setIsLast(false);
-  }, [location]);
+  }, [location.pathname]);
 
   // 유저 게시물 정보
   useEffect(() => {
@@ -40,6 +40,7 @@ const PostSection = () => {
         // console.log(data);
         if (data.post.length < 6) setIsLast(true);
         // *** 남의 프로필 페이지 갔다가 내 프로필 페이지에 오면 다른 사람의 게시글이 포함 되어 있음..
+
         setPosts((prev) => [...prev, ...data.post]);
         // setIsLoading(false);
       } catch (err) {
@@ -87,11 +88,7 @@ const PostSection = () => {
         </Wrapper>
       </S.Header>
       {posts.length > 0 &&
-        (isList ? (
-          <PostList posts={posts} setPosts={setPosts} ref={target} />
-        ) : (
-          <PostAlbum posts={posts} ref={target} />
-        ))}
+        (isList ? <PostList posts={posts} setPosts={setPosts} ref={target} /> : <PostAlbum posts={posts} />)}
     </S.Section>
   );
 };

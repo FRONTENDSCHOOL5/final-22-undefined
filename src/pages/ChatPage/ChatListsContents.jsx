@@ -2,19 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { useNavigate } from 'react-router-dom';
+import MainLayout from '../../components/common/MainLayout/MainLayout';
 
-const ChatListCard = styled.main`
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  min-height: calc(100vh - 108px);
-  margin-top: 48px;
-  padding: 20px 16px 0;
-
-  div {
+const ChatListCard = styled.section`
+  .chatListTxt {
     display: inline-block;
+    cursor: pointer;
   }
   h2 {
     font-weight: 400;
@@ -42,14 +35,16 @@ const ChatListsContents = () => {
   };
 
   return (
-    <ChatListCard onClick={handleClick}>
-      <PostUserProfileImg size={'42px'} />
-      <div>
-        <h2>🐾강냥공냥공냥냥</h2>
-        <p>가입을 축하드립니다!</p>
-        <p className='date'>2023.06.20</p>
-      </div>
-    </ChatListCard>
+    <MainLayout>
+      <ChatListCard onClick={handleClick}>
+        <PostUserProfileImg size={'42px'} />
+        <div className='chatListTxt'>
+          <h2>🐾강냥공냥공냥냥</h2>
+          <p>가입을 축하드립니다!</p>
+          <p className='date'>2023.06.20</p>
+        </div>
+      </ChatListCard>
+    </MainLayout>
   );
 };
 
