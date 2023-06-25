@@ -6,7 +6,7 @@ import { AuthContextStore } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileEdit = () => {
-  const { userToken } = useContext(AuthContextStore);
+  const { userToken, setUserAccountname } = useContext(AuthContextStore);
   const [formData, setFormData] = useState({
     accountname: '',
     username: '',
@@ -68,6 +68,7 @@ const ProfileEdit = () => {
       if (!data.user) throw Error('잘못된 접근입니다.');
       setIsLoading(false);
       localStorage.setItem('accountname', formData.accountname);
+      setUserAccountname(formData.accountname);
       navigate('/profile');
     } catch (err) {
       console.log(err.message);
