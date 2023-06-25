@@ -76,7 +76,7 @@ const Follow = ({ item }) => {
     }
   };
 
-  if (follow.accountname === userAccountname) return null;
+  // if (follow.accountname === userAccountname) return null;
 
   return (
     <Item>
@@ -86,9 +86,11 @@ const Follow = ({ item }) => {
           <UserName className='sl-ellipsis'>{username}</UserName>
           <Intro className='sl-ellipsis'>{intro}</Intro>
         </Container>
-        <StyledBtn mode={isfollow ? 'active' : 'default'} size='sm' onClick={handleClick}>
-          {isfollow ? '취소' : '팔로우'}
-        </StyledBtn>
+        {follow.accountname !== userAccountname && (
+          <StyledBtn mode={isfollow ? 'active' : 'default'} size='sm' onClick={handleClick}>
+            {isfollow ? '취소' : '팔로우'}
+          </StyledBtn>
+        )}
       </StyledLink>
     </Item>
   );
