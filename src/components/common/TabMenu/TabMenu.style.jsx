@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.footer`
   padding: 0 6px;
   position: fixed;
   left: 0;

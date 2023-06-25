@@ -1,15 +1,7 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import home from '../../assets/symbol-logo-gray.png';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PostList from '../../components/Post/PostList';
-
-const Main = styled.main`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 108px);
-  margin-top: 48px;
-`;
 
 const P = styled.p`
   font-size: 14px;
@@ -31,17 +23,21 @@ const SearchIcon = styled.a`
   height: 44px;
   display: inline-block;
   padding: 15px 0;
-  background: #f26e22;
   border-radius: 44px;
-  color: #ffff;
+  ${({ theme: { colors } }) => css`
+    background-color: ${colors.primary};
+    border-top: 1px solid ${colors.gray};
+    color: ${colors.white};
+  `}
   font-weight: 500;
   font-size: 14px;
   line-height: 17.53px;
+  text-align: center;
 `;
 
 const Contents = ({ posts, setPosts }) => {
   return (
-    <Main>
+    <>
       {posts.length !== 0 ? (
         <>
           <PostList posts={posts} setPosts={setPosts} />
@@ -52,7 +48,7 @@ const Contents = ({ posts, setPosts }) => {
           <SearchIcon href='/search'>검색하기</SearchIcon>
         </>
       )}
-    </Main>
+    </>
   );
 };
 
