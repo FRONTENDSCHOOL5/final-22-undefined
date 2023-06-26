@@ -28,6 +28,7 @@ const EditProduct = () => {
     itemName: '',
     price: '',
     link: '',
+    itemImg: '',
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -39,9 +40,11 @@ const EditProduct = () => {
     formData.itemName?.trim() !== '' &&
     formData.price?.trim() !== '' &&
     formData.link?.trim() !== '' &&
+    img !== '' &&
     (error.itemName === '' || error.itemName === 'noError') &&
     (error.price === '' || error.price === 'noError') &&
     (error.link === '' || error.link === 'noError') &&
+    (error.itemImg === '' || error.itemImg === 'noError') &&
     !isLoading
   ) {
     isActivated = true;
@@ -100,7 +103,6 @@ const EditProduct = () => {
       const data = await response.json();
       if (!data.product) throw Error('잘못된 접근입니다.');
       setIsLoading(false);
-      localStorage.setItem('product', JSON.stringify(formData));
       navigate('/profile');
     } catch (err) {
       console.log(err.message);
