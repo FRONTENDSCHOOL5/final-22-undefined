@@ -37,7 +37,7 @@ const PostSection = () => {
         });
 
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         if (data.post.length < 6) setIsLast(true);
         // *** 남의 프로필 페이지 갔다가 내 프로필 페이지에 오면 다른 사람의 게시글이 포함 되어 있음..
 

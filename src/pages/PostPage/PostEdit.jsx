@@ -1,22 +1,20 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContextStore } from '../../context/AuthContext';
 import uploadIcon from '../../assets/icon/icon-upload.png';
 import removeIcon from '../../assets/icon/icon-delete.svg';
-import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
-import { useLocation, useNavigate } from 'react-router-dom';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
+import styled from 'styled-components';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
-const Post = () => {
-  const { pathname, state } = useLocation();
-  // console.log(state);
-  const loadedText = pathname.includes('edit') ? state.content : '';
-  const loadedlImg = pathname.includes('edit')
-    ? [state.image.replaceAll('https://api.mandarin.weniv.co.kr/', '')][0].split(',')
-    : []; // state로 받아온 image는 주소가 전부 포함돼 있기 때문에 잘라줌.
-  // console.log(loadedlImg);
+const PostEdit = () => {
+  const { state } = useLocation();
+  console.log(state.image);
+  const loadedText = state.content;
+  const loadedlImg = state.image ? [state.image.replaceAll('https://api.mandarin.weniv.co.kr/', '')][0].split(',') : []; // state로 받아온 image는 주소가 전부 포함돼 있기 때문에 잘라줌. 이미지가 빈값이어서 ['']면 빈 엑박 이미지가 들어감. 또한 초깃값이 []아니면 map에서 돌지 않음.
+  console.log(loadedlImg);
 
   const [userContent, setUserContent] = useState(loadedText); // edit 페이지 url로 접속시, 초기값은 pathname과 List~Item에서 navigate state를 통해 가져온 content와 image값을 활용함.
   const [uploadedImages, setUploadedImages] = useState(loadedlImg);
@@ -24,6 +22,7 @@ const Post = () => {
   const { userToken } = useContext(AuthContextStore);
   const textarea = useRef(); // textarea 높이 자동 조절을 위해 쓰이는 ref
   const navigate = useNavigate();
+  const postId = state.postId;
 
   // 유저 프로필 이미지 요청
   useEffect(() => {
@@ -44,18 +43,17 @@ const Post = () => {
     handleUserImg();
   }, []);
 
-  const uploadPost = async () => {
+  const editPost = async () => {
     try {
-      // 게시물 업로드
+      // 게시물 수정
       let image;
       if (uploadedImages.length === 0) image = '';
       else {
         image = uploadedImages.map((image) => `https://api.mandarin.weniv.co.kr/${image}`).join(',');
       }
-      console.log(image);
-      // const contents = userContent.replace('\r\n', '<br>');
-      const res = await fetch('https://api.mandarin.weniv.co.kr/post', {
-        method: 'POST',
+
+      const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
+        method: 'PUT',
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
@@ -63,6 +61,7 @@ const Post = () => {
         body: JSON.stringify({ post: { content: userContent, image } }),
       });
       const data = await res.json();
+      console.log(data);
       navigate('/profile');
     } catch (error) {
       console.log(error.message);
@@ -103,6 +102,7 @@ const Post = () => {
       console.log(error.message);
     }
   };
+
   // 이미지 삭제 확인
   const deleteConfirm = (index) => {
     setUploadedImages((prevImages) => {
@@ -124,11 +124,9 @@ const Post = () => {
   let isActivated = false;
   if (userContent || uploadedImages.length > 0) isActivated = true;
 
-  // let userImgUrl = `https://api.mandarin.weniv.co.kr/${userImg}`
-  // console.log(uploadedImages[0].split(','));
   return (
     <>
-      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={uploadPost} />
+      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={editPost} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
         <PostUserProfileImg userProfileImg={userProfileImg} />
@@ -161,7 +159,7 @@ const Post = () => {
               id='imgUpload'
               onChange={handleImgInput}
               accept='image/*'
-              multiple={true}
+              multiple
             />
           </Section>
         </PostArticle>
@@ -170,7 +168,7 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default PostEdit;
 
 const Title = styled.h2``;
 

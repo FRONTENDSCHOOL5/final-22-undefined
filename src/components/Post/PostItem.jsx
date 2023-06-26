@@ -42,7 +42,6 @@ const PostItem = ({ post, onClick, commentCnt }) => {
       console.log(error.message);
     }
   };
-
   return (
     <>
       <PostArticle>
@@ -95,11 +94,9 @@ const UserInfoSect = styled.section`
 const UserNameInfo = styled.div`
   flex-grow: 1;
 `;
-const ProfileLink = styled(Link)``;
-const NameLink = styled(Link)``;
 
 const InfoName = styled.p`
-  margin: 4px 0;
+  margin-bottom: 6px;
 `;
 const InfoAccount = styled.p`
   font-size: 12px;
@@ -109,8 +106,8 @@ const InfoAccount = styled.p`
 const ButtonIcon = styled.button`
   position: absolute;
   /* gap: 12px; */
-  top: 3px;
-  right: 0;
+  top: 5px;
+  right: -5px;
 `;
 
 const UserContentSect = styled.section`
@@ -119,6 +116,8 @@ const UserContentSect = styled.section`
 
 const UserPostText = styled.p`
   margin-bottom: 16px;
+  word-break: break-all;
+  line-height: 20px;
 `;
 
 const UserPostImg = styled.img`

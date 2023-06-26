@@ -26,7 +26,7 @@ const TabMenu = ({ active }) => {
           </S.StyledLink>
         </S.Li>
         <S.Li>
-          <S.StyledLink to='/post' id='2' active={active}>
+          <S.StyledLink to='/post/upload' id='2' active={active}>
             <S.IMG src={post} alt='라운드사각형 안에 십자가 모양의 아이콘' />
             <S.P>게시물 작성</S.P>
           </S.StyledLink>

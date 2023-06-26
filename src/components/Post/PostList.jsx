@@ -3,11 +3,12 @@ import PostItem from './PostItem';
 import styled from 'styled-components';
 import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
+import { useNavigate } from 'react-router-dom';
 
 const PostList = forwardRef(({ posts, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
-
+  const navigate = useNavigate();
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -27,7 +28,13 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
         <Ul>
           {posts.map((post, index) => (
             <Li key={post.id} ref={index === posts.length - 1 ? ref : null}>
-              <PostItem post={post} onClick={() => handleClick(post.id)} commentCnt={post.commentCount} />
+              <PostItem
+                post={post}
+                onClick={() => {
+                  handleClick(post.id);
+                }}
+                commentCnt={post.commentCount}
+              />
             </Li>
           ))}
         </Ul>
