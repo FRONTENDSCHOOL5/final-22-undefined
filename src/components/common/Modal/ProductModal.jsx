@@ -3,6 +3,7 @@ import * as S from './Modal.style';
 import AlertModal from './AlertModal';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
+import ProductForm from '../../Product/ProductForm';
 
 const ProductModal = ({ onClose, productId, products, setProducts, formData }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
@@ -24,7 +25,7 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
       // 상품 수정 페이지 이동
       navigate(`/product/${productId}/edit`);
     } else if (option === '웹사이트에서 상품 보기') {
-      window.open('https://www.naver.com/');
+      window.open(formData.link); // 입력한 URL로 연결
       onClose();
     }
   };

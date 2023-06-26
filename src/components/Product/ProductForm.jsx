@@ -41,6 +41,7 @@ const ProductForm = ({ formData, setFormData, img, setImg, error, setError }) =>
         inputProps={{
           type: 'text',
           placeholder: 'URL을 입력해 주세요.',
+          value: formData.link, // formData의 link 값을 입력
         }}
       />
     </>
