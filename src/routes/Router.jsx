@@ -18,6 +18,7 @@ import AuthRoute from './AuthRoute';
 import NonAuthRoute from './NonAuthRoute';
 import PostDetail from '../pages/PostPage/PostDetail';
 import Splash from '../pages/SplashPage/Splash';
+import PostEdit from '../pages/PostPage/PostEdit';
 
 const Router = () => {
   const { userToken } = useContext(AuthContextStore);
