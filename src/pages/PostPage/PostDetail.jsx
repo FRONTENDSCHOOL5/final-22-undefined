@@ -7,6 +7,9 @@ import Wrapper from '../../components/common/Wrapper/Wrapper';
 import { useParams } from 'react-router-dom';
 import PostItem from '../../components/Post/PostItem';
 import PostCommentList from '../../components/Post/PostCommentList';
+import { getSinglePost } from '../../api/post';
+import { getMyInfo } from '../../api/profile';
+import { getComments } from '../../api/comment';
 
 const PostDetail = () => {
   const { post_id } = useParams();
@@ -20,16 +23,9 @@ const PostDetail = () => {
   useEffect(() => {
     const getPost = async () => {
       try {
-        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}`, {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        const result = await res.json();
-        console.log(result.post);
-        setPost(result.post);
-        setCommentCnt(result.post.commentCount);
+        const data = await getSinglePost(post_id, userToken);
+        setPost(data.post);
+        setCommentCnt(data.post.commentCount);
       } catch (err) {
         console.log(err.message);
       }
@@ -38,23 +34,16 @@ const PostDetail = () => {
   }, []);
 
   useEffect(() => {
-    const getUserInfo = async () => {
+    const fetch = async () => {
       try {
         //댓글 리스트 정보 요청
-        const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${post_id}/comments/?limit=0&skip=0`, {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        const result = await res.json();
-        console.log(result);
-        setCommentList(result.comments);
+        const data = await getComments(post_id, userToken);
+        setCommentList(data.comments);
       } catch (err) {
         console.log(err.message);
       }
     };
-    getUserInfo();
+    fetch();
   }, [post_id]);
 
   // console.log(commentList);
@@ -63,13 +52,7 @@ const PostDetail = () => {
   useEffect(() => {
     const handleUserImg = async () => {
       try {
-        const res = await fetch('https://api.mandarin.weniv.co.kr/user/myinfo', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        });
-        const data = await res.json();
+        const data = await getMyInfo(userToken);
         setMyProfileImg(data.user.image);
       } catch (error) {
         console.log(error.message);
@@ -77,6 +60,7 @@ const PostDetail = () => {
     };
     handleUserImg();
   }, []);
+
   return (
     <>
       <FeedHeader />
