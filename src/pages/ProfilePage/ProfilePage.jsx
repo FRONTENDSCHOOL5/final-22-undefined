@@ -4,7 +4,7 @@ import ProfileDisplay from '../../components/Profile/ProfileDisplay';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
 import SellingProduct from '../../components/Product/SellingProduct';
 import PostSection from '../../components/Post/PostSection';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import FeedHeader from '../../components/common/Header/FeedHeader';
 
@@ -51,11 +51,16 @@ const ProfilePage = () => {
     getUserInfo();
   }, [userId]);
 
+  useEffect(() => {
+    console.log('hi');
+  }, []);
+
   return (
     <>
       <Title className='a11y-hidden'>{isLoginUser ? '나의 프로필 페이지' : 'OO의 프로필 페이지'}</Title>
       <FeedHeader />
       <Main>
+        <Link to='/profile/jay'>제이</Link>
         <ProfileDisplay userInfo={userInfo} isLoading={isLoading} setUserInfo={setUserInfo} />
         <SellingProduct />
         <PostSection />

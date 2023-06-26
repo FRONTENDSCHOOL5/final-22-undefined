@@ -3,12 +3,13 @@ import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 import MainLayout from '../../components/common/MainLayout/MainLayout';
 import styled from 'styled-components';
+import Wrapper from '../../components/common/Wrapper/Wrapper';
 
 const UserList = styled.ul`
   width: 100%;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   li {
     max-width: 390px;
     padding-bottom: 20px;
@@ -33,19 +34,21 @@ const UserList = styled.ul`
 const Contents = ({ userList }) => {
   return (
     <MainLayout>
-      {userList.map((item) => (
-        <UserList key={item.id}>
-          <li>
-            <a>
-              <PostUserProfileImg userProfileImg={item.image} />
-              <div>
-                <p className='userName'>{item.username}</p>
-                <p className='accountName'>{item.accountname}</p>
-              </div>
-            </a>
-          </li>
+      <Wrapper>
+        <UserList>
+          {userList.map((item) => (
+            <li key={item._id}>
+              <a>
+                <PostUserProfileImg userProfileImg={item.image} />
+                <div>
+                  <p className='userName'>{item.username}</p>
+                  <p className='accountName'>{item.accountname}</p>
+                </div>
+              </a>
+            </li>
+          ))}
         </UserList>
-      ))}
+      </Wrapper>
     </MainLayout>
   );
 };
