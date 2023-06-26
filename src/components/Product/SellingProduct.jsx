@@ -13,6 +13,7 @@ const SellingProduct = () => {
   const [products, setProducts] = useState([]);
   const [productId, setProductId] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [productLink, setProductLink] = useState('');
 
   const userId = accountname ? accountname : userAccountname;
 
@@ -48,8 +49,12 @@ const SellingProduct = () => {
   };
 
   const handleClick = (productId) => {
-    openModal();
-    setProductId(productId);
+    const selectedProduct = products.find((product) => product.id === productId);
+    if (selectedProduct) {
+      openModal();
+      setProductId(productId);
+      setProductLink(selectedProduct.link); // 새로운 상태로 저장
+    }
   };
 
   return (
@@ -78,7 +83,13 @@ const SellingProduct = () => {
         </S.List>
         {products?.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
         {isModalOpen && (
-          <ProductModal onClose={closeModal} productId={productId} products={products} setProducts={setProducts} />
+          <ProductModal
+            onClose={closeModal}
+            productId={productId}
+            products={products}
+            setProducts={setProducts}
+            formData={{ link: encodeURIComponent(productLink) }}
+          />
         )}
       </Wrapper>
     </S.Section>
