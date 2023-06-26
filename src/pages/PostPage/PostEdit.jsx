@@ -6,6 +6,7 @@ import removeIcon from '../../assets/icon/icon-delete.svg';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import styled from 'styled-components';
+import { editPost } from '../../api/post';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
@@ -43,25 +44,16 @@ const PostEdit = () => {
     handleUserImg();
   }, []);
 
-  const editPost = async () => {
+  // 게시물 수정
+  const handleEdit = async () => {
     try {
-      // 게시물 수정
       let image;
       if (uploadedImages.length === 0) image = '';
       else {
         image = uploadedImages.map((image) => `https://api.mandarin.weniv.co.kr/${image}`).join(',');
       }
 
-      const res = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
-        method: 'PUT',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({ post: { content: userContent, image } }),
-      });
-      const data = await res.json();
-      console.log(data);
+      await editPost(postId, userToken, userContent, image);
       navigate('/profile');
     } catch (error) {
       console.log(error.message);
@@ -126,7 +118,7 @@ const PostEdit = () => {
 
   return (
     <>
-      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={editPost} />
+      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={handleEdit} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
         <PostUserProfileImg userProfileImg={userProfileImg} />

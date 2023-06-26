@@ -4,6 +4,7 @@ import * as S from './ProfileEdit.style';
 import ProfileForm from '../../components/Profile/ProfileForm';
 import { AuthContextStore } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { editProfile, getMyInfo } from '../../api/profile';
 
 const ProfileEdit = () => {
   const { userToken, setUserAccountname } = useContext(AuthContextStore);
@@ -33,15 +34,10 @@ const ProfileEdit = () => {
 
   // 페이지 로드시 사용자 정보 가져오기
   useEffect(() => {
-    const getInfo = async () => {
+    const fetch = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch('https://api.mandarin.weniv.co.kr/user/myinfo', {
-          // token을 그냥 userToken으로 넣어주면 오류 생김 ... 나중에 체크해볼 것
-          headers: { Authorization: `Bearer ${userToken}` },
-        });
-
-        const data = await response.json();
+        const data = await getMyInfo(userToken);
         const { username, accountname, intro, image } = data.user;
         setFormData({ accountname, username, intro });
         setImg(image);
@@ -51,20 +47,14 @@ const ProfileEdit = () => {
         setIsLoading(false);
       }
     };
-    getInfo();
+    fetch();
   }, [userToken]);
 
   // 버튼 클릭 시 정보 저장
   const handleClick = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('https://api.mandarin.weniv.co.kr/user', {
-        method: 'PUT',
-        headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user: { ...formData, image: img } }),
-      });
-
-      const data = await response.json();
+      const data = await editProfile(userToken, formData, img);
       if (!data.user) throw Error('잘못된 접근입니다.');
       setIsLoading(false);
       localStorage.setItem('accountname', formData.accountname);

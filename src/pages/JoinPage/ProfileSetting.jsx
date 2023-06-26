@@ -4,6 +4,7 @@ import Wrapper from '../../components/common/Wrapper/Wrapper';
 import Button from '../../components/common/Button/Button';
 import ProfileForm from '../../components/Profile/ProfileForm';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { join } from '../../api/auth';
 
 const Main = styled.main``;
 
@@ -54,19 +55,33 @@ const ProfileSetting = () => {
   }, []);
 
   // 프로필 수정 페이지에서 버튼이 form 밖에 있어서 onSubmit으로 하지 않고 onClick으로 구현
+  // const handleClick = async () => {
+  //   try {
+  //     const image = img === '' ? 'https://api.mandarin.weniv.co.kr/Ellipse.png' : img;
+
+  //     const response = await fetch('https://api.mandarin.weniv.co.kr/user', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ user: { ...state, ...formData, image } }),
+  //     });
+
+  //     const data = await response.json();
+  //     if (data.message === '회원가입 성공') {
+  //       navigate('/');
+  //     } else {
+  //       navigate('/join');
+  //     }
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // };
   const handleClick = async () => {
     try {
       const image = img === '' ? 'https://api.mandarin.weniv.co.kr/Ellipse.png' : img;
 
-      const response = await fetch('https://api.mandarin.weniv.co.kr/user', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ user: { ...state, ...formData, image } }),
-      });
-
-      const data = await response.json();
+      const data = await join(state, formData, image);
       if (data.message === '회원가입 성공') {
         navigate('/');
       } else {
