@@ -5,7 +5,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
 import PostItemSkeleton from '../Skeleton/PostItemSkeleton';
 
-const PostList = forwardRef(({ isLoading, posts, setPosts, isLoginUser }, ref) => {
+const PostList = forwardRef(({ posts, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
   const openModal = () => {
@@ -46,9 +46,7 @@ const PostList = forwardRef(({ isLoading, posts, setPosts, isLoginUser }, ref) =
             ))
           )}
         </Ul>
-        {isModalOpen && (
-          <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} isLoginUser={isLoginUser} />
-        )}
+        {isModalOpen && <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} />}
       </Wrapper>
     </Container>
   );

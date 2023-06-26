@@ -23,9 +23,9 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
     } else if (option === '수정') {
       // 상품 수정 페이지 이동
       navigate(`/product/${productId}/edit`);
-    } else if (option === '웹사이트에서 상품 보기') {
-      window.open('https://www.naver.com/');
-      onClose();
+    } else if (option === '웹사이트에서 상품 보기' && formData && formData.link) {
+      const decodedLink = decodeURIComponent(formData.link);
+      window.open(decodedLink);
     }
   };
 
