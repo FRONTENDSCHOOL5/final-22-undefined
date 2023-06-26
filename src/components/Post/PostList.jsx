@@ -34,6 +34,7 @@ const PostList = forwardRef(({ posts, setPosts, isLoginUser }, ref) => {
                   handleClick(post.id);
                 }}
                 commentCnt={post.commentCount}
+                isLoginUser={isLoginUser}
               />
             </Li>
           ))}
