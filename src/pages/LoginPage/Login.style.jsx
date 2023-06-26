@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Button from '../../components/common/Button/Button';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
+import { Link } from 'react-router-dom';
 
 export const Main = styled.main``;
 
@@ -20,5 +21,13 @@ export const Heading = styled.h1`
 `;
 
 export const LoginBtn = styled(Button)`
-  margin-top: 30px;
+  margin: 30px 0 20px;
+`;
+
+export const JoinBtn = styled(Link)`
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 12px;
+  color: ${({ theme }) => theme.colors.txtColor};
 `;

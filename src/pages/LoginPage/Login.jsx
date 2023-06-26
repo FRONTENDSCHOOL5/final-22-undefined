@@ -102,6 +102,7 @@ const Login = () => {
             <S.LoginBtn mode={formIsValid ? 'default' : 'disabled'} size='lg'>
               로그인
             </S.LoginBtn>
+            <S.JoinBtn>이메일로 회원가입</S.JoinBtn>
           </S.Section>
         </S.Form>
       </S.LayoutWrapper>
