@@ -47,7 +47,7 @@ const ProductFormInput = ({ id, label, formData, setFormData, error, setError, i
     let updatedValue = value;
     if (id === 'price') {
       const numericValue = value.replace(/[^0-9]/g, ''); // 숫자가 아닌 문자 제거
-      const formattedPrice = numericValue ? `${parseFloat(numericValue).toLocaleString('ko-KR')} 원` : ''; // 원단위로 변환
+      const formattedPrice = numericValue ? `${parseFloat(numericValue).toLocaleString('ko-KR')}원` : ''; // 원단위로 변환
       updatedValue = formattedPrice;
     }
 

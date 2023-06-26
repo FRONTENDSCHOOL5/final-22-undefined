@@ -48,6 +48,7 @@ const PostDetail = () => {
           },
         });
         const result = await res.json();
+        console.log(result);
         setCommentList(result.comments);
       } catch (err) {
         console.log(err.message);
@@ -91,7 +92,13 @@ const PostDetail = () => {
         <CommentWrapper>
           <PostSection>
             <h2 className='a11y-hidden'>댓글 목록</h2>
-            <PostCommentList commentList={commentList} />
+            <PostCommentList
+              key={commentList.length}
+              commentList={commentList}
+              postId={post_id}
+              setCommentList={setCommentList}
+              setCommentCnt={setCommentCnt}
+            />
           </PostSection>
         </CommentWrapper>
       </Main>

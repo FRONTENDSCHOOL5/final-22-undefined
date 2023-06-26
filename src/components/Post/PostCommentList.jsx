@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import PostUserProfileImg from './PostUserProfileImg';
 import CommentModal from '../common/Modal/CommentModal';
 
-const PostCommentList = ({ commentList, postId, posts, setPosts }) => {
+const PostCommentList = ({ commentList, postId, setCommentList, setCommentCnt }) => {
   //작성 경과 시간 함수
   const calcUploadTime = (date) => {
     const TEN_SECOND = 10 * 1000;
@@ -32,7 +32,6 @@ const PostCommentList = ({ commentList, postId, posts, setPosts }) => {
   // 댓글 모달 관련
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCommentId, setSelectedCommentId] = useState(null);
-  const [comments, setComments] = useState(commentList);
 
   const openModal = (commentId) => {
     setIsModalOpen(true);
@@ -74,11 +73,11 @@ const PostCommentList = ({ commentList, postId, posts, setPosts }) => {
         <CommentModal
           onClose={closeModal}
           commentId={selectedCommentId}
-          comments={commentList}
           postId={postId}
-          posts={posts}
-          setPosts={setPosts}
-          setComments={setComments}
+          commentAuthor={commentList.find((comment) => comment.id === selectedCommentId)?.author.accountname}
+          setCommentList={setCommentList}
+          commentList={commentList}
+          setCommentCnt={setCommentCnt}
         />
       )}
     </>

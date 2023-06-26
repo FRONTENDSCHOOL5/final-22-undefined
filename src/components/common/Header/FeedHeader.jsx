@@ -4,8 +4,9 @@ import * as S from './FeedHeader.style';
 import backButtonImg from '../../../assets/icon/icon-arrow-left.png';
 import ModalButtonImg from '../../../assets/icon/icon-more-vertical.png';
 import FeedModal from '../../../components/common/Modal/FeedModal';
+import ChatModal from '../../../components/common/Modal/ChatModal';
 
-const FeedHeader = () => {
+const FeedHeader = ({ isChatHeader }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ const FeedHeader = () => {
   };
 
   const feedModalOptions = ['설정 및 개인정보', '로그아웃'];
+  const chatModalOptions = ['채팅방 나가기'];
 
   return (
     <>
@@ -34,7 +36,15 @@ const FeedHeader = () => {
           <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
         </S.ButtonIcon>
       </S.Header>
-      {isModalOpen && <FeedModal options={feedModalOptions} onClose={closeModal} />}
+      {isModalOpen && (
+        <>
+          {isChatHeader ? (
+            <ChatModal options={chatModalOptions} onClose={closeModal} />
+          ) : (
+            <FeedModal options={feedModalOptions} onClose={closeModal} />
+          )}
+        </>
+      )}
     </>
   );
 };
