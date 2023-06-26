@@ -5,6 +5,7 @@ import SaveHeader from '../../components/common/Header/SaveHeader';
 import { AuthContextStore } from '../../context/AuthContext';
 import ProductForm from '../../components/Product/ProductForm';
 import { useNavigate, useParams } from 'react-router-dom';
+import { getSingleProduct, editProduct } from '../../api/product';
 
 const Main = styled.main``;
 
@@ -51,18 +52,11 @@ const EditProduct = () => {
   }
 
   useEffect(() => {
-    const getProduct = async () => {
+    const fetch = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/product/detail/${productId}`, {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-type': 'application/json',
-          },
-        });
 
-        const data = await response.json();
+        const data = await getSingleProduct(productId, userToken);
         const { itemName, price, link, itemImage } = data.product;
 
         setFormData({
@@ -78,29 +72,21 @@ const EditProduct = () => {
       }
     };
 
-    getProduct();
+    fetch();
   }, [productId, userToken]);
 
   const addClick = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${productId}`, {
-        method: 'PUT',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          product: {
-            itemName: formData.itemName,
-            price: parseInt(formData.price.replace(/[^0-9]/g, '')),
-            link: formData.link,
-            itemImage: img,
-          },
-        }),
-      });
+      const data = await editProduct(
+        productId,
+        userToken,
+        formData.itemName,
+        parseInt(formData.price.replace(/[^0-9]/g, '')),
+        formData.link,
+        img,
+      );
 
-      const data = await response.json();
       if (!data.product) throw Error('잘못된 접근입니다.');
       setIsLoading(false);
       navigate('/profile');

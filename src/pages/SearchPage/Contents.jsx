@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 import MainLayout from '../../components/common/MainLayout/MainLayout';

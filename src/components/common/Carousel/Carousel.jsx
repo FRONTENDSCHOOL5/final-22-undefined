@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.section`
-  width: 336px;
-  height: 336px;
+  width: 304px;
+  height: 304px;
   border-radius: 10px;
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   margin-bottom: 16px;

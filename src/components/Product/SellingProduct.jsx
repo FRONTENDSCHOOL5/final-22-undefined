@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 import ProductModal from '../common/Modal/ProductModal';
+import { getProducts } from '../../api/product';
 
 const SellingProduct = () => {
   const { accountname } = useParams();
@@ -18,26 +19,18 @@ const SellingProduct = () => {
   const userId = accountname ? accountname : userAccountname;
 
   useEffect(() => {
-    const getProducts = async () => {
+    const fetch = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-type': 'application/json',
-          },
-        });
-
-        const jsonData = await response.json();
-        setProducts(jsonData.product);
-
+        const data = await getProducts(userId, userToken);
+        setProducts(data.product);
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);
         setIsLoading(false);
       }
     };
-    getProducts();
+    fetch();
   }, [userToken, userId]);
 
   const openModal = () => {

@@ -5,6 +5,7 @@ import SaveHeader from '../../components/common/Header/SaveHeader';
 import { AuthContextStore } from '../../context/AuthContext';
 import ProductForm from '../../components/Product/ProductForm';
 import { useNavigate } from 'react-router-dom';
+import { addProduct } from '../../api/product';
 
 const Main = styled.main``;
 
@@ -49,28 +50,14 @@ const AddProduct = () => {
 
   const addClick = async () => {
     try {
-      const response = await fetch('https://api.mandarin.weniv.co.kr/product', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          product: {
-            itemName: formData.itemName,
-            price: parseInt(formData.price.replace(/[^0-9]/g, '')),
-            link: formData.link,
-            itemImage: img,
-          },
-        }),
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        navigate('/profile');
-      } else {
-        console.log(data.message);
-      }
+      await addProduct(
+        userToken,
+        formData.itemName,
+        parseInt(formData.price.replace(/[^0-9]/g, '')),
+        formData.link,
+        img,
+      );
+      navigate('/profile');
     } catch (err) {
       console.log(err.message);
     }

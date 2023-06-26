@@ -3,6 +3,7 @@ import * as S from './ProfileDisplay.style';
 import { AuthContextStore } from '../../context/AuthContext';
 import { Link, useParams } from 'react-router-dom';
 import ProfileSkeleton from '../Skeleton/ProfileSkeleton';
+import { follow } from '../../api/follow';
 // import PostUserProfileImg from '../Post/PostUserProfileImg';
 
 const ProfileDisplay = ({ userInfo, setUserInfo, isLoading }) => {
@@ -17,16 +18,7 @@ const ProfileDisplay = ({ userInfo, setUserInfo, isLoading }) => {
 
   const handleFollow = async () => {
     try {
-      const response = await fetch(
-        `https://api.mandarin.weniv.co.kr/profile/${accountname}/${isfollow ? 'unfollow' : 'follow'}`,
-        {
-          method: isfollow ? 'DELETE' : 'POST',
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-Type': 'application/json',
-          },
-        },
-      );
+      await follow(accountname, isfollow, userToken);
 
       isfollow
         ? setUserInfo((prev) => ({ ...prev, isfollow: false, followerCount: prev.followerCount - 1 }))
@@ -47,7 +39,7 @@ const ProfileDisplay = ({ userInfo, setUserInfo, isLoading }) => {
             {/* <PostUserProfileImg size='110px' userProfileImg={userInfo.image} /> */}
             <S.UserName>{userInfo.username}</S.UserName>
             <S.AccountName>{`@ ${userInfo.accountname}`}</S.AccountName>
-            <S.Intro className='sl-ellipsis'>{userInfo.intro}</S.Intro>
+            <S.Intro>{userInfo.intro}</S.Intro>
             <S.FollowerLink to={`/follow/${userId}/follower`}>
               <strong>{userInfo.followerCount}</strong>
               <S.Type>followers</S.Type>
