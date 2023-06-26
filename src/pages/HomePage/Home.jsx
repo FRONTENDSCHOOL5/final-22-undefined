@@ -4,6 +4,7 @@ import { AuthContextStore } from '../../context/AuthContext';
 import TopMainNav from '../../components/common/Header/TopMainNav';
 import Contents from './Contents';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
+import { getFeeds } from '../../api/post';
 
 const Home = () => {
   const { userToken } = useContext(AuthContextStore);
@@ -12,22 +13,9 @@ const Home = () => {
 
   const handlePostList = async () => {
     try {
-      const response = await fetch('https://api.mandarin.weniv.co.kr/post/feed', {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-type': 'application/json',
-        },
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setPosts(data.posts);
-        setIsLoading(false);
-      } else {
-        console.error('요청에 실패했습니다.');
-      }
+      const data = await getFeeds(userToken);
+      setPosts(data.posts);
+      setIsLoading(false);
     } catch (error) {
       console.error('실패:', error);
     }

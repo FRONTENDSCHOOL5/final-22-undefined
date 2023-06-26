@@ -6,6 +6,8 @@ import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
+import { uploadPost } from '../../api/post';
+import { getMyInfo } from '../../api/profile';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
@@ -29,13 +31,7 @@ const Post = () => {
   useEffect(() => {
     const handleUserImg = async () => {
       try {
-        const res = await fetch('https://api.mandarin.weniv.co.kr/user/myinfo', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        });
-        const data = await res.json();
+        const data = await getMyInfo(userToken);
         setUserProfileImg(data.user.image);
       } catch (error) {
         console.log(error.message);
@@ -44,7 +40,7 @@ const Post = () => {
     handleUserImg();
   }, []);
 
-  const uploadPost = async () => {
+  const handleUpload = async () => {
     try {
       // 게시물 업로드
       let image;
@@ -53,16 +49,7 @@ const Post = () => {
         image = uploadedImages.map((image) => `https://api.mandarin.weniv.co.kr/${image}`).join(',');
       }
       console.log(image);
-      // const contents = userContent.replace('\r\n', '<br>');
-      const res = await fetch('https://api.mandarin.weniv.co.kr/post', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({ post: { content: userContent, image } }),
-      });
-      const data = await res.json();
+      await uploadPost(userToken, userContent, image);
       navigate('/profile');
     } catch (error) {
       console.log(error.message);
@@ -71,6 +58,7 @@ const Post = () => {
 
   // 이미지 업로드
   const handleImgInput = async (e) => {
+    console.log(e.target.files);
     if (!e.target.files || e.target.files.length === 0) {
       return;
     }
@@ -128,7 +116,7 @@ const Post = () => {
   // console.log(uploadedImages[0].split(','));
   return (
     <>
-      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={uploadPost} />
+      <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={handleUpload} />
       <Title className='a11y-hidden'>게시글 작성 페이지</Title>
       <PostMain>
         <PostUserProfileImg userProfileImg={userProfileImg} />
@@ -212,13 +200,14 @@ const Textarea = styled.textarea`
 const Ul = styled.ul`
   display: flex;
   gap: 10px;
+  max-width: 800px;
 `;
 
 const Li = styled.li`
   border-radius: 10px;
-  flex-shrink: 0;
-  width: 304px;
-  height: 228px;
+  flex-shrink: 1;
+  flex-basis: 302px;
+  max-height: 228px;
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.gray};
   overflow: hidden;

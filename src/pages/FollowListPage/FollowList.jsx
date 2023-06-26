@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { AuthContextStore } from '../../context/AuthContext';
 import Follow from '../../components/Follow/Follow';
+import { getFollowList } from '../../api/follow';
 
 const Main = styled.main`
   margin-top: 48px;
@@ -18,20 +19,15 @@ const FollowList = () => {
   const [followList, setFollowList] = useState([]);
 
   useEffect(() => {
-    const getFollowList = async () => {
+    const fetch = async () => {
       try {
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/profile/${accountname}/${type}?limit=0`, {
-          headers: { Authorization: `Bearer ${userToken}`, 'Content-type': 'application/json' },
-        });
-
-        const data = await response.json();
-        console.log(data);
+        const data = await getFollowList(accountname, type, userToken);
         setFollowList(data);
       } catch (err) {
         console.log(err.message);
       }
     };
-    getFollowList();
+    fetch();
   }, []);
 
   return (
