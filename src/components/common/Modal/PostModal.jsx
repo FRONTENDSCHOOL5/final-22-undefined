@@ -8,14 +8,14 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
   const { accountname } = useParams();
-  const { pathname } = useLocation();
+  const { pathname } = useLocation(); // pathname변수를 useLocation 훅을 사용하여 현재 경로 가져오기
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
   const userId = accountname ? accountname : userAccountname;
   const isLoginUser = userId === userAccountname;
-  const isHomeFollowedPosts = pathname === '/home';
+  const isHomeFollowedPosts = pathname === '/home'; // 홈인지 확인하고 isHomeFollowedPosts변수에 할당
 
   // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
@@ -145,7 +145,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     }
   };
 
-  // 사용자 계정에 따라 모달에 표시할 옵션 요소 생성
+  // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성
   let optionElements = [];
   if (isHomeFollowedPosts || !isLoginUser) {
     optionElements = otherPostModalOptions.map((option, index) => (
