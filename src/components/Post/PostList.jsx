@@ -5,7 +5,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
 import PostItemSkeleton from '../Skeleton/PostItemSkeleton';
 
-const PostList = forwardRef(({ posts, setPosts }, ref) => {
+const PostList = forwardRef(({ isLoading, posts, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
   const openModal = () => {
