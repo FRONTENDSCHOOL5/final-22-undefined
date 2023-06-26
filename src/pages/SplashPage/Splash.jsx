@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import MainIcon from '../../assets/강냥공냥공냥냥.png';
-import wideBackground from '../../assets/강냥공냥컴포넌트2.png';
-import TitleTxt from '../../assets/강냥공냥텍스트.png';
-import SunglassesIcon from '../../assets/강냥공냥선글라스.png';
+import MainIcon from '../../assets/Splash/logo.png';
+import wideBackground from '../../assets/Splash/logoComponents2.png';
+import TitleTxt from '../../assets/Splash/logoTxt.png';
+import SunglassesIcon from '../../assets/Splash/logoSunglasses.png';
 
 import styled, { keyframes } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
