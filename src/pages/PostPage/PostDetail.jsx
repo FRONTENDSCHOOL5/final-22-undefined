@@ -16,6 +16,7 @@ const PostDetail = () => {
   const [commentCnt, setCommentCnt] = useState(0);
   const [post, setPost] = useState({});
 
+  //댓글 갯수 동적 업데이트 위한 요청
   useEffect(() => {
     const getPost = async () => {
       try {
@@ -26,6 +27,7 @@ const PostDetail = () => {
           },
         });
         const result = await res.json();
+        console.log(result.post);
         setPost(result.post);
         setCommentCnt(result.post.commentCount);
       } catch (err) {
@@ -47,7 +49,6 @@ const PostDetail = () => {
         });
         const result = await res.json();
         setCommentList(result.comments);
-        // setIsCommentUpdated(false); //comment에서 댓글을 올리면 true로 바뀌도로 설정돼있는데, 그럼 이 댓글 리스트 정보 요청이 발생하고, list가 업데이트됨. 그 이후 본래 false 상태로 전환 해줘야 이후 게시를해도 상태를 재업데이트 할 수 있음.
       } catch (err) {
         console.log(err.message);
       }
@@ -75,7 +76,6 @@ const PostDetail = () => {
     };
     handleUserImg();
   }, []);
-
   return (
     <>
       <FeedHeader />
