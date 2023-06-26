@@ -16,13 +16,17 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const userId = accountname ? accountname : userAccountname;
   const isLoginUser = userId === userAccountname;
   const isHomeFollowedPosts = pathname === '/home';
-
+  // console.log(posts);
   // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
     if (option === '삭제') {
       setSelectedOption(option);
     } else if (option === '수정') {
-      navigate('/post'); // 일단 post로 설정, 후에 post 수정? 페이지로 경로 설정
+      for (let i = 0; i < posts.length; i++) {
+        if (posts[i].id === postId) {
+          navigate('/post/edit', { state: { content: posts[i].content, image: posts[i].image, postId: posts[i].id } });
+        }
+      }
     } else if (option === '신고하기') {
       reportPost(postId);
     }
