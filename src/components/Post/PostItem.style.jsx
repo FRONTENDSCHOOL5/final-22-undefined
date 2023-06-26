@@ -14,6 +14,11 @@ export const UserInfoSect = styled.section`
   margin-bottom: 12px;
 `;
 
+export const ProfileLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
+
 export const UserNameInfo = styled.div`
   flex-grow: 1;
 `;
