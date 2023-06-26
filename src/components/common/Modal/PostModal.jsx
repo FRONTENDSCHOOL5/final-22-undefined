@@ -7,16 +7,16 @@ import { AuthContextStore } from '../../../context/AuthContext';
 const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
   const navigate = useNavigate();
-  const { accountname } = useParams(); // 현재 사용자 계정
-  const { pathname } = useLocation();
+  const { accountname } = useParams();
+  const { pathname } = useLocation(); // pathname변수를 useLocation 훅을 사용하여 현재 경로 가져오기
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = ['삭제', '수정'];
   const otherPostModalOptions = ['신고하기'];
   const userId = accountname ? accountname : userAccountname;
   const isLoginUser = userId === userAccountname;
-  const isHomeFollowedPosts = pathname === '/home';
-  // console.log(posts);
+  const isHomeFollowedPosts = pathname === '/home'; // 홈인지 확인하고 isHomeFollowedPosts변수에 할당
+
   // 모달 옵션을 클릭했을 때
   const optionClick = (option) => {
     if (option === '삭제') {
@@ -102,7 +102,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
         },
         body: JSON.stringify({
           report: {
-            post: 'postId',
+            post: postId,
           },
         }),
       });
@@ -145,29 +145,22 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     }
   };
 
-  // 사용자 계정에 따라 모달에 표시할 옵션 요소 생성 및 렌더링
-  let optionElements = null;
-  // 현재 사용자의 계정과 모달을 호출한 게시글 작성자 계정이 일치하는지 확인
-  if (isLoginUser) {
-    optionElements = myPostModalOptions.map((option, index) => (
-      <S.Li key={index}>
-        <button onClick={() => optionClick(option)}>{option}</button>
-      </S.Li>
-    ));
-  } else {
+  // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성
+  let optionElements = [];
+  if (isHomeFollowedPosts || !isLoginUser) {
     optionElements = otherPostModalOptions.map((option, index) => (
       <S.Li key={index}>
         <button onClick={() => optionClick(option)}>{option}</button>
       </S.Li>
     ));
-  }
-
-  if (isHomeFollowedPosts && !isLoginUser) {
-    optionElements.push(
-      <S.Li key='report'>
-        <button onClick={() => optionClick('신고하기')}>신고하기</button>
-      </S.Li>,
-    );
+  } else {
+    if (isLoginUser) {
+      optionElements = myPostModalOptions.map((option, index) => (
+        <S.Li key={index}>
+          <button onClick={() => optionClick(option)}>{option}</button>
+        </S.Li>
+      ));
+    }
   }
 
   return (
