@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import arrowLeft from '../../assets/icon/icon-arrow-left.png';
 
@@ -14,7 +14,10 @@ export const Header = styled.header`
   left: 0;
   right: 0;
   z-index: 10;
-  border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`};
+  ${({ theme: { colors } }) => css`
+    border-bottom: 1px solid ${colors.gray};
+    background-color: ${colors.white};
+  `};
 `;
 
 export const Input = styled.input`

@@ -3,13 +3,12 @@ import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 import MainLayout from '../../components/common/MainLayout/MainLayout';
 import styled from 'styled-components';
-import Wrapper from '../../components/common/Wrapper/Wrapper';
 
 const UserList = styled.ul`
   width: 100%;
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
   li {
     max-width: 390px;
     padding-bottom: 20px;
@@ -31,24 +30,29 @@ const UserList = styled.ul`
   }
 `;
 
-const Contents = ({ userList }) => {
+const Contents = ({ userList, inputTxt }) => {
+  console.log(inputTxt);
   return (
     <MainLayout>
-      <Wrapper>
-        <UserList>
-          {userList.map((item) => (
-            <li key={item._id}>
-              <a>
-                <PostUserProfileImg userProfileImg={item.image} />
-                <div>
-                  <p className='userName'>{item.username}</p>
-                  <p className='accountName'>{item.accountname}</p>
-                </div>
-              </a>
-            </li>
-          ))}
+      {userList.map((item) => (
+        <UserList key={item._id}>
+          <li>
+            <a href={`/profile/${item.accountname}`}>
+              <PostUserProfileImg userProfileImg={item.image} />
+              <div>
+                {item.username.split(inputTxt).map((item, index, array) => (
+                  <React.Fragment key={index}>
+                    {item}
+                    {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
+                  </React.Fragment>
+                ))}
+                <p className='userName'></p>
+                <p className='accountName'></p>
+              </div>
+            </a>
+          </li>
         </UserList>
-      </Wrapper>
+      ))}
     </MainLayout>
   );
 };

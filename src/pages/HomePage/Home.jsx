@@ -2,7 +2,6 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 
 import TopMainNav from '../../components/common/Header/TopMainNav';
-import MainLayout from '../../components/common/MainLayout/MainLayout';
 import Contents from './Contents';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
 import { getFeeds } from '../../api/post';
@@ -31,13 +30,13 @@ const Home = () => {
   return (
     <>
       <TopMainNav />
-      <MainLayout>
+      <>
         {isLoading ? (
-          <div style={{ background: 'white', width: '100vw', height: '100vh' }}></div>
+          <div style={{ background: 'white', width: '50vw', height: '50vh' }}></div>
         ) : (
           <Contents posts={posts} />
         )}
-      </MainLayout>
+      </>
       <TabMenu active={'0'} />
     </>
   );

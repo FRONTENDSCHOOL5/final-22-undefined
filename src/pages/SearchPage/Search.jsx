@@ -51,7 +51,7 @@ const Search = () => {
   return (
     <>
       <TopSearchNav onChange={handleSearchId} />
-      <Contents userList={userList} />
+      <Contents userList={userList} inputTxt={inputTxt} />
       <TabMenu active={'0'} />
     </>
   );
