@@ -10,7 +10,7 @@ const PostSection = () => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const target = useRef(null);
   const [skip, setSkip] = useState(0);
@@ -31,7 +31,7 @@ const PostSection = () => {
     const getPosts = async () => {
       console.log(skip, 'skip');
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${userId}/userpost/?limit=6&skip=${skip}`, {
           headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
         });
@@ -45,7 +45,7 @@ const PostSection = () => {
         // setIsLoading(false);
       } catch (err) {
         console.log(err.message);
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -88,7 +88,11 @@ const PostSection = () => {
         </Wrapper>
       </S.Header>
       {posts.length > 0 &&
-        (isList ? <PostList posts={posts} setPosts={setPosts} ref={target} /> : <PostAlbum posts={posts} />)}
+        (isList ? (
+          <PostList posts={posts} setPosts={setPosts} ref={target} isLoading={isLoading} />
+        ) : (
+          <PostAlbum posts={posts} />
+        ))}
     </S.Section>
   );
 };
