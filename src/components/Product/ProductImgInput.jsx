@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductBasic from '../../assets/ProductBasic.png';
 import * as S from './ProductImgInput.style';
+import { uploadImage } from '../../api/image';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
@@ -20,17 +21,21 @@ const ProductImgInput = ({ img, setImg, label }) => {
     formData.append('image', event.target.files[0]);
 
     try {
-      const response = await fetch('https://api.mandarin.weniv.co.kr/image/uploadfile', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const data = await response.json();
+      const data = await uploadImage(formData);
       setImg(`http://api.mandarin.weniv.co.kr/${data.filename}`);
     } catch (error) {
       console.log(error.message);
     }
   };
+
+  // const handleChange = (event) => {
+  //   if (!event.target.files || event.target.files.length === 0) {
+  //     return;
+  //   }
+
+  //   const file = event.target.files[0];
+  //   onUpload(file);
+  // };
 
   return (
     <>
