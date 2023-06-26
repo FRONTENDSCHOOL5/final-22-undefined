@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Loading from '../pages/LoadingPage/Loading';
 import Home from '../pages/HomePage/Home';
 import Search from '../pages/SearchPage/Search';
 import Join from '../pages/JoinPage/Join';
@@ -18,7 +17,7 @@ import { AuthContextStore } from '../context/AuthContext';
 import AuthRoute from './AuthRoute';
 import NonAuthRoute from './NonAuthRoute';
 import PostDetail from '../pages/PostPage/PostDetail';
-import PostEdit from '../pages/PostPage/PostEdit';
+import Splash from '../pages/SplashPage/Splash';
 
 const Router = () => {
   const { userToken } = useContext(AuthContextStore);
@@ -27,7 +26,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<NonAuthRoute authenticated={userToken} />}>
-          <Route path='/' element={<Loading />} />
+          <Route path='/' element={<Splash />} />
           <Route path='/login' element={<Login />} />
           <Route path='/join' element={<Join />} />
           <Route path='/join/profile' element={<ProfileSetting />} />
