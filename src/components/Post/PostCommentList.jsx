@@ -53,10 +53,8 @@ const PostCommentList = ({ commentList, postId, setCommentList, setCommentCnt })
                 <UserAuth>
                   <ProfileLink to={`/profile/${comment.author.accountname}`}>
                     <PostUserProfileImg size={'36px'} userProfileImg={comment.author.image} />
-                  </ProfileLink>
-                  <NameLink to={`/profile/${comment.author.accountname}`}>
                     <Username>{comment.author.username}</Username>
-                  </NameLink>
+                  </ProfileLink>
                   <UploadTime>{calcUploadTime(comment.createdAt)}</UploadTime>
                   {/* 댓글 모달 */}
                   <ButtonIcon onClick={() => openModal(comment.id)}>
@@ -97,13 +95,11 @@ const UserAuth = styled.div`
   display: flex;
 `;
 const ProfileLink = styled(Link)``;
-const NameLink = styled(Link)`
-  margin: 4px 5px 0 0;
-`;
 
 const Username = styled.strong`
+  display: inline-block;
+  margin: 2px 5px 0 0;
   font-weight: 500;
-  /* font-size: 14px; */
   line-height: 18px;
 `;
 

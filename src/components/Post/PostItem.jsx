@@ -30,11 +30,14 @@ const PostItem = ({ post, onClick, commentCnt }) => {
         <h3 className='a11y-hidden'>게시물 아이템</h3>
         <S.UserInfoSect>
           <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-          <PostUserProfileImg userProfileImg={post.author.image} />
-          <S.UserNameInfo>
-            <S.InfoName>{post.author.username}</S.InfoName>
-            <S.InfoAccount>@ {post.author.accountname}</S.InfoAccount>
-          </S.UserNameInfo>
+
+          <S.ProfileLink to={`/profile/${post.author.accountname}`}>
+            <PostUserProfileImg userProfileImg={post.author.image} />
+            <S.UserNameInfo>
+              <S.InfoName>{post.author.username}</S.InfoName>
+              <S.InfoAccount>@ {post.author.accountname}</S.InfoAccount>
+            </S.UserNameInfo>
+          </S.ProfileLink>
           <S.ButtonIcon onClick={onClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
           </S.ButtonIcon>

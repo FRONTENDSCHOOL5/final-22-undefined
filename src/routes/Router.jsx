@@ -19,6 +19,7 @@ import NonAuthRoute from './NonAuthRoute';
 import PostDetail from '../pages/PostPage/PostDetail';
 import Splash from '../pages/SplashPage/Splash';
 import PostEdit from '../pages/PostPage/PostEdit';
+import LoginEamil from '../pages/LoginPage/LoginEamil';
 
 const Router = () => {
   const { userToken } = useContext(AuthContextStore);
@@ -29,6 +30,7 @@ const Router = () => {
         <Route element={<NonAuthRoute authenticated={userToken} />}>
           <Route path='/' element={<Splash />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/login/email' element={<LoginEamil />} />
           <Route path='/join' element={<Join />} />
           <Route path='/join/profile' element={<ProfileSetting />} />
         </Route>
