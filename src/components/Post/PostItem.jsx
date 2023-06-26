@@ -4,25 +4,20 @@ import { useContext, useState } from 'react';
 import { AuthContextStore } from '../../context/AuthContext';
 import Carousel from '../common/Carousel/Carousel';
 import * as S from './PostItem.style';
+import { useLocation } from 'react-router-dom';
+import { likePost } from '../../api/post';
 
 const PostItem = ({ post, onClick, commentCnt }) => {
   const [isHearted, setIsHearted] = useState(post.hearted);
   const [heartCount, setHeartCount] = useState(post.heartCount);
   const { userToken } = useContext(AuthContextStore);
   const Date = post.createdAt.substring(0, 10).replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일');
+  const { pathname } = useLocation();
 
   // 좋아요 요청
   const handleLike = async () => {
     try {
-      const response = await fetch(
-        `https://api.mandarin.weniv.co.kr/post/${post.id}/${isHearted ? 'unheart' : 'heart'}`,
-        {
-          method: isHearted ? 'DELETE' : 'POST',
-          headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
-        },
-      );
-
-      const data = await response.json();
+      const data = await likePost(post.id, isHearted, userToken);
       setIsHearted((prev) => !prev);
       setHeartCount(data.post.heartCount);
     } catch (error) {
@@ -47,7 +42,9 @@ const PostItem = ({ post, onClick, commentCnt }) => {
 
         <S.UserContentSect>
           <h4 className='a11y-hidden'>게시물 내용</h4>
-          <S.UserPostText>{post.content}</S.UserPostText>
+          <S.UserPostText className={!pathname.startsWith('/postdetail') && 'multi-ellipsis'}>
+            {post.content}
+          </S.UserPostText>
           {post.image &&
             (post.image.includes(',') ? <Carousel img={post.image} /> : <S.UserPostImg src={post.image} />)}
           <S.LikeAndComment>
