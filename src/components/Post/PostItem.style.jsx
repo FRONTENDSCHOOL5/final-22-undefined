@@ -39,6 +39,7 @@ export const UserContentSect = styled.section`
 
 export const UserPostText = styled.p`
   margin-bottom: 16px;
+  word-break: break-all;
 `;
 
 export const UserPostImg = styled.img`
