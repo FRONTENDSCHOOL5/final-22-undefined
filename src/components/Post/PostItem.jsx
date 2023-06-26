@@ -48,11 +48,13 @@ const PostItem = ({ post, onClick, commentCnt }) => {
         <h3 className='a11y-hidden'>게시물 아이템</h3>
         <UserInfoSect>
           <h4 className='a11y-hidden'>게시물 유저 정보</h4>
-          <PostUserProfileImg userProfileImg={post.author.image} />
-          <UserNameInfo>
-            <InfoName>{post.author.username}</InfoName>
-            <InfoAccount>@ {post.author.accountname}</InfoAccount>
-          </UserNameInfo>
+          <ProfileLink to={`/profile/${post.author.accountname}`}>
+            <PostUserProfileImg userProfileImg={post.author.image} />
+            <UserNameInfo>
+              <InfoName>{post.author.username}</InfoName>
+              <InfoAccount>@ {post.author.accountname}</InfoAccount>
+            </UserNameInfo>
+          </ProfileLink>
           <ButtonIcon onClick={onClick}>
             <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
           </ButtonIcon>
@@ -86,11 +88,13 @@ const PostArticle = styled.article`
 `;
 
 const UserInfoSect = styled.section`
-  display: flex;
-  align-items: center;
   margin-bottom: 12px;
 `;
-
+const ProfileLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  margin: 4px 5px 0 0;
+`;
 const UserNameInfo = styled.div`
   flex-grow: 1;
 `;
