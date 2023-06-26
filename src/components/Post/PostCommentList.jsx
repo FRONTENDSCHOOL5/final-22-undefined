@@ -72,7 +72,7 @@ const PostCommentList = ({ commentList, postId, setCommentList, setCommentCnt })
           onClose={closeModal}
           commentId={selectedCommentId}
           postId={postId}
-          commentAuthor={commentList.find((comment) => comment.id === selectedCommentId)?.author.accountname}
+          commentAuthor={commentList.find((comment) => comment.id === selectedCommentId)?.author.accountname} // commentList에서 selectedCommentId와 일치하는 댓글 작성자의 accountname을 반환
           setCommentList={setCommentList}
           commentList={commentList}
           setCommentCnt={setCommentCnt}

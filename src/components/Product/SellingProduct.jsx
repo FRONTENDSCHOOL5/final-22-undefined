@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 import ProductModal from '../common/Modal/ProductModal';
+import { getProducts } from '../../api/product';
 
 const SellingProduct = () => {
   const { accountname } = useParams();
@@ -13,30 +14,23 @@ const SellingProduct = () => {
   const [products, setProducts] = useState([]);
   const [productId, setProductId] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [productLink, setProductLink] = useState('');
 
   const userId = accountname ? accountname : userAccountname;
 
   useEffect(() => {
-    const getProducts = async () => {
+    const fetch = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-type': 'application/json',
-          },
-        });
-
-        const jsonData = await response.json();
-        setProducts(jsonData.product);
-
+        const data = await getProducts(userId, userToken);
+        setProducts(data.product);
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);
         setIsLoading(false);
       }
     };
-    getProducts();
+    fetch();
   }, [userToken, userId]);
 
   const openModal = () => {
@@ -48,8 +42,12 @@ const SellingProduct = () => {
   };
 
   const handleClick = (productId) => {
-    openModal();
-    setProductId(productId);
+    const selectedProduct = products.find((product) => product.id === productId);
+    if (selectedProduct) {
+      openModal();
+      setProductId(productId);
+      setProductLink(selectedProduct.link); // 새로운 상태로 저장
+    }
   };
 
   return (
@@ -78,7 +76,13 @@ const SellingProduct = () => {
         </S.List>
         {products?.length === 0 && !isLoading && <S.Soldout>판매중인 상품이 없습니다.😅</S.Soldout>}
         {isModalOpen && (
-          <ProductModal onClose={closeModal} productId={productId} products={products} setProducts={setProducts} />
+          <ProductModal
+            onClose={closeModal}
+            productId={productId}
+            products={products}
+            setProducts={setProducts}
+            formData={{ link: encodeURIComponent(productLink) }}
+          />
         )}
       </Wrapper>
     </S.Section>

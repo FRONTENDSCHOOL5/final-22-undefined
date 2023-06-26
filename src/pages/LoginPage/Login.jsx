@@ -4,6 +4,7 @@ import LoginFormInput from '../../components/common/Input/LoginFormInput';
 import { useNavigate } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import * as S from './Login.style';
+import { login } from '../../api/auth';
 
 const initialFormState = {
   email: '',
@@ -31,15 +32,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('https://api.mandarin.weniv.co.kr/user/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(req),
-      });
-      const data = await response.json();
-
+      const data = await login(formData.email, formData.password);
       if (data.message === '이메일 또는 비밀번호가 일치하지 않습니다.') {
         setError({ email: data.message, password: data.message });
       } else {
@@ -47,7 +40,7 @@ const Login = () => {
         saveUserInfo(data);
       }
     } catch (error) {
-      console.error('실패했다:', error);
+      console.log(error);
     }
   };
 

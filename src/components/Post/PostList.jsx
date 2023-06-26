@@ -3,13 +3,11 @@ import PostItem from './PostItem';
 import styled from 'styled-components';
 import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
-import { useNavigate } from 'react-router-dom';
 import PostItemSkeleton from '../Skeleton/PostItemSkeleton';
 
-const PostList = forwardRef(({ isLoading, posts, setPosts, isLoginUser }, ref) => {
+const PostList = forwardRef(({ isLoading, posts, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
-  const navigate = useNavigate();
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -48,9 +46,7 @@ const PostList = forwardRef(({ isLoading, posts, setPosts, isLoginUser }, ref) =
             ))
           )}
         </Ul>
-        {isModalOpen && (
-          <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} isLoginUser={isLoginUser} />
-        )}
+        {isModalOpen && <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} />}
       </Wrapper>
     </Container>
   );

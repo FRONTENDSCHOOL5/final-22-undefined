@@ -30,17 +30,24 @@ const UserList = styled.ul`
   }
 `;
 
-const Contents = ({ userList }) => {
+const Contents = ({ userList, inputTxt }) => {
+  console.log(inputTxt);
   return (
     <MainLayout>
       {userList.map((item) => (
         <UserList key={item._id}>
           <li>
-            <a>
+            <a href={`/profile/${item.accountname}`}>
               <PostUserProfileImg userProfileImg={item.image} />
               <div>
-                <p className='userName'>{item.username}</p>
-                <p className='accountName'>{item.accountname}</p>
+                {item.username.split(inputTxt).map((item, index, array) => (
+                  <React.Fragment key={index}>
+                    {item}
+                    {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
+                  </React.Fragment>
+                ))}
+                <p className='userName'></p>
+                <p className='accountName'></p>
               </div>
             </a>
           </li>

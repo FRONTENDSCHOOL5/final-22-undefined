@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import * as S from './PostSection.style';
 import PostAlbum from './PostAlbum';
 import PostList from './PostList';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
+import { getPosts } from '../../api/post';
 
 const PostSection = () => {
   const { accountname } = useParams();
@@ -15,32 +16,17 @@ const PostSection = () => {
   const target = useRef(null);
   const [skip, setSkip] = useState(0);
   const [isLast, setIsLast] = useState(false); // 더 이상 불러올 게시물이 없을 경우
-  const location = useLocation();
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : userAccountname;
 
-  useEffect(() => {
-    setPosts([]);
-    setSkip(0);
-    setIsLast(false);
-  }, [location.pathname]);
-
   // 유저 게시물 정보
   useEffect(() => {
-    const getPosts = async () => {
-      console.log(skip, 'skip');
+    const fetch = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${userId}/userpost/?limit=6&skip=${skip}`, {
-          headers: { Authorization: `Bearer ${userToken}`, 'Content-Type': 'application/json' },
-        });
-
-        const data = await response.json();
-        // console.log(data);
+        const data = await getPosts(userId, skip, userToken);
         if (data.post.length < 6) setIsLast(true);
-        // *** 남의 프로필 페이지 갔다가 내 프로필 페이지에 오면 다른 사람의 게시글이 포함 되어 있음..
-
         setPosts((prev) => [...prev, ...data.post]);
         setIsLoading(false);
       } catch (err) {
@@ -49,7 +35,7 @@ const PostSection = () => {
       }
     };
 
-    getPosts();
+    fetch();
   }, [userId, userToken, skip]);
 
   const callback = (entries) => {
