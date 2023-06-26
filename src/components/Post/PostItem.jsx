@@ -93,17 +93,19 @@ const UserInfoSect = styled.section`
 const ProfileLink = styled(Link)`
   display: flex;
   align-items: center;
-  margin: 4px 5px 0 0;
 `;
 const UserNameInfo = styled.div`
   flex-grow: 1;
 `;
 
-const InfoName = styled.p`
-  margin-bottom: 6px;
+const InfoName = styled.strong`
+  font-weight: 500;
 `;
 const InfoAccount = styled.p`
   font-size: 12px;
+  margin-top: 3px;
+
+  color: ${({ theme }) => theme.colors.txtColor};
 `;
 
 // 모달 버튼 아이콘

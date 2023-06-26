@@ -94,13 +94,12 @@ const Li = styled.li`
 const UserAuth = styled.div`
   display: flex;
 `;
-const ProfileLink = styled(Link)`
-  margin: 4px 5px 0 0;
-`;
+const ProfileLink = styled(Link)``;
 
 const Username = styled.strong`
+  display: inline-block;
+  margin: 2px 5px 0 0;
   font-weight: 500;
-  /* font-size: 14px; */
   line-height: 18px;
 `;
 
