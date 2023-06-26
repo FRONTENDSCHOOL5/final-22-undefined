@@ -1,6 +1,7 @@
 import React, { useRef, useState, useContext, useEffect } from 'react';
 import * as S from './Modal.style';
 import { AuthContextStore } from '../../../context/AuthContext';
+import { reportComment } from '../../../api/comment';
 
 const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, setCommentList, setCommentCnt }) => {
   const modalRef = useRef();
@@ -27,7 +28,8 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
         onClose();
       }
     } else if (option === '신고하기') {
-      reportComment();
+      fetchReport();
+      console.log('신고완료!');
       onClose();
     }
   };
@@ -56,26 +58,21 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
     }
   };
 
-  const reportComment = async () => {
+  const fetchReport = async () => {
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments/${commentId}/report`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          report: {
-            comment: commentId,
-          },
-        }),
-      });
-
-      if (response.ok) {
-        console.log('댓글 신고 완료');
-      } else {
-        throw new Error('댓글 신고 실패');
-      }
+      await reportComment(postId, commentId, userToken);
+      // const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments/${commentId}/report`, {
+      //   method: 'POST',
+      //   headers: {
+      //     Authorization: `Bearer ${userToken}`,
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     report: {
+      //       comment: commentId,
+      //     },
+      //   }),
+      // });
     } catch (error) {
       console.log(error);
     }
