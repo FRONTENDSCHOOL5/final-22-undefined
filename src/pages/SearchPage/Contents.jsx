@@ -34,7 +34,7 @@ const Contents = ({ userList }) => {
   return (
     <MainLayout>
       {userList.map((item) => (
-        <UserList key={item.id}>
+        <UserList key={item._id}>
           <li>
             <a>
               <PostUserProfileImg userProfileImg={item.image} />
