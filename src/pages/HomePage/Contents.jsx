@@ -35,12 +35,12 @@ const SearchIcon = styled.a`
   text-align: center;
 `;
 
-const Contents = ({ posts, setPosts, isLoginUser }) => {
+const Contents = ({ posts, setPosts }) => {
   return (
     <>
       {posts.length !== 0 ? (
         <>
-          <PostList posts={posts} setPosts={setPosts} isLoginUser={isLoginUser} />
+          <PostList posts={posts} setPosts={setPosts} />
         </>
       ) : (
         <>
