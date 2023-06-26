@@ -6,7 +6,7 @@ import Comment from './Comment';
 const ChatList = () => {
   return (
     <>
-      <FeedHeader />
+      <FeedHeader isChatHeader={true} />
       <ChatRoomContents />
       <Comment atChatroom={true} />
     </>

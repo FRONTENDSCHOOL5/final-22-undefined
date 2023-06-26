@@ -5,7 +5,7 @@ import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
 import { useNavigate } from 'react-router-dom';
 
-const PostList = forwardRef(({ posts, setPosts }, ref) => {
+const PostList = forwardRef(({ posts, setPosts, isLoginUser }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
   const navigate = useNavigate();
@@ -38,7 +38,9 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
             </Li>
           ))}
         </Ul>
-        {isModalOpen && <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} />}
+        {isModalOpen && (
+          <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} isLoginUser={isLoginUser} />
+        )}
       </Wrapper>
     </Container>
   );
