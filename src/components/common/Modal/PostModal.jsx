@@ -3,6 +3,7 @@ import * as S from './Modal.style';
 import AlertModal from './AlertModal';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
+import { reportPost } from '../../../api/post';
 
 const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
@@ -28,7 +29,8 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
         }
       }
     } else if (option === '신고하기') {
-      reportPost(postId);
+      fetchReport(postId, userToken);
+      console.log('신고하기 완료!');
     }
   };
 
@@ -92,29 +94,21 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   };
 
   // 게시글 신고
-  const reportPost = async (postId) => {
+  const fetchReport = async () => {
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          report: {
-            post: postId,
-          },
-        }),
-      });
-
-      if (response.ok) {
-        // 성공할 경우
-        console.log('게시글 신고 완료');
-        onClose();
-      } else {
-        // 실패할 경우
-        throw new Error('게시글 신고 실패');
-      }
+      await reportPost(postId, userToken);
+      // const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
+      //   method: 'POST',
+      //   headers: {
+      //     Authorization: `Bearer ${userToken}`,
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     report: {
+      //       post: postId,
+      //     },
+      //   }),
+      // });
     } catch (error) {
       // 실패할 경우
       console.log(error);

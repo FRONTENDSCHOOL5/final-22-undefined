@@ -69,4 +69,11 @@ export const getFeeds = async (userToken) => {
 };
 
 // 게시글 신고
-// ...
+export const reportPost = async (postId, userToken) => {
+  return await request(`post/${postId}/report`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${userToken}`,
+    },
+  });
+};
