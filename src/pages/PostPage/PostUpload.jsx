@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import uploadIcon from '../../assets/icon/icon-upload.png';
-import removeIcon from '../../assets/icon/icon-delete.svg';
+import * as S from './PostUpload.style';
 import { AuthContextStore } from '../../context/AuthContext';
 import SaveHeader from '../../components/common/Header/SaveHeader';
 import { useNavigate } from 'react-router-dom';
@@ -70,12 +68,12 @@ const PostUpload = () => {
   return (
     <>
       <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={handleUpload} />
-      <Title className='a11y-hidden'>게시글 작성 페이지</Title>
-      <PostMain>
+      <S.Title className='a11y-hidden'>게시글 작성 페이지</S.Title>
+      <S.PostMain>
         <PostUserProfileImg userProfileImg={userProfileImg} />
-        <PostArticle>
-          <Form>
-            <Textarea
+        <S.PostArticle>
+          <S.Form>
+            <S.Textarea
               value={userContent}
               name='text'
               placeholder='게시글 입력하기..'
@@ -83,20 +81,20 @@ const PostUpload = () => {
               ref={textarea}
               rows={1}
             />
-          </Form>
-          <Section>
-            <Ul>
+          </S.Form>
+          <S.Section>
+            <S.Ul>
               {images.map((image, index) => (
-                <Li key={index}>
-                  <UploadImg src={`https://api.mandarin.weniv.co.kr/${image}`} alt='게시글 업로드 이미지' />
-                  <DeleteBtn onClick={() => onDelete(index)}>
+                <S.Li key={index}>
+                  <S.UploadImg src={`https://api.mandarin.weniv.co.kr/${image}`} alt='게시글 업로드 이미지' />
+                  <S.DeleteBtn onClick={() => onDelete(index)}>
                     <span className='a11y-hidden'>업로드 이미지 삭제</span>
-                  </DeleteBtn>
-                </Li>
+                  </S.DeleteBtn>
+                </S.Li>
               ))}
-            </Ul>
-            <UploadImgBtn htmlFor='imgUpload' />
-            <UploadImgInp
+            </S.Ul>
+            <S.UploadImgBtn htmlFor='imgUpload' />
+            <S.UploadImgInp
               className='a11y-hidden'
               type='file'
               id='imgUpload'
@@ -104,93 +102,11 @@ const PostUpload = () => {
               accept='image/*'
               multiple={true}
             />
-          </Section>
-        </PostArticle>
-      </PostMain>
+          </S.Section>
+        </S.PostArticle>
+      </S.PostMain>
     </>
   );
 };
 
 export default PostUpload;
-
-const Title = styled.h2``;
-
-const PostMain = styled.main`
-  margin-top: 48px;
-  padding: 20px 16px;
-  display: flex;
-`;
-
-const PostArticle = styled.article`
-  flex-grow: 1;
-  padding-bottom: 12px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
-`;
-
-const Form = styled.form`
-  padding-top: 8px;
-`;
-
-const Section = styled.section``;
-
-const Textarea = styled.textarea`
-  width: 100%;
-  margin-bottom: 8px;
-  border: none;
-  resize: none;
-  overflow: hidden;
-  line-height: 20px;
-  word-break: break-all;
-
-  &:focus {
-    outline: none;
-  }
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.gray};
-  }
-`;
-
-const Ul = styled.ul`
-  display: flex;
-  gap: 10px;
-  max-width: 800px;
-`;
-
-const Li = styled.li`
-  border-radius: 10px;
-  flex-shrink: 1;
-  flex-basis: 302px;
-  max-height: 228px;
-  position: relative;
-  border: 1px solid ${({ theme }) => theme.colors.gray};
-  overflow: hidden;
-`;
-
-const UploadImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const UploadImgBtn = styled.label`
-  position: absolute;
-  right: 16px;
-  bottom: 25px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  background: ${({ theme }) => `${theme.colors.primary} url(${uploadIcon}) no-repeat center`};
-`;
-
-const UploadImgInp = styled.input``;
-
-const DeleteBtn = styled.button`
-  width: 22px;
-  height: 22px;
-  top: 6px;
-  right: 6px;
-  background: url(${removeIcon}) no-repeat center / contain;
-  position: absolute;
-  cursor: pointer;
-`;
