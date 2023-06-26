@@ -10,7 +10,7 @@ const PostSection = () => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const target = useRef(null);
   const [skip, setSkip] = useState(0);
@@ -42,7 +42,7 @@ const PostSection = () => {
         // *** 남의 프로필 페이지 갔다가 내 프로필 페이지에 오면 다른 사람의 게시글이 포함 되어 있음..
 
         setPosts((prev) => [...prev, ...data.post]);
-        // setIsLoading(false);
+        setIsLoading(false);
       } catch (err) {
         console.log(err.message);
         setIsLoading(false);
