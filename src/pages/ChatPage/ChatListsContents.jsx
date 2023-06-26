@@ -3,8 +3,15 @@ import styled from 'styled-components';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { useNavigate } from 'react-router-dom';
 import MainLayout from '../../components/common/MainLayout/MainLayout';
+import newChat from '../../assets/newChat.png';
 
 const ChatListCard = styled.section`
+  .newIcon {
+    width: 12px;
+    height: 12px;
+    position: relative;
+    left: 10px;
+  }
   .chatListTxt {
     display: inline-block;
     cursor: pointer;
@@ -37,7 +44,8 @@ const ChatListsContents = () => {
   return (
     <MainLayout>
       <ChatListCard onClick={handleClick}>
-        <PostUserProfileImg size={'42px'} />
+        <img className='newIcon' src={newChat} alt='' />
+        <PostUserProfileImg className='userImg' size={'42px'} />
         <div className='chatListTxt'>
           <h2>🐾강냥공냥공냥냥</h2>
           <p>가입을 축하드립니다!</p>
