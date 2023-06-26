@@ -2,10 +2,10 @@ import React from 'react';
 import ImgInput from '../common/Input/ImgInput';
 import ProfileFormInput from '../common/Input/ProfileFormInput';
 
-const ProfileForm = ({ formData, setFormData, img, setImg, error, setError }) => {
+const ProfileForm = ({ formData, setFormData, img, onUpload, error, setError }) => {
   return (
     <>
-      <ImgInput img={img} setImg={setImg} />
+      <ImgInput img={img} onUpload={onUpload} />
       <ProfileFormInput
         id='username'
         label='사용자 이름'

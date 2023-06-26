@@ -5,6 +5,7 @@ import Button from '../../components/common/Button/Button';
 import ProfileForm from '../../components/Profile/ProfileForm';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { join } from '../../api/auth';
+import useImageUpload from '../../hooks/useImageUpload';
 
 const Main = styled.main``;
 
@@ -38,7 +39,7 @@ const ProfileSetting = () => {
     username: '',
     intro: '',
   });
-  const [img, setImg] = useState('');
+  // const [img, setImg] = useState('');
   const [error, setError] = useState({
     accountname: '',
     username: '',
@@ -46,6 +47,7 @@ const ProfileSetting = () => {
   });
   const { state } = useLocation();
   const navigate = useNavigate();
+  const { img, onUpload } = useImageUpload();
 
   let isActivated = false;
   if (error.username === 'noError' && error.accountname === 'noError') isActivated = true;
@@ -102,7 +104,7 @@ const ProfileSetting = () => {
             formData={formData}
             setFormData={setFormData}
             img={img}
-            setImg={setImg}
+            onUpload={onUpload}
             error={error}
             setError={setError}
           />
