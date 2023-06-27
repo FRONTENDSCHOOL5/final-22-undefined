@@ -65,7 +65,7 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
     }
   };
 
-  // ReportModal 컴포넌트 확인 메시지 렌더링
+  // ReportModal 컴포넌트 신고 확인 메시지 렌더링
   const renderAlertModal = () => {
     if (selectedOption === '신고하기') {
       return (

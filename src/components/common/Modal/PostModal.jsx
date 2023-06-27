@@ -119,7 +119,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     }
   };
 
-  // AlertModal 컴포넌트 확인 메시지 렌더링
+  // AlertModal, ReportModal 컴포넌트 삭제 및 신고 확인 메시지 렌더링
   const renderAlertModal = () => {
     if (selectedOption === '삭제') {
       return (
