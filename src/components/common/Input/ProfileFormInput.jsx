@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import * as S from './FormInput.style';
 import { AuthContextStore } from '../../../context/AuthContext';
+import { validateForm } from '../../../api/auth';
 
 const ERROR_MSG = {
   required: '필수 입력사항을 입력해주세요.',
@@ -53,19 +54,7 @@ const ProfileFormInput = ({ id, label, formData, setFormData, error, setError, i
   // 이메일, 계정 ID 중복 검사
   const checkDuplication = async (errorMsg) => {
     try {
-      const url = `https://api.mandarin.weniv.co.kr/user/${id}valid`;
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user: { [id]: formData[id] },
-        }),
-      });
-
-      const data = await response.json();
+      const data = await validateForm(id, formData);
       if (data.message === errorMsg) {
         setError({ ...error, [id]: data.message });
       } else if (data.message === '잘못된 접근입니다.') {

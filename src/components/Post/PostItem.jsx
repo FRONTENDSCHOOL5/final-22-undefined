@@ -24,6 +24,7 @@ const PostItem = ({ post, onClick, commentCnt }) => {
       console.log(error.message);
     }
   };
+
   return (
     <>
       <S.PostArticle>

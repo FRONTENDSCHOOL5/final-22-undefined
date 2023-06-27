@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 
 import * as S from './Follow.style';
 import { AuthContextStore } from '../../context/AuthContext';
+import { followApi } from '../../api/follow';
 
 const Follow = ({ item }) => {
   const { userToken, userAccountname } = useContext(AuthContextStore);
@@ -11,24 +12,12 @@ const Follow = ({ item }) => {
   const handleClick = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch(
-        `https://api.mandarin.weniv.co.kr/profile/${accountname}/${isfollow ? 'unfollow' : 'follow'}`,
-        {
-          method: isfollow ? 'DELETE' : 'POST',
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-      const data = await response.json();
+      await followApi(accountname, isfollow, userToken);
       setFollow((prev) => ({ ...prev, isfollow: !prev.isfollow }));
     } catch (err) {
       console.log(err.message);
     }
   };
-
-  // if (follow.accountname === userAccountname) return null;
 
   return (
     <S.Item>
