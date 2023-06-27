@@ -3,7 +3,7 @@ import * as S from './ProfileDisplay.style';
 import { AuthContextStore } from '../../context/AuthContext';
 import { Link, useParams } from 'react-router-dom';
 import ProfileSkeleton from '../Skeleton/ProfileSkeleton';
-import { follow } from '../../api/follow';
+import { followApi } from '../../api/follow';
 // import PostUserProfileImg from '../Post/PostUserProfileImg';
 
 const ProfileDisplay = ({ userInfo, setUserInfo, isLoading }) => {
@@ -18,7 +18,7 @@ const ProfileDisplay = ({ userInfo, setUserInfo, isLoading }) => {
 
   const handleFollow = async () => {
     try {
-      await follow(accountname, isfollow, userToken);
+      await followApi(accountname, isfollow, userToken);
 
       isfollow
         ? setUserInfo((prev) => ({ ...prev, isfollow: false, followerCount: prev.followerCount - 1 }))
