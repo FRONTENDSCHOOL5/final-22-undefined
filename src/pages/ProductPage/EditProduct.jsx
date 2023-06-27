@@ -6,6 +6,7 @@ import { AuthContextStore } from '../../context/AuthContext';
 import ProductForm from '../../components/Product/ProductForm';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getSingleProduct, editProduct } from '../../api/product';
+import useImageUpload from '../../hooks/useImageUpload';
 
 const Main = styled.main``;
 
@@ -24,13 +25,13 @@ const EditProduct = () => {
     price: '',
     link: '',
   });
-  const [img, setImg] = useState('');
   const [error, setError] = useState({
     itemName: '',
     price: '',
     link: '',
     itemImg: '',
   });
+  const { img, onUpload, setImg } = useImageUpload();
 
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -105,7 +106,7 @@ const EditProduct = () => {
             formData={formData}
             setFormData={setFormData}
             img={img}
-            setImg={setImg}
+            onUpload={onUpload}
             error={error}
             setError={setError}
           />
