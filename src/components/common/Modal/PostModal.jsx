@@ -1,8 +1,10 @@
 import React, { useRef, useState, useContext } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
+import ReportModal from './ReportModal';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
+import { reportPost } from '../../../api/post';
 
 const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
@@ -28,7 +30,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
         }
       }
     } else if (option === '신고하기') {
-      reportPost(postId);
+      setSelectedOption(option);
     }
   };
 
@@ -53,6 +55,10 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     } else if (option === '취소') {
       setSelectedOption('');
       onClose(); // onClose 콜백 호출
+    } else if (option === '확인') {
+      fetchReport(postId, userToken);
+      console.log('신고하기 완료!');
+      onClose();
     }
   };
 
@@ -92,36 +98,28 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   };
 
   // 게시글 신고
-  const reportPost = async (postId) => {
+  const fetchReport = async () => {
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          report: {
-            post: postId,
-          },
-        }),
-      });
-
-      if (response.ok) {
-        // 성공할 경우
-        console.log('게시글 신고 완료');
-        onClose();
-      } else {
-        // 실패할 경우
-        throw new Error('게시글 신고 실패');
-      }
+      await reportPost(postId, userToken);
+      // const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
+      //   method: 'POST',
+      //   headers: {
+      //     Authorization: `Bearer ${userToken}`,
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     report: {
+      //       post: postId,
+      //     },
+      //   }),
+      // });
     } catch (error) {
       // 실패할 경우
       console.log(error);
     }
   };
 
-  // AlertModal 컴포넌트 확인 메시지 렌더링
+  // AlertModal, ReportModal 컴포넌트 삭제 및 신고 확인 메시지 렌더링
   const renderAlertModal = () => {
     if (selectedOption === '삭제') {
       return (
@@ -131,6 +129,15 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
           buttons={['취소', '삭제']}
           buttonFontColor={['#767676', '#F26E22']}
           buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
+        />
+      );
+    } else if (selectedOption === '신고하기') {
+      return (
+        <ReportModal
+          message='신고가 완료되었습니다!'
+          onClose={closeModal}
+          button={'확인'}
+          buttonFontColor={'#F26E22'}
         />
       );
     }
