@@ -56,29 +56,6 @@ const ProfileSetting = () => {
     if (!state?.email || !state?.password) navigate('/join');
   }, []);
 
-  // 프로필 수정 페이지에서 버튼이 form 밖에 있어서 onSubmit으로 하지 않고 onClick으로 구현
-  // const handleClick = async () => {
-  //   try {
-  //     const image = img === '' ? 'https://api.mandarin.weniv.co.kr/Ellipse.png' : img;
-
-  //     const response = await fetch('https://api.mandarin.weniv.co.kr/user', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ user: { ...state, ...formData, image } }),
-  //     });
-
-  //     const data = await response.json();
-  //     if (data.message === '회원가입 성공') {
-  //       navigate('/');
-  //     } else {
-  //       navigate('/join');
-  //     }
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // };
   const handleClick = async () => {
     try {
       const image = img === '' ? 'https://api.mandarin.weniv.co.kr/Ellipse.png' : img;
