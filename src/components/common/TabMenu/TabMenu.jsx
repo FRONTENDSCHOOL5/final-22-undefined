@@ -1,13 +1,13 @@
 import React from 'react';
 import * as S from './TabMenu.style';
 
-import home from '../../../assets/icon/icon-home.png';
+import home from '../../../assets/icon/icon-home.svg';
 import chat from '../../../assets/icon/icon-message-circle.svg';
 import post from '../../../assets/icon/icon-edit.svg';
 import profile from '../../../assets/icon/icon-user.svg';
 import homeFill from '../../../assets/icon/icon-home-fill.svg';
-import chatFill from '../../../assets/icon/icon-message-circle-fill.png';
-import profileFill from '../../../assets/icon/icon-user-fill.png';
+import chatFill from '../../../assets/icon/icon-message-circle-fill.svg';
+import profileFill from '../../../assets/icon/icon-user-fill.svg';
 
 const TabMenu = ({ active }) => {
   return (

@@ -1,10 +1,11 @@
 const colors = {
-  primary: '#F26E22',
-  secondary: '#FFC7A7',
+  primary: '#374259',
+  secondary: '#b1b5bb',
+  third: '#F2D8D8',
   gray: '#dbdbdb',
   bgGray: '#f2f2f2',
   txtColor: '#767676',
-  warning: '#eb5757',
+  warning: '#FD7A6E',
   white: '#fff',
 };
 

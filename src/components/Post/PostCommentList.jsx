@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
+import ModalButtonImg from '../../assets/icon/s-icon-more-vertical.svg';
 import * as S from './PostCommentList.style';
 import PostUserProfileImg from './PostUserProfileImg';
 import CommentModal from '../common/Modal/CommentModal';

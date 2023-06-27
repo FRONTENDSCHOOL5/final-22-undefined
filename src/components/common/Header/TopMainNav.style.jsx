@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import iconSearch from '../../../assets/icon/icon-search.png';
-
+import iconSearch from '../../../assets/icon/icon-search.svg';
+import { Link } from 'react-router-dom';
 export const Header = styled.header`
   height: 48px;
   padding: 13px 13px;
@@ -20,10 +20,12 @@ export const Header = styled.header`
     font-weight: 500;
     line-height: 22px;
   }
-
-  a {
-    background: url(${iconSearch}) no-repeat center/ 16px 16px;
-    width: 16px;
-    height: 16px;
+  img {
+    height: 22px;
   }
+`;
+export const SearchLink = styled(Link)`
+  background: url(${iconSearch}) no-repeat center/ 20px 20px;
+  width: 20px;
+  height: 20px;
 `;
