@@ -21,6 +21,10 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
   };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  // console.log(isLoading);
+>>>>>>> 05a585f (fix: isLoading 상태 삭제)
 
 =======
   console.log(isLoading);
