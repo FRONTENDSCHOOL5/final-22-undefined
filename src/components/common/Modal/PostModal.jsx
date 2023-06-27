@@ -36,22 +36,11 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
 
   // 모달 닫기
   const closeModal = (option) => {
-    // console.log(postId);
+    console.log(postId);
     if (option === '삭제') {
-      fetchDelete(postId) // 게시글 삭제 호출
-        .then((response) => {
-          if (response.success) {
-            // console.log('삭제 완료');
-            onClose();
-            setPosts(posts.filter((post) => post.id !== postId));
-          } else {
-            onClose();
-            deleteError(response.error); // 삭제 실패 시 에러 처리
-          }
-        })
-        .catch((error) => {
-          deleteError('서버 오류'); // 서버 통신 실패 시 에러 처리
-        });
+      fetchDelete(postId, userToken);
+      setPosts(posts.filter((post) => post.id !== postId));
+      onClose();
     } else if (option === '취소') {
       setSelectedOption('');
       onClose(); // onClose 콜백 호출
@@ -64,6 +53,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
 
   // 게시글 삭제 및 삭제 오류 처리
   const fetchDelete = async () => {
+    console.log(postId);
     try {
       await deletePost(postId, userToken);
     } catch (error) {
