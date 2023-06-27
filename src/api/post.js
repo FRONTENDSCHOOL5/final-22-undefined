@@ -40,6 +40,16 @@ export const deletePost = async (postId, userToken) => {
   });
 };
 
+// 게시글 신고
+export const reportPost = async (postId, userToken) => {
+  return await request(`post/${postId}/report`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${userToken}`,
+    },
+  });
+};
+
 // 특정 사용자의 게시물 목록 가져오기
 export const getPosts = async (userId, skip, userToken) => {
   return await request(`post/${userId}/userpost/?limit=6&skip=${skip}`, {
@@ -62,16 +72,6 @@ export const likePost = async (postId, isHearted, userToken) => {
 export const getFeeds = async (skip, userToken) => {
   return await request(`post/feed/?limit=6&skip=${skip}`, {
     method: 'GET',
-    headers: {
-      Authorization: `Bearer ${userToken}`,
-    },
-  });
-};
-
-// 게시글 신고
-export const reportPost = async (postId, userToken) => {
-  return await request(`post/${postId}/report`, {
-    method: 'POST',
     headers: {
       Authorization: `Bearer ${userToken}`,
     },
