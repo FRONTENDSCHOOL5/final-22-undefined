@@ -42,13 +42,14 @@ export const Textarea = styled.textarea`
 export const Ul = styled.ul`
   display: flex;
   gap: 10px;
+  max-width: 800px;
 `;
 
 export const Li = styled.li`
   border-radius: 10px;
-  flex-shrink: 0;
-  width: 304px;
-  height: 228px;
+  flex-shrink: 1;
+  flex-basis: 302px;
+  max-height: 228px;
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.gray};
   overflow: hidden;
