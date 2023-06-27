@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ArrowLeftIcon from '../../../assets/icon/icon-arrow-left.png';
+import ArrowLeftIcon from '../../../assets/icon/icon-arrow-left.svg';
 import Button from '../Button/Button';
 
 export const Header = styled.header`

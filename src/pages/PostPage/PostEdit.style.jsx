@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import uploadIcon from '../../assets/icon/icon-upload.png';
-import removeIcon from '../../assets/icon/icon-delete.svg';
+import removeIcon from '../../assets/icon/icon-remove.svg';
 
 export const Title = styled.h2``;
 
