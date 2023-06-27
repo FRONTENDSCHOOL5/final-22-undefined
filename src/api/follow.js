@@ -1,7 +1,7 @@
 import { request } from './request';
 
 // 팔로우, 언팔로우하기
-export const follow = async (accountname, isfollow, userToken) => {
+export const followApi = async (accountname, isfollow, userToken) => {
   return await request(`profile/${accountname}/${isfollow ? 'unfollow' : 'follow'}`, {
     method: isfollow ? 'DELETE' : 'POST',
     headers: {
