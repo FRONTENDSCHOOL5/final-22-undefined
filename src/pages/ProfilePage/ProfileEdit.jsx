@@ -5,6 +5,7 @@ import ProfileForm from '../../components/Profile/ProfileForm';
 import { AuthContextStore } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { editProfile, getMyInfo } from '../../api/profile';
+import useImageUpload from '../../hooks/useImageUpload';
 
 const ProfileEdit = () => {
   const { userToken, setUserAccountname } = useContext(AuthContextStore);
@@ -13,7 +14,6 @@ const ProfileEdit = () => {
     username: '',
     intro: '',
   });
-  const [img, setImg] = useState('');
   const [error, setError] = useState({
     accountname: '',
     username: '',
@@ -21,6 +21,7 @@ const ProfileEdit = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { img, onUpload, setImg } = useImageUpload();
 
   // 버튼 활성화
   let isActivated = false;
@@ -76,7 +77,7 @@ const ProfileEdit = () => {
             formData={formData}
             setFormData={setFormData}
             img={img}
-            setImg={setImg}
+            onUpload={onUpload}
             error={error}
             setError={setError}
           />
