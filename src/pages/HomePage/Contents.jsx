@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, forwardRef } from 'react';
 import home from '../../assets/symbol-logo-gray.png';
 import styled, { css } from 'styled-components';
 import PostList from '../../components/Post/PostList';
@@ -47,12 +47,12 @@ const NoFollower = styled.div`
   }
 `;
 
-const Contents = ({ posts, setPosts }) => {
+const Contents = forwardRef(({ posts, setPosts }, ref) => {
   return (
     <Main>
       {posts.length !== 0 ? (
         <>
-          <PostList posts={posts} setPosts={setPosts} />
+          <PostList posts={posts} setPosts={setPosts} ref={ref} />
         </>
       ) : (
         <NoFollower>
@@ -62,6 +62,6 @@ const Contents = ({ posts, setPosts }) => {
       )}
     </Main>
   );
-};
+});
 
 export default Contents;

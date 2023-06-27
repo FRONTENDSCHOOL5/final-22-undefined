@@ -22,5 +22,8 @@ export const login = async (email, password) => {
 // 이메일, 아이디 중복 검사
 // ...
 
-// 이미 존재하는 accountnmae인지 검사
+// 이미 존재하는 이메일인지 검사
+// ...
+
+// 이미 존재하는 accountname인지 검사
 // ...
