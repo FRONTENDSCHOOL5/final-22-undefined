@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import * as S from './PostSection.style';
 import PostAlbum from './PostAlbum';
 import PostList from './PostList';
