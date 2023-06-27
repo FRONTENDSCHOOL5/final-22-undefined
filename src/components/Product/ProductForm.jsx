@@ -8,7 +8,7 @@ const ProductForm = ({ formData, setFormData, img, setImg, error, setError }) =>
       <ProductImgInput id='itemImg' label='이미지 등록' img={img} setImg={setImg} />
       <ProductFormInput
         id='itemName'
-        label='상품명'
+        label='이름'
         formData={formData}
         setFormData={setFormData}
         error={error}
@@ -33,7 +33,7 @@ const ProductForm = ({ formData, setFormData, img, setImg, error, setError }) =>
       />
       <ProductFormInput
         id='link'
-        label='판매 링크'
+        label='보호소 링크'
         formData={formData}
         setFormData={setFormData}
         error={error}

@@ -48,18 +48,6 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
   const fetchReport = async () => {
     try {
       await reportComment(postId, commentId, userToken);
-      // const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments/${commentId}/report`, {
-      //   method: 'POST',
-      //   headers: {
-      //     Authorization: `Bearer ${userToken}`,
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     report: {
-      //       comment: commentId,
-      //     },
-      //   }),
-      // });
     } catch (error) {
       console.log(error);
     }
