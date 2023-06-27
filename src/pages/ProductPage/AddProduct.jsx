@@ -39,7 +39,6 @@ const AddProduct = () => {
     formData.itemName.trim() !== '' &&
     formData.price.trim() !== '' &&
     formData.link.trim() !== '' &&
-    img !== '' &&
     (error.itemName === '' || error.itemName === 'noError') &&
     (error.price === '' || error.price === 'noError') &&
     (error.link === '' || error.link === 'noError') &&
