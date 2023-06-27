@@ -42,6 +42,7 @@ export const Intro = styled.p`
   font-size: 14px;
   width: 280px;
   height: 18px;
+  word-break: break-all;
   color: ${({ theme }) => theme.colors.txtColor};
   margin: 14px auto 26px;
 `;
