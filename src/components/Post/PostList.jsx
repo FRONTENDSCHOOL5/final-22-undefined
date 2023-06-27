@@ -27,6 +27,7 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   // console.log(isLoading);
 >>>>>>> 05a585f (fix: isLoading 상태 삭제)
@@ -34,6 +35,11 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
 >>>>>>> d574ef1 (fix: isLoading 상태 삭제)
 =======
 >>>>>>> bc4cfbc (fix: isLoading 상태 삭제)
+=======
+=======
+  // console.log(isLoading);
+>>>>>>> 05a585f (fix: isLoading 상태 삭제)
+>>>>>>> 378221f (fix: isLoading 상태 삭제)
 
 =======
   console.log(isLoading);
