@@ -39,7 +39,6 @@ const UserList = styled.ul`
 `;
 
 const Contents = ({ userList, inputTxt }) => {
-  console.log(inputTxt);
   return (
     <MainLayout>
       <UserList className='sl-ellipsis'>
@@ -47,22 +46,29 @@ const Contents = ({ userList, inputTxt }) => {
           <li key={item._id}>
             <Link to={`/profile/${item.accountname}`}>
               <div>
-                <PostUserProfileImg userProfileImg={item.image} size='50px' />
+                <PostUserProfileImg
+                  userProfileImg={
+                    item.image.includes('https://api.mandarin.weniv.co.kr/')
+                      ? item.image
+                      : 'https://api.mandarin.weniv.co.kr/Ellipse.png'
+                  }
+                  size='50px'
+                />
                 <div className='searchContents'>
                   <span className='userName'>
                     {item.username.split(inputTxt).map((value, index, array) => (
-                      <>
+                      <React.Fragment key={index}>
                         {value}
                         {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
-                      </>
+                      </React.Fragment>
                     ))}
                   </span>
                   <span className='accountName'>
                     {item.accountname.split(inputTxt).map((value, index, array) => (
-                      <>
+                      <React.Fragment key={index}>
                         {value}
                         {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
-                      </>
+                      </React.Fragment>
                     ))}
                   </span>
                 </div>
