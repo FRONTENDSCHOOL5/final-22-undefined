@@ -26,22 +26,34 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   // console.log(isLoading);
 >>>>>>> 05a585f (fix: isLoading 상태 삭제)
 =======
 >>>>>>> d574ef1 (fix: isLoading 상태 삭제)
+=======
+>>>>>>> bc4cfbc (fix: isLoading 상태 삭제)
 
 =======
   console.log(isLoading);
 >>>>>>> c5f2bc8 (fix: isLoading 상태 삭제)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
 >>>>>>> 8de1e19 (fix: isLoading 상태 삭제)
 =======
 >>>>>>> d574ef1 (fix: isLoading 상태 삭제)
+<<<<<<< HEAD
 >>>>>>> 0ce1f73 (fix: isLoading 상태 삭제)
+=======
+=======
+=======
+
+>>>>>>> 8de1e19 (fix: isLoading 상태 삭제)
+>>>>>>> bc4cfbc (fix: isLoading 상태 삭제)
+>>>>>>> a354687 (fix: isLoading 상태 삭제)
   return (
     <Container>
       <Wrapper>
