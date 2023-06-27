@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Button from '../common/Button/Button';
 import { AuthContextStore } from '../../context/AuthContext';
+import { followApi } from '../../api/follow';
 
 const Item = styled.li`
   margin-bottom: 16px;
@@ -59,24 +60,12 @@ const Follow = ({ item }) => {
   const handleClick = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch(
-        `https://api.mandarin.weniv.co.kr/profile/${accountname}/${isfollow ? 'unfollow' : 'follow'}`,
-        {
-          method: isfollow ? 'DELETE' : 'POST',
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-      const data = await response.json();
+      await followApi(accountname, isfollow, userToken);
       setFollow((prev) => ({ ...prev, isfollow: !prev.isfollow }));
     } catch (err) {
       console.log(err.message);
     }
   };
-
-  // if (follow.accountname === userAccountname) return null;
 
   return (
     <Item>
