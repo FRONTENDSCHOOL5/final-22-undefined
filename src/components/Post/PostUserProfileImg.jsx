@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Ellipse from '../../assets/Ellipse-1.png';
+import Ellipse from '../../assets/basic-profile-img-bone-gd.svg';
 
 const PostUserProfileImg = ({ userProfileImg, size }) => {
   //userProfileImg로 props 보낼때, myProfileImg(본인 프로필 사진) 혹은 userProfileImg(다른 유저 사진)로 받을 수 있음

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './FeedHeader.style';
-import backButtonImg from '../../../assets/icon/icon-arrow-left.png';
-import ModalButtonImg from '../../../assets/icon/icon-more-vertical.png';
+import backButtonImg from '../../../assets/icon/icon-arrow-left.svg';
+import ModalButtonImg from '../../../assets/icon/icon- more-vertical.svg';
 import FeedModal from '../../../components/common/Modal/FeedModal';
 import ChatModal from '../../../components/common/Modal/ChatModal';
 

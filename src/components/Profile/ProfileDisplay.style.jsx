@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import ChatIcon from '../../assets/icon/icon-message-circle.svg';
-import ShareIcon from '../../assets/icon/icon-share.png';
+import ChatIconFill from '../../assets/icon/icon-message-circle-white-fill.svg';
+import ShareIcon from '../../assets/icon/icon-share.svg';
+import ShareIconFill from '../../assets/icon/icon-share-fill.svg';
 import { Link } from 'react-router-dom';
 import Button from '../common/Button/Button';
 
@@ -90,6 +92,10 @@ export const ChatBtn = styled.button`
   border-radius: 50%;
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   background: url(${ChatIcon}) no-repeat center / 18px;
+  transition: 0.3s;
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary} url(${ChatIconFill}) no-repeat center / 17px;
+  }
 `;
 
 export const FollowBtn = styled(Button)`
@@ -102,6 +108,10 @@ export const ShareBtn = styled.button`
   border-radius: 50%;
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   background: url(${ShareIcon}) no-repeat center / 18px;
+  transition: 0.3s;
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary} url(${ShareIconFill}) no-repeat center / 18px;
+  }
 `;
 
 export const EditProfileBtn = styled(Button)`
