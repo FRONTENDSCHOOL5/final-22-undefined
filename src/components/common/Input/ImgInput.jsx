@@ -2,34 +2,14 @@ import React from 'react';
 import Ellipse from '../../../assets/Ellipse-1.png';
 import * as S from './ImgInput.style';
 
-const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
-
-const ImgInput = ({ img, setImg }) => {
-  const handleChange = async (event) => {
+const ImgInput = ({ img, onUpload }) => {
+  const handleChange = (event) => {
     if (!event.target.files || event.target.files.length === 0) {
       return;
     }
 
     const file = event.target.files[0];
-    console.log(file);
-    const fileExtension = file.name.split('.').slice(-1)[0].toLowerCase();
-
-    if (!ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) return;
-
-    const formData = new FormData();
-    formData.append('image', event.target.files[0]);
-
-    try {
-      const response = await fetch('https://api.mandarin.weniv.co.kr/image/uploadfile', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const data = await response.json();
-      setImg(`http://api.mandarin.weniv.co.kr/${data.filename}`);
-    } catch (error) {
-      console.log(error.message);
-    }
+    onUpload(file);
   };
 
   return (

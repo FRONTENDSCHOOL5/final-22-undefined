@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import * as S from './PostSection.style';
 import PostAlbum from './PostAlbum';
 import PostList from './PostList';
@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import Wrapper from '../common/Wrapper/Wrapper';
 import { getPosts } from '../../api/post';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 
 const PostSection = () => {
   const { accountname } = useParams();
@@ -13,20 +14,17 @@ const PostSection = () => {
   const [isList, setIsList] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [posts, setPosts] = useState([]);
-  const target = useRef(null);
-  const [skip, setSkip] = useState(0);
-  const [isLast, setIsLast] = useState(false); // 더 이상 불러올 게시물이 없을 경우
+  const { target, skip, markAsLast } = useIntersectionObserver(posts, isList);
 
   // 현재 프로필의 accountname
   const userId = accountname ? accountname : userAccountname;
-
   // 유저 게시물 정보
   useEffect(() => {
     const fetch = async () => {
       try {
         setIsLoading(true);
         const data = await getPosts(userId, skip, userToken);
-        if (data.post.length < 6) setIsLast(true);
+        if (data.post.length < 6) markAsLast();
         setPosts((prev) => [...prev, ...data.post]);
         setIsLoading(false);
       } catch (err) {
@@ -37,28 +35,6 @@ const PostSection = () => {
 
     fetch();
   }, [userId, userToken, skip]);
-
-  const callback = (entries) => {
-    const [entry] = entries;
-
-    if (entry.isIntersecting) {
-      setSkip((prev) => prev + 6);
-    }
-  };
-
-  useEffect(() => {
-    if (isLast) return;
-    const observer = new IntersectionObserver(callback, {
-      threshold: 1,
-    });
-
-    if (target.current) {
-      observer.observe(target.current);
-    }
-    return () => {
-      observer.disconnect();
-    };
-  }, [posts, isLast, isList]);
 
   return (
     <S.Section>

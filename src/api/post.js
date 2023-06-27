@@ -59,8 +59,8 @@ export const likePost = async (postId, isHearted, userToken) => {
 };
 
 // 팔로우하는 사용자의 게시물 목록 가져오기
-export const getFeeds = async (userToken) => {
-  return await request(`post/feed`, {
+export const getFeeds = async (skip, userToken) => {
+  return await request(`post/feed/?limit=6&skip=${skip}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${userToken}`,
