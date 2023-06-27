@@ -20,7 +20,7 @@ export const SplashMain = styled.article`
     padding: 0 16px;
   }
   .mainIcon {
-    width: 60vw;
+    width: 330px;
     animation: ${FadeOut} 1s ease-in-out;
     animation-delay: 2s;
   }
