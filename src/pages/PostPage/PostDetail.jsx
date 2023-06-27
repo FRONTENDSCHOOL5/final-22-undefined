@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import FeedHeader from '../../components/common/Header/FeedHeader';
-import Comment from '../../pages/ChatPage/Comment';
+import ChatComment from '../../pages/ChatPage/ChatComment';
 import { AuthContextStore } from '../../context/AuthContext';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
@@ -86,7 +86,7 @@ const PostDetail = () => {
           </PostSection>
         </CommentWrapper>
       </Main>
-      <Comment
+      <ChatComment
         atChatroom={false}
         userProfileImg={myProfileImg}
         postId={post_id}

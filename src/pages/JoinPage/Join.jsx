@@ -1,28 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import Wrapper from '../../components/common/Wrapper/Wrapper';
+import * as S from './Join.style';
 import ProfileFormInput from '../../components/common/Input/ProfileFormInput';
-import Button from '../../components/common/Button/Button';
+
 import { useNavigate } from 'react-router-dom';
-
-const Main = styled.main``;
-
-const LayoutWrapper = styled(Wrapper)`
-  padding: 0 34px;
-`;
-
-const Form = styled.form``;
-
-const Title = styled.h1`
-  margin: 30px 0 40px;
-  font-size: 24px;
-  font-weight: 500;
-  text-align: center;
-`;
-
-const NextBtn = styled(Button)`
-  margin-top: 30px;
-`;
 
 const Join = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -39,10 +19,10 @@ const Join = () => {
   };
 
   return (
-    <Main>
-      <LayoutWrapper>
-        <Form>
-          <Title>이메일로 회원가입</Title>
+    <S.Main>
+      <S.LayoutWrapper>
+        <S.Form>
+          <S.Title>이메일로 회원가입</S.Title>
           <ProfileFormInput
             id='email'
             label='이메일'
@@ -68,12 +48,12 @@ const Join = () => {
               autoComplete: 'off',
             }}
           />
-          <NextBtn onClick={handleClick} mode={isActivated ? 'default' : 'disabled'} size='lg'>
+          <S.NextBtn onClick={handleClick} mode={isActivated ? 'default' : 'disabled'} size='lg'>
             다음
-          </NextBtn>
-        </Form>
-      </LayoutWrapper>
-    </Main>
+          </S.NextBtn>
+        </S.Form>
+      </S.LayoutWrapper>
+    </S.Main>
   );
 };
 
