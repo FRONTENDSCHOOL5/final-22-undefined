@@ -1,19 +1,20 @@
 import { React, forwardRef, useEffect, useState } from 'react';
-import home from '../../assets/symbol-logo-gray.png';
+import homeLogo from '../../assets/homeLogo.svg';
 import styled, { css } from 'styled-components';
 import PostList from '../../components/Post/PostList';
 import MainLayout from '../../components/common/MainLayout/MainLayout';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../components/common/Button/Button';
 
-const Main = styled(MainLayout)`
-  display: flex;
-  justify-content: center;
-`;
+const Main = styled(MainLayout)``;
 
 const NoFollower = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 82vh;
+
   p {
     font-size: 14px;
     font-weight: 400;
@@ -22,29 +23,16 @@ const NoFollower = styled.div`
     &::before {
       content: '';
       display: block;
-      background: url(${home}) no-repeat center/ 100px 100px;
-      width: 100px;
-      height: 100px;
+      background: url(${homeLogo}) no-repeat center/ contain;
+      width: 130px;
+      height: 130px;
       margin: 0 auto 25px;
     }
   }
+`;
 
-  a {
-    width: 120px;
-    height: 44px;
-    display: inline-block;
-    padding: 15px 0;
-    border-radius: 44px;
-    ${({ theme: { colors } }) => css`
-      background-color: ${colors.primary};
-      border-top: 1px solid ${colors.gray};
-      color: ${colors.white};
-    `}
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17.53px;
-    text-align: center;
-  }
+const StyledButton = styled(Button)`
+  width: 120px;
 `;
 
 const TopButton = styled.button`
@@ -89,6 +77,11 @@ const Contents = forwardRef(({ posts, setPosts }, ref) => {
     });
   };
 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/search');
+  };
+
   return (
     <Main>
       {posts.length !== 0 ? (
@@ -98,7 +91,9 @@ const Contents = forwardRef(({ posts, setPosts }, ref) => {
       ) : (
         <NoFollower>
           <p>유저를 검색해 팔로우 해보세요!</p>
-          <a href='/search'>검색하기</a>
+          <StyledButton size='lg' onClick={handleClick}>
+            검색하기
+          </StyledButton>
         </NoFollower>
       )}
       <TopButton className='topBtn' show={showButton} onClick={scrollToTop}>
