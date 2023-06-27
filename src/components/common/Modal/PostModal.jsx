@@ -1,6 +1,7 @@
 import React, { useRef, useState, useContext } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
+import ReportModal from './ReportModal';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 import { reportPost } from '../../../api/post';
@@ -29,8 +30,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
         }
       }
     } else if (option === '신고하기') {
-      fetchReport(postId, userToken);
-      console.log('신고하기 완료!');
+      setSelectedOption(option);
     }
   };
 
@@ -55,6 +55,10 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     } else if (option === '취소') {
       setSelectedOption('');
       onClose(); // onClose 콜백 호출
+    } else if (option === '확인') {
+      fetchReport(postId, userToken);
+      console.log('신고하기 완료!');
+      onClose();
     }
   };
 
@@ -125,6 +129,15 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
           buttons={['취소', '삭제']}
           buttonFontColor={['#767676', '#F26E22']}
           buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
+        />
+      );
+    } else if (selectedOption === '신고하기') {
+      return (
+        <ReportModal
+          message='신고가 완료되었습니다!'
+          onClose={closeModal}
+          button={'확인'}
+          buttonFontColor={'#F26E22'}
         />
       );
     }
