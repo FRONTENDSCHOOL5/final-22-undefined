@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import BlackLogo from '../../assets/Splash/blackLogo.png';
+import errorLogo from '../../assets/errorLogo.svg';
 import Button from '../../components/common/Button/Button';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,12 +15,13 @@ const ErrorMessage = styled.div`
     font-weight: 400;
     line-height: 14px;
     margin-bottom: 20px;
+    text-align: center;
     &::before {
       content: '';
       display: block;
-      background: url(${BlackLogo}) no-repeat center/ 100px 100px;
-      width: 100px;
-      height: 100px;
+      background: url(${errorLogo}) no-repeat center/ contain;
+      width: 140px;
+      height: 140px;
       margin: 0 auto 25px;
     }
   }
@@ -38,7 +39,9 @@ const Error404 = () => {
   return (
     <ErrorMessage>
       <p>페이지를 찾을 수 없습니다</p>
-      <StyledButton onClick={backHandle}>이전 페이지</StyledButton>
+      <StyledButton size='lg' onClick={backHandle}>
+        이전 페이지
+      </StyledButton>
     </ErrorMessage>
   );
 };
