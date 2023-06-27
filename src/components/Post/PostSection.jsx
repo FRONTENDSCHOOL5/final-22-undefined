@@ -12,7 +12,6 @@ const PostSection = () => {
   const { accountname } = useParams();
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const [isList, setIsList] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const { target, skip, markAsLast } = useIntersectionObserver(posts, isList);
 
@@ -22,14 +21,11 @@ const PostSection = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        setIsLoading(true);
         const data = await getPosts(userId, skip, userToken);
         if (data.post.length < 6) markAsLast();
         setPosts((prev) => [...prev, ...data.post]);
-        setIsLoading(false);
       } catch (err) {
         console.log(err.message);
-        setIsLoading(false);
       }
     };
 
@@ -50,11 +46,7 @@ const PostSection = () => {
         </Wrapper>
       </S.Header>
       {posts.length > 0 &&
-        (isList ? (
-          <PostList posts={posts} setPosts={setPosts} ref={target} isLoading={isLoading} />
-        ) : (
-          <PostAlbum posts={posts} />
-        ))}
+        (isList ? <PostList posts={posts} setPosts={setPosts} ref={target} /> : <PostAlbum posts={posts} />)}
     </S.Section>
   );
 };

@@ -19,11 +19,10 @@ export const login = async (email, password) => {
 // 토큰 검증
 // ...
 
-// 이메일, 아이디 중복 검사
-// ...
-
-// 이미 존재하는 이메일인지 검사
-// ...
-
-// 이미 존재하는 accountname인지 검사
-// ...
+// 이미 존재하는 이메일(또는 계정)인지 검사
+export const validateForm = async (id, formData) => {
+  return await request(`user/${id}valid`, {
+    method: 'POST',
+    body: JSON.stringify({ user: { [id]: formData[id] } }),
+  });
+};

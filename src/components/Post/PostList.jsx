@@ -3,9 +3,8 @@ import PostItem from './PostItem';
 import styled from 'styled-components';
 import Wrapper from '../common/Wrapper/Wrapper';
 import PostModal from '../common/Modal/PostModal';
-import PostItemSkeleton from '../Skeleton/PostItemSkeleton';
 
-const PostList = forwardRef(({ isLoading, posts, setPosts }, ref) => {
+const PostList = forwardRef(({ posts, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postId, setPostId] = useState('');
   const openModal = () => {
@@ -20,32 +19,22 @@ const PostList = forwardRef(({ isLoading, posts, setPosts }, ref) => {
     openModal();
     setPostId(id);
   };
-  // console.log(isLoading);
 
   return (
     <Container>
       <Wrapper>
         <Ul>
-          {isLoading ? (
-            <>
-              <PostItemSkeleton />
-              <PostItemSkeleton />
-              <PostItemSkeleton />
-              <PostItemSkeleton />
-            </>
-          ) : (
-            posts.map((post, index) => (
-              <Li key={post.id} ref={index === posts.length - 1 ? ref : null}>
-                <PostItem
-                  post={post}
-                  onClick={() => {
-                    handleClick(post.id);
-                  }}
-                  commentCnt={post.commentCount}
-                />
-              </Li>
-            ))
-          )}
+          {posts.map((post, index) => (
+            <Li key={post.id} ref={index === posts.length - 1 ? ref : null}>
+              <PostItem
+                post={post}
+                onClick={() => {
+                  handleClick(post.id);
+                }}
+                commentCnt={post.commentCount}
+              />
+            </Li>
+          ))}
         </Ul>
         {isModalOpen && <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} />}
       </Wrapper>
