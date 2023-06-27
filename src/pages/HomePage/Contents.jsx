@@ -1,4 +1,4 @@
-import { React, forwardRef } from 'react';
+import { React, forwardRef, useEffect, useState } from 'react';
 import home from '../../assets/symbol-logo-gray.png';
 import styled, { css } from 'styled-components';
 import PostList from '../../components/Post/PostList';
@@ -47,7 +47,48 @@ const NoFollower = styled.div`
   }
 `;
 
+const TopButton = styled.button`
+  display: ${({ show }) => (show ? 'block' : 'none')};
+  position: fixed;
+  bottom: 80px;
+  right: 50px;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
 const Contents = forwardRef(({ posts, setPosts }, ref) => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <Main>
       {posts.length !== 0 ? (
@@ -60,6 +101,9 @@ const Contents = forwardRef(({ posts, setPosts }, ref) => {
           <a href='/search'>검색하기</a>
         </NoFollower>
       )}
+      <TopButton className='topBtn' show={showButton} onClick={scrollToTop}>
+        Top
+      </TopButton>
     </Main>
   );
 });

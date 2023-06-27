@@ -7,17 +7,24 @@ import { Link } from 'react-router-dom';
 
 const UserList = styled.ul`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   li {
+    margin: 0 auto;
     max-width: 390px;
     padding-bottom: 20px;
   }
-  a {
-    width: 100%;
+
+  div {
     display: flex;
   }
+
+  .searchContents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .userName {
     margin: 5px 0 6px;
     line-height: 18px;
@@ -35,25 +42,35 @@ const Contents = ({ userList, inputTxt }) => {
   console.log(inputTxt);
   return (
     <MainLayout>
-      {userList.map((item) => (
-        <UserList key={item._id}>
-          <li>
+      <UserList className='sl-ellipsis'>
+        {userList.map((item) => (
+          <li key={item._id}>
             <Link to={`/profile/${item.accountname}`}>
-              <PostUserProfileImg userProfileImg={item.image} size='50px' />
               <div>
-                {item.username.split(inputTxt).map((item, index, array) => (
-                  <React.Fragment key={index}>
-                    {item}
-                    {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
-                  </React.Fragment>
-                ))}
-                <p className='userName'></p>
-                <p className='accountName'></p>
+                <PostUserProfileImg userProfileImg={item.image} size='50px' />
+                <div className='searchContents'>
+                  <span className='userName'>
+                    {item.username.split(inputTxt).map((value, index, array) => (
+                      <>
+                        {value}
+                        {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
+                      </>
+                    ))}
+                  </span>
+                  <span className='accountName'>
+                    {item.accountname.split(inputTxt).map((value, index, array) => (
+                      <>
+                        {value}
+                        {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
+                      </>
+                    ))}
+                  </span>
+                </div>
               </div>
             </Link>
           </li>
-        </UserList>
-      ))}
+        ))}
+      </UserList>
     </MainLayout>
   );
 };
