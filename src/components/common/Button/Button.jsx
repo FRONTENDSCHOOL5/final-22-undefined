@@ -13,6 +13,7 @@ const palette = {
     bgColor: 'white',
     color: 'txtColor',
     borderColor: 'gray',
+    hoverbgColor: 'primary',
   },
 };
 
@@ -22,12 +23,18 @@ const colorStyles = css`
     const backgroundColor = colors[palette[mode].bgColor];
     const color = colors[palette[mode].color];
     const borderColor = colors[palette[mode].borderColor];
+    const hoverbgColor = colors[palette[mode].hoverbgColor];
 
     if (borderColor) {
       return css`
         background-color: ${backgroundColor};
         color: ${color};
         border: 1px solid ${borderColor};
+        transition: 0.3s;
+        &:hover {
+          color: ${backgroundColor};
+          background-color: ${hoverbgColor};
+        }
       `;
     }
 
