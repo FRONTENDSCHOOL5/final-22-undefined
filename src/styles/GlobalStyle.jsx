@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
   ${normalize}
 
   body {
+    font-size: 14px;
     font-family: "Pretendard-Regular, sans-serif";
   }
 
