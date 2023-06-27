@@ -11,7 +11,7 @@ export const FadeOut = keyframes`
 
 export const SplashMain = styled.article`
   height: 100vh;
-  background-color: ${({ theme }) => theme.colors.third};
+  background-color: #fff7f9;
   h1 {
     position: absolute;
     top: 50%;
