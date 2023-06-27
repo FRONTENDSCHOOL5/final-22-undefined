@@ -71,14 +71,7 @@ const FeedModal = ({ options, onClose }) => {
   return (
     <>
       <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
-        <S.Ul>
-          {optionElements}
-          {/* {options.map((option, index) => 이 부분을 함수로 위에 빼주고 props로 받음
-            <S.Li key={index}>
-              <button onClick={() => optionClick(option)}>{option}</button>
-            </S.Li>
-          ))} */}
-        </S.Ul>
+        <S.Ul>{optionElements}</S.Ul>
       </S.ModalBg>
       {renderAlertModal()}
     </>
