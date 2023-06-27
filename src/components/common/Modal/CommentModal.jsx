@@ -2,6 +2,7 @@ import React, { useRef, useState, useContext, useEffect } from 'react';
 import * as S from './Modal.style';
 import { AuthContextStore } from '../../../context/AuthContext';
 import { reportComment } from '../../../api/comment';
+import { deleteComment } from '../../../api/comment';
 
 const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, setCommentList, setCommentCnt }) => {
   const modalRef = useRef();
@@ -14,19 +15,10 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
 
   const optionClick = async (option) => {
     if (option === '삭제') {
-      try {
-        const response = await deleteComment();
-        if (response.success) {
-          setCommentList(commentList.filter((comment) => comment.id !== commentId));
-          setCommentCnt((prev) => prev - 1);
-        } else {
-          console.log(response.error);
-        }
-      } catch (error) {
-        console.log('댓글 삭제 오류:', error);
-      } finally {
-        onClose();
-      }
+      await fetchDelete();
+      setCommentList(commentList.filter((comment) => comment.id !== commentId));
+      setCommentCnt((prev) => prev - 1);
+      onClose();
     } else if (option === '신고하기') {
       fetchReport();
       console.log('신고완료!');
@@ -34,24 +26,11 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
     }
   };
 
-  const deleteComment = async () => {
+  const fetchDelete = async () => {
     console.log('postId 값:', postId);
     console.log('commentId 값:', commentId);
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments/${commentId}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      if (response.ok) {
-        return { success: true };
-      } else {
-        const responseBody = await response.json();
-        console.log('서버 오류 응답:', responseBody);
-        throw new Error(responseBody.message || '댓글 삭제 실패');
-      }
+      await deleteComment(postId, commentId, userToken);
     } catch (error) {
       console.log('댓글 삭제 오류:', error);
       return { success: false, error: '댓글 삭제 오류' };
