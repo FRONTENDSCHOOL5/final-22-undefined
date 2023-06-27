@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import HeartIcon from '../../assets/icon/icon-heart.png';
-import HeartIconFill from '../../assets/icon/icon-heart-active.png';
-import CommentIcon from '../../assets/icon/icon-message-circle.png';
+import HeartIcon from '../../assets/icon/icon-heart.svg';
+import HeartIconFill from '../../assets/icon/icon-heart-fill.svg';
+import CommentIcon from '../../assets/icon/icon-message-circle.svg';
 import { Link } from 'react-router-dom';
 
 export const PostArticle = styled.article`
@@ -24,6 +24,8 @@ export const UserNameInfo = styled.div`
 `;
 
 export const InfoName = styled.p`
+  font-size: 14px;
+  font-weight: 600;
   margin: 4px 0;
 `;
 export const InfoAccount = styled.p`
@@ -44,6 +46,7 @@ export const UserContentSect = styled.section`
 
 export const UserPostText = styled.p`
   margin-bottom: 16px;
+  line-height: 20px;
   word-break: break-all;
 `;
 

@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import Button from '../../components/common/Button/Button';
 import { Link } from 'react-router-dom';
-import KakaoLogo from '../../assets/message-circle.png';
-import FacebookLogo from '../../assets/facebook.png';
-import GoogleLogo from '../../assets/google.png';
+import KakaoLogo from '../../assets/kakaoLogo.svg';
+import FacebookLogo from '../../assets/facebookLogo.svg';
+import GoogleLogo from '../../assets/Google__G__Logo.svg';
+import KakaoLogoWhite from '../../assets/message-circle-white.svg';
+import FacebookLogoWhite from '../../assets/facebook-white.svg';
+import GoogleLogoWhite from '../../assets/google-white.svg';
 
 export const Main = styled.main`
   position: relative;
@@ -12,13 +15,13 @@ export const Main = styled.main`
   align-items: center;
   width: 100%;
   height: 100vh;
-  padding-top: 25vh;
+  padding-top: 15vh;
   background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const H1 = styled.h1`
-  width: 144px;
-  height: 144px;
+  width: 200px;
+  /* height: 144px; */
 `;
 
 export const LoginSect = styled.section`
@@ -87,7 +90,12 @@ export const SnsBtn = styled(StyledButton)`
 export const KakaoBtn = styled(SnsBtn)`
   border: 1.5px solid #f2c94c;
   &:hover {
-    filter: brightness(95%);
+    color: white;
+    background-color: #f2c94c;
+    /* filter: brightness(95%); */
+  }
+  &:hover::before {
+    background: url(${KakaoLogoWhite}) no-repeat center / 24px 24px;
   }
   &::before {
     background: url(${KakaoLogo}) no-repeat center / 24px 24px;
@@ -96,6 +104,13 @@ export const KakaoBtn = styled(SnsBtn)`
 
 export const FacebookBtn = styled(SnsBtn)`
   border: 1.5px solid #2d9cdb;
+  &:hover {
+    color: white;
+    background-color: #2d9cdb;
+  }
+  &:hover::before {
+    background: url(${FacebookLogoWhite}) no-repeat center / 24px 24px;
+  }
   &::before {
     background: url(${FacebookLogo}) no-repeat center / 24px 24px;
   }
@@ -103,6 +118,13 @@ export const FacebookBtn = styled(SnsBtn)`
 
 export const GoogleBtn = styled(SnsBtn)`
   border: ${({ theme }) => `1.5px solid ${theme.colors.txtColor}`};
+  &:hover {
+    color: white;
+    background-color: ${({ theme }) => theme.colors.txtColor};
+  }
+  &:hover::before {
+    background: url(${GoogleLogoWhite}) no-repeat center / 20px 20px;
+  }
   &::before {
     background: url(${GoogleLogo}) no-repeat center / 24px 24px;
   }
