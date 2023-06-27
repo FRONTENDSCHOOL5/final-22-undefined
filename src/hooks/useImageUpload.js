@@ -25,7 +25,7 @@ const useImageUpload = () => {
     }
   };
 
-  return { img, onUpload };
+  return { img, onUpload, setImg };
 };
 
 export default useImageUpload;
