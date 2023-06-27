@@ -3,6 +3,7 @@ import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 import MainLayout from '../../components/common/MainLayout/MainLayout';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const UserList = styled.ul`
   width: 100%;
@@ -37,8 +38,8 @@ const Contents = ({ userList, inputTxt }) => {
       {userList.map((item) => (
         <UserList key={item._id}>
           <li>
-            <a href={`/profile/${item.accountname}`}>
-              <PostUserProfileImg userProfileImg={item.image} />
+            <Link to={`/profile/${item.accountname}`}>
+              <PostUserProfileImg userProfileImg={item.image} size='50px' />
               <div>
                 {item.username.split(inputTxt).map((item, index, array) => (
                   <React.Fragment key={index}>
@@ -49,7 +50,7 @@ const Contents = ({ userList, inputTxt }) => {
                 <p className='userName'></p>
                 <p className='accountName'></p>
               </div>
-            </a>
+            </Link>
           </li>
         </UserList>
       ))}
