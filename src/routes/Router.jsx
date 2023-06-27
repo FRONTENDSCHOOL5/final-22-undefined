@@ -20,6 +20,7 @@ import PostDetail from '../pages/PostPage/PostDetail';
 import Splash from '../pages/SplashPage/Splash';
 import PostEdit from '../pages/PostPage/PostEdit';
 import LoginEamil from '../pages/LoginPage/LoginEamil';
+import Error404 from '../pages/ErrorPage/Error404';
 
 const Router = () => {
   const { userToken } = useContext(AuthContextStore);
@@ -27,6 +28,9 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='*' element={<Error404 />} />
+        <Route path='/notfound' element={<Error404 />} />
+
         <Route element={<NonAuthRoute authenticated={userToken} />}>
           <Route path='/' element={<Splash />} />
           <Route path='/login' element={<Login />} />
