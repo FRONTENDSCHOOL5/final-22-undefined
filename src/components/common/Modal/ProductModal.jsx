@@ -3,6 +3,7 @@ import * as S from './Modal.style';
 import AlertModal from './AlertModal';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
+import { deleteProduct } from '../../../api/product';
 
 const ProductModal = ({ onClose, productId, products, setProducts, formData }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
@@ -33,7 +34,7 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
   const closeModal = (option) => {
     // console.log(productId);
     if (option === '삭제') {
-      deletePost(productId) // 게시글 삭제 호출
+      fetchDelete(productId) // 게시글 삭제 호출
         .then((response) => {
           if (response.success) {
             onClose();
@@ -52,31 +53,11 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
     }
   };
 
-  // 게시글 삭제 및 삭제 오류 처리
-  const deletePost = async () => {
+  // 상품 및 삭제 오류 처리
+  const fetchDelete = async () => {
     // console.log('productId 값:', productId);
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/product/${productId}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        // 성공할 경우
-        return { success: true };
-      } else if (response.status === 404) {
-        // 상품이 존재하지 않을 경우
-        throw new Error('등록된 상품이 없습니다.');
-      } else if (response.status === 401) {
-        // 다른 사용자가 해당 상품을 수정할 경우
-        throw new Error('잘못된 요청입니다. 로그인 정보를 확인하세요.');
-      } else {
-        // 기타 실패할 경우
-        throw new Error('상품 삭제 실패');
-      }
+      await deleteProduct(productId, userToken);
     } catch (error) {
       // 실패할 경우
       return { success: false, error: error.message };
@@ -132,14 +113,7 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
   return (
     <>
       <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
-        <S.Ul>
-          {optionElements}
-          {/* {options.map((option, index) => 이 부분을 함수로 위에 빼줌
-            <S.Li key={index}>
-              <button onClick={() => optionClick(option)}>{option}</button>
-            </S.Li>
-          ))} */}
-        </S.Ul>
+        <S.Ul>{optionElements}</S.Ul>
       </S.ModalBg>
       {renderAlertModal()}
     </>

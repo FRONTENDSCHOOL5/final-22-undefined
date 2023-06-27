@@ -4,7 +4,7 @@ import AlertModal from './AlertModal';
 import ReportModal from './ReportModal';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
-import { reportPost } from '../../../api/post';
+import { deletePost, reportPost } from '../../../api/post';
 
 const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
@@ -38,7 +38,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const closeModal = (option) => {
     // console.log(postId);
     if (option === '삭제') {
-      deletePost(postId) // 게시글 삭제 호출
+      fetchDelete(postId) // 게시글 삭제 호출
         .then((response) => {
           if (response.success) {
             // console.log('삭제 완료');
@@ -63,29 +63,9 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   };
 
   // 게시글 삭제 및 삭제 오류 처리
-  const deletePost = async () => {
-    // console.log('postId 값:', postId);
+  const fetchDelete = async () => {
     try {
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        return { success: true };
-      } else if (response.status === 404) {
-        // 게시글이 존재하지 않을 경우
-        throw new Error('존재하지 않는 게시글입니다.');
-      } else if (response.status === 401) {
-        // 다른 사용자가 해당 게시글을 수정할 경우
-        throw new Error('잘못된 요청입니다. 로그인 정보를 확인하세요.');
-      } else {
-        // 기타 실패할 경우
-        throw new Error('게시글 삭제 실패');
-      }
+      await deletePost(postId, userToken);
     } catch (error) {
       // 실패할 경우
       return { success: false, error: error.message };
@@ -101,20 +81,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   const fetchReport = async () => {
     try {
       await reportPost(postId, userToken);
-      // const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/report`, {
-      //   method: 'POST',
-      //   headers: {
-      //     Authorization: `Bearer ${userToken}`,
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     report: {
-      //       post: postId,
-      //     },
-      //   }),
-      // });
     } catch (error) {
-      // 실패할 경우
       console.log(error);
     }
   };
@@ -173,14 +140,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   return (
     <>
       <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
-        <S.Ul>
-          {optionElements}
-          {/* {options.map((option, index) => 이 부분을 위에 분기처리로 변경
-            <S.Li key={index}>
-              <button onClick={() => optionClick(option)}>{option}</button>
-            </S.Li>
-          ))} */}
-        </S.Ul>
+        <S.Ul>{optionElements}</S.Ul>
       </S.ModalBg>
       {renderAlertModal()}
     </>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import * as S from './PostCommentList.style';
 import PostUserProfileImg from './PostUserProfileImg';
 import CommentModal from '../common/Modal/CommentModal';
 
@@ -45,27 +44,27 @@ const PostCommentList = ({ commentList, postId, setCommentList, setCommentCnt })
 
   return (
     <>
-      <Ul>
+      <S.Ul>
         {commentList.length > 0 &&
           commentList.map((comment) => {
             return (
-              <Li key={comment.id}>
-                <UserAuth>
-                  <ProfileLink to={`/profile/${comment.author.accountname}`}>
+              <S.Li key={comment.id}>
+                <S.UserAuth>
+                  <S.ProfileLink to={`/profile/${comment.author.accountname}`}>
                     <PostUserProfileImg size={'36px'} userProfileImg={comment.author.image} />
-                    <Username>{comment.author.username}</Username>
-                  </ProfileLink>
-                  <UploadTime>{calcUploadTime(comment.createdAt)}</UploadTime>
+                    <S.Username>{comment.author.username}</S.Username>
+                  </S.ProfileLink>
+                  <S.UploadTime>{calcUploadTime(comment.createdAt)}</S.UploadTime>
                   {/* 댓글 모달 */}
-                  <ButtonIcon onClick={() => openModal(comment.id)}>
+                  <S.ButtonIcon onClick={() => openModal(comment.id)}>
                     <img src={ModalButtonImg} alt='숨겨진 모달창 나타내기' />
-                  </ButtonIcon>
-                </UserAuth>
-                <PostComment>{comment.content}</PostComment>
-              </Li>
+                  </S.ButtonIcon>
+                </S.UserAuth>
+                <S.PostComment>{comment.content}</S.PostComment>
+              </S.Li>
             );
           })}
-      </Ul>
+      </S.Ul>
       {/* 댓글 모달 */}
       {isModalOpen && (
         <CommentModal
@@ -83,46 +82,3 @@ const PostCommentList = ({ commentList, postId, setCommentList, setCommentCnt })
 };
 
 export default PostCommentList;
-
-const Ul = styled.ul``;
-const Li = styled.li`
-  position: relative;
-  & + & {
-    margin-top: 40px;
-  }
-`;
-const UserAuth = styled.div`
-  display: flex;
-`;
-const ProfileLink = styled(Link)``;
-
-const Username = styled.strong`
-  display: inline-block;
-  margin: 2px 5px 0 0;
-  font-weight: 500;
-  line-height: 18px;
-`;
-
-const UploadTime = styled.span`
-  font-size: 10px;
-  line-height: 13px;
-  margin-top: 5px;
-  color: ${({ theme }) => theme.colors.txtColor};
-  &::before {
-    content: '·';
-    margin-right: 4px;
-  }
-`;
-
-const PostComment = styled.p`
-  /* font-size: 14px; */
-  padding-left: 48px;
-`;
-// 모달 버튼 아이콘
-const ButtonIcon = styled.button`
-  width: 18px;
-  position: absolute;
-  gap: 12px;
-  top: 5px;
-  right: 0;
-`;
