@@ -10,6 +10,7 @@ import PostCommentList from '../../components/Post/PostCommentList';
 import { getSinglePost } from '../../api/post';
 import { getMyInfo } from '../../api/profile';
 import { getComments } from '../../api/comment';
+import { useRef } from 'react';
 
 const PostDetail = () => {
   const { post_id } = useParams();
@@ -18,6 +19,7 @@ const PostDetail = () => {
   const [commentList, setCommentList] = useState([]);
   const [commentCnt, setCommentCnt] = useState(0);
   const [post, setPost] = useState({});
+  const target = useRef(null);
 
   //댓글 갯수 동적 업데이트 위한 요청
   useEffect(() => {
@@ -61,6 +63,12 @@ const PostDetail = () => {
     handleUserImg();
   }, []);
 
+  useEffect(() => {
+    if (target.current) {
+      target.current.focus();
+    }
+  }, [target.current]);
+
   return (
     <>
       <FeedHeader />
@@ -87,6 +95,7 @@ const PostDetail = () => {
         </CommentWrapper>
       </Main>
       <ChatComment
+        ref={target}
         atChatroom={false}
         userProfileImg={myProfileImg}
         postId={post_id}

@@ -11,7 +11,6 @@ const ProfileSetting = () => {
     username: '',
     intro: '',
   });
-  // const [img, setImg] = useState('');
   const [error, setError] = useState({
     accountname: '',
     username: '',
@@ -34,7 +33,7 @@ const ProfileSetting = () => {
 
       const data = await join(state, formData, image);
       if (data.message === '회원가입 성공') {
-        navigate('/');
+        navigate('/login/email');
       } else {
         navigate('/join');
       }
