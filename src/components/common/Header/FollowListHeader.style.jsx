@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ArrowLeftIcon from '../../../assets/icon/icon-arrow-left.png';
+import ArrowLeftIcon from '../../../assets/icon/icon-arrow-left.svg';
 
 export const Header = styled.header`
   padding: 0 16px;
