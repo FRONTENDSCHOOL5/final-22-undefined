@@ -31,22 +31,13 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
   };
 
   // 모달 닫기
-  const closeModal = (option) => {
+  const closeModal = async (option) => {
     // console.log(productId);
     if (option === '삭제') {
-      fetchDelete(productId) // 게시글 삭제 호출
-        .then((response) => {
-          if (response.success) {
-            onClose();
-            setProducts(products.filter((product) => product.id !== productId));
-          } else {
-            onClose();
-            deleteError(response.error); // 삭제 실패 시 에러 처리
-          }
-        })
-        .catch((error) => {
-          deleteError('서버 오류'); // 서버 통신 실패 시 에러 처리
-        });
+      await fetchDelete(productId);
+      setProducts(products.filter((product) => product.id !== productId));
+      console.log('삭제 완료');
+      onClose();
     } else if (option === '취소') {
       setSelectedOption('');
       onClose(); // onClose 콜백 호출
@@ -77,7 +68,7 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
           message='상품을 삭제할까요?'
           onClose={closeModal}
           buttons={['취소', '삭제']}
-          buttonFontColor={['#767676', '#F26E22']}
+          buttonFontColor={['#767676', '#Fd7a6E']}
           buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
         />
       );

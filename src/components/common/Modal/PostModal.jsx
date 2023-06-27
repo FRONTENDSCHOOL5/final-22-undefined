@@ -35,10 +35,10 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   };
 
   // 모달 닫기
-  const closeModal = (option) => {
+  const closeModal = async (option) => {
     console.log(postId);
     if (option === '삭제') {
-      fetchDelete(postId, userToken);
+      await fetchDelete(postId, userToken);
       setPosts(posts.filter((post) => post.id !== postId));
       onClose();
     } else if (option === '취소') {
@@ -84,7 +84,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
           message='게시글을 삭제할까요?'
           onClose={closeModal}
           buttons={['취소', '삭제']}
-          buttonFontColor={['#767676', '#F26E22']}
+          buttonFontColor={['#767676', '#Fd7a6E']}
           buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
         />
       );
@@ -94,7 +94,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
           message='신고가 완료되었습니다!'
           onClose={closeModal}
           button={'확인'}
-          buttonFontColor={'#F26E22'}
+          buttonFontColor={'#Fd7a6E'}
         />
       );
     }

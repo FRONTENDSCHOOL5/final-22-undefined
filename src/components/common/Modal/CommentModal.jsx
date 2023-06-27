@@ -61,7 +61,7 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
           message='신고가 완료되었습니다!'
           onClose={closeModal}
           button={'확인'}
-          buttonFontColor={'#F26E22'}
+          buttonFontColor={'#Fd7a6E'}
         />
       );
     }

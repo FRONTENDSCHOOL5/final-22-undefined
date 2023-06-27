@@ -46,7 +46,7 @@ const FeedModal = ({ options, onClose }) => {
           message='로그아웃하시겠어요?'
           onClose={closeModal}
           buttons={['취소', '로그아웃']}
-          buttonFontColor={['#767676', '#F26E22']}
+          buttonFontColor={['#767676', '#Fd7a6E']}
           buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
         />
       );

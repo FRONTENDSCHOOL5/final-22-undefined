@@ -21,10 +21,16 @@ export const Strong = styled.strong`
   font-size: 16px;
 `;
 
+export const Ul = styled.ul`
+  display: flex;
+`;
+
+export const Li = styled.li``;
+
 export const Button = styled.button`
   width: 100%;
   height: 46px;
   font-weight: 700;
   color: ${({ color }) => color || 'inherit'};
-  border-top: ${({ theme }) => `1px solid ${theme.colors.gray}`};
+  border-top: ${({ theme }) => `0.5px solid ${theme.colors.gray}`};
 `;
