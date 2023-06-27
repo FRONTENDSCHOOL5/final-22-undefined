@@ -2,7 +2,10 @@ import React, { useContext, useState } from 'react';
 
 import * as S from './Follow.style';
 import { AuthContextStore } from '../../context/AuthContext';
+<<<<<<< HEAD
 import { followApi } from '../../api/follow';
+=======
+>>>>>>> 92424a5 (move: style 파일 전체 분리)
 
 const Follow = ({ item }) => {
   const { userToken, userAccountname } = useContext(AuthContextStore);

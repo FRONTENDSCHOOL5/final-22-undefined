@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import ModalButtonImg from '../../assets/icon/s-icon-more-vertical.svg';
+=======
+import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
+>>>>>>> 92424a5 (move: style 파일 전체 분리)
 import * as S from './PostCommentList.style';
 import PostUserProfileImg from './PostUserProfileImg';
 import CommentModal from '../common/Modal/CommentModal';

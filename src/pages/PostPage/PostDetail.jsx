@@ -95,7 +95,10 @@ const PostDetail = () => {
         </CommentWrapper>
       </Main>
       <ChatComment
+<<<<<<< HEAD
         ref={target}
+=======
+>>>>>>> 92424a5 (move: style 파일 전체 분리)
         atChatroom={false}
         userProfileImg={myProfileImg}
         postId={post_id}
