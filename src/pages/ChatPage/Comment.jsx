@@ -4,29 +4,17 @@ import imgBtn from '../../assets/img-button.png';
 import uploadImgBtn from '../../assets/upload-file.png';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { AuthContextStore } from '../../context/AuthContext';
+import { addComment } from '../../api/comment';
 
 const Comment = ({ setCommentList, atChatroom, userProfileImg, postId, setCommentCnt }) => {
   const [text, setText] = useState('');
   const { userToken } = useContext(AuthContextStore);
 
-  const addComment = async (e) => {
+  const submitComment = async (e) => {
     e.preventDefault();
     try {
-      // 댓글 서버에 보내기, data는 업로드한 comment에 대한 정보
-      const response = await fetch(`https://api.mandarin.weniv.co.kr/post/${postId}/comments`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          comment: {
-            content: text,
-          },
-        }),
-      });
-      const data = await response.json();
-      console.log(data);
+      const data = await addComment(postId, text, userToken);
+      // console.log(data);
       setCommentCnt((prev) => prev + 1);
       setCommentList((prev) => [data.comment, ...prev]);
       setText('');
@@ -57,7 +45,7 @@ const Comment = ({ setCommentList, atChatroom, userProfileImg, postId, setCommen
       ) : (
         <PostUserProfileImg size={'36px'} userProfileImg={userProfileImg} />
       )}
-      <SendForm onSubmit={addComment}>
+      <SendForm onSubmit={submitComment}>
         <Input
           type='text'
           value={text}

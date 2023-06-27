@@ -106,7 +106,7 @@ const Username = styled.strong`
 const UploadTime = styled.span`
   font-size: 10px;
   line-height: 13px;
-  margin-top: 6.5px;
+  margin-top: 5px;
   color: ${({ theme }) => theme.colors.txtColor};
   &::before {
     content: '·';
