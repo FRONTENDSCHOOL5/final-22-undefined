@@ -5,15 +5,14 @@ import SaveHeader from '../../components/common/Header/SaveHeader';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { editPost } from '../../api/post';
 import * as S from './PostEdit.style';
+import { getMyInfo } from '../../api/profile';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
 const PostEdit = () => {
   const { state } = useLocation();
-  console.log(state.image);
   const loadedText = state.content;
   const loadedlImg = state.image ? [state.image.replaceAll('https://api.mandarin.weniv.co.kr/', '')][0].split(',') : []; // state로 받아온 image는 주소가 전부 포함돼 있기 때문에 잘라줌. 이미지가 빈값이어서 ['']면 빈 엑박 이미지가 들어감. 또한 초깃값이 []아니면 map에서 돌지 않음.
-  console.log(loadedlImg);
 
   const [userContent, setUserContent] = useState(loadedText); // edit 페이지 url로 접속시, 초기값은 pathname과 List~Item에서 navigate state를 통해 가져온 content와 image값을 활용함.
   const [uploadedImages, setUploadedImages] = useState(loadedlImg);
@@ -27,13 +26,7 @@ const PostEdit = () => {
   useEffect(() => {
     const handleUserImg = async () => {
       try {
-        const res = await fetch('https://api.mandarin.weniv.co.kr/user/myinfo', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        });
-        const data = await res.json();
+        const data = await getMyInfo(userToken);
         setUserProfileImg(data.user.image);
       } catch (error) {
         console.log(error.message);
