@@ -1,5 +1,5 @@
 import React from 'react';
-import Ellipse from '../../../assets/Ellipse-1.png';
+import Ellipse from '../../../assets/basic-profile-img-bone-gd.svg';
 import * as S from './ImgInput.style';
 
 const ImgInput = ({ img, onUpload }) => {
@@ -11,7 +11,7 @@ const ImgInput = ({ img, onUpload }) => {
     const file = event.target.files[0];
     onUpload(file);
   };
-
+  console.log(img);
   return (
     <>
       <S.Label htmlFor='profileImg'>
