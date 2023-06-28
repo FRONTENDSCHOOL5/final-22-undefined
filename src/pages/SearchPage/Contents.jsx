@@ -63,7 +63,7 @@ const Contents = ({ userList, inputTxt }) => {
                       <React.Fragment key={index}>
                         {value}
                         {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
-                      </>
+                      </React.Fragment>
                     ))}
                   </span>
                   <span className='accountName'>
@@ -71,7 +71,7 @@ const Contents = ({ userList, inputTxt }) => {
                       <React.Fragment key={index}>
                         {value}
                         {index !== array.length - 1 && <span style={{ color: 'orange' }}>{inputTxt}</span>}
-                      </>
+                      </React.Fragment>
                     ))}
                   </span>
                 </div>
