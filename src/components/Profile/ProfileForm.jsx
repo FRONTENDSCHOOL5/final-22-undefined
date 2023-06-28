@@ -16,6 +16,7 @@ const ProfileForm = ({ formData, setFormData, img, onUpload, error, setError }) 
         inputProps={{
           type: 'text',
           placeholder: '2~10자 이내여야 합니다.',
+          autoComplete: 'off',
         }}
       />
       <ProfileFormInput
@@ -28,6 +29,7 @@ const ProfileForm = ({ formData, setFormData, img, onUpload, error, setError }) 
         inputProps={{
           type: 'text',
           placeholder: '영문, 숫자, 특수문자(,),(_)만 사용 가능합니다.',
+          autoComplete: 'off',
         }}
       />
       <ProfileFormInput
@@ -40,6 +42,7 @@ const ProfileForm = ({ formData, setFormData, img, onUpload, error, setError }) 
         inputProps={{
           type: 'text',
           placeholder: '자신과 판매할 상품에 대하여 소개해주세요',
+          autoComplete: 'off',
         }}
       />
     </>

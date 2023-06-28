@@ -16,6 +16,7 @@ const ProductForm = ({ formData, setFormData, img, onUpload, error, setError }) 
         inputProps={{
           type: 'text',
           placeholder: '2~15자 이내여야 합니다.',
+          autoComplete: 'off',
         }}
       />
       <ProductFormInput
@@ -29,6 +30,7 @@ const ProductForm = ({ formData, setFormData, img, onUpload, error, setError }) 
           type: 'text',
           placeholder: '숫자만 입력 가능합니다.',
           value: formData.price,
+          autoComplete: 'off',
         }}
       />
       <ProductFormInput
@@ -41,6 +43,7 @@ const ProductForm = ({ formData, setFormData, img, onUpload, error, setError }) 
         inputProps={{
           type: 'text',
           placeholder: 'URL을 입력해 주세요.',
+          autoComplete: 'off',
         }}
       />
     </>
