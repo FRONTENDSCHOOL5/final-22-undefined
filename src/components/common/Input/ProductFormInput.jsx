@@ -8,7 +8,7 @@ const ERROR_MSG = {
   urlPattern: '잘못된 URL 형식입니다.',
 };
 
-const ITEMNAME_REGEX = /^[가-힣a-z0-9\s]{2,15}$/i;
+const ITEMNAME_REGEX = /^[가-힣a-z0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{2,15}$/i;
 const PRICE_REGEX = /^(?:[0-9]{1,6}|1000000|0)$/; // 1,000,000원 이하의 값만 허용
 const URL_REGEX = /(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/;
 
