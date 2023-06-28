@@ -22,7 +22,8 @@ export const Header = styled.header`
 
 export const Input = styled.input`
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.bgGray};
+  background-color: ${({ theme }) => theme.colors.fourth};
+  border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   border-radius: 32px;
   padding: 7px 16px;
   margin-left: 20px;
@@ -31,6 +32,12 @@ export const Input = styled.input`
     font-size: 14px;
     line-height: 17.53px;
     color: ${({ theme }) => theme.colors.txtColor};
+  }
+  &:focus,
+  &:active {
+    outline: none;
+    border-width: 1px;
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

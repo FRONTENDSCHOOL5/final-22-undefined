@@ -6,7 +6,7 @@ const ReportModal = ({ message, onClose, button, buttonFontColor }) => {
     <S.AlertSection>
       <S.Strong>{message}</S.Strong>
       <S.Button onClick={() => onClose(button)} color={buttonFontColor}>
-        확인
+        {button}
       </S.Button>
     </S.AlertSection>
   );
