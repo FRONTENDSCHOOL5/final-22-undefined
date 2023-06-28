@@ -1,12 +1,21 @@
-# 🐾 강냥공냥공냥냥
+<h1 align=center>🐾 강냥공냥공냥냥 🐾</h1><br>
 <h2 align=center> Introduce  </h2><br>
-
 <br>
 
 <h2 align=center> 👩🏻‍💻👨🏻‍💻 Team  </h2><br>
 
-<br>
+| 정현빈🌹 | 박지윤🌷 | 이상용💐 | 김미정🌱 |
+|:---:|:---:|:---:|:---:|
+|<img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/ff62e3d7-d0ad-4266-b505-136c19bb4876" alt="꽃현빈" width="600" height="300">|<img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/7bdc7e2d-58c2-4e7f-93c9-551c409cb16d" alt="브이지윤" width="600" height="300">|<img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/f5490c8e-5f2b-4473-92b2-05f406469c2e" alt="닭발상용" width="600" height="300">|<img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/533d1509-cd7d-4403-8708-42d6014968d0" alt="턱븨미정" width="600" height="300">|
+| 팀장  |  팀원  | 팀원  | 팀원  |
+|[hyeonbinnn](https://github.com/hyeonbinnn)|[JiyunPark1301](https://github.com/JiyunPark1301)|[yongisadragon](https://github.com/yongisadragon)|[goyomi](https://github.com/goyomi)|
 
+<br>
+<p align="center">
+  <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/15d688f4-2764-47a8-b7df-d73ba4867426" alt="미정즈" width="450"> <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/e351d3b1-37c4-4f39-be9f-44d4252d744b" alt="꽃다발즈" width="450">
+</p>
+
+<br>
 <h2 align=center> ⛏️ Tech Stack </h2><br>
 <table align="center">
   <tr height="50px">
@@ -71,13 +80,13 @@
 - 주제는 한글로 간단명료하게 작성한다.
 - 주제의 마지막 문자로 `.(마침표)`를 사용하지 않는다.
 - 주제는 '-다', '-음'과 같은 어미로 끝내지 않고, 과거형을 사용하지 않는다.
-    - 올바르지 않은 예) `feat: 카카오 로그인 연동 기능을 추가했다 (#3)`, `feat: 카카오 로그인 연동 기능을 추가함 (#3)`
-    - 옳은 예) `feat: 카카오 로그인 연동 기능 추가 (#3)`
+  - 올바르지 않은 예) `feat: 카카오 로그인 연동 기능을 추가했다 (#3)`, `feat: 카카오 로그인 연동 기능을 추가함 (#3)`
+  - 옳은 예) `feat: 카카오 로그인 연동 기능 추가 (#3)`
 - 주제는 소스 코드를 보지 않고도 변경 사항이 무엇인지 알 수 있도록 작성해야 한다.
-    - 올바르지 않은 예) `design: CSS 조정 (#4)`
-    - 옳은 예) `design: text box와 layout frame 사이에 left padding 추가 (#4)`
+  - 올바르지 않은 예) `design: CSS 조정 (#4)`
+  - 옳은 예) `design: text box와 layout frame 사이에 left padding 추가 (#4)`
 - 커밋 메시지는 제삼자가 봤을 때 무엇을 했는지 파악할 수 있게 자세히 작성한다.
 - 커밋 메시지는 어떻게 보단 **무엇과 왜**를 설명한다.
 - 한 커밋에는 한 가지 기능만 담는다.
-    - 예) 화면 개발의 경우 : 컴포넌트 단위로 커밋
-    - 예2) 기능 개발의 경우 : 각 기능 단위로 커밋
+  - 예) 화면 개발의 경우 : 컴포넌트 단위로 커밋
+  - 예2) 기능 개발의 경우 : 각 기능 단위로 커밋
