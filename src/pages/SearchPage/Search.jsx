@@ -40,6 +40,8 @@ const Search = () => {
   useEffect(() => {
     if (debounceValue.length > 0) {
       handleSearchList();
+    } else {
+      setUserList([]);
     }
   }, [debounceValue]);
 

@@ -25,7 +25,7 @@ const ChatListCard = styled.section`
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    color: #767676;
+    color: ${({ theme }) => theme.colors.txtColor};
   }
   .date {
     font-size: 10px;

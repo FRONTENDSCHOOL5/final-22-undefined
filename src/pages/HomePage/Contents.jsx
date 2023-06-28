@@ -39,12 +39,12 @@ const TopButton = styled.button`
   display: ${({ show }) => (show ? 'block' : 'none')};
   position: fixed;
   bottom: 80px;
-  right: 50px;
+  right: 20px;
   z-index: 999;
   width: 50px;
   height: 50px;
   background-color: ${({ theme }) => theme.colors.secondary};
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -60,7 +60,7 @@ const Contents = forwardRef(({ posts, setPosts }, ref) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 1200) {
         setShowButton(true);
       } else {
         setShowButton(false);
