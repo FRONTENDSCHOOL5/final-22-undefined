@@ -8,6 +8,7 @@ import { deletePost, reportPost } from '../../../api/post';
 import { useCallback } from 'react';
 
 const PostModal = ({ onClose, postId, posts, setPosts }) => {
+  console.log('렌더 완료');
   const modalRef = useRef();
   const navigate = useNavigate();
   const { accountname } = useParams();
@@ -61,7 +62,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     try {
       await deletePost(postId, userToken);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   }, [postId, userToken]);
 
@@ -69,7 +70,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     try {
       await reportPost(postId, userToken);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   }, [postId, userToken]);
 
@@ -100,11 +101,14 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
   // };
 
   // 어두운 배경 클릭할 때 모달창 처리
-  const clickOutside = (e) => {
-    if (modalRef.current && modalRef.current === e.target) {
-      onClose(); // onClose 콜백 호출
-    }
-  };
+  const clickOutside = useCallback(
+    (e) => {
+      if (modalRef.current && modalRef.current === e.target) {
+        onClose();
+      }
+    },
+    [onClose],
+  );
 
   // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성
   // 조건부 최적화 :
