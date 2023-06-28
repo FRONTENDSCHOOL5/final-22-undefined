@@ -53,7 +53,7 @@ const SellingProduct = () => {
   return (
     <S.Section>
       <Wrapper>
-        <S.Title>임시보호 가능 동물</S.Title>
+        <S.Title>개똥벌레 후원 물품</S.Title>
         <S.List>
           {isLoading ? (
             <>

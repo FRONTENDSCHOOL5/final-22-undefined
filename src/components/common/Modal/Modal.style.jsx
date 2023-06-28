@@ -41,9 +41,30 @@ export const Ul = styled.ul`
     left: 50%;
     width: 50px;
     height: 4px;
-    background-color: ${({ theme }) => theme.colors.gray};
+    background-color: ${({ theme }) => theme.colors.primary};
+    border-bottom: 1px solid transparent;
     border-radius: 5px;
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotate(360deg); /* 회전 효과 추가 */
+    animation: rotateAnimation 0.7s linear forwards;
+  }
+
+  @keyframes rotateAnimation {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+      background: linear-gradient(
+        to right,
+        ${({ theme }) => theme.colors.third} 0%,
+        ${({ theme }) => theme.colors.third} 100%
+      );
+    }
+    100% {
+      transform: translateX(-50%) rotate(360deg);
+      background: linear-gradient(
+        to right,
+        ${({ theme }) => theme.colors.primary} 0%,
+        ${({ theme }) => theme.colors.primary} 100%
+      );
+    }
   }
 `;
 

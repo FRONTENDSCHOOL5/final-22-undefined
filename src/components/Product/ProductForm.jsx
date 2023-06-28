@@ -33,7 +33,7 @@ const ProductForm = ({ formData, setFormData, img, onUpload, error, setError }) 
       />
       <ProductFormInput
         id='link'
-        label='보호소 링크'
+        label='판매 링크'
         formData={formData}
         setFormData={setFormData}
         error={error}
