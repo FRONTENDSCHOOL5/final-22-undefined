@@ -74,32 +74,6 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     }
   }, [postId, userToken]);
 
-  // AlertModal, ReportModal 컴포넌트 삭제 및 신고 확인 메시지 렌더링
-  // const renderAlertModal = () => {
-  //   if (selectedOption === '삭제') {
-  //     return (
-  //       <AlertModal
-  //         message='게시글을 삭제할까요?'
-  //         onClose={closeModal}
-  //         buttons={['취소', '삭제']}
-  //         buttonFontColor={['#767676', '#Fd7a6E']}
-  //         buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
-  //       />
-  //     );
-  //   } else if (selectedOption === '신고하기') {
-  //     return (
-  //       <ReportModal
-  //         message='신고가 완료되었습니다!'
-  //         onClose={closeModal}
-  //         button={'확인'}
-  //         buttonFontColor={'#Fd7a6E'}
-  //       />
-  //     );
-  //   }
-
-  //   return null;
-  // };
-
   // 어두운 배경 클릭할 때 모달창 처리
   const clickOutside = useCallback(
     (e) => {
@@ -110,8 +84,7 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     [onClose],
   );
 
-  // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성
-  // 조건부 최적화 :
+  // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성y
   const optionElements = useMemo(() => {
     if (isHomeFollowedPosts || !isLoginUser) {
       return otherPostModalOptions.map((option, index) => (
