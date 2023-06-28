@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import imgBtn from '../../assets/img-button.png';
-import uploadImgBtn from '../../assets/upload-file.png';
+import imgBtn from '../../assets/img-button.svg';
+import uploadImgBtn from '../../assets/upload-file.svg';
 
 export const Footer = styled.footer`
   /* max-width: 390px; */
@@ -33,7 +33,7 @@ export const PostBtn = styled.button`
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
-  color: ${({ theme, isActivated }) => (isActivated ? theme.colors.primary : theme.colors.gray)};
+  color: ${({ theme, isActivated }) => (isActivated ? theme.colors.warning : theme.colors.gray)};
 `;
 
 export const UploadForm = styled.form`
