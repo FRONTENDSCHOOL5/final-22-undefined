@@ -57,7 +57,7 @@ const ProfileSetting = () => {
             setError={setError}
           />
           <S.StartBtn mode={isActivated ? 'default' : 'disabled'} size='lg' onClick={handleClick}>
-            감귤마켓 시작하기
+            시작하기
           </S.StartBtn>
         </S.Form>
       </S.LayoutWrapper>
