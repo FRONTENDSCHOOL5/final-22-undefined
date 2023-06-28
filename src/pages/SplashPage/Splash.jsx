@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import MainIcon from '../../assets/Splash/logo.png';
-import TitleTxt from '../../assets/Splash/logoTxt.png';
-import SunglassesIcon from '../../assets/Splash/logoSunglasses.png';
+import MainIcon from '../../assets/Splash/MainTwo.gif';
+import TitleTxt from '../../assets/Splash/TitleTxt.svg';
 import { useNavigate } from 'react-router-dom';
 import * as S from './Splash.style';
 
 const Splash = () => {
-  const [mainImg, setMainImg] = useState(MainIcon);
-
+  const [isShown, setIsShown] = useState(false);
   useEffect(() => {
     const Timer = setTimeout(() => {
-      setMainImg(SunglassesIcon);
-    }, 1000);
+      setIsShown(true);
+    }, 500);
 
     return () => clearTimeout(Timer);
   }, []);
@@ -21,19 +19,14 @@ const Splash = () => {
   useEffect(() => {
     const Timer = setTimeout(() => {
       navigate('/login/email');
-    }, 3500);
+    }, 3300);
 
     return () => clearTimeout(Timer);
   }, []);
 
   return (
     <S.SplashMain>
-      <div>
-        <img className='mainIcon' src={mainImg} alt='' />
-        <h1>
-          <img src={TitleTxt} alt='강냥공냥공냥냥' />
-        </h1>
-      </div>
+      <h1>{isShown && <img className='mainIcon' src={MainIcon} alt='메인 로고 이미지' />}</h1>
     </S.SplashMain>
   );
 };

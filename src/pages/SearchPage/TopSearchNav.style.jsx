@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import arrowLeft from '../../assets/icon/icon-arrow-left.png';
+import arrowLeft from '../../assets/icon/icon-arrow-left.svg';
 
 export const Header = styled.header`
   height: 48px;

@@ -15,7 +15,7 @@ export const Main = styled.main`
   align-items: center;
   width: 100%;
   height: 100vh;
-  padding-top: 15vh;
+  padding-top: 20vh;
   background-color: ${({ theme }) => theme.colors.primary};
 `;
 
@@ -38,8 +38,8 @@ export const LoginSect = styled.section`
 `;
 
 export const LogoImg = styled.img`
-  width: 100%;
-  height: auto;
+  width: 200px;
+  /* height: auto; */
   vertical-align: top;
 `;
 
