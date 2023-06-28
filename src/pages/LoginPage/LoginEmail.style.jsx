@@ -1,24 +1,12 @@
 import styled from 'styled-components';
 import Button from '../../components/common/Button/Button';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
 import KakaoLogo from '../../assets/kakaoLogo.svg';
 import FacebookLogo from '../../assets/facebookLogo.svg';
 import GoogleLogo from '../../assets/Google__G__Logo.svg';
 import KakaoLogoWhite from '../../assets/message-circle-white.svg';
 import FacebookLogoWhite from '../../assets/facebook-white.svg';
 import GoogleLogoWhite from '../../assets/google-white.svg';
-<<<<<<< HEAD
-=======
-import KakaoLogo from '../../assets/message-circle.png';
-import FacebookLogo from '../../assets/facebook.png';
-import GoogleLogo from '../../assets/google.png';
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
 
 export const Main = styled.main`
   position: relative;
@@ -27,31 +15,13 @@ export const Main = styled.main`
   align-items: center;
   width: 100%;
   height: 100vh;
-<<<<<<< HEAD
-<<<<<<< HEAD
   padding-top: 20vh;
-=======
-  padding-top: 25vh;
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
-  padding-top: 15vh;
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
   background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const H1 = styled.h1`
-<<<<<<< HEAD
-<<<<<<< HEAD
   width: 200px;
   /* height: 144px; */
-=======
-  width: 144px;
-  height: 144px;
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
-  width: 200px;
-  /* height: 144px; */
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
 `;
 
 export const LoginSect = styled.section`
@@ -68,13 +38,8 @@ export const LoginSect = styled.section`
 `;
 
 export const LogoImg = styled.img`
-<<<<<<< HEAD
   width: 200px;
   /* height: auto; */
-=======
-  width: 100%;
-  height: auto;
->>>>>>> 92424a5 (move: style 파일 전체 분리)
   vertical-align: top;
 `;
 
@@ -125,22 +90,12 @@ export const SnsBtn = styled(StyledButton)`
 export const KakaoBtn = styled(SnsBtn)`
   border: 1.5px solid #f2c94c;
   &:hover {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
     color: white;
     background-color: #f2c94c;
     /* filter: brightness(95%); */
   }
   &:hover::before {
     background: url(${KakaoLogoWhite}) no-repeat center / 24px 24px;
-<<<<<<< HEAD
-=======
-    filter: brightness(95%);
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
   }
   &::before {
     background: url(${KakaoLogo}) no-repeat center / 24px 24px;
@@ -149,10 +104,6 @@ export const KakaoBtn = styled(SnsBtn)`
 
 export const FacebookBtn = styled(SnsBtn)`
   border: 1.5px solid #2d9cdb;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
   &:hover {
     color: white;
     background-color: #2d9cdb;
@@ -160,11 +111,6 @@ export const FacebookBtn = styled(SnsBtn)`
   &:hover::before {
     background: url(${FacebookLogoWhite}) no-repeat center / 24px 24px;
   }
-<<<<<<< HEAD
-=======
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
   &::before {
     background: url(${FacebookLogo}) no-repeat center / 24px 24px;
   }
@@ -172,10 +118,6 @@ export const FacebookBtn = styled(SnsBtn)`
 
 export const GoogleBtn = styled(SnsBtn)`
   border: ${({ theme }) => `1.5px solid ${theme.colors.txtColor}`};
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
   &:hover {
     color: white;
     background-color: ${({ theme }) => theme.colors.txtColor};
@@ -183,11 +125,6 @@ export const GoogleBtn = styled(SnsBtn)`
   &:hover::before {
     background: url(${GoogleLogoWhite}) no-repeat center / 20px 20px;
   }
-<<<<<<< HEAD
-=======
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
   &::before {
     background: url(${GoogleLogo}) no-repeat center / 24px 24px;
   }

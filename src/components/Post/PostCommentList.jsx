@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import ModalButtonImg from '../../assets/icon/s-icon-more-vertical.svg';
-=======
-import ModalButtonImg from '../../assets/icon/icon-more-vertical.png';
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
-import ModalButtonImg from '../../assets/icon/s-icon-more-vertical.svg';
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
 import * as S from './PostCommentList.style';
 import PostUserProfileImg from './PostUserProfileImg';
 import CommentModal from '../common/Modal/CommentModal';

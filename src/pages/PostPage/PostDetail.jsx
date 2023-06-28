@@ -95,14 +95,7 @@ const PostDetail = () => {
         </CommentWrapper>
       </Main>
       <ChatComment
-<<<<<<< HEAD
-<<<<<<< HEAD
         ref={target}
-=======
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
-        ref={target}
->>>>>>> 60fa6aa (feat: 게시글 상세 페이지 댓글 입력란 포커스)
         atChatroom={false}
         userProfileImg={myProfileImg}
         postId={post_id}

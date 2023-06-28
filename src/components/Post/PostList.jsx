@@ -19,54 +19,7 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
     openModal();
     setPostId(id);
   };
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  // console.log(isLoading);
->>>>>>> 05a585f (fix: isLoading 상태 삭제)
-=======
->>>>>>> d574ef1 (fix: isLoading 상태 삭제)
-=======
->>>>>>> bc4cfbc (fix: isLoading 상태 삭제)
-=======
-=======
-  // console.log(isLoading);
->>>>>>> 05a585f (fix: isLoading 상태 삭제)
->>>>>>> 378221f (fix: isLoading 상태 삭제)
-
-=======
-  console.log(isLoading);
->>>>>>> c5f2bc8 (fix: isLoading 상태 삭제)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 8de1e19 (fix: isLoading 상태 삭제)
-=======
->>>>>>> d574ef1 (fix: isLoading 상태 삭제)
-<<<<<<< HEAD
->>>>>>> 0ce1f73 (fix: isLoading 상태 삭제)
-=======
-=======
-=======
-
->>>>>>> 8de1e19 (fix: isLoading 상태 삭제)
->>>>>>> bc4cfbc (fix: isLoading 상태 삭제)
-<<<<<<< HEAD
->>>>>>> a354687 (fix: isLoading 상태 삭제)
-=======
-=======
-
->>>>>>> 0804201 (fix: 깃 머지 충돌 오류)
->>>>>>> 12de856 (fix: 깃 머지 충돌 오류)
   return (
     <Container>
       <Wrapper>

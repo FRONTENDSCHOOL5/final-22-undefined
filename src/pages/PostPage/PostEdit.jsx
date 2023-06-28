@@ -5,14 +5,7 @@ import SaveHeader from '../../components/common/Header/SaveHeader';
 import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { editPost } from '../../api/post';
 import * as S from './PostEdit.style';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { getMyInfo } from '../../api/profile';
-=======
->>>>>>> 92424a5 (move: style 파일 전체 분리)
-=======
-import { getMyInfo } from '../../api/profile';
->>>>>>> 687d1a9 (feat: 사용자 프로필 정보 불러오는 api 분리)
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 

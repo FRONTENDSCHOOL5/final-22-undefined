@@ -8,11 +8,6 @@ import profile from '../../../assets/icon/icon-user.svg';
 import homeFill from '../../../assets/icon/icon-home-fill.svg';
 import chatFill from '../../../assets/icon/icon-message-circle-fill.svg';
 import profileFill from '../../../assets/icon/icon-user-fill.svg';
-<<<<<<< HEAD
-import foot from '../../../assets/icon/icon-foot.svg';
-import footFill from '../../../assets/icon/icon-footFill.svg';
-=======
->>>>>>> 541f25e (style: 아이콘 svg로 일괄 변경 및 기획에 맞게 컨텐츠 벨류 변경)
 
 const TabMenu = ({ active }) => {
   return (

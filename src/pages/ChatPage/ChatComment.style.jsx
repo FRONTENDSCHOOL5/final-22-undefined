@@ -1,11 +1,6 @@
 import styled from 'styled-components';
-<<<<<<< HEAD
-import imgBtn from '../../assets/img-button.svg';
-import uploadImgBtn from '../../assets/upload-file.svg';
-=======
 import imgBtn from '../../assets/img-button.png';
 import uploadImgBtn from '../../assets/upload-file.png';
->>>>>>> 92424a5 (move: style 파일 전체 분리)
 
 export const Footer = styled.footer`
   /* max-width: 390px; */
@@ -38,11 +33,7 @@ export const PostBtn = styled.button`
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
-<<<<<<< HEAD
-  color: ${({ theme, isActivated }) => (isActivated ? theme.colors.warning : theme.colors.gray)};
-=======
   color: ${({ theme, isActivated }) => (isActivated ? theme.colors.primary : theme.colors.gray)};
->>>>>>> 92424a5 (move: style 파일 전체 분리)
 `;
 
 export const UploadForm = styled.form`
