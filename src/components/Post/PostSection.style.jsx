@@ -8,15 +8,15 @@ export const Section = styled.section`
   margin-top: 6px;
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
-    border-top: 0.5008px solid ${theme.colors.gray};
+    border-top: 0.5px solid ${theme.colors.gray};
   `};
 `;
 
 export const Title = styled.h2``;
 
 export const Header = styled.header`
-  border-bottom: ${({ theme }) => `.5008px solid ${theme.colors.gray}`};
-  padding: 8px 0 0 0;
+  border-bottom: ${({ theme }) => `.5px solid ${theme.colors.gray}`};
+  padding: 8px 15px 0 0;
   height: 44px;
   text-align: right;
 `;
