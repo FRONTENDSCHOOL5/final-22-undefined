@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import arrowLeft from '../../assets/icon/icon-arrow-left.svg';
-
 export const Header = styled.header`
   height: 48px;
   margin: 0px auto;
@@ -41,7 +39,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Arrow = styled.a`
+export const ButtonIcon = styled.button`
   background: url(${arrowLeft}) no-repeat center/ 22px 22px;
   width: 22px;
   height: 22px;
