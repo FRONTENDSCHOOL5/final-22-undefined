@@ -12,9 +12,9 @@ const TopSearchNav = ({ onChange }) => {
   };
   return (
     <S.Header>
-      <S.ButtonIcon onClick={backHandle}>
+      <button onClick={backHandle}>
         <img src={backButtonImg} alt='뒤로가기 버튼' />
-      </S.ButtonIcon>
+      </button>
       <S.Input type='text' placeholder='계정 검색' onChange={onChange} />
     </S.Header>
   );

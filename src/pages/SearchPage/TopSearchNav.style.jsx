@@ -38,12 +38,3 @@ export const Input = styled.input`
     border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
-
-export const ButtonIcon = styled.button`
-  background: url(${arrowLeft}) no-repeat center/ 22px 22px;
-  width: 22px;
-  height: 22px;
-  vertical-align: middle;
-  float: left;
-  cursor: pointer;
-`;
