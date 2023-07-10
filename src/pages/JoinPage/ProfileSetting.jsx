@@ -29,7 +29,7 @@ const ProfileSetting = () => {
 
   const handleClick = async () => {
     try {
-      const image = img === '' ? 'https://api.mandarin.weniv.co.kr/Ellipse.png' : img;
+      const image = img === '' ? 'http://api.mandarin.weniv.co.kr/1687866323147.png' : img;
 
       const data = await join(state, formData, image);
       if (data.message === '회원가입 성공') {
@@ -57,7 +57,7 @@ const ProfileSetting = () => {
             setError={setError}
           />
           <S.StartBtn mode={isActivated ? 'default' : 'disabled'} size='lg' onClick={handleClick}>
-            감귤마켓 시작하기
+            시작하기
           </S.StartBtn>
         </S.Form>
       </S.LayoutWrapper>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { uploadImages } from '../api/image';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
+const MAX_SIZE = 10 * 1024 * 1024;
 
 const useImagesUpload = () => {
   const [images, setImages] = useState([]);
@@ -12,8 +13,9 @@ const useImagesUpload = () => {
     const formData = new FormData();
     for (let i = 0; i < length; i++) {
       const file = files[i];
+
       const fileExtension = file.name.split('.').pop().toLowerCase();
-      if (ALLOWED_EXTENSIONS.includes(`.${fileExtension}`)) {
+      if (ALLOWED_EXTENSIONS.includes(`.${fileExtension}`) && file.size <= MAX_SIZE) {
         formData.append('image', file);
       }
     }

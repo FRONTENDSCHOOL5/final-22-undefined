@@ -12,7 +12,7 @@ export const Footer = styled.footer`
   left: 0px;
   right: 0px;
   bottom: 0px;
-  border-top: 0.5px solid #dbdbdb;
+  border-top: ${({ theme }) => `0.5px solid ${theme.colors.gray}`};
   background-color: ${({ theme }) => theme.colors.white};
 `;
 

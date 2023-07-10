@@ -32,12 +32,12 @@ const PostUpload = () => {
   const handleUpload = async () => {
     try {
       // 게시물 업로드
+      console.log('hi');
       let image;
       if (images.length === 0) image = '';
       else {
         image = images.map((image) => `https://api.mandarin.weniv.co.kr/${image}`).join(',');
       }
-      // console.log(image);
       await uploadPost(userToken, userContent, image);
       navigate('/profile');
     } catch (error) {

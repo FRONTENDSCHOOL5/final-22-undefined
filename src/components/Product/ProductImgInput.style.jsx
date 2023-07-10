@@ -18,7 +18,7 @@ export const Label = styled.label`
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: ${({ theme }) => `${theme.colors.gray} url(${uploadIcon}) no-repeat center`};
+    background: ${({ theme }) => `${theme.colors.primary} url(${uploadIcon}) no-repeat center`};
   }
 `;
 

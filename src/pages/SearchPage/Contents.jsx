@@ -32,9 +32,12 @@ const UserList = styled.ul`
     font-weight: 500;
   }
   .accountName {
-    color: #767676;
+    color: ${({ theme }) => theme.colors.txtColor};
     font-size: 12px;
     line-height: 15px;
+  }
+  .highlight {
+    color: ${({ theme }) => theme.colors.warning};
   }
 `;
 
@@ -50,7 +53,7 @@ const Contents = ({ userList, inputTxt }) => {
                   userProfileImg={
                     item.image.includes('https://api.mandarin.weniv.co.kr/')
                       ? item.image
-                      : 'https://api.mandarin.weniv.co.kr/Ellipse.png'
+                      : 'http://api.mandarin.weniv.co.kr/1687866323147.png'
                   }
                   size='50px'
                 />

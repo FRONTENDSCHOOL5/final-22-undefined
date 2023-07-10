@@ -53,7 +53,7 @@ const SellingProduct = () => {
   return (
     <S.Section>
       <Wrapper>
-        <S.Title>임시보호 가능 동물</S.Title>
+        <S.Title>등록된 상품</S.Title>
         <S.List>
           {isLoading ? (
             <>
