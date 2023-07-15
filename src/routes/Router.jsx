@@ -21,6 +21,7 @@ import Splash from '../pages/SplashPage/Splash';
 import PostEdit from '../pages/PostPage/PostEdit';
 import LoginEamil from '../pages/LoginPage/LoginEamil';
 import Error404 from '../pages/ErrorPage/Error404';
+import Map from '../pages/MapPage/Map';
 
 const Router = () => {
   const { userToken } = useContext(AuthContextStore);
@@ -46,6 +47,7 @@ const Router = () => {
           <Route path='/post/upload' element={<PostUpload />} />
           <Route path='/post/edit' element={<PostEdit />} />
           <Route path='/postdetail/:post_id' element={<PostDetail />} />
+          <Route path='/map' element={<Map />} />
           <Route path='/profile' element={<ProfilePage />} />
           <Route path='/profile/:accountname' element={<ProfilePage />} />
           <Route path='/profile/edit' element={<ProfileEdit />} />
