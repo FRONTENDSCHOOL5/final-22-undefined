@@ -54,7 +54,7 @@ const ProfilePage = () => {
         <SellingProduct />
         {!isLoading && <PostSection />}
       </Main>
-      <TabMenu active={isLoginUser ? '3' : '0'} />
+      <TabMenu active={isLoginUser ? '4' : '0'} />
     </>
   );
 };
