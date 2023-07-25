@@ -30,7 +30,7 @@ export const editProduct = async (productId, userToken, itemName, price, link, i
 
 // 상품 삭제
 export const deleteProduct = async (productId, userToken) => {
-  return await request(`/product/${productId}`, {
+  return await request(`product/${productId}`, {
     method: 'DELETE',
     headers: { Authorization: `Bearer ${userToken}` },
   });
