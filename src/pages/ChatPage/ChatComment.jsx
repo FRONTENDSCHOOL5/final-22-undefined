@@ -53,7 +53,7 @@ const ChatComment = forwardRef(({ setCommentList, atChatroom, userProfileImg, po
           onChange={handleOnChange}
           ref={ref}
         />
-        <S.PostBtn isActivated={isActivated} type='submit'>
+        <S.PostBtn disabled={isActivated ? false : true} isActivated={isActivated} type='submit'>
           {atChatroom ? '전송' : '게시'}
         </S.PostBtn>
       </S.SendForm>
