@@ -6,18 +6,16 @@ import PostModal from '../common/Modal/PostModal';
 
 const PostList = forwardRef(({ posts, setPosts }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [postId, setPostId] = useState('');
-  const openModal = () => {
+  const [postId, setPostId] = useState(null);
+
+  const openModal = (postId) => {
     setIsModalOpen(true);
+    setPostId(postId);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-  };
-
-  const handleClick = (id) => {
-    openModal();
-    setPostId(id);
+    setPostId(null);
   };
 
   return (
@@ -29,14 +27,22 @@ const PostList = forwardRef(({ posts, setPosts }, ref) => {
               <PostItem
                 post={post}
                 onClick={() => {
-                  handleClick(post.id);
+                  openModal(post.id);
                 }}
                 commentCnt={post.commentCount}
               />
             </Li>
           ))}
         </Ul>
-        {isModalOpen && <PostModal onClose={closeModal} postId={postId} posts={posts} setPosts={setPosts} />}
+        {isModalOpen && (
+          <PostModal
+            onClose={closeModal}
+            postId={postId}
+            posts={posts}
+            setPosts={setPosts}
+            postAuthor={posts.find((post) => post.id === postId)?.author.accountname}
+          />
+        )}
       </Wrapper>
     </Container>
   );
