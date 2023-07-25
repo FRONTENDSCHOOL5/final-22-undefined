@@ -18,6 +18,8 @@ const SellingProduct = () => {
 
   const userId = accountname ? accountname : userAccountname;
 
+  console.log(products);
+
   useEffect(() => {
     const fetch = async () => {
       try {

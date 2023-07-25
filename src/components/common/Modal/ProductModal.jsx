@@ -55,11 +55,6 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
     }
   };
 
-  // 상품 삭제 에러
-  const deleteError = (error) => {
-    console.log(error);
-  };
-
   // AlertModal 컴포넌트 확인 메시지 렌더링
   const renderAlertModal = () => {
     if (selectedOption === '삭제') {
