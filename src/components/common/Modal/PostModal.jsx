@@ -1,52 +1,61 @@
-import React, { useRef, useState, useContext, useMemo } from 'react';
+import React, { useRef, useState, useContext, useMemo, useEffect } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
 import ReportModal from './ReportModal';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 import { deletePost, reportPost } from '../../../api/post';
-import { useCallback } from 'react';
 
-const PostModal = ({ onClose, postId, posts, setPosts }) => {
-  console.log('렌더 완료');
+const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathname }) => {
   const modalRef = useRef();
   const navigate = useNavigate();
-  const { accountname } = useParams();
-  const { pathname } = useLocation();
+  // const { accountname } = useParams();
+  // const { pathname } = useLocation();
+  // const location = useLocation();
+  const [isLoginUser, setIsLoginUser] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
   const myPostModalOptions = useMemo(() => ['삭제', '수정'], []);
   const otherPostModalOptions = useMemo(() => ['신고하기'], []);
-  const userId = useMemo(() => (accountname ? accountname : userAccountname), [accountname, userAccountname]);
-  const isLoginUser = useMemo(() => userId === userAccountname, [userId, userAccountname]);
-  const isHomeFollowedPosts = useMemo(() => pathname === '/home', [pathname]); // 홈인지 확인하고 isHomeFollowedPosts변수에 할당
+
+  useEffect(() => {
+    // 게시글 작성자와 현재 사용자의 계정명 비교하여 isLoginUser 값을 설정
+    setIsLoginUser(userAccountname === postAuthor);
+  }, [userAccountname, postAuthor]);
+
+  const isAuthor = author?.accountname === userAccountname;
+
+  // const userId = useMemo() => accountname ? accountname : userAccountname;
+  // const isLoginUser = () => userId === userAccountname;
+
+  // const isHomeFollowedPosts = () => pathname === '/home'; // 홈인지 확인하고 isHomeFollowedPosts변수에 할당
 
   // 모달 옵션을 클릭했을 때
   // useCallback 사용해서 navigate()함수 호출 최적화
-  const optionClick = useCallback(
-    (option) => {
-      if (option === '삭제') {
-        setSelectedOption(option);
-      } else if (option === '수정') {
-        for (let i = 0; i < posts.length; i++) {
-          if (posts[i].id === postId) {
-            navigate('/post/edit', {
-              state: { content: posts[i].content, image: posts[i].image, postId: posts[i].id },
-            });
-          }
+  const optionClick = (option) => {
+    if (option === '삭제') {
+      setSelectedOption(option);
+    } else if (option === '수정') {
+      for (let i = 0; i < posts.length; i++) {
+        if (posts[i].id === postId) {
+          navigate('/post/edit', {
+            state: { content: posts[i].content, image: posts[i].image, postId: posts[i].id },
+          });
         }
-      } else if (option === '신고하기') {
-        setSelectedOption(option);
       }
-    },
-    [navigate, postId, posts],
-  );
+    } else if (option === '신고하기') {
+      setSelectedOption(option);
+    }
+  };
 
   // 모달 닫기
   const closeModal = async (option) => {
     if (option === '삭제') {
       await fetchDelete(postId, userToken);
-      setPosts(posts.filter((post) => post.id !== postId));
+      setPosts(posts.filter((post) => post.id !== postId)); // 삭제된 게시물을 제외한 나머지 게시물 목록 설정
+      if (pathname === `/postdetail/${postId}`) {
+        navigate(-1); // 이전 페이지로 이동 (-1은 이전 페이지를 의미)
+      }
       onClose();
     } else if (option === '취소') {
       setSelectedOption('');
@@ -58,54 +67,53 @@ const PostModal = ({ onClose, postId, posts, setPosts }) => {
     }
   };
 
-  const fetchDelete = useCallback(async () => {
+  const fetchDelete = async () => {
     try {
+      // console.log('Deleting post:', postId);
       await deletePost(postId, userToken);
     } catch (error) {
       // console.error(error);
     }
-  }, [postId, userToken]);
+  };
 
-  const fetchReport = useCallback(async () => {
+  const fetchReport = async () => {
     try {
       await reportPost(postId, userToken);
     } catch (error) {
       // console.error(error);
     }
-  }, [postId, userToken]);
+  };
 
   // 어두운 배경 클릭할 때 모달창 처리
-  const clickOutside = useCallback(
-    (e) => {
-      if (modalRef.current && modalRef.current === e.target) {
-        onClose();
-      }
-    },
-    [onClose],
-  );
+  const clickOutside = (e) => {
+    if (modalRef.current && modalRef.current === e.target) {
+      onClose();
+    }
+  };
 
   // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성y
-  const optionElements = useMemo(() => {
-    if (isHomeFollowedPosts || !isLoginUser) {
+  const optionElements = () => {
+    console.log('isLoginUser:', isLoginUser);
+    console.log('isAuthor:', isAuthor);
+    if (!isLoginUser && !isAuthor) {
       return otherPostModalOptions.map((option, index) => (
         <S.Li key={index}>
           <button onClick={() => optionClick(option)}>{option}</button>
         </S.Li>
       ));
-    } else if (isLoginUser) {
+    } else if (isLoginUser || isAuthor) {
       return myPostModalOptions.map((option, index) => (
         <S.Li key={index}>
           <button onClick={() => optionClick(option)}>{option}</button>
         </S.Li>
       ));
     }
-    return null;
-  }, [isHomeFollowedPosts, isLoginUser, myPostModalOptions, optionClick, otherPostModalOptions]);
+  };
 
   return (
     <>
       <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
-        <S.Ul>{optionElements}</S.Ul>
+        <S.Ul>{optionElements()}</S.Ul>
       </S.ModalBg>
       {selectedOption === '삭제' && (
         <AlertModal
