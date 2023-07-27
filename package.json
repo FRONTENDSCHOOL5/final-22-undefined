@@ -12,7 +12,6 @@
     "react-hook-form": "^7.44.3",
     "react-kakao-maps-sdk": "^1.1.9",
     "react-router-dom": "^6.11.2",
-    "react-scripts": "5.0.1",
     "styled-components": "^5.3.11",
     "styled-normalize": "^8.0.7",
     "web-vitals": "^2.1.4"
@@ -46,6 +45,7 @@
   "devDependencies": {
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "react-scripts": "^5.0.1"
   }
 }
