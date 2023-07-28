@@ -142,7 +142,7 @@ export const Item = styled.li`
 
 export const Name = styled.p`
   font-size: 18px;
-  color: royalblue;
+  color: ${({ theme }) => theme.colors.blue};
   font-weight: 700;
   margin-bottom: 4px;
   max-width: 310px;

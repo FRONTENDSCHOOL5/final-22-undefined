@@ -8,6 +8,8 @@ const colors = {
   txtColor: '#767676',
   warning: '#FD7A6E',
   white: '#fff',
+  green: '#288756',
+  blue: '#4169e1',
 };
 
 const theme = { colors };
