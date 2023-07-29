@@ -8,8 +8,8 @@ import profile from '../../../assets/icon/icon-user.svg';
 import homeFill from '../../../assets/icon/icon-home-fill.svg';
 import chatFill from '../../../assets/icon/icon-message-circle-fill.svg';
 import profileFill from '../../../assets/icon/icon-user-fill.svg';
-import foot from '../../../assets/icon/icon-footFill.svg';
-import footFill from '../../../assets/icon/icon-foot.svg';
+import footFill from '../../../assets/icon/icon-footFill.svg';
+import foot from '../../../assets/icon/icon-foot.svg';
 
 const TabMenu = ({ active }) => {
   return (

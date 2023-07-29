@@ -17,18 +17,24 @@
 <h2> 🪄 팀원 </h2>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 | 정현빈 | 박지윤 | 이상용 | 김미정 |
 | :----: | :----: | :----: | :----: |
 | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> |
 | 팀장 | 팀원 | 팀원 | 팀원 |
 | [hyeonbinnn](https://github.com/hyeonbinnn) | [JiyunPark1301](https://github.com/JiyunPark1301) | [yongisadragon](https://github.com/yongisadragon) | [goyomi](https://github.com/goyomi) |
 =======
+=======
+>>>>>>> 615b0bd58aa0c22dae92e956b290e28a7bdda3b7
 |                                                                      정현빈                                                                      |                                                                      박지윤                                                                      |                                                                      이상용                                                                      |                                                                      김미정                                                                      |
 | :----------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: |
 | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> |
 |                                                                       팀장                                                                       |                                                                       팀원                                                                       |                                                                       팀원                                                                       |                                                                       팀원                                                                       |
 |                                                   [hyeonbinnn](https://github.com/hyeonbinnn)                                                    |                                                [JiyunPark1301](https://github.com/JiyunPark1301)                                                 |                                                [yongisadragon](https://github.com/yongisadragon)                                                 |                                                       [goyomi](https://github.com/goyomi)                                                        |
+<<<<<<< HEAD
 >>>>>>> 27a2dab1078b85cfd15a272dbfe18236ffcce226
+=======
+>>>>>>> 615b0bd58aa0c22dae92e956b290e28a7bdda3b7
 
 <br>
 <br>
