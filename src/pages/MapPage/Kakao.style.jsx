@@ -263,7 +263,7 @@ export const GoBack = styled.div`
   text-align: center;
   gap: 7px;
 
-  /* 모바일 txt */
+  /* 모바일 */
   @media (max-width: 768px) {
     bottom: 50px;
   }
