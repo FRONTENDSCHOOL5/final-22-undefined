@@ -257,16 +257,22 @@ export const GoBack = styled.div`
   display: flex;
   flex-direction: row;
   position: absolute;
-  bottom: 40px;
+  bottom: 20px;
   right: 20px;
   z-index: 10;
   text-align: center;
-  gap: 5px;
+  gap: 7px;
+
+  /* 모바일 txt */
+  @media (max-width: 768px) {
+    bottom: 50px;
+  }
 `;
 
 /* 현재 위치로 돌아가는 버튼 */
 export const GoBackButton = styled.button`
   width: 55px;
+  height: 50px;
   background: no-repeat white url('https://cdn-icons-png.flaticon.com/128/406/406217.png') center/contain;
   background-size: 70%;
   border-radius: 10px;
@@ -276,8 +282,6 @@ export const GoBackButton = styled.button`
   @media (max-width: 768px) {
     width: 45px;
     height: 45px;
-    right: 15px;
-    bottom: 50px;
   }
 `;
 
@@ -288,7 +292,6 @@ export const GoBackTxt = styled.span`
   line-height: 30px;
   border-radius: 20px;
   color: white;
-  bottom: 0;
-  margin-top: 7px;
+  margin-top: 10px;
   background-color: ${({ theme }) => theme.colors.primary};
 `;
