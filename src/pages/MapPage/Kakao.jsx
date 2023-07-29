@@ -174,7 +174,10 @@ const Kakao = () => {
             }}
           />
           {/* 현재 내 위치로 돌아가는 버튼 */}
-          <S.GoBackButton onClick={goBack}></S.GoBackButton>
+          <S.GoBack>
+            <S.GoBackTxt>접속위치</S.GoBackTxt>
+            <S.GoBackButton onClick={goBack}></S.GoBackButton>
+          </S.GoBack>
           {/* 검색된 장소 마커 표시 */}
           {search.map((data) => (
             <React.Fragment key={data.id}>

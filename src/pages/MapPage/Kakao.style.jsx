@@ -251,21 +251,44 @@ export const ModalBtn = styled.button`
   border-radius: 5px;
 `;
 
+/* 현재 위치로 돌아가기 */
+export const GoBack = styled.div`
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  z-index: 10;
+  text-align: center;
+  gap: 5px;
+`;
+
 /* 현재 위치로 돌아가는 버튼 */
 export const GoBackButton = styled.button`
   width: 55px;
-  height: 50px;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10;
-  background: no-repeat url('https://cdn-icons-png.flaticon.com/128/4154/4154432.png') center/contain;
+  background: no-repeat white url('https://cdn-icons-png.flaticon.com/128/406/406217.png') center/contain;
+  background-size: 70%;
+  border-radius: 10px;
+  border: ${({ theme }) => `1px solid ${theme.colors.secondary}`};
 
   /* 모바일 버튼 */
   @media (max-width: 768px) {
-    width: 40px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     right: 15px;
     bottom: 50px;
   }
+`;
+
+/* 접속 위치 txt */
+export const GoBackTxt = styled.span`
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 20px;
+  color: white;
+  bottom: 0;
+  margin-top: 7px;
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
