@@ -253,17 +253,17 @@ export const ModalBtn = styled.button`
 
 /* 현재 위치로 돌아가는 버튼 */
 export const GoBackButton = styled.button`
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 50px;
   position: absolute;
   bottom: 20px;
   right: 20px;
   z-index: 10;
-  background: no-repeat url('https://cdn-icons-png.flaticon.com/128/8804/8804952.png') center/contain;
+  background: no-repeat url('https://cdn-icons-png.flaticon.com/128/4154/4154432.png') center/contain;
 
   /* 모바일 버튼 */
   @media (max-width: 768px) {
-    width: 35px;
+    width: 40px;
     height: 35px;
     right: 15px;
     bottom: 50px;
