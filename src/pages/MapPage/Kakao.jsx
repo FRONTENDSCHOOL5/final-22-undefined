@@ -90,6 +90,7 @@ const Kakao = () => {
     setSearch(data);
   };
 
+  // 키워드로 주변 위치 검색
   const searchPlaces = (page) => {
     const ps = new kakao.maps.services.Places();
     const options = {
@@ -143,28 +144,48 @@ const Kakao = () => {
     };
   }, [map]);
 
+  // 현재 위치로 돌아가기
+  const goBack = () => {
+    const newLatLng = new kakao.maps.LatLng(state.center.lat, state.center.lng);
+    map.panTo(newLatLng);
+  };
+
   if (state.isLoading) return <div>Loading...</div>;
 
   return (
     <>
       <S.MapContainer>
+        {/* 지도 컴포넌트 */}
         <Map
           center={state.center}
           style={{ width: '100%', height: 'calc(100vh - 109px)', marginTop: '48px' }}
           level={3}
           onCreate={setMap}
         >
-          <MapMarker position={state.center} />
+          {/* 현재 위치 마커 표시 */}
+          <MapMarker
+            position={state.center}
+            image={{
+              src: 'https://cdn-icons-png.flaticon.com/128/7124/7124723.png',
+              size: {
+                width: 45,
+                height: 45,
+              },
+            }}
+          />
+          {/* 현재 내 위치로 돌아가는 버튼 */}
+          <S.GoBackButton onClick={goBack}></S.GoBackButton>
+          {/* 검색된 장소 마커 표시 */}
           {search.map((data) => (
             <React.Fragment key={data.id}>
               <MapMarker
                 key={data.id}
                 position={{ lat: data.y, lng: data.x }}
                 image={{
-                  src: 'https://cdn-icons-png.flaticon.com/128/5216/5216456.png',
+                  src: 'https://cdn-icons-png.flaticon.com/128/2098/2098567.png',
                   size: {
-                    width: 50,
-                    height: 50,
+                    width: 35,
+                    height: 35,
                   },
                 }}
                 onClick={() => {
@@ -176,11 +197,13 @@ const Kakao = () => {
                   }
                 }}
               />
+              {/* 해당 마커에 커스텀 오버레이 표시 */}
               {openMarkerId === data.id && (
                 <CustomOverlayMap yAnchor={2.4} position={{ lat: data.y, lng: data.x }} clickable>
                   <S.Overlay>
                     <S.Arrow />
                     <S.PlaceName>{data.place_name}</S.PlaceName>
+                    {/* 상세 정보로 연결되는 링크 */}
                     <S.DetailLink href={data.place_url} target='_blank'>
                       <img src={rightAngle} alt='오른쪽 화살표' />
                     </S.DetailLink>
@@ -190,6 +213,7 @@ const Kakao = () => {
             </React.Fragment>
           ))}
         </Map>
+        {/* 검색 버튼들 */}
         <S.SearchBtns>
           {KEYWORD_LIST.map((item) => (
             <S.KeywordBtn
@@ -203,9 +227,11 @@ const Kakao = () => {
           ))}
         </S.SearchBtns>
 
+        {/* PC 화면일 경우, 검색 결과 목록 사이드바로 표시 */}
         {!isMobile && (
           <S.ListContainer ref={listContainerRef} isClosed={!isSidebarOpen}>
             <S.List>
+              {/* 검색된 장소들 목록으로 표시 */}
               {search.map((data) => (
                 <S.Item
                   ref={data.id === openMarkerId ? selectedItemRef : null}
@@ -216,6 +242,7 @@ const Kakao = () => {
                   }}
                   selected={data.id === openMarkerId}
                 >
+                  {/* 검색된 장소 상세 정보 표시 */}
                   <S.Name>{data.place_name}</S.Name>
                   <S.Category>{data.category_name}</S.Category>
                   <S.Address>{data.address_name}</S.Address>
@@ -234,6 +261,7 @@ const Kakao = () => {
                       </>
                     )}
                   </S.InfoContainer>
+                  {/* 카카오톡 공유하기 기능 버튼 */}
                   <S.ShareBtn
                     onClick={(e) => {
                       // e.stopPropagation();
@@ -245,7 +273,9 @@ const Kakao = () => {
                 </S.Item>
               ))}
             </S.List>
+            {/* 검색 결과 없을 경우 표시 */}
             {search.length === 0 && <S.NoList>검색된 결과가 없습니다 😢</S.NoList>}
+            {/* 검색 결과 있고, 페이지가 있는 경우 페이지 번호 표시 */}
             {pagination && search.length > 0 && (
               <S.Pages>
                 {Array.from({ length: pagination.last }).map((_, index) => (
@@ -259,16 +289,19 @@ const Kakao = () => {
                 ))}
               </S.Pages>
             )}
+            {/* 사이드바 열고 다는 버튼 */}
             <S.SideBarOpenBtn isClosed={!isSidebarOpen} onClick={() => setIsSidebarOpen((prev) => !prev)}>
               <img src={isSidebarOpen ? leftAngle : rightAngle} alt={isSidebarOpen ? '왼쪽 화살표' : '오른쪽 화살표'} />
             </S.SideBarOpenBtn>
           </S.ListContainer>
         )}
+        {/* 모바일 화면일 경우 검색 결과를 모달로 표시 */}
         {isMobile && (
           <S.Modal>
             <S.ModalBtn onClick={() => setIsModalOpen((prev) => !prev)} />
             <S.ModalContainer ref={listContainerRef} isClosed={!isModalOpen}>
               <S.List>
+                {/* 검색된 장소들 목록으로 표시 */}
                 {search.map((data) => (
                   <S.Item
                     ref={data.id === openMarkerId ? selectedItemRef : null}
@@ -279,6 +312,7 @@ const Kakao = () => {
                     }}
                     selected={data.id === openMarkerId}
                   >
+                    {/* 검색된 장소 상세 정보 표시 */}
                     <S.Name>{data.place_name}</S.Name>
                     <S.Category>{data.category_name}</S.Category>
                     <S.Address>{data.address_name}</S.Address>
@@ -297,6 +331,7 @@ const Kakao = () => {
                         </>
                       )}
                     </S.InfoContainer>
+                    {/* 카카오톡 공유하기 기능 버튼 */}
                     <S.ShareBtn
                       onClick={(e) => {
                         // e.stopPropagation();
@@ -308,7 +343,9 @@ const Kakao = () => {
                   </S.Item>
                 ))}
               </S.List>
+              {/* 검색 결과가 없을 경우 표시 */}
               {search.length === 0 && <S.NoList>검색된 결과가 없습니다 😢</S.NoList>}
+              {/* 검색 결과 있고, 페이지가 있는 경우 페이지 번호 표시 */}
               {pagination && search.length > 0 && (
                 <S.Pages>
                   {Array.from({ length: pagination.last }).map((_, index) => (
