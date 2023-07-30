@@ -154,41 +154,6 @@ const Kakao = () => {
     }
   }, []);
 
-  // 공유 버튼 함수
-  const shareKakao = (TITLE, ADDRESS, URL, PHONE, CATEGORY) => {
-    window.Kakao.Link.sendDefault({
-      objectType: 'location',
-      //address -> 위치보기 버튼 맵 주소 검색으로 연결
-      address: ADDRESS,
-      addressTitle: CATEGORY,
-      content: {
-        title: TITLE,
-        description: ADDRESS,
-        imageUrl: '',
-        link: {
-          mobileWebUrl: URL,
-          webUrl: URL,
-        },
-      },
-      buttons: [
-        {
-          title: '자세히 보기',
-          link: {
-            mobileWebUrl: '',
-            webUrl: '',
-          },
-        },
-        {
-          title: '위치 보기',
-          link: {
-            mobileWebUrl: URL,
-            webUrl: URL,
-          },
-        },
-      ],
-    });
-  };
-
   if (state.isLoading) return <div>Loading...</div>;
 
   return (
