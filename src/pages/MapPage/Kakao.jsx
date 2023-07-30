@@ -7,6 +7,7 @@ import rightAngle from '../../assets/icon/angle-small-right.svg';
 import ShareImg from '../../assets/icon/icon-share.svg';
 
 const { kakao } = window;
+
 const KEYWORD_LIST = [
   { id: 1, value: '애견카페', emoji: '☕️' },
   { id: 2, value: '동물병원', emoji: '🧑‍⚕️' },
@@ -143,6 +144,51 @@ const Kakao = () => {
     };
   }, [map]);
 
+  const url = window.location.href; //현재 url가져오기, 배포 후에 사용
+  useEffect(() => {
+    if (window.Kakao) {
+      const kakao = window.Kakao;
+      if (!kakao.isInitialized()) {
+        kakao.init('9090c2064fcc57dc757ac8e1393cdcf4');
+      }
+    }
+  }, []);
+
+  // 공유 버튼 함수
+  const shareKakao = (TITLE, ADDRESS, URL, PHONE, CATEGORY) => {
+    window.Kakao.Link.sendDefault({
+      objectType: 'location',
+      //address -> 위치보기 버튼 맵 주소 검색으로 연결
+      address: ADDRESS,
+      addressTitle: CATEGORY,
+      content: {
+        title: TITLE,
+        description: ADDRESS,
+        imageUrl: '',
+        link: {
+          mobileWebUrl: URL,
+          webUrl: URL,
+        },
+      },
+      buttons: [
+        {
+          title: '자세히 보기',
+          link: {
+            mobileWebUrl: '',
+            webUrl: '',
+          },
+        },
+        {
+          title: '위치 보기',
+          link: {
+            mobileWebUrl: URL,
+            webUrl: URL,
+          },
+        },
+      ],
+    });
+  };
+
   if (state.isLoading) return <div>Loading...</div>;
 
   return (
@@ -235,9 +281,8 @@ const Kakao = () => {
                     )}
                   </S.InfoContainer>
                   <S.ShareBtn
-                    onClick={(e) => {
-                      // e.stopPropagation();
-                      console.log('카카오톡으로 공유하기 기능~~');
+                    onClick={() => {
+                      shareKakao(data.place_name, data.address_name, data.place_url, data.phone, data.category_name);
                     }}
                   >
                     <img src={ShareImg} alt='카카오톡으로 공유하기' />
@@ -298,9 +343,8 @@ const Kakao = () => {
                       )}
                     </S.InfoContainer>
                     <S.ShareBtn
-                      onClick={(e) => {
-                        // e.stopPropagation();
-                        console.log('카카오톡으로 공유하기 기능~~');
+                      onClick={() => {
+                        shareKakao(data.place_name, data.address_name, data.place_url, data.phone, data.category_name);
                       }}
                     >
                       <img src={ShareImg} alt='카카오톡으로 공유하기' />
