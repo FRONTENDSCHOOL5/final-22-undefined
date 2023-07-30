@@ -5,6 +5,7 @@ import * as S from './Kakao.style';
 import leftAngle from '../../assets/icon/angle-small-left.svg';
 import rightAngle from '../../assets/icon/angle-small-right.svg';
 import ShareImg from '../../assets/icon/icon-share.svg';
+import reSearch from '../../assets/icon/reSearch.png';
 
 const { kakao } = window;
 const KEYWORD_LIST = [
@@ -34,6 +35,7 @@ const Kakao = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [isMouseOver, setIsMouseOver] = useState(false);
 
   // 목록이나 마커 클릭하면 해당 아이템이 목록 상단에 보이도록 이동
   const scrollToSelectedItem = () => {
@@ -91,10 +93,10 @@ const Kakao = () => {
   };
 
   // 키워드로 주변 위치 검색
-  const searchPlaces = (page) => {
+  const searchPlaces = (center, page) => {
     const ps = new kakao.maps.services.Places();
     const options = {
-      location: new kakao.maps.LatLng(state.center.lat, state.center.lng),
+      location: new kakao.maps.LatLng(center.lat, center.lng),
       radius: 5000,
       sort: kakao.maps.services.SortBy.DISTANCE,
       page,
@@ -127,8 +129,8 @@ const Kakao = () => {
   useEffect(() => {
     if (!map) return;
     setOpenMarkerId(null);
-    searchPlaces(currentPage);
-  }, [map, keyword, currentPage]);
+    searchPlaces(state.center, currentPage);
+  }, [map, keyword, currentPage, state.center]);
 
   useEffect(() => {
     // 지도(마커 바깥영역)를 클릭했을 때 CustomOverlay 닫기
@@ -148,6 +150,32 @@ const Kakao = () => {
   const goBack = () => {
     const newLatLng = new kakao.maps.LatLng(state.center.lat, state.center.lng);
     map.panTo(newLatLng);
+  };
+
+  const handleMouseEnter = () => {
+    setIsMouseOver(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsMouseOver(false);
+  };
+
+  // 현 지도에서 검색하기
+  const handleReSearch = () => {
+    if (!map) return;
+
+    // 현재 지도의 중심 좌표를 검색할 위치로 설정
+    const centerLatLng = map.getCenter();
+    const newCenter = {
+      lat: centerLatLng.getLat(),
+      lng: centerLatLng.getLng(),
+    };
+
+    // 검색할 페이지를 1페이지로 초기화
+    setCurrentPage(1);
+
+    // 검색 실행
+    searchPlaces(newCenter, 1);
   };
 
   if (state.isLoading) return <div>Loading...</div>;
@@ -174,10 +202,18 @@ const Kakao = () => {
             }}
           />
           {/* 현재 내 위치로 돌아가는 버튼 */}
-          <S.GoBack>
-            <S.GoBackTxt>접속위치</S.GoBackTxt>
-            <S.GoBackButton onClick={goBack}></S.GoBackButton>
-          </S.GoBack>
+          {/* <S.GoBack> */}
+          {isMouseOver && <S.GoBackTxt>접속위치</S.GoBackTxt>}
+          <S.GoBackButton
+            onClick={goBack}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          ></S.GoBackButton>
+          {/* </S.GoBack> */}
+          {/* 지도좌표 이동 현 지도에서 키워드 재검색 버튼 */}
+          <S.ReSearch onClick={handleReSearch}>
+            <S.ReSearchImg src={reSearch} alt='재검색' />현 지도에서 검색
+          </S.ReSearch>
           {/* 검색된 장소 마커 표시 */}
           {search.map((data) => (
             <React.Fragment key={data.id}>
