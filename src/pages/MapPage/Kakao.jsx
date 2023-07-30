@@ -35,7 +35,8 @@ const Kakao = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const [isMouseOver, setIsMouseOver] = useState(false);
+  const [isMouseOver, setIsMouseOver] = useState(false); // 마우스 오버 상태
+  const [lastCenter, setLastCenter] = useState(null); // 마지막으로 이동한 지도의 중심 좌표 저장
 
   // 목록이나 마커 클릭하면 해당 아이템이 목록 상단에 보이도록 이동
   const scrollToSelectedItem = () => {
@@ -129,8 +130,14 @@ const Kakao = () => {
   useEffect(() => {
     if (!map) return;
     setOpenMarkerId(null);
-    searchPlaces(state.center, currentPage);
-  }, [map, keyword, currentPage, state.center]);
+    if (lastCenter) {
+      // 이미 이동한 지도의 중심 좌표가 있으면 해당 위치를 기반으로 검색
+      searchPlaces(lastCenter, currentPage);
+    } else {
+      // 처음 페이지 로딩 시 현재 위치를 기반으로 검색
+      searchPlaces(state.center, currentPage);
+    }
+  }, [map, keyword, currentPage, lastCenter]);
 
   useEffect(() => {
     // 지도(마커 바깥영역)를 클릭했을 때 CustomOverlay 닫기
@@ -176,6 +183,30 @@ const Kakao = () => {
 
     // 검색 실행
     searchPlaces(newCenter, 1);
+
+    // lastCenter 업데이트
+    setLastCenter(newCenter);
+  };
+
+  // 키워드를 선택할 때마다 검색을 수행
+  const handleKeywordSelect = (selectedKeyword) => {
+    setKeyword(selectedKeyword);
+
+    // 현재 지도의 중심 좌표를 검색할 위치로 설정
+    const centerLatLng = map.getCenter();
+    const newCenter = {
+      lat: centerLatLng.getLat(),
+      lng: centerLatLng.getLng(),
+    };
+
+    // 검색할 페이지를 1페이지로 초기화
+    setCurrentPage(1);
+
+    // 검색 실행
+    searchPlaces(newCenter, 1);
+
+    // lastCenter 업데이트
+    setLastCenter(newCenter);
   };
 
   if (state.isLoading) return <div>Loading...</div>;
@@ -196,21 +227,19 @@ const Kakao = () => {
             image={{
               src: 'https://cdn-icons-png.flaticon.com/128/7124/7124723.png',
               size: {
-                width: 45,
-                height: 45,
+                width: 50,
+                height: 50,
               },
             }}
           />
           {/* 현재 내 위치로 돌아가는 버튼 */}
-          {/* <S.GoBack> */}
           {isMouseOver && <S.GoBackTxt>접속위치</S.GoBackTxt>}
           <S.GoBackButton
             onClick={goBack}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           ></S.GoBackButton>
-          {/* </S.GoBack> */}
-          {/* 지도좌표 이동 현 지도에서 키워드 재검색 버튼 */}
+          {/* 현 지도에서 키워드 재검색 버튼 */}
           <S.ReSearch onClick={handleReSearch}>
             <S.ReSearchImg src={reSearch} alt='재검색' />현 지도에서 검색
           </S.ReSearch>
@@ -259,7 +288,7 @@ const Kakao = () => {
               key={item.id}
               type='button'
               selected={item.value === keyword}
-              onClick={() => setKeyword(item.value)}
+              onClick={() => handleKeywordSelect(item.value)} // 키워드를 선택할 때 새로운 중심 좌표를 저장하도록 수정
             >
               {item.value} {item.emoji}
             </S.KeywordBtn>
