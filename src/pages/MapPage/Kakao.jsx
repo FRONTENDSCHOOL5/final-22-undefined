@@ -210,6 +210,16 @@ const Kakao = () => {
     setLastCenter(newCenter);
   };
 
+  const url = window.location.href; //현재 url가져오기, 배포 후에 사용
+  useEffect(() => {
+    if (window.Kakao) {
+      const kakao = window.Kakao;
+      if (!kakao.isInitialized()) {
+        kakao.init('9090c2064fcc57dc757ac8e1393cdcf4');
+      }
+    }
+  }, []);
+
   if (state.isLoading) return <div>Loading...</div>;
 
   return (
