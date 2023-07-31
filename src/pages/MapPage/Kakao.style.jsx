@@ -267,8 +267,19 @@ export const GoBackButton = styled.button`
   @media (max-width: 768px) {
     width: 45px;
     height: 45px;
-    bottom: 50px;
+    right: 10px;
+    bottom: 40px;
   }
+
+  // Modal이 열릴 때만 아래 추가 스타일을 적용
+  ${({ isModalOpen }) =>
+    isModalOpen &&
+    css`
+      @media (max-width: 768px) {
+        bottom: 340px;
+        transition: 0.3s;
+      }
+    `}
 `;
 
 // 접속위치 텍스트
@@ -287,10 +298,22 @@ export const GoBackTxt = styled.span`
   background-color: ${({ theme }) => theme.colors.primary};
 
   @media (max-width: 768px) {
-    width: 75px;
-    bottom: 105px;
-    right: 8px;
+    font-size: 12px;
+    width: 70px;
+    height: 25px;
+    line-height: 25px;
+    right: 60px;
+    bottom: 50px;
   }
+
+  // Modal이 열릴 때만 아래 추가 스타일을 적용
+  ${({ isModalOpen }) =>
+    isModalOpen &&
+    css`
+      @media (max-width: 768px) {
+        bottom: 350px;
+      }
+    `}
 `;
 
 // 현 지도에서 검색 버튼
@@ -309,12 +332,22 @@ export const ReSearch = styled.button`
   background-color: ${({ theme }) => theme.colors.primary};
 
   @media (max-width: 768px) {
-    font-size: 13px;
-    bottom: 110px;
-    width: 140px;
-    height: 40px;
-    line-height: 40px;
+    font-size: 12px;
+    bottom: 105px;
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
   }
+
+  // Modal이 열릴 때만 아래 추가 스타일을 적용
+  ${({ isModalOpen }) =>
+    isModalOpen &&
+    css`
+      @media (max-width: 768px) {
+        bottom: 405px;
+        transition: 0.3s;
+      }
+    `}
 `;
 
 // 현 지도에서 검색 이미지
@@ -327,6 +360,6 @@ export const ReSearchImg = styled.img`
     font-size: 13px;
     width: 20px;
     height: 20px;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 `;
