@@ -8,6 +8,7 @@ import ShareImg from '../../assets/icon/icon-share.svg';
 import reSearch from '../../assets/icon/reSearch.png';
 
 const { kakao } = window;
+
 const KEYWORD_LIST = [
   { id: 1, value: '애견카페', emoji: '☕️' },
   { id: 2, value: '동물병원', emoji: '🧑‍⚕️' },
@@ -209,6 +210,45 @@ const Kakao = () => {
     setLastCenter(newCenter);
   };
 
+  // const url = window.location.href; //현재 url가져오기, 배포 후에 사용
+
+  // 카카오톡 공유 init 설정
+  useEffect(() => {
+    if (window.Kakao) {
+      const kakao = window.Kakao;
+      if (!kakao.isInitialized()) {
+        kakao.init('9090c2064fcc57dc757ac8e1393cdcf4');
+      }
+    }
+  }, []);
+
+  // 카카오톡 공유 함수
+  const shareKakao = (TITLE, ADDRESS, URL, PHONE, CATEGORY) => {
+    console.log(URL);
+    window.Kakao.Link.sendDefault({
+      objectType: 'location',
+      address: ADDRESS,
+      content: {
+        title: TITLE,
+        description: ADDRESS,
+        imageUrl: '',
+        link: {
+          mobileWebUrl: URL,
+          webUrl: URL,
+        },
+      },
+      buttons: [
+        {
+          title: '자세히 보기',
+          link: {
+            mobileWebUrl: '',
+            webUrl: '',
+          },
+        },
+      ],
+    });
+  };
+
   if (state.isLoading) return <div>Loading...</div>;
 
   return (
@@ -331,9 +371,8 @@ const Kakao = () => {
                   </S.InfoContainer>
                   {/* 카카오톡 공유하기 기능 버튼 */}
                   <S.ShareBtn
-                    onClick={(e) => {
-                      // e.stopPropagation();
-                      console.log('카카오톡으로 공유하기 기능~~');
+                    onClick={() => {
+                      shareKakao(data.place_name, data.address_name, data.place_url, data.phone, data.category_name);
                     }}
                   >
                     <img src={ShareImg} alt='카카오톡으로 공유하기' />
@@ -401,9 +440,8 @@ const Kakao = () => {
                     </S.InfoContainer>
                     {/* 카카오톡 공유하기 기능 버튼 */}
                     <S.ShareBtn
-                      onClick={(e) => {
-                        // e.stopPropagation();
-                        console.log('카카오톡으로 공유하기 기능~~');
+                      onClick={() => {
+                        shareKakao(data.place_name, data.address_name, data.place_url, data.phone, data.category_name);
                       }}
                     >
                       <img src={ShareImg} alt='카카오톡으로 공유하기' />
