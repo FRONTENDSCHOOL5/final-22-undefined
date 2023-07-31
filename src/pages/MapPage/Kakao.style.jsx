@@ -250,3 +250,83 @@ export const ModalBtn = styled.button`
   background-color: ${({ theme }) => theme.colors.gray};
   border-radius: 5px;
 `;
+
+// 현재 내 위치로 돌아가는 버튼
+export const GoBackButton = styled.button`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 55px;
+  height: 55px;
+  background: no-repeat white url('https://cdn-icons-png.flaticon.com/128/406/406217.png') center/contain;
+  background-size: 70%;
+  border-radius: 10px;
+  border: ${({ theme }) => `1px solid ${theme.colors.secondary}`};
+
+  @media (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    bottom: 50px;
+  }
+`;
+
+// 접속위치 텍스트
+export const GoBackTxt = styled.span`
+  position: absolute;
+  bottom: 30px;
+  right: 80px;
+  z-index: 10;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+  background-color: ${({ theme }) => theme.colors.primary};
+
+  @media (max-width: 768px) {
+    width: 75px;
+    bottom: 105px;
+    right: 8px;
+  }
+`;
+
+// 현 지도에서 검색 버튼
+export const ReSearch = styled.button`
+  position: fixed;
+  color: white;
+  font-size: 14px;
+  bottom: 80px;
+  transform: translateX(-50%);
+  left: 50%;
+  z-index: 10;
+  width: 160px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 30px;
+  background-color: ${({ theme }) => theme.colors.primary};
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    bottom: 110px;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+  }
+`;
+
+// 현 지도에서 검색 이미지
+export const ReSearchImg = styled.img`
+  width: 25px;
+  height: 25px;
+  margin: 7px 1px 0px -4px;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+  }
+`;
