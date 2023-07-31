@@ -110,6 +110,14 @@ const Kakao = () => {
         if (status === kakao.maps.services.Status.OK) {
           console.log(data);
           displayPlaces(data);
+
+          // 검색 결과만을 기준으로 지도 영역을 조정
+          const bounds = new kakao.maps.LatLngBounds();
+          data.forEach((item) => bounds.extend(new kakao.maps.LatLng(item.y, item.x)));
+
+          // 조정된 지도 영역을 설정하며 줌 레벨을 변경하지 않음
+          map.setBounds(bounds);
+
           setPagination(pagination);
         } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
           setIsSidebarOpen(true);
