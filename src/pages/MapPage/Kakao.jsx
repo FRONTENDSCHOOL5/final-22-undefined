@@ -267,7 +267,7 @@ const Kakao = () => {
               />
               {/* 해당 마커에 커스텀 오버레이 표시 */}
               {openMarkerId === data.id && (
-                <CustomOverlayMap yAnchor={2.4} position={{ lat: data.y, lng: data.x }} clickable>
+                <CustomOverlayMap yAnchor={2.1} position={{ lat: data.y, lng: data.x }} clickable>
                   <S.Overlay>
                     <S.Arrow />
                     <S.PlaceName>{data.place_name}</S.PlaceName>
