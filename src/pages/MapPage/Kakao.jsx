@@ -210,7 +210,9 @@ const Kakao = () => {
     setLastCenter(newCenter);
   };
 
-  const url = window.location.href; //현재 url가져오기, 배포 후에 사용
+  // const url = window.location.href; //현재 url가져오기, 배포 후에 사용
+
+  // 카카오톡 공유 init 설정
   useEffect(() => {
     if (window.Kakao) {
       const kakao = window.Kakao;
@@ -219,6 +221,33 @@ const Kakao = () => {
       }
     }
   }, []);
+
+  // 카카오톡 공유 함수
+  const shareKakao = (TITLE, ADDRESS, URL, PHONE, CATEGORY) => {
+    console.log(URL);
+    window.Kakao.Link.sendDefault({
+      objectType: 'location',
+      address: ADDRESS,
+      content: {
+        title: TITLE,
+        description: ADDRESS,
+        imageUrl: '',
+        link: {
+          mobileWebUrl: URL,
+          webUrl: URL,
+        },
+      },
+      buttons: [
+        {
+          title: '자세히 보기',
+          link: {
+            mobileWebUrl: '',
+            webUrl: '',
+          },
+        },
+      ],
+    });
+  };
 
   if (state.isLoading) return <div>Loading...</div>;
 
