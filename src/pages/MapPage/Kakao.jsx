@@ -281,14 +281,15 @@ const Kakao = () => {
             }}
           />
           {/* 현재 내 위치로 돌아가는 버튼 */}
-          {isMouseOver && <S.GoBackTxt>접속위치</S.GoBackTxt>}
+          {isMouseOver && <S.GoBackTxt isModalOpen={isModalOpen}>접속위치</S.GoBackTxt>}
           <S.GoBackButton
             onClick={goBack}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            isModalOpen={isModalOpen}
           ></S.GoBackButton>
           {/* 현 지도에서 키워드 재검색 버튼 */}
-          <S.ReSearch onClick={handleReSearch}>
+          <S.ReSearch onClick={handleReSearch} isModalOpen={isModalOpen}>
             <S.ReSearchImg src={reSearch} alt='재검색' />현 지도에서 검색
           </S.ReSearch>
           {/* 검색된 장소 마커 표시 */}
