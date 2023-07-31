@@ -110,6 +110,14 @@ const Kakao = () => {
         if (status === kakao.maps.services.Status.OK) {
           console.log(data);
           displayPlaces(data);
+
+          // 검색 결과만을 기준으로 지도 영역을 조정
+          const bounds = new kakao.maps.LatLngBounds();
+          data.forEach((item) => bounds.extend(new kakao.maps.LatLng(item.y, item.x)));
+
+          // 조정된 지도 영역을 설정하며 줌 레벨을 변경하지 않음
+          map.setBounds(bounds);
+
           setPagination(pagination);
         } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
           setIsSidebarOpen(true);
@@ -273,14 +281,15 @@ const Kakao = () => {
             }}
           />
           {/* 현재 내 위치로 돌아가는 버튼 */}
-          {isMouseOver && <S.GoBackTxt>접속위치</S.GoBackTxt>}
+          {isMouseOver && <S.GoBackTxt isModalOpen={isModalOpen}>접속위치</S.GoBackTxt>}
           <S.GoBackButton
             onClick={goBack}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            isModalOpen={isModalOpen}
           ></S.GoBackButton>
           {/* 현 지도에서 키워드 재검색 버튼 */}
-          <S.ReSearch onClick={handleReSearch}>
+          <S.ReSearch onClick={handleReSearch} isModalOpen={isModalOpen}>
             <S.ReSearchImg src={reSearch} alt='재검색' />현 지도에서 검색
           </S.ReSearch>
           {/* 검색된 장소 마커 표시 */}
@@ -307,7 +316,7 @@ const Kakao = () => {
               />
               {/* 해당 마커에 커스텀 오버레이 표시 */}
               {openMarkerId === data.id && (
-                <CustomOverlayMap yAnchor={2.4} position={{ lat: data.y, lng: data.x }} clickable>
+                <CustomOverlayMap yAnchor={2.1} position={{ lat: data.y, lng: data.x }} clickable>
                   <S.Overlay>
                     <S.Arrow />
                     <S.PlaceName>{data.place_name}</S.PlaceName>
