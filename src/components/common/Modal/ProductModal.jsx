@@ -6,8 +6,8 @@ import { AuthContextStore } from '../../../context/AuthContext';
 import { deleteProduct } from '../../../api/product';
 
 const ProductModal = ({ onClose, productId, products, setProducts, formData }) => {
-  const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
-  const { accountname } = useParams(); // 현재 사용자 계정
+  const modalRef = useRef();
+  const { accountname } = useParams();
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
@@ -19,10 +19,8 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
   // 모달 옵션을 클릭했을 떄
   const optionClick = (option) => {
     if (option === '삭제') {
-      // 삭제 로직 수행
       setSelectedOption(option);
     } else if (option === '수정') {
-      // 상품 수정 페이지 이동
       navigate(`/product/${productId}/edit`);
     } else if (option === '웹사이트에서 상품 보기' && formData && formData.link) {
       const decodedLink = decodeURIComponent(formData.link);
@@ -53,11 +51,6 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
       // 실패할 경우
       return { success: false, error: error.message };
     }
-  };
-
-  // 상품 삭제 에러
-  const deleteError = (error) => {
-    console.log(error);
   };
 
   // AlertModal 컴포넌트 확인 메시지 렌더링
