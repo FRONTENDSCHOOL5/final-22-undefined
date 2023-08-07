@@ -67,7 +67,37 @@
 <br>
 <br>
 
-<h2> 📃 커밋 메세지 컨벤션 </h2>
+<h2> 📃 페이지 설명 </h2>
+
+### Top Button / 사용자 Search / 회원가입
+
+|Top Button|사용자 Search|회원가입|
+| :------------: | :------------: | :------------: |
+|![topscroll](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/2dd28992-dfd1-4b1a-81e5-6f6289cc569f) | ![search](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/06942847-9175-4f5c-a366-a836f0b77dac) | ![topscroll](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/2dd28992-dfd1-4b1a-81e5-6f6289cc569f) | ![join](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/6385f4ef-2887-4be5-8885-c86afbd938d5) |
+
+
+<br>
+<br>
+
+### 댓글 작성 / 게시글 리스트 / 이미지 업로드
+
+|댓글 작성|게시글 리스트|이미지 업로드|
+| :------------: | :------------: | :------------: |
+| ![commentaddanddelete](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/2e5f87b7-e24d-4e67-a74a-7581d795ebfd) | ![postlist](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/accba37c-7acd-4d10-a2a6-bd40f5b6e47e) | ![deletecomment](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/ab4c895c-653b-4990-a0e5-3f3b47cd42d0) |
+
+<br>
+<br>
+
+### 댓글 & 게시글 삭제 및 신고 / 상품 등록 & 수정
+
+|댓글 삭제 및 신고|게시글 삭제 및 신고|상품 등록|
+| :------------: | :------------: | :------------: |
+| ![commentreport](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/280bb8ef-871b-4c00-9bfb-20e6f6ed9991) | ![itemreport](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/9f5a26f8-3799-41d5-9228-93e371c4297a) | ![productadd](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/a8dffd6a-d432-460f-98ab-9bfde00d4b4f) |
+
+<br>
+<br>
+
+<h2> 🔦 커밋 메세지 컨벤션 </h2>
 
 ```
 - fix: 올바르지 않은 동작을 고친 경우
