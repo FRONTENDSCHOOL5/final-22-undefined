@@ -124,7 +124,7 @@ const PostEdit = () => {
               rows={1}
             />
           </S.Form>
-          <S.Section>
+          <S.ImgSection>
             <S.Ul>
               {uploadedImages.map((image, index) => (
                 <S.Li key={index}>
@@ -135,7 +135,7 @@ const PostEdit = () => {
                 </S.Li>
               ))}
             </S.Ul>
-            <S.UploadImgBtn htmlFor='imgUpload'></S.UploadImgBtn>
+            <S.UploadImgLabel htmlFor='imgUpload'></S.UploadImgLabel>
             <S.UploadImgInp
               className='a11y-hidden'
               type='file'
@@ -144,7 +144,7 @@ const PostEdit = () => {
               accept='image/*'
               multiple
             />
-          </S.Section>
+          </S.ImgSection>
         </S.PostArticle>
       </S.PostMain>
     </>
