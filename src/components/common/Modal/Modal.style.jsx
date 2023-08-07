@@ -43,6 +43,10 @@ export const Ul = styled.ul`
     height: 5px;
     background-color: ${({ theme }) => theme.colors.gray};
     border-radius: 5px;
+
+    @media (max-width: 768px) {
+      left: 45%;
+    }
   }
 `;
 
