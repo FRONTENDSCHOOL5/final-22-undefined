@@ -67,14 +67,20 @@ export const SearchBtns = styled.div`
 
 export const KeywordBtn = styled.button`
   width: 110px;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
-  font-size: 1.2em;
+  font-size: 0.875rem;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme, selected }) => (selected ? theme.colors.warning : theme.colors.primary)};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.warning};
+  }
+
+  @media (max-width: 768px) {
+    width: 90px;
+    font-size: 0.75rem;
+    padding: 8px;
   }
 `;
 
