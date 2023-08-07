@@ -90,7 +90,7 @@
 
 ### 댓글 & 게시글 삭제 및 신고 / 상품 등록 & 수정
 
-|댓글 삭제 및 신고|게시글 삭제 및 신고|상품 등록|
+|댓글 삭제 및 신고|게시글 삭제 및 신고|상품 등록 및 수정|
 | :------------: | :------------: | :------------: |
 | ![commentreport](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/280bb8ef-871b-4c00-9bfb-20e6f6ed9991) | ![itemreport](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/9f5a26f8-3799-41d5-9228-93e371c4297a) | ![productadd](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/a8dffd6a-d432-460f-98ab-9bfde00d4b4f) |
 
