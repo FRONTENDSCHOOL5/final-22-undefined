@@ -26,11 +26,11 @@
 
 ## 1. 프로젝트 소개
 - ✨ 유기동물 보호센터의 정보를 연동하여 유기동물의 입양을 위한 정보와 커뮤니티를 구축합니다.
-- 😇 유기동물 센터 후원/후원물품 구매 서비스를 제공합니다.
-- 🪺 센터에서 보호중인 동물들을 피드를 통해 확인하고 입양 신청을 할 수있어요!
-- 🧤 사용자들뿐 아니라, 보호소와의 폴로를 통해 서로의 소식을 공유할 수 있습니다.
-- 🖼️ 글과 사진을 함께 업로드하여  동물들의 일상을 자랑하고 공유할 수 있습니다 🐕
+- 😇 원하는 물품을 판매하거나 구매하는 서비스를 제공합니다.
+- 🧤 사용자들 끼리 팔로우 기능을 통해 서로의 소식을 공유할 수 있습니다.
+- 🖼️ 글과 사진을 함께 업로드하여 반려 동물들의 일상을 자랑하고 공유할 수 있습니다 🐕
 - 🧡 다른 사용자들의 글에 좋아요를 누르고 댓글을 작성할 수 있어요 (우리 소통해요🙊)
+- 🧭 지도기능을 통해 내주변의 반려동물 카페, 병원, 호텔을 찾을 수 있어요.
 
 <br>
 <br>
@@ -51,9 +51,6 @@
 <tr height="80px">
 <td valign="center" width="35%">
 <div align="center">
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white">
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black">
 <img src="https://img.shields.io/badge/Styled Components-DB7093?style=flat-square&logo=styled components&logoColor=white">
 </div>
@@ -79,8 +76,6 @@
 ## 3. 협업 환경
 ### 3-1. 협업 컨벤션
 #### 3-1-1. 폴더 구조
-
-사진 넣기 
 
 <br>
 
@@ -139,7 +134,6 @@
 | 정현빈 | 박지윤 | 이상용 | 김미정 |
 | :----: | :----: | :----: | :----: |
 | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/0e06de5c-3578-4a4f-8587-8baa55a06946" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/f1d573f5-d661-448c-ae88-1362a58415f1" width="200" height="200"> |
-
 | 팀장 | 팀원 | 팀원 | 팀원 |
 | [hyeonbinnn](https://github.com/hyeonbinnn) | [JiyunPark1301](https://github.com/JiyunPark1301) | [yongisadragon](https://github.com/yongisadragon) | [goyomi](https://github.com/goyomi) |
 
