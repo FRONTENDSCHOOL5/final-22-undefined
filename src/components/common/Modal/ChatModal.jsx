@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import * as S from './Modal.style';
 import { useNavigate } from 'react-router';
 
-const ChatModal = ({ onClose }) => {
+const ChatModal = ({ onClose, options }) => {
   const modalRef = useRef();
   const navigate = useNavigate();
+
   const optionClick = (option) => {
     if (option === '채팅방 나가기') {
       onClose();
@@ -22,9 +23,11 @@ const ChatModal = ({ onClose }) => {
     <>
       <S.ModalBg ref={modalRef} onClick={clickOutside}>
         <S.Ul>
-          <S.Li>
-            <button onClick={() => optionClick('채팅방 나가기')}>채팅방 나가기</button>
-          </S.Li>
+          {options.map((option, index) => (
+            <S.Li key={index}>
+              <button onClick={() => optionClick(option)}>{option}</button>
+            </S.Li>
+          ))}
         </S.Ul>
       </S.ModalBg>
     </>
