@@ -3,7 +3,7 @@ import * as S from './Modal.style';
 import { AuthContextStore } from '../../../context/AuthContext';
 import { reportComment } from '../../../api/comment';
 import { deleteComment } from '../../../api/comment';
-import ReportModal from './ReportModal';
+import AlertModal from './AlertModal';
 
 const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, setCommentList, setCommentCnt }) => {
   const modalRef = useRef();
@@ -57,11 +57,10 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
   const renderAlertModal = () => {
     if (selectedOption === '신고하기') {
       return (
-        <ReportModal
+        <AlertModal
           message='신고가 완료되었습니다!'
           onClose={closeModal}
-          button={'확인'}
-          buttonFontColor={'#Fd7a6E'}
+          buttons={[{ text: '확인', color: '#Fd7a6E' }]}
         />
       );
     }
