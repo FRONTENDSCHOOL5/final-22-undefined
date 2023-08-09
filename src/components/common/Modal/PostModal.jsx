@@ -1,7 +1,6 @@
 import React, { useRef, useState, useContext, useMemo, useEffect } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
-import ReportModal from './ReportModal';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 import { deletePost, reportPost } from '../../../api/post';
@@ -9,9 +8,6 @@ import { deletePost, reportPost } from '../../../api/post';
 const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathname }) => {
   const modalRef = useRef();
   const navigate = useNavigate();
-  // const { accountname } = useParams();
-  // const { pathname } = useLocation();
-  // const location = useLocation();
   const [isLoginUser, setIsLoginUser] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
@@ -23,22 +19,19 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
     setIsLoginUser(userAccountname === postAuthor);
   }, [userAccountname, postAuthor]);
 
+  console.log(postAuthor);
+
   const isAuthor = author?.accountname === userAccountname;
 
-  // const userId = useMemo() => accountname ? accountname : userAccountname;
-  // const isLoginUser = () => userId === userAccountname;
-
-  // const isHomeFollowedPosts = () => pathname === '/home'; // 홈인지 확인하고 isHomeFollowedPosts변수에 할당
-
   // 모달 옵션을 클릭했을 때
-  // useCallback 사용해서 navigate()함수 호출 최적화
   const optionClick = (option) => {
     if (option === '삭제') {
       setSelectedOption(option);
     } else if (option === '수정') {
       for (let i = 0; i < posts.length; i++) {
         if (posts[i].id === postId) {
-          navigate('/post/edit', {
+          console.log('Navigating to Edit Page');
+          navigate('/post/edit/', {
             state: { content: posts[i].content, image: posts[i].image, postId: posts[i].id },
           });
         }
@@ -93,8 +86,6 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
 
   // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성y
   const optionElements = () => {
-    console.log('isLoginUser:', isLoginUser);
-    console.log('isAuthor:', isAuthor);
     if (!isLoginUser && !isAuthor) {
       return otherPostModalOptions.map((option, index) => (
         <S.Li key={index}>
@@ -119,17 +110,17 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
         <AlertModal
           message='게시글을 삭제할까요?'
           onClose={closeModal}
-          buttons={['취소', '삭제']}
-          buttonFontColor={['#767676', '#Fd7a6E']}
-          buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
+          buttons={[
+            { text: '취소', color: 'inherit' },
+            { text: '삭제', color: '#Fd7a6E' },
+          ]}
         />
       )}
       {selectedOption === '신고하기' && (
-        <ReportModal
+        <AlertModal
           message='신고가 완료되었습니다!'
           onClose={closeModal}
-          button={'확인'}
-          buttonFontColor={'#Fd7a6E'}
+          buttons={[{ text: '확인', color: '#Fd7a6E' }]}
         />
       )}
     </>
