@@ -60,9 +60,10 @@ const ProductModal = ({ onClose, productId, products, setProducts, formData }) =
         <AlertModal
           message='상품을 삭제할까요?'
           onClose={closeModal}
-          buttons={['취소', '삭제']}
-          buttonFontColor={['#767676', '#Fd7a6E']}
-          buttonBorder={[null, { borderLeft: '0.5px solid #dbdbdb' }]}
+          buttons={[
+            { text: '취소', color: 'inherit' },
+            { text: '삭제', color: '#Fd7a6E' },
+          ]}
         />
       );
     }
