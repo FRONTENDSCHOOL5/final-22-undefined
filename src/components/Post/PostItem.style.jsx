@@ -48,6 +48,7 @@ export const UserPostText = styled.p`
   margin-bottom: 16px;
   line-height: 20px;
   word-break: break-all;
+  white-space: pre-line;
 `;
 
 export const UserPostImg = styled.img`
