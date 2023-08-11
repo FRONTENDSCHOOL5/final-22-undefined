@@ -10,8 +10,7 @@ const FeedHeader = ({ isChatHeader }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
-  const backHandle = (e) => {
-    e.preventDefault();
+  const backHandle = () => {
     navigate(-1); // 이전 페이지 이동
   };
 
