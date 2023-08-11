@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 
 const FeedModal = ({ options, onClose }) => {
-  const modalRef = useRef(); // 모달 외부 클릭할 때 모달 닫기
+  const modalRef = useRef();
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { setUserToken, setUserAccountname } = useContext(AuthContextStore);
@@ -13,7 +13,7 @@ const FeedModal = ({ options, onClose }) => {
   const optionClick = (option) => {
     if (option === '설정 및 개인정보') {
       navigate('/profile');
-      window.location.reload(); // 프로필 페이지로 이동
+      window.location.reload();
     } else if (option === '로그아웃') {
       setSelectedOption(option);
     }
