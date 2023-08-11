@@ -8,7 +8,6 @@ const ChatModal = ({ onClose, options }) => {
 
   const optionClick = (option) => {
     if (option === '채팅방 나가기') {
-      onClose();
       navigate('/chat');
     }
   };
