@@ -6,6 +6,7 @@ import Contents from './Contents';
 import TabMenu from '../../components/common/TabMenu/TabMenu';
 
 import useDebounce from '../../hooks/useDebounce';
+import { Helmet } from 'react-helmet';
 
 const Search = () => {
   const { userToken } = useContext(AuthContextStore);
@@ -52,6 +53,9 @@ const Search = () => {
 
   return (
     <>
+      <Helmet>
+        <title>계정 검색</title>
+      </Helmet>
       <TopSearchNav onChange={handleSearchId} />
       <Contents userList={userList} inputTxt={inputTxt} />
       <TabMenu active={'0'} />

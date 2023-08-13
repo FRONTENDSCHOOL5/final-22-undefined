@@ -6,6 +6,7 @@ import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { editPost } from '../../api/post';
 import * as S from './PostEdit.style';
 import { getMyInfo } from '../../api/profile';
+import { Helmet } from 'react-helmet';
 
 const ALLOWED_EXTENSIONS = ['.jpg', '.gif', '.png', '.jpeg', '.bmp', '.tif', '.heic'];
 
@@ -109,6 +110,9 @@ const PostEdit = () => {
 
   return (
     <>
+      <Helmet>
+        <title>글 수정</title>
+      </Helmet>
       <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={handleEdit} />
       <S.Title className='a11y-hidden'>게시글 작성 페이지</S.Title>
       <S.PostMain>
@@ -121,7 +125,7 @@ const PostEdit = () => {
               placeholder='게시글 입력하기..'
               onChange={handleContent}
               ref={textarea}
-              rows={1}
+              // rows={1}
             />
           </S.Form>
           <S.ImgSection>
