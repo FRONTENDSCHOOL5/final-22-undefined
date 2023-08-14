@@ -86,8 +86,8 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
 
   // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성y
   const optionElements = () => {
-    // console.log('isLoginUser', isLoginUser);
-    // console.log('isAuthor', isAuthor);
+    console.log('isLoginUser', isLoginUser);
+    console.log('isAuthor', isAuthor);
     if (!isLoginUser && !isAuthor) {
       return otherPostModalOptions.map((option, index) => (
         <S.Li key={index}>
