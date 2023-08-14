@@ -1,38 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { useNavigate } from 'react-router-dom';
+import * as S from './ChatListsContents.style';
 import MainLayout from '../../components/common/MainLayout/MainLayout';
+import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import newChat from '../../assets/newChat.png';
-
-const ChatListCard = styled.section`
-  .newIcon {
-    width: 12px;
-    height: 12px;
-    position: relative;
-    left: 10px;
-  }
-  .chatListTxt {
-    display: inline-block;
-    cursor: pointer;
-  }
-  h2 {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-  }
-  p {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    color: ${({ theme }) => theme.colors.txtColor};
-  }
-  .date {
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 13px;
-  }
-`;
 
 const ChatListsContents = () => {
   const navigate = useNavigate();
@@ -43,15 +14,16 @@ const ChatListsContents = () => {
 
   return (
     <MainLayout>
-      <ChatListCard onClick={handleClick}>
-        <img className='newIcon' src={newChat} alt='' />
+      <S.H1>채팅 리스트 페이지</S.H1>
+      <S.ChatListCard onClick={handleClick}>
+        <img className='newIcon' src={newChat} alt='새로운 메세지를 알리는 동그랗고 빨간 아이콘' />
         <PostUserProfileImg className='userImg' size={'42px'} />
         <div className='chatListTxt'>
           <h2>🐾강냥공냥공냥냥</h2>
           <p>가입을 축하드립니다!</p>
           <p className='date'>2023.06.20</p>
         </div>
-      </ChatListCard>
+      </S.ChatListCard>
     </MainLayout>
   );
 };
