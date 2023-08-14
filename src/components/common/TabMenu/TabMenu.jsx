@@ -8,8 +8,10 @@ import profile from '../../../assets/icon/icon-user.svg';
 import homeFill from '../../../assets/icon/icon-home-fill.svg';
 import chatFill from '../../../assets/icon/icon-message-circle-fill.svg';
 import profileFill from '../../../assets/icon/icon-user-fill.svg';
-import footFill from '../../../assets/icon/icon-footFill.svg';
-import foot from '../../../assets/icon/icon-foot.svg';
+// import footFill from '../../../assets/icon/icon-footFill.svg';
+// import foot from '../../../assets/icon/icon-foot.svg';
+import map from '../../../assets/icon/icon-map.svg';
+import mapFill from '../../../assets/icon/icon-mapFill.svg';
 
 const TabMenu = ({ active }) => {
   return (
@@ -36,7 +38,7 @@ const TabMenu = ({ active }) => {
         <S.Li>
           <S.StyledLink to='/map' id='3' active={active}>
             <S.IMG
-              src={active === '3' ? footFill : foot}
+              src={active === '3' ? mapFill : map}
               alt='동그라미 4개 아래 모서리 없는 삼각형으로 만들어진 강아지 발바닥 아이콘'
             />
             <S.P>지도</S.P>
