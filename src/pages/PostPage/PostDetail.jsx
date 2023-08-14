@@ -11,6 +11,7 @@ import { getSinglePost } from '../../api/post';
 import { getMyInfo } from '../../api/profile';
 import { getComments } from '../../api/comment';
 import PostModal from '../../components/common/Modal/PostModal';
+import { Helmet } from 'react-helmet';
 
 const PostDetail = () => {
   const { post_id } = useParams();
@@ -88,6 +89,9 @@ const PostDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{author.username}</title>
+      </Helmet>
       <FeedHeader />
       <Main>
         <ArticleWrapper>
