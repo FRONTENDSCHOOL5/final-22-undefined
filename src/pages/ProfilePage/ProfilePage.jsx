@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import FeedHeader from '../../components/common/Header/FeedHeader';
 import { getUserInfo } from '../../api/profile';
+import { Helmet } from 'react-helmet';
 
 const Title = styled.h1``;
 
@@ -47,7 +48,9 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Title className='a11y-hidden'>{isLoginUser ? '나의 프로필 페이지' : 'OO의 프로필 페이지'}</Title>
+      <Helmet>
+        <title>{userInfo.username}</title>
+      </Helmet>
       <FeedHeader />
       <Main>
         <ProfileDisplay userInfo={userInfo} isLoading={isLoading} setUserInfo={setUserInfo} />

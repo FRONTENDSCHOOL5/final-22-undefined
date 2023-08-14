@@ -4,6 +4,7 @@ import ProfileForm from '../../components/Profile/ProfileForm';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { join } from '../../api/auth';
 import useImageUpload from '../../hooks/useImageUpload';
+import { Helmet } from 'react-helmet';
 
 const ProfileSetting = () => {
   const [formData, setFormData] = useState({
@@ -44,6 +45,9 @@ const ProfileSetting = () => {
 
   return (
     <S.Main>
+      <Helmet>
+        <title>프로필 설정</title>
+      </Helmet>
       <S.LayoutWrapper>
         <S.Form onSubmit={(e) => e.preventDefault()}>
           <S.Title>프로필 설정</S.Title>

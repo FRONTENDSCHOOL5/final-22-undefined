@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { AuthContextStore } from '../../context/AuthContext';
 import Follow from '../../components/Follow/Follow';
 import { getFollowList } from '../../api/follow';
+import { Helmet } from 'react-helmet';
 
 const Main = styled.main`
   margin-top: 48px;
@@ -32,6 +33,9 @@ const FollowList = () => {
 
   return (
     <Main>
+      <Helmet>
+        <title>{type === 'follower' ? '팔로워' : '팔로잉'}</title>
+      </Helmet>
       <FollowListHeader type={type === 'follower' ? 'Followers' : 'Followings'} />
       <Wrapper>
         <ul>

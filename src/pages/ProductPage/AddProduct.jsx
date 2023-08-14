@@ -7,6 +7,7 @@ import ProductForm from '../../components/Product/ProductForm';
 import { useNavigate } from 'react-router-dom';
 import { addProduct } from '../../api/product';
 import useImageUpload from '../../hooks/useImageUpload';
+import { Helmet } from 'react-helmet';
 
 const Main = styled.main``;
 
@@ -66,6 +67,9 @@ const AddProduct = () => {
 
   return (
     <Main>
+      <Helmet>
+        <title>상품 등록</title>
+      </Helmet>
       <LayoutWrapper>
         <SaveHeader name='저장' mode={isActivated ? 'default' : 'disabled'} onClick={addClick} />
         <Form onSubmit={(e) => e.preventDefault()}>
