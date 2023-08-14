@@ -15,16 +15,23 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
     setIsLoginUser(userAccountname === commentAuthor); // commentId는 댓글 작성자의 계정명으로 가정
   }, [userAccountname, commentAuthor]);
 
-  const optionClick = async (option) => {
-    if (option === '삭제') {
-      await fetchDelete();
-      setCommentList(commentList.filter((comment) => comment.id !== commentId));
-      setCommentCnt((prev) => prev - 1);
-      onClose();
-    } else if (option === '신고하기') {
-      setSelectedOption(option);
-    }
-  };
+  const options = [
+    {
+      label: '삭제',
+      action: async () => {
+        await fetchDelete();
+        setCommentList(commentList.filter((comment) => comment.id !== commentId));
+        setCommentCnt((prev) => prev - 1);
+        onClose();
+      },
+      showCondition: isLoginUser,
+    },
+    {
+      label: '신고하기',
+      action: () => setSelectedOption('신고하기'),
+      showCondition: !isLoginUser,
+    },
+  ];
 
   const closeModal = (option) => {
     if (option === '확인') {
@@ -64,7 +71,6 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
         />
       );
     }
-
     return null;
   };
 
@@ -78,14 +84,13 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
     <>
       <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
         <S.Ul>
-          {isLoginUser ? (
-            <S.Li>
-              <button onClick={() => optionClick('삭제')}>삭제</button>
-            </S.Li>
-          ) : (
-            <S.Li>
-              <button onClick={() => optionClick('신고하기')}>신고하기</button>
-            </S.Li>
+          {options.map(
+            (option, index) =>
+              option.showCondition && (
+                <S.Li key={index}>
+                  <button onClick={option.action}>{option.label}</button>
+                </S.Li>
+              ),
           )}
         </S.Ul>
       </S.ModalBg>
