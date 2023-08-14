@@ -4,8 +4,8 @@ import { useMediaQuery } from 'react-responsive';
 import * as S from './Kakao.style';
 import leftAngle from '../../assets/icon/angle-small-left.svg';
 import rightAngle from '../../assets/icon/angle-small-right.svg';
-import ShareImg from '../../assets/icon/icon-share.svg';
 import reSearch from '../../assets/icon/reSearch.png';
+import Modal from './Modal';
 
 const { kakao } = window;
 
@@ -16,8 +16,6 @@ const KEYWORD_LIST = [
 ];
 
 const Kakao = () => {
-  const listContainerRef = useRef(null);
-  const selectedItemRef = useRef(null);
   const [map, setMap] = useState(null);
   // 기본 위치 상태
   const [state, setState] = useState({
@@ -38,20 +36,6 @@ const Kakao = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isMouseOver, setIsMouseOver] = useState(false); // 마우스 오버 상태
   const [lastCenter, setLastCenter] = useState(null); // 마지막으로 이동한 지도의 중심 좌표 저장
-
-  // 목록이나 마커 클릭하면 해당 아이템이 목록 상단에 보이도록 이동
-  const scrollToSelectedItem = () => {
-    if (listContainerRef.current && selectedItemRef.current) {
-      const listItemOffset = selectedItemRef.current.offsetTop;
-      const marginTop = 25;
-      listContainerRef.current.scrollTop = listItemOffset;
-      if (isMobile) listContainerRef.current.scrollTop -= marginTop;
-    }
-  };
-
-  useEffect(() => {
-    scrollToSelectedItem();
-  }, [openMarkerId, currentPage]);
 
   // 내 위치 받아오기
   useEffect(() => {
@@ -346,65 +330,17 @@ const Kakao = () => {
 
         {/* PC 화면일 경우, 검색 결과 목록 사이드바로 표시 */}
         {!isMobile && (
-          <S.ListContainer ref={listContainerRef} isClosed={!isSidebarOpen}>
-            <S.List>
-              {/* 검색된 장소들 목록으로 표시 */}
-              {search.map((data) => (
-                <S.Item
-                  ref={data.id === openMarkerId ? selectedItemRef : null}
-                  key={data.id}
-                  onClick={() => {
-                    setOpenMarkerId(data.id);
-                    moveLatLng(data);
-                  }}
-                  selected={data.id === openMarkerId}
-                >
-                  {/* 검색된 장소 상세 정보 표시 */}
-                  <S.Name>{data.place_name}</S.Name>
-                  <S.Category>{data.category_name}</S.Category>
-                  <S.Address>{data.address_name}</S.Address>
-                  <S.RoadAddress>
-                    <img src='https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png' alt='지번' />
-                    <p>{data.road_address_name === '' ? '-' : data.road_address_name}</p>
-                  </S.RoadAddress>
-                  <S.InfoContainer>
-                    <S.Distance>
-                      {data.distance >= 1000 ? `${(data.distance / 1000).toFixed(1)}km` : `${data.distance}m`}
-                    </S.Distance>
-                    {data.phone !== '' && (
-                      <>
-                        <S.Division>|</S.Division>
-                        <S.PhoneNumber>{data.phone}</S.PhoneNumber>
-                      </>
-                    )}
-                  </S.InfoContainer>
-                  {/* 카카오톡 공유하기 기능 버튼 */}
-                  <S.ShareBtn
-                    onClick={() => {
-                      shareKakao(data.place_name, data.address_name, data.place_url, data.phone, data.category_name);
-                    }}
-                  >
-                    <img src={ShareImg} alt='카카오톡으로 공유하기' />
-                  </S.ShareBtn>
-                </S.Item>
-              ))}
-            </S.List>
-            {/* 검색 결과 없을 경우 표시 */}
-            {search.length === 0 && <S.NoList>검색된 결과가 없습니다 😢</S.NoList>}
-            {/* 검색 결과 있고, 페이지가 있는 경우 페이지 번호 표시 */}
-            {pagination && search.length > 0 && (
-              <S.Pages>
-                {Array.from({ length: pagination.last }).map((_, index) => (
-                  <S.PageBtn
-                    key={index + 1}
-                    onClick={() => setCurrentPage(index + 1)}
-                    selected={currentPage === index + 1}
-                  >
-                    {index + 1}
-                  </S.PageBtn>
-                ))}
-              </S.Pages>
-            )}
+          <S.ListContainer isClosed={!isSidebarOpen}>
+            <Modal
+              search={search}
+              openMarkerId={openMarkerId}
+              setOpenMarkerId={setOpenMarkerId}
+              isModalOpen={isModalOpen}
+              moveLatLng={moveLatLng}
+              pagination={pagination}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
             {/* 사이드바 열고 다는 버튼 */}
             <S.SideBarOpenBtn isClosed={!isSidebarOpen} onClick={() => setIsSidebarOpen((prev) => !prev)}>
               <img src={isSidebarOpen ? leftAngle : rightAngle} alt={isSidebarOpen ? '왼쪽 화살표' : '오른쪽 화살표'} />
@@ -415,66 +351,16 @@ const Kakao = () => {
         {isMobile && (
           <S.Modal>
             <S.ModalBtn onClick={() => setIsModalOpen((prev) => !prev)} />
-            <S.ModalContainer ref={listContainerRef} isClosed={!isModalOpen}>
-              <S.List>
-                {/* 검색된 장소들 목록으로 표시 */}
-                {search.map((data) => (
-                  <S.Item
-                    ref={data.id === openMarkerId ? selectedItemRef : null}
-                    key={data.id}
-                    onClick={() => {
-                      setOpenMarkerId(data.id);
-                      moveLatLng(data);
-                    }}
-                    selected={data.id === openMarkerId}
-                  >
-                    {/* 검색된 장소 상세 정보 표시 */}
-                    <S.Name>{data.place_name}</S.Name>
-                    <S.Category>{data.category_name}</S.Category>
-                    <S.Address>{data.address_name}</S.Address>
-                    <S.RoadAddress>
-                      <img src='https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png' alt='지번' />
-                      <p>{data.road_address_name === '' ? '-' : data.road_address_name}</p>
-                    </S.RoadAddress>
-                    <S.InfoContainer>
-                      <S.Distance>
-                        {data.distance >= 1000 ? `${(data.distance / 1000).toFixed(1)}km` : `${data.distance}m`}
-                      </S.Distance>
-                      {data.phone !== '' && (
-                        <>
-                          <S.Division>|</S.Division>
-                          <S.PhoneNumber>{data.phone}</S.PhoneNumber>
-                        </>
-                      )}
-                    </S.InfoContainer>
-                    {/* 카카오톡 공유하기 기능 버튼 */}
-                    <S.ShareBtn
-                      onClick={() => {
-                        shareKakao(data.place_name, data.address_name, data.place_url, data.phone, data.category_name);
-                      }}
-                    >
-                      <img src={ShareImg} alt='카카오톡으로 공유하기' />
-                    </S.ShareBtn>
-                  </S.Item>
-                ))}
-              </S.List>
-              {/* 검색 결과가 없을 경우 표시 */}
-              {search.length === 0 && <S.NoList>검색된 결과가 없습니다 😢</S.NoList>}
-              {/* 검색 결과 있고, 페이지가 있는 경우 페이지 번호 표시 */}
-              {pagination && search.length > 0 && (
-                <S.Pages>
-                  {Array.from({ length: pagination.last }).map((_, index) => (
-                    <S.PageBtn
-                      key={index + 1}
-                      onClick={() => setCurrentPage(index + 1)}
-                      selected={currentPage === index + 1}
-                    >
-                      {index + 1}
-                    </S.PageBtn>
-                  ))}
-                </S.Pages>
-              )}
-            </S.ModalContainer>
+            <Modal
+              search={search}
+              openMarkerId={openMarkerId}
+              setOpenMarkerId={setOpenMarkerId}
+              isModalOpen={isModalOpen}
+              moveLatLng={moveLatLng}
+              pagination={pagination}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
           </S.Modal>
         )}
       </S.MapContainer>
