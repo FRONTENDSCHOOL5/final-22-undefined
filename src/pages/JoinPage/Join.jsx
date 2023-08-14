@@ -3,6 +3,7 @@ import * as S from './Join.style';
 import ProfileFormInput from '../../components/common/Input/ProfileFormInput';
 
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Join = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -20,6 +21,9 @@ const Join = () => {
 
   return (
     <S.Main>
+      <Helmet>
+        <title>회원가입</title>
+      </Helmet>
       <S.LayoutWrapper>
         <S.Form>
           <S.Title>이메일로 회원가입</S.Title>

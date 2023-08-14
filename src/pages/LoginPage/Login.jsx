@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContextStore } from '../../context/AuthContext';
 import * as S from './Login.style';
 import { login } from '../../api/auth';
+import { Helmet } from 'react-helmet';
 
 const initialFormState = {
   email: '',
@@ -59,6 +60,9 @@ const Login = () => {
 
   return (
     <S.Main>
+      <Helmet>
+        <title>로그인</title>
+      </Helmet>
       <S.LayoutWrapper>
         <S.Form onSubmit={handleSubmit}>
           <S.Section>

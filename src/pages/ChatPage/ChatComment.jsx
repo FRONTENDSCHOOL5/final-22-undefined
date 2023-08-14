@@ -36,11 +36,18 @@ const ChatComment = forwardRef(({ setCommentList, atChatroom, userProfileImg, po
   if (text) isActivated = true;
 
   return (
-    <S.Footer>
+    <S.Comment>
       {atChatroom ? (
         <S.UploadForm>
           <label htmlFor='imgUpload'></label>
-          <input className='a11y-hidden' type='file' id='imgUpload' accept='image/*' onChange={handleImgUpload} />
+          <input
+            className='a11y-hidden'
+            type='file'
+            id='imgUpload'
+            accept='image/*'
+            onChange={handleImgUpload}
+            aria-label='이미지 업로드'
+          />
         </S.UploadForm>
       ) : (
         <PostUserProfileImg size={'36px'} userProfileImg={userProfileImg} />
@@ -52,12 +59,13 @@ const ChatComment = forwardRef(({ setCommentList, atChatroom, userProfileImg, po
           placeholder={atChatroom ? '메시지 입력하기...' : '댓글 입력하기...'}
           onChange={handleOnChange}
           ref={ref}
+          aria-label='메세지 전송 폼'
         />
-        <S.PostBtn isActivated={isActivated} type='submit'>
+        <S.PostBtn disabled={isActivated ? false : true} isActivated={isActivated} type='submit'>
           {atChatroom ? '전송' : '게시'}
         </S.PostBtn>
       </S.SendForm>
-    </S.Footer>
+    </S.Comment>
   );
 });
 

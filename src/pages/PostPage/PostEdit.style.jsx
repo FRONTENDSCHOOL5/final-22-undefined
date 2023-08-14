@@ -20,7 +20,7 @@ export const Form = styled.form`
   padding-top: 8px;
 `;
 
-export const Section = styled.section``;
+export const ImgSection = styled.section``;
 
 export const Textarea = styled.textarea`
   width: 100%;
@@ -61,7 +61,7 @@ export const UploadImg = styled.img`
   object-fit: cover;
 `;
 
-export const UploadImgBtn = styled.label`
+export const UploadImgLabel = styled.label`
   position: absolute;
   right: 16px;
   bottom: 25px;

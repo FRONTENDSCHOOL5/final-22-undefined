@@ -1,16 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import FeedHeader from '../../components/common/Header/FeedHeader';
 import ChatComment from '../../pages/ChatPage/ChatComment';
 import { AuthContextStore } from '../../context/AuthContext';
 import styled from 'styled-components';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import PostItem from '../../components/Post/PostItem';
 import PostCommentList from '../../components/Post/PostCommentList';
 import { getSinglePost } from '../../api/post';
 import { getMyInfo } from '../../api/profile';
 import { getComments } from '../../api/comment';
-import { useRef } from 'react';
+import PostModal from '../../components/common/Modal/PostModal';
+import { Helmet } from 'react-helmet';
 
 const PostDetail = () => {
   const { post_id } = useParams();
@@ -20,13 +21,30 @@ const PostDetail = () => {
   const [commentCnt, setCommentCnt] = useState(0);
   const [post, setPost] = useState({});
   const target = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [postId, setPostId] = useState(null);
+  const [author, setAuthor] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const { pathname } = useLocation();
+
+  const openModal = (postId) => {
+    setIsModalOpen(true);
+    setPostId(postId);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setPostId(null);
+  };
 
   //댓글 갯수 동적 업데이트 위한 요청
   useEffect(() => {
     const getPost = async () => {
       try {
         const data = await getSinglePost(post_id, userToken);
+        console.log(data.post);
         setPost(data.post);
+        setAuthor(data.post.author);
         setCommentCnt(data.post.commentCount);
       } catch (err) {
         console.log(err.message);
@@ -71,16 +89,37 @@ const PostDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{author.username}</title>
+      </Helmet>
       <FeedHeader />
       <Main>
         <ArticleWrapper>
           <PostWrapper>
             <PostArticle>
-              {Object.keys(post).length > 0 && <PostItem post={post} commentCnt={commentCnt} />}
+              {Object.keys(post).length > 0 && (
+                <PostItem
+                  post={post}
+                  commentCnt={commentCnt}
+                  onClick={() => {
+                    openModal(post.id);
+                  }}
+                />
+              )}
               <h2 className='a11y-hidden'>댓글 해당 게시물</h2>
             </PostArticle>
           </PostWrapper>
         </ArticleWrapper>
+        {isModalOpen && (
+          <PostModal
+            onClose={closeModal}
+            postId={postId}
+            posts={posts}
+            setPosts={setPosts}
+            author={author}
+            pathname={pathname}
+          />
+        )}
         <CommentWrapper>
           <PostSection>
             <h2 className='a11y-hidden'>댓글 목록</h2>

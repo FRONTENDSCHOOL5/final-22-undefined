@@ -7,6 +7,7 @@ import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 import { uploadPost } from '../../api/post';
 import { getMyInfo } from '../../api/profile';
 import useImagesUpload from '../../hooks/useImagesUpload';
+import { Helmet } from 'react-helmet';
 
 const PostUpload = () => {
   const [userContent, setUserContent] = useState('');
@@ -67,6 +68,9 @@ const PostUpload = () => {
 
   return (
     <>
+      <Helmet>
+        <title>글 작성</title>
+      </Helmet>
       <SaveHeader name='업로드' mode={isActivated ? 'default' : 'disabled'} onClick={handleUpload} />
       <S.Title className='a11y-hidden'>게시글 작성 페이지</S.Title>
       <S.PostMain>

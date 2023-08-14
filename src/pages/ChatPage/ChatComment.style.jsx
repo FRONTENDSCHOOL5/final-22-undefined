@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import imgBtn from '../../assets/img-button.svg';
 import uploadImgBtn from '../../assets/upload-file.svg';
 
-export const Footer = styled.footer`
+export const Comment = styled.div`
   /* max-width: 390px; */
   padding: 13px 16px;
   display: flex;
