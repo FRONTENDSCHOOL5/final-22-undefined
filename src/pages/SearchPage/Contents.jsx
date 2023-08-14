@@ -1,50 +1,15 @@
 import React from 'react';
-import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
+import { Link } from 'react-router-dom';
+import * as S from './Contents.style';
 
 import MainLayout from '../../components/common/MainLayout/MainLayout';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-const UserList = styled.ul`
-  width: 100%;
-
-  li {
-    margin: 0 auto;
-    max-width: 390px;
-    padding-bottom: 20px;
-  }
-
-  div {
-    display: flex;
-  }
-
-  .searchContents {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .userName {
-    margin: 5px 0 6px;
-    line-height: 18px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .accountName {
-    color: ${({ theme }) => theme.colors.txtColor};
-    font-size: 12px;
-    line-height: 15px;
-  }
-  .highlight {
-    color: ${({ theme }) => theme.colors.warning};
-  }
-`;
+import PostUserProfileImg from '../../components/Post/PostUserProfileImg';
 
 const Contents = ({ userList, inputTxt }) => {
   return (
     <MainLayout>
-      <UserList className='sl-ellipsis'>
+      <S.H1>사용자 검색페이지</S.H1>
+      <S.UserList className='sl-ellipsis'>
         {userList.map((item) => (
           <li key={item._id}>
             <Link to={`/profile/${item.accountname}`}>
@@ -79,7 +44,7 @@ const Contents = ({ userList, inputTxt }) => {
             </Link>
           </li>
         ))}
-      </UserList>
+      </S.UserList>
     </MainLayout>
   );
 };
