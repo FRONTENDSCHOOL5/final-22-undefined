@@ -6,6 +6,7 @@ import { AuthContextStore } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { editProfile, getMyInfo } from '../../api/profile';
 import useImageUpload from '../../hooks/useImageUpload';
+import { Helmet } from 'react-helmet';
 
 const ProfileEdit = () => {
   const { userToken, setUserAccountname } = useContext(AuthContextStore);
@@ -70,7 +71,10 @@ const ProfileEdit = () => {
   return (
     <S.LayoutWrapper>
       <SaveHeader name='저장' mode={isActivated ? 'default' : 'disabled'} onClick={handleClick} />
-      <S.Title className='a11y-hidden'>프로필 수정 페이지</S.Title>
+      {/* <S.Title className='a11y-hidden'>프로필 수정 페이지</S.Title> */}
+      <Helmet>
+        <title>프로필 수정</title>
+      </Helmet>
       <S.Main>
         <S.Form>
           <ProfileForm
