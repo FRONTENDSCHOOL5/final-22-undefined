@@ -22,10 +22,11 @@ const PostCommentList = ({ commentList, postId, setCommentList, setCommentCnt })
     if (diff < A_HOUR) return `${Math.floor(diff / 1000 / 60)}분 전`;
     if (diff < A_DAY) return `${Math.floor(diff / 1000 / 60 / 60)}시간 전`;
     if (diff < A_WEEK) return `${Math.floor(diff / 1000 / 60 / 60 / 24)}일 전`;
-    return date.toLocaleString('ko-KR', {
-      hour12: false,
-      dateStyle: 'medium',
-    });
+
+    const year = time.getFullYear();
+    const month = time.getMonth() + 1;
+    const day = time.getDate();
+    return `${year}년 ${month}월 ${day}일`;
   };
 
   // 댓글 모달 관련
