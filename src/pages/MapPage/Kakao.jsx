@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk';
 import { useMediaQuery } from 'react-responsive';
 import * as S from './Kakao.style';
@@ -34,8 +34,8 @@ const Kakao = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const [isMouseOver, setIsMouseOver] = useState(false); // 마우스 오버 상태
-  const [lastCenter, setLastCenter] = useState(null); // 마지막으로 이동한 지도의 중심 좌표 저장
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const [lastCenter, setLastCenter] = useState(null);
 
   // 내 위치 받아오기
   useEffect(() => {
@@ -68,6 +68,7 @@ const Kakao = () => {
     }
   }, []);
 
+  // 검색된 장소 표시하기
   const displayPlaces = (data) => {
     const bounds = new kakao.maps.LatLngBounds();
 
@@ -120,6 +121,7 @@ const Kakao = () => {
     map.panTo(newLatLng);
   };
 
+  // 클릭한 마커로 중심좌쵸 이동 및 검색 수행 함수
   useEffect(() => {
     if (!map) return;
     setOpenMarkerId(null);
@@ -132,8 +134,8 @@ const Kakao = () => {
     }
   }, [map, keyword, currentPage, lastCenter]);
 
+  //  마커 클릭 시 CustomOverlayMap를 열고 닫는 함수
   useEffect(() => {
-    // 지도(마커 바깥영역)를 클릭했을 때 CustomOverlay 닫기
     if (!map) return;
     kakao.maps.event.addListener(map, 'click', () => {
       setOpenMarkerId(null);
@@ -160,7 +162,7 @@ const Kakao = () => {
     setIsMouseOver(false);
   };
 
-  // 현 지도에서 검색하기
+  // 현 지도에서 재검색하기
   const handleReSearch = () => {
     if (!map) return;
 
@@ -181,25 +183,17 @@ const Kakao = () => {
     setLastCenter(newCenter);
   };
 
-  // 키워드를 선택할 때마다 검색을 수행
+  // 재검색 후, 키워드를 선택할 때마다 검색하기
   const handleKeywordSelect = (selectedKeyword) => {
     setKeyword(selectedKeyword);
 
-    // 현재 지도의 중심 좌표를 검색할 위치로 설정
-    const centerLatLng = map.getCenter();
-    const newCenter = {
-      lat: centerLatLng.getLat(),
-      lng: centerLatLng.getLng(),
-    };
-
-    // 검색할 페이지를 1페이지로 초기화
-    setCurrentPage(1);
-
-    // 검색 실행
-    searchPlaces(newCenter, 1);
-
-    // lastCenter 업데이트
-    setLastCenter(newCenter);
+    if (lastCenter) {
+      // 이미 이동한 지도의 중심 좌표가 있으면 해당 위치를 기반으로 검색
+      searchPlaces(lastCenter, 1);
+    } else {
+      // 처음 페이지 로딩 시 현재 위치를 기반으로 검색
+      searchPlaces(state.center, 1);
+    }
   };
 
   // const url = window.location.href; //현재 url가져오기, 배포 후에 사용
@@ -213,33 +207,6 @@ const Kakao = () => {
       }
     }
   }, []);
-
-  // 카카오톡 공유 함수
-  const shareKakao = (TITLE, ADDRESS, URL, PHONE, CATEGORY) => {
-    console.log(URL);
-    window.Kakao.Link.sendDefault({
-      objectType: 'location',
-      address: ADDRESS,
-      content: {
-        title: TITLE,
-        description: ADDRESS,
-        imageUrl: '',
-        link: {
-          mobileWebUrl: URL,
-          webUrl: URL,
-        },
-      },
-      buttons: [
-        {
-          title: '자세히 보기',
-          link: {
-            mobileWebUrl: '',
-            webUrl: '',
-          },
-        },
-      ],
-    });
-  };
 
   if (state.isLoading) return <div>Loading...</div>;
 
@@ -321,7 +288,7 @@ const Kakao = () => {
               key={item.id}
               type='button'
               selected={item.value === keyword}
-              onClick={() => handleKeywordSelect(item.value)} // 키워드를 선택할 때 새로운 중심 좌표를 저장하도록 수정
+              onClick={() => handleKeywordSelect(item.value)} // 키워드를 선택할 때 이동한 중심 좌표를 저장하도록 변경
             >
               {item.value} {item.emoji}
             </S.KeywordBtn>
