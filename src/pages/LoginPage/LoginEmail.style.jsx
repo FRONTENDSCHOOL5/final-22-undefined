@@ -15,13 +15,13 @@ export const Main = styled.main`
   align-items: center;
   width: 100%;
   height: 100vh;
-  padding-top: 20vh;
+  padding-top: 25vh;
+
   background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const H1 = styled.h1`
   width: 200px;
-  /* height: 144px; */
 `;
 
 export const LoginSect = styled.section`
@@ -38,9 +38,10 @@ export const LoginSect = styled.section`
 `;
 
 export const LogoImg = styled.img`
-  width: 200px;
-  /* height: auto; */
-  vertical-align: top;
+  width: 230px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const Ul = styled.ul`
