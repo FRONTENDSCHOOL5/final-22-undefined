@@ -1,7 +1,7 @@
-import React, { useRef, useState, useContext, useMemo, useEffect } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 import { deletePost, reportPost } from '../../../api/post';
 
@@ -11,8 +11,8 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
   const [isLoginUser, setIsLoginUser] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
-  const myPostModalOptions = useMemo(() => ['삭제', '수정'], []);
-  const otherPostModalOptions = useMemo(() => ['신고하기'], []);
+  const myPostModalOptions = () => ['삭제', '수정'];
+  const otherPostModalOptions = () => ['신고하기'];
 
   useEffect(() => {
     // 게시글 작성자와 현재 사용자의 계정명 비교하여 isLoginUser 값을 설정
@@ -113,7 +113,7 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
           message='게시글을 삭제할까요?'
           onClose={closeModal}
           buttons={[
-            { text: '취소', color: 'inherit' },
+            { text: '취소', color: 'sinherit' },
             { text: '삭제', color: '#Fd7a6E' },
           ]}
         />
