@@ -1,9 +1,9 @@
-# 강냥공냥공냥냥
+# 🦴 해피포 (Happy-Paw)
 <p align="center"><img src ="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/3be71e0f-132e-4139-9460-41ef27e23af0" width="900"></p>
 
 <br>
 
-### 🐾 강냥공냥공냥냥 : 반려동물 통합 커뮤니티 서비스
+### 해피포 (Happy-Paw) : 반려동물 통합 커뮤니티 서비스
 
 | 배포링크| 아이디 | 비밀번호 |
 | --- | --- | --- |
@@ -140,7 +140,7 @@
 <br>
 
 ### 4-2. 역할 분담
-<img width="3136" alt="강냥공냥공냥냥 마인드맵" src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/c7e550ca-0120-4fb0-a788-892a4ff48dcd">
+<img width="3311" alt="해피포 마인드맵" src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/12dededa-596c-4cff-bbb3-74d879eab82c">
 
 <br>
 <br>
