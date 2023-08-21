@@ -203,7 +203,7 @@ const Kakao = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
       if (!kakao.isInitialized()) {
-        kakao.init('9090c2064fcc57dc757ac8e1393cdcf4');
+        kakao.init('7d9ff45eff51ec51ff95b58eafc47ee4');
       }
     }
   }, []);

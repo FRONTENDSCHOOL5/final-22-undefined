@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MainIcon from '../../assets/Splash/MainTwo.gif';
+import MainIcon from '../../assets/Splash/MainLogoGif.gif';
 import TitleTxt from '../../assets/Splash/TitleTxt.svg';
 import { useNavigate } from 'react-router-dom';
 import * as S from './Splash.style';
