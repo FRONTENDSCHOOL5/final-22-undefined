@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './Kakao.style';
 import ShareImg from '../../assets/icon/icon-share.svg';
+import mapThumbnail from '../../assets/mapThumbnail.jpg';
 
 const Modal = ({
   search,
@@ -21,7 +22,7 @@ const Modal = ({
       content: {
         title: TITLE,
         description: ADDRESS,
-        imageUrl: '',
+        imageUrl: 'https://api.mandarin.weniv.co.kr/1692607635483.jpg',
         link: {
           mobileWebUrl: URL,
           webUrl: URL,
@@ -29,7 +30,7 @@ const Modal = ({
       },
       buttons: [
         {
-          title: '자세히 보기',
+          title: '웹으로 보기',
           link: {
             mobileWebUrl: '',
             webUrl: '',
@@ -38,7 +39,7 @@ const Modal = ({
       ],
     });
   };
-
+  console.log(search);
   return (
     <S.ModalContainer isClosed={!isModalOpen}>
       <S.List>
