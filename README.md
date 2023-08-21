@@ -1,5 +1,5 @@
 # 강냥공냥공냥냥
-<p align="center"><img src ="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/c52d7474-c1c1-4bd1-a05e-a424fa7cfe39" width="900"></p>
+<p align="center"><img src ="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/3be71e0f-132e-4139-9460-41ef27e23af0" width="900"></p>
 
 <br>
 
