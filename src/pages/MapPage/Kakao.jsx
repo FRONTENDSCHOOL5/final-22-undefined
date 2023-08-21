@@ -209,37 +209,37 @@ const Kakao = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
       if (!kakao.isInitialized()) {
-        kakao.init('9090c2064fcc57dc757ac8e1393cdcf4');
+        kakao.init('7d9ff45eff51ec51ff95b58eafc47ee4');
       }
     }
   }, []);
 
   // 카카오톡 공유 함수
-  const shareKakao = (TITLE, ADDRESS, URL, PHONE, CATEGORY) => {
-    console.log(URL);
-    window.Kakao.Link.sendDefault({
-      objectType: 'location',
-      address: ADDRESS,
-      content: {
-        title: TITLE,
-        description: ADDRESS,
-        imageUrl: '',
-        link: {
-          mobileWebUrl: URL,
-          webUrl: URL,
-        },
-      },
-      buttons: [
-        {
-          title: '자세히 보기',
-          link: {
-            mobileWebUrl: '',
-            webUrl: '',
-          },
-        },
-      ],
-    });
-  };
+  // const shareKakao = (TITLE, ADDRESS, URL, PHONE, CATEGORY) => {
+  //   console.log(URL);
+  //   window.Kakao.Link.sendDefault({
+  //     objectType: 'location',
+  //     address: ADDRESS,
+  //     content: {
+  //       title: TITLE,
+  //       description: ADDRESS,
+  //       imageUrl: '',
+  //       link: {
+  //         mobileWebUrl: URL,
+  //         webUrl: URL,
+  //       },
+  //     },
+  //     buttons: [
+  //       {
+  //         title: '자세히 보기',
+  //         link: {
+  //           mobileWebUrl: '',
+  //           webUrl: '',
+  //         },
+  //       },
+  //     ],
+  //   });
+  // };
 
   if (state.isLoading) return <div>Loading...</div>;
 
