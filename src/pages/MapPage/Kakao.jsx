@@ -199,11 +199,12 @@ const Kakao = () => {
   // const url = window.location.href; //현재 url가져오기, 배포 후에 사용
 
   // 카카오톡 공유 init 설정
+  // process.env 키워드로 .env 환경변수를 불러오기
   useEffect(() => {
     if (window.Kakao) {
       const kakao = window.Kakao;
       if (!kakao.isInitialized()) {
-        kakao.init('7d9ff45eff51ec51ff95b58eafc47ee4');
+        kakao.init(`${process.env.REACT_APP_KAKAOMAP_API_KEY}`);
       }
     }
   }, []);
