@@ -22,7 +22,8 @@ const Modal = ({
       content: {
         title: TITLE,
         description: ADDRESS,
-        imageUrl: 'https://api.mandarin.weniv.co.kr/1692607635483.jpg',
+        imageUrl:
+          'https://github-production-user-asset-6210df.s3.amazonaws.com/122862593/262020611-797a209e-0aa2-4d21-a322-85a1b9538dfc.jpg',
         link: {
           mobileWebUrl: URL,
           webUrl: URL,
@@ -32,8 +33,8 @@ const Modal = ({
         {
           title: '웹으로 보기',
           link: {
-            mobileWebUrl: '',
-            webUrl: '',
+            mobileWebUrl: URL,
+            webUrl: URL,
           },
         },
       ],
