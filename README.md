@@ -1,5 +1,5 @@
 # 🦴 해피포 (Happy-Paw)
-<p align="center"><img src ="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/3be71e0f-132e-4139-9460-41ef27e23af0" width="900"></p>
+<p align="center"><img src ="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/9fa4a124-9ec5-4b71-bfb5-06e7bb3f00e9"></p>
 
 <br>
 
