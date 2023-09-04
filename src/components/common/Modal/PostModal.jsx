@@ -1,7 +1,7 @@
-import React, { useRef, useState, useContext, useMemo, useEffect } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
 import * as S from './Modal.style';
 import AlertModal from './AlertModal';
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContextStore } from '../../../context/AuthContext';
 import { deletePost, reportPost } from '../../../api/post';
 
@@ -11,8 +11,6 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
   const [isLoginUser, setIsLoginUser] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const { userToken, userAccountname } = useContext(AuthContextStore);
-  const myPostModalOptions = useMemo(() => ['삭제', '수정'], []);
-  const otherPostModalOptions = useMemo(() => ['신고하기'], []);
 
   useEffect(() => {
     // 게시글 작성자와 현재 사용자의 계정명 비교하여 isLoginUser 값을 설정
@@ -23,23 +21,32 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
 
   const isAuthor = author?.accountname === userAccountname;
 
-  // 모달 옵션을 클릭했을 때
-  const optionClick = (option) => {
-    if (option === '삭제') {
-      setSelectedOption(option);
-    } else if (option === '수정') {
-      for (let i = 0; i < posts.length; i++) {
-        if (posts[i].id === postId) {
-          console.log('Navigating to Edit Page');
-          navigate('/post/edit/', {
-            state: { content: posts[i].content, image: posts[i].image, postId: posts[i].id },
-          });
+  const options = [
+    {
+      label: '삭제',
+      action: () => setSelectedOption('삭제'),
+      showCondition: isLoginUser || isAuthor,
+    },
+    {
+      label: '수정',
+      action: () => {
+        for (let i = 0; i < posts.length; i++) {
+          if (posts[i].id === postId) {
+            console.log('Navigating to Edit Page');
+            navigate('/post/edit/', {
+              state: { content: posts[i].content, image: posts[i].image, postId: posts[i].id },
+            });
+          }
         }
-      }
-    } else if (option === '신고하기') {
-      setSelectedOption(option);
-    }
-  };
+      },
+      showCondition: isLoginUser || isAuthor,
+    },
+    {
+      label: '신고하기',
+      action: () => setSelectedOption('신고하기'),
+      showCondition: !isLoginUser && !isAuthor,
+    },
+  ];
 
   // 모달 닫기
   const closeModal = async (option) => {
@@ -84,45 +91,45 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
     }
   };
 
-  // 조건부 로직 처리 : 사용자 계정에 따라 모달에 표시할 옵션 요소 생성y
-  const optionElements = () => {
-    if (!isLoginUser && !isAuthor) {
-      return otherPostModalOptions.map((option, index) => (
-        <S.Li key={index}>
-          <button onClick={() => optionClick(option)}>{option}</button>
-        </S.Li>
-      ));
-    } else if (isLoginUser || isAuthor) {
-      return myPostModalOptions.map((option, index) => (
-        <S.Li key={index}>
-          <button onClick={() => optionClick(option)}>{option}</button>
-        </S.Li>
-      ));
-    }
-  };
-
-  return (
-    <>
-      <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
-        <S.Ul>{optionElements()}</S.Ul>
-      </S.ModalBg>
-      {selectedOption === '삭제' && (
+  const renderAlertModal = () => {
+    if (selectedOption === '삭제') {
+      return (
         <AlertModal
           message='게시글을 삭제할까요?'
           onClose={closeModal}
           buttons={[
-            { text: '취소', color: 'inherit' },
+            { text: '취소', color: 'sinherit' },
             { text: '삭제', color: '#Fd7a6E' },
           ]}
         />
-      )}
-      {selectedOption === '신고하기' && (
+      );
+    } else if (selectedOption === '신고하기') {
+      return (
         <AlertModal
           message='신고가 완료되었습니다!'
           onClose={closeModal}
           buttons={[{ text: '확인', color: '#Fd7a6E' }]}
         />
-      )}
+      );
+    }
+    return null;
+  };
+
+  return (
+    <>
+      <S.ModalBg ref={modalRef} onClick={clickOutside} style={{ pointerEvents: selectedOption ? 'none' : 'auto' }}>
+        <S.Ul>
+          {options.map(
+            (option, index) =>
+              option.showCondition && (
+                <S.Li key={index}>
+                  <button onClick={option.action}>{option.label}</button>
+                </S.Li>
+              ),
+          )}
+        </S.Ul>
+      </S.ModalBg>
+      {renderAlertModal()}
     </>
   );
 };

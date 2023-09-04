@@ -18,11 +18,8 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
   const options = [
     {
       label: '삭제',
-      action: async () => {
-        await fetchDelete();
-        setCommentList(commentList.filter((comment) => comment.id !== commentId));
-        setCommentCnt((prev) => prev - 1);
-        onClose();
+      action: () => {
+        fetchDelete();
       },
       showCondition: isLoginUser,
     },
@@ -42,10 +39,12 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
   };
 
   const fetchDelete = async () => {
-    console.log('postId 값:', postId);
-    console.log('commentId 값:', commentId);
+    // console.log('postId 값:', postId);
+    // console.log('commentId 값:', commentId);
     try {
       await deleteComment(postId, commentId, userToken);
+      setCommentList(commentList.filter((comment) => comment.id !== commentId));
+      setCommentCnt((prev) => prev - 1);
     } catch (error) {
       console.log('댓글 삭제 오류:', error);
       return { success: false, error: '댓글 삭제 오류' };
@@ -57,6 +56,12 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
       await reportComment(postId, commentId, userToken);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const clickOutside = (e) => {
+    if (modalRef.current && modalRef.current === e.target) {
+      onClose();
     }
   };
 
@@ -72,12 +77,6 @@ const CommentModal = ({ onClose, commentId, commentList, postId, commentAuthor, 
       );
     }
     return null;
-  };
-
-  const clickOutside = (e) => {
-    if (modalRef.current && modalRef.current === e.target) {
-      onClose();
-    }
   };
 
   return (
