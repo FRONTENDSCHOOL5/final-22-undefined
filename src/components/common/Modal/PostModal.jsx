@@ -17,7 +17,7 @@ const PostModal = ({ onClose, postId, posts, setPosts, postAuthor, author, pathn
     setIsLoginUser(userAccountname === postAuthor);
   }, [userAccountname, postAuthor]);
 
-  console.log(postAuthor);
+  // console.log(postAuthor);
 
   const isAuthor = author?.accountname === userAccountname;
 
