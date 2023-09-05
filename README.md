@@ -1,9 +1,9 @@
-# 강냥공냥공냥냥
-<p align="center"><img src ="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/c52d7474-c1c1-4bd1-a05e-a424fa7cfe39" width="900"></p>
+# 🦴 해피포 (Happy-Paw)
+<p align="center"><img src ="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/9fa4a124-9ec5-4b71-bfb5-06e7bb3f00e9"></p>
 
 <br>
 
-### 🐾 강냥공냥공냥냥 : 반려동물 통합 커뮤니티 서비스
+### 해피포 (Happy-Paw) : 반려동물 통합 커뮤니티 서비스
 
 | 배포링크| 아이디 | 비밀번호 |
 | --- | --- | --- |
@@ -133,14 +133,14 @@
 
 | 정현빈 | 박지윤 | 이상용 | 김미정 |
 | :----: | :----: | :----: | :----: |
-| <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/0e06de5c-3578-4a4f-8587-8baa55a06946" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/f1d573f5-d661-448c-ae88-1362a58415f1" width="200" height="200"> |
+| <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/0e06de5c-3578-4a4f-8587-8baa55a06946" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/c08fc883-e7f8-4aa8-a341-919b853d091d" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/f1d573f5-d661-448c-ae88-1362a58415f1" width="200" height="200"> |
 | 팀장 | 팀원 | 팀원 | 팀원 |
 | [hyeonbinnn](https://github.com/hyeonbinnn) | [JiyunPark1301](https://github.com/JiyunPark1301) | [yongisadragon](https://github.com/yongisadragon) | [goyomi](https://github.com/goyomi) |
 
 <br>
 
 ### 4-2. 역할 분담
-<img width="3136" alt="강냥공냥공냥냥 마인드맵" src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/c7e550ca-0120-4fb0-a788-892a4ff48dcd">
+<img width="3311" alt="해피포 마인드맵" src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/12dededa-596c-4cff-bbb3-74d879eab82c">
 
 <br>
 <br>
