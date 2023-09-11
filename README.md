@@ -132,16 +132,16 @@
 - 주제는 한글로 간단명료하게 작성한다.
 - 주제의 마지막 문자로 `.(마침표)`를 사용하지 않는다.
 - 주제는 '-다', '-음'과 같은 어미로 끝내지 않고, 과거형을 사용하지 않는다.
-    - 올바르지 않은 예) `feat: 카카오 로그인 연동 기능을 추가했다 (#3)`, `feat: 카카오 로그인 연동 기능을 추가함 (#3)`
-    - 옳은 예) `feat: 카카오 로그인 연동 기능 추가 (#3)`
+    - 올바르지 않은 예 ) `feat: 카카오 로그인 연동 기능을 추가했다, 혹은 추가함 (#3)`
+    - 옳은 예 ) `feat: 카카오 로그인 연동 기능 추가 (#3)`
 - 주제는 소스 코드를 보지 않고도 변경 사항이 무엇인지 알 수 있도록 작성해야 한다.
-    - 올바르지 않은 예) `design: CSS 조정 (#4)`
-    - 옳은 예) `design: text box와 layout frame 사이에 left padding 추가 (#4)`
+    - 올바르지 않은 예 ) `design: CSS 조정 (#4)`
+    - 옳은 예 ) `design: text box와 layout frame 사이에 left padding 추가 (#4)`
 - 커밋 메시지는 제삼자가 봤을 때 무엇을 했는지 파악할 수 있게 자세히 작성한다.
 - 커밋 메시지는 어떻게 보단 **무엇과 왜**를 설명한다.
 - 한 커밋에는 한 가지 기능만 담는다.
-    - 예) 화면 개발의 경우 : 컴포넌트 단위로 커밋
-    - 예2) 기능 개발의 경우 : 각 기능 단위로 커밋
+    - 예 ) 화면 개발의 경우 : 컴포넌트 단위로 커밋
+    - 예2 ) 기능 개발의 경우 : 각 기능 단위로 커밋
 
 <br>
 
@@ -194,11 +194,64 @@
 <br>
 
 ## 5. 프로젝트 구현
-### 5.1. 전체 UI
-### 5-2. 페이지 설명
+### 5-1. 전체 UI
+![Frame 1](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/5cff6a70-b7cd-4925-a95f-8956c4060df2)
 
 <br>
 <br>
+
+### 5-2. PC & Mobile
+![제목 없음](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/2053d709-d9fd-4c8b-aefd-ffa617a258df)
+
+<br>
+<br>
+
+### 5-3. 페이지 기능
+|   스플래시   |   로그인    |   회원가입 & 프로필 설정   |
+| :---------: | :---------: | :---------: |
+| ![스플래시](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/3ae8aaac-5449-4c86-bb81-7eb37f19fab3) | ![로그인](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/76659ea5-4a42-433d-8229-c82e61cbc61d) | ![회원가입 프로필](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/9076dfd6-ab17-4e2f-ba3c-a0b3fed5f952) |
+
+<br>
+<br>
+
+|   홈   |    계정 검색     |    팔로우 & 팔로잉    |
+| :---------: | :---------: | :---------: |
+| ![홈](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/a9275e2c-43cd-40dc-967d-8c5e986e27aa) | ![계정 검색](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/b40c0509-9cea-44f0-83a2-19db0e76e3c1) | ![팔로우 팔로잉](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/327a9b9f-e595-462c-8d55-148c7eee45c1) |
+
+
+<br>
+<br>
+
+|   게시글 업로드  |      게시글 수정     |   게시글 삭제   |
+| :---------: | :---------: | :---------: |
+| ![게시글작성](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/11073e5a-14f0-46d0-9a06-6dbe2401bbb9) | ![게시글수정](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/45214315-b5e0-4a8b-ab43-2dffa1ba1908) | ![게시글삭제](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/a96e7132-86a6-42d6-8fd3-f97795100d88) |
+
+
+<br>
+<br>
+
+|    댓글 작성    |     댓글 삭제    |    댓글 신고   |
+| :---------: | :---------: | :---------: |
+| ![댓글작성](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/f443c397-9295-4c68-b193-249177493e8d) | ![댓글삭제](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/cfd1613c-c646-4393-9442-b245a751ae03) | ![댓글신고](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/f56efd49-2575-4185-9c3c-eebb1bdb56b4) |
+
+<br>
+<br>
+
+|    상품 등록    |     상품 수정    |    상품 삭제   |
+| :---------: | :---------: | :---------: |
+| ![상품등록](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/07c683d6-3c4b-4960-96f5-5790b0f60027) | ![상품수정](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/aef1217f-911b-4e33-9633-ca3a3c14d5fc) | ![상품삭제](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/9c577e27-b9ed-4cc9-a0ee-38cd023978eb) |
+
+<br>
+<br>
+
+|   프로필 수정   | 404 |  지도  |
+| :---------: | :---------: | :---------: |
+| ![프로필 수정](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/da762372-20b8-46cd-8b62-05eb6c0f5368) | ![404](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/d7d9d56a-4473-44e1-9eb7-ccb2b5282269) | ![지도](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/c6dc8cd4-14b9-4b4a-bfe5-7332b5469b1e) |
+
+
+<br>
+<br>
+
 
 ## 6. 핵심 기술
 
