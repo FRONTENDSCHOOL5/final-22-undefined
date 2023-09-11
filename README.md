@@ -232,7 +232,8 @@
 
 |    댓글 작성    |     댓글 삭제    |    댓글 신고   |
 | :---------: | :---------: | :---------: |
-| ![댓글작성](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/f443c397-9295-4c68-b193-249177493e8d) | ![댓글삭제](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/cfd1613c-c646-4393-9442-b245a751ae03) | ![댓글신고](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/f56efd49-2575-4185-9c3c-eebb1bdb56b4) |
+| ![댓글작성](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/6983377c-7fc8-4b5d-b115-554127adb7ad) | ![댓글삭제](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/d65411ed-8465-4486-b8e2-cd016d6c4371) | ![댓글신고](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/11e61fe9-2899-437f-9df4-5952783a3694) |
+
 
 <br>
 <br>
@@ -246,7 +247,7 @@
 
 |   프로필 수정   | 404 |  지도  |
 | :---------: | :---------: | :---------: |
-| ![프로필 수정](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/da762372-20b8-46cd-8b62-05eb6c0f5368) | ![404](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/d7d9d56a-4473-44e1-9eb7-ccb2b5282269) | ![지도](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/c6dc8cd4-14b9-4b4a-bfe5-7332b5469b1e) |
+| ![프로필 수정](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/1946347a-00e2-42a8-9f93-23ba80e4d362) | ![404](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/d7d9d56a-4473-44e1-9eb7-ccb2b5282269) | ![지도](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/c6dc8cd4-14b9-4b4a-bfe5-7332b5469b1e) |
 
 
 <br>
