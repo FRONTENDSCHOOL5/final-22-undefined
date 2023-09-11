@@ -1,18 +1,19 @@
-# 🦴 해피포 (Happy-Paw)
+# 🦴 Happy-Paw
 <p align="center"><img src ="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/9fa4a124-9ec5-4b71-bfb5-06e7bb3f00e9"></p>
 
 <br>
+<br>
 
-### 해피포 (Happy-Paw) : 반려동물 통합 커뮤니티 서비스
+> ### 🐾 해피포 (Happy-Paw) : 반려동물 통합 커뮤니티 서비스
 
-| 배포링크| 아이디 | 비밀번호 |
-| --- | --- | --- |
-| https://save-pets.netlify.app/|`testsavepet@gmail.com ` |`123123`|
+| 배포 URL| ID | PW |
+| :---: | :---: | :---: |
+|`https://save-pets.netlify.app/`|`testsavepet@gmail.com `|`123123`|
 
 <br>
 <br>
 
-## 목차
+## 0. 목차
 1. [프로젝트 소개](#1-프로젝트-소개)  
 2. [개발 환경](#2-개발-환경)   
 3. [협업 환경](#3-협업-환경)   
@@ -25,24 +26,25 @@
 <br>
 
 ## 1. 프로젝트 소개
-- ✨ 반려동물의 정보를 공유하는 커뮤니티를 구축합니다.
-- 😇 원하는 물품을 판매하거나 구매하는 서비스를 제공합니다.
+- 🐱 반려동물의 정보를 공유하는 커뮤니티를 구축합니다.
+- 🛍️ 원하는 물품을 판매하거나 구매하는 서비스를 제공합니다.
 - 🧤 사용자들 끼리 팔로우 기능을 통해 서로의 소식을 공유할 수 있습니다.
-- 🖼️ 글과 사진을 함께 업로드하여 반려 동물들의 일상을 자랑하고 공유할 수 있습니다 🐕
-- 🧡 다른 사용자들의 글에 좋아요를 누르고 댓글을 작성할 수 있어요 (우리 소통해요🙊)
-- 🧭 지도기능을 통해 내주변의 반려동물 카페, 병원, 호텔을 찾을 수 있어요.
+- 🖼️ 글과 사진을 함께 업로드하여 반려 동물들의 일상을 자랑하고 공유할 수 있습니다.
+- 🧡 다른 사용자들의 글에 좋아요를 누르고 댓글을 작성할 수 있어요.
+- 🗺️ 지도기능을 통해 내주변의 반려동물 카페, 병원, 호텔을 찾을 수 있어요.
 
 <br>
 <br>
 
 ## 2. 개발 환경
 ### 2-1. 개발기간
-- 프로젝트 기획 및 개발 : 2023.06.01 ~ 
+- 프로젝트 기획 및 개발 : 2023.06.01 ~
+- 프로젝트 노션 : <strong>[`해피포 노션 바로가기`](https://www.notion.so/Undefined-7b08aecfeb5b4664af3678714b74f6cb?pvs=4)</strong>
 
 <br>
 
 ### 2-2. 기술스택
-<table align="center">
+<table>
   <tr height="30px">
     <th>Frontend</th>
     <th>Tool</th>
@@ -76,6 +78,51 @@
 ## 3. 협업 환경
 ### 3-1. 협업 컨벤션
 #### 3-1-1. 폴더 구조
+```
+🐾 HappyPaw
+├─ 📦 public
+│  ├─ ⭐ favicon.ico
+│  └─ 📃 index.html
+├─ 📦 src
+│  ├─ 📂 api
+│  ├─ 📂 assets
+│  │  ├─ 📂 icon
+│  │  └─ 📂 splash
+│  ├─ 📂 components
+│  │  ├─ 📂 common
+│  │  │  ├─ 📂 Button
+│  │  │  ├─ 📂 Carousel
+│  │  │  ├─ 📂 Header
+│  │  │  ├─ 📂 Input
+│  │  │  ├─ 📂 MainLayout
+│  │  │  ├─ 📂 Modal
+│  │  │  ├─ 📂 TabMenu
+│  │  │  └─ 📂 Wrapper
+│  │  ├─ 📂 Follow
+│  │  ├─ 📂 Post
+│  │  ├─ 📂 Product
+│  │  ├─ 📂 Profile
+│  │  └─ 📂 Skeleton
+│  ├─ 📂 context
+│  ├─ 📂 hooks
+│  ├─ 📂 pages
+│  │  ├─ 📂 ChatPage
+│  │  ├─ 📂 ErrorPage
+│  │  ├─ 📂 FollowListPage
+│  │  ├─ 📂 HomePage
+│  │  ├─ 📂 JoinPage
+│  │  ├─ 📂 LoginPage
+│  │  ├─ 📂 MapPage
+│  │  ├─ 📂 PostPage
+│  │  ├─ 📂 ProductPage
+│  │  ├─ 📂 ProfilePage
+│  │  ├─ 📂 SearchPage
+│  │  └─ 📂 SplashPage
+│  ├─ 📂 routes
+│  ├─ 📂 styles
+|  ├─ 📜 App.js
+|  └─ 📜 index.js
+```
 
 <br>
 
@@ -120,8 +167,8 @@
 ### 3-2. 협업 방식
 
 - 공유하고 싶은 문제가 있는 경우 이슈로 작성하여 공유하고 작업한 이력 남기기
-- GitHub Project Board를 이용한 전체 진도 상황 공유
-- 다른 팀원 코드의 BUG 찾는 경우 이슈 작성 후 Assignees 지정
+- `GitHub Project Board`를 이용한 전체 진도 상황 공유
+- 다른 팀원 코드의 BUG 찾는 경우 이슈 작성 후 `Assignees` 지정
 - `Common` 컴포넌트 폴더를 따로 관리하여 코드 재사용율 높이기
 - 페이지의 디자인의 일관성과 쉬운 유지보수를 위해 **ThemeProvider**를 사용
 
@@ -138,6 +185,7 @@
 | [hyeonbinnn](https://github.com/hyeonbinnn) | [JiyunPark1301](https://github.com/JiyunPark1301) | [yongisadragon](https://github.com/yongisadragon) | [goyomi](https://github.com/goyomi) |
 
 <br>
+<br>
 
 ### 4-2. 역할 분담
 <img width="3311" alt="해피포 마인드맵" src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/12dededa-596c-4cff-bbb3-74d879eab82c">
@@ -146,7 +194,8 @@
 <br>
 
 ## 5. 프로젝트 구현
-### 5-1. 페이지 설명
+### 5.1. 전체 UI
+### 5-2. 페이지 설명
 
 <br>
 <br>
