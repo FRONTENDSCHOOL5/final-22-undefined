@@ -165,17 +165,24 @@
 
 ### 3-2. 협업 방식
 #### - 공통 이슈만들고, 공유하고 싶은 문제가 있는 경우 이슈로 작성하여 공유하고 작업한 이력 남기기
-![스크린샷 2023-09-11 201502](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/592556da-3b53-43f4-a661-5940b9739ccd)
-![스크린샷 2023-09-11 201351](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/0c78bd9f-dd59-4201-bb1e-d1bf6cab52f0)
+![스크린샷 2023-09-11 204309](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/b66933e4-cc47-4a68-b5e5-b0f459640367)
+
+<br>
 
 #### - `GitHub Project Board`를 이용한 전체 진도 상황 공유
 ![스크린샷 2023-09-11 202111](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/fd241f49-344c-4e56-9e2c-cd004f837ae4)
 
+<br>
+
 #### - 다른 팀원 코드의 BUG 찾는 경우 이슈 작성 후 `Assignees` 지정
 ![스크린샷 2023-09-11 202412](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/a951d26a-4bf9-441f-b308-e35c525289c2)
 
+<br>
+
 #### - `Common` 컴포넌트 폴더를 따로 관리하여 코드 재사용율 높이기
 ![스크린샷 2023-09-11 203732](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/f3552177-77f2-465d-8bb3-c84ef44beb6d)
+
+<br>
 
 #### - 페이지의 디자인의 일관성과 쉬운 유지보수를 위해 `ThemeProvider`를 사용
 ```jsx
