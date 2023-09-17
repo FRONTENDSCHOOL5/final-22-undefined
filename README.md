@@ -210,7 +210,7 @@ export default theme;
 
 | 정현빈 | 박지윤 | 이상용 | 김미정 |
 | :----: | :----: | :----: | :----: |
-| <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/0e06de5c-3578-4a4f-8587-8baa55a06946" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/c08fc883-e7f8-4aa8-a341-919b853d091d" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/f1d573f5-d661-448c-ae88-1362a58415f1" width="200" height="200"> |
+| <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/0e06de5c-3578-4a4f-8587-8baa55a06946" width="200" height="200"> | <img src="[https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/117449788/17bae45a-d251-4815-a241-7b4c2c6c835c](https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/77823753/69e61949-2979-4ae2-b539-0a3a0fdf5d8e)" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122862593/c08fc883-e7f8-4aa8-a341-919b853d091d" width="200" height="200"> | <img src="https://github.com/FRONTENDSCHOOL5/final-22-undefined/assets/122963246/f1d573f5-d661-448c-ae88-1362a58415f1" width="200" height="200"> |
 | 팀장 | 팀원 | 팀원 | 팀원 |
 | [hyeonbinnn](https://github.com/hyeonbinnn) | [JiyunPark1301](https://github.com/JiyunPark1301) | [yongisadragon](https://github.com/yongisadragon) | [goyomi](https://github.com/goyomi) |
 
