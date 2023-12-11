@@ -8,7 +8,7 @@
 
 | 배포 URL| ID | PW |
 | :---: | :---: | :---: |
-|`https://happy4.netlify.app/`|`testsavepet@gmail.com `|`123123`|
+|`https://happy4.netlify.app/`|`happypaw@gmail.com`|`happypawpw`|
 
 <br>
 <br>
